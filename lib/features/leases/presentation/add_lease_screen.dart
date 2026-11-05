@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/api/api_exception.dart';
-import '../../../core/locale_controller.dart';
+import '../../../core/utils/app_dates.dart';
 import '../../../core/utils/dates.dart';
 import '../../../core/utils/money.dart';
 import '../../../core/widgets/async_views.dart';
@@ -123,7 +123,7 @@ class _AddLeaseScreenState extends ConsumerState<AddLeaseScreen> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    final locale = ref.watch(localeControllerProvider).languageCode;
+    final dates = ref.watch(appDatesProvider);
     final rules = ref.watch(rentRulesProvider).value;
     final minYears = rules?.minLeaseYears ?? 2;
     final minEnd = _minEnd(minYears);
@@ -191,7 +191,7 @@ class _AddLeaseScreenState extends ConsumerState<AddLeaseScreen> {
               fieldGap,
               _DateField(
                 label: l10n.startDate,
-                value: formatDate(_start, locale),
+                value: dates.date(_start),
                 error: _errors['start_date'],
                 onTap: () async {
                   final picked = await _pickDate(_start);
@@ -210,12 +210,12 @@ class _AddLeaseScreenState extends ConsumerState<AddLeaseScreen> {
               fieldGap,
               _DateField(
                 label: l10n.endDate,
-                value: formatDate(end, locale),
+                value: dates.date(end),
                 helper: l10n.endDateHelp(minYears),
                 error:
                     _errors['end_date'] ??
                     (end.isBefore(minEnd)
-                        ? l10n.endDateTooEarly(formatDate(minEnd, locale))
+                        ? l10n.endDateTooEarly(dates.date(minEnd))
                         : null),
                 onTap: () async {
                   final picked = await _pickDate(end, first: minEnd);
@@ -304,7 +304,7 @@ class _AddLeaseScreenState extends ConsumerState<AddLeaseScreen> {
                 label: l10n.registeredOn,
                 value: _registeredAt == null
                     ? l10n.notRegistered
-                    : formatDate(_registeredAt!, locale),
+                    : dates.date(_registeredAt!),
                 error: _errors['registered_at'],
                 trailing: _registeredAt == null
                     ? null

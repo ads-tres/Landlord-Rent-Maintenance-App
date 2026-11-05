@@ -50,7 +50,8 @@ class PropertiesScreen extends ConsumerWidget {
                   title: Text(p.name),
                   subtitle: Text(
                     [
-                      if (p.location.isNotEmpty) p.location,
+                      if (p.location(l10n.woreda).isNotEmpty)
+                        p.location(l10n.woreda),
                       l10n.unitsCount(p.unitsCount),
                       if (p.vacantUnitsCount > 0)
                         l10n.vacantCount(p.vacantUnitsCount),

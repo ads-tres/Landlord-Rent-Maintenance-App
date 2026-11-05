@@ -381,5 +381,58 @@
   "shareRepairLink": "Share",
   "resetRepairLink": "New link",
   "resetRepairLinkConfirm": "Make a new link? The old link will stop working.",
-  "repairLinkSent": "Repair link sent to the tenant."
+  "repairLinkSent": "Repair link sent to the tenant.",
+  "reportTitle": "Quarterly income",
+  "reportOpen": "Quarterly income report",
+  "reportOpenHelp": "Rent received per quarter, for tax filing",
+  "reportPayments": "{count, plural, =0{No payments} =1{1 payment} other{{count} payments}}",
+  "@reportPayments": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "reportByMonth": "By month",
+  "reportByProperty": "By property",
+  "reportByMethod": "By payment method",
+  "reportNone": "No rent received in this quarter.",
+  "reportSharePdf": "Share PDF",
+  "reportDisclaimer": "Rent received as recorded in the app. This is not a tax calculation; confirm what you owe with an accountant or the tax office.",
+  "previousQuarter": "Previous quarter",
+  "nextQuarter": "Next quarter",
+  "offlineBanner": "No connection. Showing saved data.",
+  "pendingPaymentsBanner": "{count, plural, =1{1 payment not synced} other{{count} payments not synced}}",
+  "@pendingPaymentsBanner": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "syncNow": "Sync now",
+  "notSynced": "Not synced",
+  "savedOffline": "Saved on this phone",
+  "savedOfflineHelp": "There is no connection. The payment will be sent automatically when you are back online. The SMS receipt goes out then.",
+  "syncFailed": "Could not sync: {error}",
+  "@syncFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "discardPending": "Discard",
+  "discardPendingConfirm": "Discard this payment that was never sent?",
+  "tenantExport": "Export data",
+  "tenantAnonymize": "Remove personal data",
+  "tenantAnonymizeConfirm": "Remove {name}'s name, phone, ID number, address and repair photos? Payment amounts stay in your records. This cannot be undone.",
+  "@tenantAnonymizeConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "tenantAnonymized": "Personal data removed."
 }

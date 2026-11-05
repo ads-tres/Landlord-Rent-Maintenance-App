@@ -152,6 +152,7 @@ void main() {
           reference: any(named: 'reference'),
           notes: any(named: 'notes'),
           sendSms: any(named: 'sendSms'),
+          clientRef: any(named: 'clientRef'),
         ),
       ).thenAnswer((_) async => savedPayment);
 
@@ -191,13 +192,16 @@ void main() {
           reference: 'TB123',
           notes: '',
           sendSms: true,
+          clientRef: any(named: 'clientRef'),
         ),
       ).called(1);
 
       expect(find.text('Payment saved'), findsOneWidget);
       expect(find.text('Receipt R-000001'), findsOneWidget);
       expect(
-        find.text('Covers September 2026, October 2026, November 2026'),
+        find.text(
+          'Covers Nehase 2018–Meskerem 2019, Meskerem–Tikimt 2019, Tikimt–Hidar 2019',
+        ),
         findsOneWidget,
       );
       expect(find.text('Share receipt link'), findsOneWidget);

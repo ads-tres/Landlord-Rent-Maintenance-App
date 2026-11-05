@@ -142,7 +142,7 @@ void main() {
 
     final property = await PropertiesRepository(api).get(5);
 
-    expect(property.location, 'Bole, W. 3');
+    expect(property.location('Woreda'), 'Bole, Woreda 3');
     expect(property.unitsCount, 2);
     expect(property.units.first.status, UnitStatus.occupied);
     expect(property.units.last.bedrooms, isNull);

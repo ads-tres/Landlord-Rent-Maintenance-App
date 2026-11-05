@@ -81,6 +81,17 @@ class DashboardScreen extends ConsumerWidget {
                       ),
                     ),
                   ),
+                  Card(
+                    clipBehavior: Clip.antiAlias,
+                    child: ListTile(
+                      key: const Key('openReport'),
+                      leading: const Icon(Icons.assessment_outlined),
+                      title: Text(l10n.reportOpen),
+                      subtitle: Text(l10n.reportOpenHelp),
+                      trailing: const Icon(Icons.chevron_right),
+                      onTap: () => context.push('/reports/quarterly'),
+                    ),
+                  ),
                   GridView.count(
                     crossAxisCount: 2,
                     shrinkWrap: true,

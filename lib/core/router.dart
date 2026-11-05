@@ -12,6 +12,7 @@ import '../features/leases/presentation/add_lease_screen.dart';
 import '../features/leases/presentation/lease_detail_screen.dart';
 import '../features/payments/presentation/log_payment_screen.dart';
 import '../features/properties/presentation/properties_screen.dart';
+import '../features/reports/presentation/quarterly_report_screen.dart';
 import '../features/repairs/presentation/add_repair_screen.dart';
 import '../features/repairs/presentation/repair_detail_screen.dart';
 import '../features/repairs/presentation/repairs_screen.dart';
@@ -101,6 +102,11 @@ final routerProvider = Provider<GoRouter>((ref) {
         builder: (_, state) => RepairDetailScreen(
           repairId: int.parse(state.pathParameters['id']!),
         ),
+      ),
+      GoRoute(
+        path: '/reports/quarterly',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (_, _) => const QuarterlyReportScreen(),
       ),
       StatefulShellRoute.indexedStack(
         builder: (_, _, shell) => HomeShell(shell: shell),

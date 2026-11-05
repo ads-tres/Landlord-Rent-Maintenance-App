@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/api/api_exception.dart';
-import '../../../core/locale_controller.dart';
-import '../../../core/utils/dates.dart';
+import '../../../core/utils/app_dates.dart';
 import '../../../core/utils/phone_number.dart';
 import '../../../core/widgets/async_views.dart';
 import '../../../core/widgets/form_sheet.dart';
@@ -21,7 +20,7 @@ class RepairDetailScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
-    final locale = ref.watch(localeControllerProvider).languageCode;
+    final dates = ref.watch(appDatesProvider);
     final repair = ref.watch(repairProvider(repairId));
 
     return Scaffold(
@@ -60,10 +59,10 @@ class RepairDetailScreen extends ConsumerWidget {
               ),
             Text(
               [
-                l10n.repairOpenedOn(formatDate(r.openedAt, locale)),
+                l10n.repairOpenedOn(dates.date(r.openedAt)),
                 if (r.fromTenant) l10n.repairFromTenant,
                 if (r.closedAt != null)
-                  l10n.repairClosedOn(formatDate(r.closedAt!, locale)),
+                  l10n.repairClosedOn(dates.date(r.closedAt!)),
               ].join(' · '),
               style: TextStyle(color: Theme.of(context).colorScheme.outline),
             ),

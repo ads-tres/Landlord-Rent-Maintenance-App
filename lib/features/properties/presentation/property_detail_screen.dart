@@ -41,12 +41,18 @@ class PropertyDetailScreen extends ConsumerWidget {
           child: ListView(
             padding: const EdgeInsets.only(bottom: 96),
             children: [
-              if (p.location.isNotEmpty || (p.address ?? '').isNotEmpty)
+              if (p.location(l10n.woreda).isNotEmpty ||
+                  (p.address ?? '').isNotEmpty)
                 ListTile(
                   leading: const Icon(Icons.place_outlined),
-                  title: Text(p.location.isNotEmpty ? p.location : p.address!),
+                  title: Text(
+                    p.location(l10n.woreda).isNotEmpty
+                        ? p.location(l10n.woreda)
+                        : p.address!,
+                  ),
                   subtitle:
-                      p.location.isNotEmpty && (p.address ?? '').isNotEmpty
+                      p.location(l10n.woreda).isNotEmpty &&
+                          (p.address ?? '').isNotEmpty
                       ? Text(p.address!)
                       : null,
                 ),
