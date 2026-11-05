@@ -462,5 +462,131 @@
     }
   },
   "sendReceipt": "Send receipt to the tenant",
-  "sendReceiptHelp": "On Telegram if they connected, otherwise by SMS"
+  "sendReceiptHelp": "On Telegram if they connected, otherwise by SMS",
+  "sharedMeters": "Shared meters",
+  "sharedMetersEmpty": "No shared meters. Add one to split a water or electricity bill across units.",
+  "addMeter": "Add meter",
+  "meterName": "Meter name",
+  "meterNameHint": "e.g. Main electricity",
+  "meterKind": "Type",
+  "kindElectricity": "Electricity",
+  "kindWater": "Water",
+  "splitMethod": "How to split the bill",
+  "splitEqual": "Equal shares",
+  "splitPercent": "Fixed percentages",
+  "splitSubmeter": "Sub-meter readings",
+  "meterUnits": "Units on this meter",
+  "sharePercent": "Share %",
+  "sharesTotal": "Total: {total}% (must be 100%)",
+  "@sharesTotal": {
+    "placeholders": {
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "selectUnits": "Select at least one unit.",
+  "bills": "Bills",
+  "billsEmpty": "No bills entered yet.",
+  "enterBill": "Enter bill",
+  "billMonth": "Bill for",
+  "billAmount": "Bill amount (Br)",
+  "billDueDate": "Tenants pay by",
+  "readings": "Readings",
+  "previousReading": "Previous",
+  "currentReading": "Current",
+  "billPhoto": "Photo of the bill",
+  "notifyTenants": "Tell tenants their share",
+  "previewSplit": "Preview split",
+  "splitResult": "Split",
+  "landlordShare": "Your share (vacant units): {amount}",
+  "@landlordShare": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "vacant": "vacant",
+  "saveBill": "Save bill",
+  "billSaved": "Bill saved. Each tenant's share was added to their rent.",
+  "removeBill": "Remove bill",
+  "equipment": "Equipment",
+  "equipmentEmpty": "No equipment yet. Add the generator, water tank or pump to get service reminders.",
+  "addEquipment": "Add equipment",
+  "equipmentKind": "Type",
+  "kindGenerator": "Generator",
+  "kindWaterTank": "Water tank",
+  "kindPump": "Pump",
+  "kindOther": "Other",
+  "equipmentName": "Name",
+  "serviceEveryDays": "Service every (days)",
+  "lastServiced": "Last serviced",
+  "neverServiced": "Not serviced yet",
+  "nextService": "Next service {date}",
+  "@nextService": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "serviceOverdue": "Service overdue",
+  "serviceDueIn": "{days, plural, =0{Service due today} =1{Service due tomorrow} other{Service due in {days} days}}",
+  "@serviceDueIn": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "logService": "Log service",
+  "servicedOn": "Serviced on",
+  "serviceCost": "Cost (Br, optional)",
+  "serviceNotes": "What was done (optional)",
+  "dashboardServicesDue": "Services due",
+  "announce": "Send announcement",
+  "announcement": "Message to all tenants",
+  "announcementHint": "e.g. No water tomorrow from 8 to 12.",
+  "announcementPreview": "Check before sending",
+  "announcementRecipients": "{count, plural, =1{1 tenant} other{{count} tenants}}",
+  "@announcementRecipients": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "announcementChannels": "{telegram} on Telegram (free) · {sms} by SMS",
+  "@announcementChannels": {
+    "placeholders": {
+      "telegram": {
+        "type": "int"
+      },
+      "sms": {
+        "type": "int"
+      }
+    }
+  },
+  "announcementSms": "{count, plural, =0{No SMS} =1{1 SMS} other{{count} SMS}}",
+  "@announcementSms": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "announcementCost": "About {amount}",
+  "@announcementCost": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "announcementSend": "Send to all",
+  "announcementSent": "Announcement sent.",
+  "announcementHistory": "Sent before",
+  "utilityElectricity": "Electricity",
+  "utilityWater": "Water"
 }

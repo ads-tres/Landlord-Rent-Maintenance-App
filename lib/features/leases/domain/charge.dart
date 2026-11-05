@@ -18,6 +18,8 @@ class Charge {
     required this.id,
     required this.leaseId,
     required this.period,
+    this.type = 'rent',
+    this.utilityKind,
     required this.amountDue,
     required this.amountPaid,
     required this.balance,
@@ -36,6 +38,8 @@ class Charge {
       id: j['id'] as int,
       leaseId: j['lease_id'] as int,
       period: j['period'] as String,
+      type: j['type'] as String? ?? 'rent',
+      utilityKind: j['utility_kind'] as String?,
       amountDue: j['amount_due'] as int,
       amountPaid: j['amount_paid'] as int? ?? 0,
       balance: j['balance'] as int? ?? 0,
@@ -51,6 +55,14 @@ class Charge {
   final int id;
   final int leaseId;
   final String period;
+
+  /// 'rent' or 'utility' (a share of a shared meter bill).
+  final String type;
+
+  /// 'electricity' or 'water' for utility charges.
+  final String? utilityKind;
+
+  bool get isUtility => type == 'utility';
   final int amountDue;
   final int amountPaid;
   final int balance;

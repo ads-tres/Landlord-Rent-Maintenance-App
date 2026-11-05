@@ -805,4 +805,243 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get sendReceiptHelp => 'ካገናኙ በቴሌግራም፣ ካልሆነ በኤስኤምኤስ';
+
+  @override
+  String get sharedMeters => 'የጋራ ቆጣሪዎች';
+
+  @override
+  String get sharedMetersEmpty =>
+      'የጋራ ቆጣሪ የለም። የውሃ ወይም የመብራት ሂሳብ በቤቶች ለመከፋፈል ያክሉ።';
+
+  @override
+  String get addMeter => 'ቆጣሪ ጨምር';
+
+  @override
+  String get meterName => 'የቆጣሪ ስም';
+
+  @override
+  String get meterNameHint => 'ለምሳሌ ዋና የመብራት ቆጣሪ';
+
+  @override
+  String get meterKind => 'አይነት';
+
+  @override
+  String get kindElectricity => 'መብራት';
+
+  @override
+  String get kindWater => 'ውሃ';
+
+  @override
+  String get splitMethod => 'ሂሳቡ እንዴት ይከፈል';
+
+  @override
+  String get splitEqual => 'እኩል ድርሻ';
+
+  @override
+  String get splitPercent => 'ቋሚ መቶኛ';
+
+  @override
+  String get splitSubmeter => 'በንዑስ ቆጣሪ ንባብ';
+
+  @override
+  String get meterUnits => 'በዚህ ቆጣሪ ላይ ያሉ ቤቶች';
+
+  @override
+  String get sharePercent => 'ድርሻ %';
+
+  @override
+  String sharesTotal(String total) {
+    return 'ድምር፦ $total% (100% መሆን አለበት)';
+  }
+
+  @override
+  String get selectUnits => 'ቢያንስ አንድ ቤት ይምረጡ።';
+
+  @override
+  String get bills => 'ሂሳቦች';
+
+  @override
+  String get billsEmpty => 'እስካሁን የገባ ሂሳብ የለም።';
+
+  @override
+  String get enterBill => 'ሂሳብ አስገባ';
+
+  @override
+  String get billMonth => 'የወሩ ሂሳብ';
+
+  @override
+  String get billAmount => 'የሂሳቡ መጠን (ብር)';
+
+  @override
+  String get billDueDate => 'ተከራዮች የሚከፍሉበት ቀን';
+
+  @override
+  String get readings => 'ንባቦች';
+
+  @override
+  String get previousReading => 'ያለፈ';
+
+  @override
+  String get currentReading => 'የአሁኑ';
+
+  @override
+  String get billPhoto => 'የሂሳቡ ፎቶ';
+
+  @override
+  String get notifyTenants => 'ለተከራዮች ድርሻቸውን አሳውቅ';
+
+  @override
+  String get previewSplit => 'ክፍፍሉን ይመልከቱ';
+
+  @override
+  String get splitResult => 'ክፍፍል';
+
+  @override
+  String landlordShare(String amount) {
+    return 'የእርስዎ ድርሻ (ባዶ ቤቶች)፦ $amount';
+  }
+
+  @override
+  String get vacant => 'ባዶ';
+
+  @override
+  String get saveBill => 'ሂሳቡን አስቀምጥ';
+
+  @override
+  String get billSaved => 'ሂሳቡ ተቀምጧል። የእያንዳንዱ ተከራይ ድርሻ ከኪራዩ ጋር ተጨምሯል።';
+
+  @override
+  String get removeBill => 'ሂሳቡን አስወግድ';
+
+  @override
+  String get equipment => 'መሳሪያዎች';
+
+  @override
+  String get equipmentEmpty =>
+      'እስካሁን መሳሪያ የለም። የጥገና ማሳሰቢያ ለማግኘት ጀነሬተር፣ የውሃ ታንከር ወይም ፓምፕ ያክሉ።';
+
+  @override
+  String get addEquipment => 'መሳሪያ ጨምር';
+
+  @override
+  String get equipmentKind => 'አይነት';
+
+  @override
+  String get kindGenerator => 'ጀነሬተር';
+
+  @override
+  String get kindWaterTank => 'የውሃ ታንከር';
+
+  @override
+  String get kindPump => 'ፓምፕ';
+
+  @override
+  String get kindOther => 'ሌላ';
+
+  @override
+  String get equipmentName => 'ስም';
+
+  @override
+  String get serviceEveryDays => 'በየስንት ቀኑ ጥገና';
+
+  @override
+  String get lastServiced => 'መጨረሻ የተጠገነበት';
+
+  @override
+  String get neverServiced => 'ገና አልተጠገነም';
+
+  @override
+  String nextService(String date) {
+    return 'ቀጣይ ጥገና $date';
+  }
+
+  @override
+  String get serviceOverdue => 'የጥገና ጊዜው አልፏል';
+
+  @override
+  String serviceDueIn(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: 'ጥገና በ$days ቀናት ውስጥ',
+      one: 'ጥገና ነገ',
+      zero: 'ጥገና ዛሬ',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get logService => 'ጥገና መዝግብ';
+
+  @override
+  String get servicedOn => 'የተጠገነበት ቀን';
+
+  @override
+  String get serviceCost => 'ወጪ (ብር፣ አማራጭ)';
+
+  @override
+  String get serviceNotes => 'የተሰራው (አማራጭ)';
+
+  @override
+  String get dashboardServicesDue => 'የሚደርሱ ጥገናዎች';
+
+  @override
+  String get announce => 'ማስታወቂያ ላክ';
+
+  @override
+  String get announcement => 'ለሁሉም ተከራዮች መልዕክት';
+
+  @override
+  String get announcementHint => 'ለምሳሌ ነገ ከ2 እስከ 6 ሰዓት ውሃ የለም።';
+
+  @override
+  String get announcementPreview => 'ከመላክዎ በፊት ያረጋግጡ';
+
+  @override
+  String announcementRecipients(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ተከራዮች',
+      one: '1 ተከራይ',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String announcementChannels(int telegram, int sms) {
+    return '$telegram በቴሌግራም (በነጻ) · $sms በኤስኤምኤስ';
+  }
+
+  @override
+  String announcementSms(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ኤስኤምኤስ',
+      one: '1 ኤስኤምኤስ',
+      zero: 'ኤስኤምኤስ የለም',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String announcementCost(String amount) {
+    return 'ወደ $amount ገደማ';
+  }
+
+  @override
+  String get announcementSend => 'ለሁሉም ላክ';
+
+  @override
+  String get announcementSent => 'ማስታወቂያው ተልኳል።';
+
+  @override
+  String get announcementHistory => 'ከዚህ በፊት የተላኩ';
+
+  @override
+  String get utilityElectricity => 'መብራት';
+
+  @override
+  String get utilityWater => 'ውሃ';
 }
