@@ -21,8 +21,15 @@ properties, units, tenants, leases, rent and repairs. It talks only to the Larav
   `GET /rules`), and **end lease**.
 - Rent tab: one month at a time, with totals for due, collected and outstanding, filters (unpaid, late,
   partly paid, paid), and days late.
+- Payments: log cash, Telebirr or bank payments from the Rent tab (tap an unpaid month) or a lease.
+  Quick amounts for the balance or 1–6 months, a reference required for Telebirr and bank, and an
+  optional SMS receipt. Afterwards you get the receipt number, the months covered and a **share receipt
+  link** button. Payment history sits on the lease, where a mistaken entry can be removed.
+- Home dashboard: collected this month, outstanding, late tenants, open repairs, leases ending soon and
+  vacant units, with shortcuts to the filtered Rent tab.
+- Settings: turn SMS rent reminders on or off.
 - Money is handled in santim (integers) and shown as `Br 12,500`. Dates are Gregorian for now.
-- Next: payment logging and receipts, repairs, reports, the Ethiopian calendar and the offline cache.
+- Next: repairs (tenant link with photo), quarterly report, the Ethiopian calendar and the offline cache.
 
 ## Structure
 
@@ -36,6 +43,7 @@ lib/
     tenants/     data · domain (Tenant) · presentation
     leases/      data · domain (Lease, Charge, RentRules) · presentation (add, detail)
     rent/        monthly rent list
+    payments/    data · domain (Payment, DashboardSummary) · presentation (log payment, receipt sheet)
     home/        bottom-nav shell, dashboard, settings
   l10n/          app_en.arb, app_am.arb (+ generated AppLocalizations)
 ```

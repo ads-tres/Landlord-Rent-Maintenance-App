@@ -5,6 +5,8 @@ import 'package:landlord_app/app.dart';
 import 'package:landlord_app/core/storage/secure_store.dart';
 import 'package:landlord_app/features/auth/data/auth_repository.dart';
 import 'package:landlord_app/features/auth/domain/app_user.dart';
+import 'package:landlord_app/features/payments/data/payments_repository.dart';
+import 'package:landlord_app/features/payments/domain/dashboard_summary.dart';
 import 'package:landlord_app/features/properties/data/properties_repository.dart';
 import 'package:landlord_app/features/properties/domain/property.dart';
 import 'package:mocktail/mocktail.dart';
@@ -13,14 +15,31 @@ class MockAuthRepository extends Mock implements AuthRepository {}
 
 class MockPropertiesRepository extends Mock implements PropertiesRepository {}
 
+class MockPaymentsRepository extends Mock implements PaymentsRepository {}
+
 void main() {
   late MockAuthRepository auth;
   late MockPropertiesRepository properties;
+  late MockPaymentsRepository payments;
 
   setUp(() {
     auth = MockAuthRepository();
     properties = MockPropertiesRepository();
     when(() => properties.list()).thenAnswer((_) async => const <Property>[]);
+    payments = MockPaymentsRepository();
+    when(() => payments.dashboard()).thenAnswer(
+      (_) async => const DashboardSummary(
+        collectedThisMonth: 0,
+        dueThisMonth: 0,
+        outstanding: 0,
+        lateTenants: 0,
+        openRepairs: 0,
+        leasesEndingSoon: 0,
+        properties: 0,
+        units: 0,
+        vacantUnits: 0,
+      ),
+    );
   });
 
   Widget app({Map<String, String>? stored}) => ProviderScope(

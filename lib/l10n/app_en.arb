@@ -34,7 +34,6 @@
     }
   },
   "dashboardWelcomeNoName": "Welcome",
-  "dashboardComingSoon": "Rent totals, late tenants, open repairs and leases ending soon will show here once leases and payments are added.",
   "dashboardProperties": "Properties",
   "dashboardUnits": "Units",
   "dashboardVacant": "Vacant",
@@ -255,7 +254,80 @@
   "monthTotalDue": "Due this month",
   "monthCollected": "Collected",
   "monthOutstanding": "Outstanding",
-  "paymentsComingSoon": "Payment logging comes in the next update.",
   "unitVacantTapToLease": "Vacant · tap to create a lease",
-  "confirm": "Confirm"
+  "confirm": "Confirm",
+  "logPayment": "Log payment",
+  "amountPaid": "Amount paid (Br)",
+  "paidOn": "Paid on",
+  "paymentMethod": "Paid by",
+  "methodCash": "Cash",
+  "methodTelebirr": "Telebirr",
+  "methodBank": "Bank",
+  "methodChapa": "Chapa",
+  "reference": "Transaction reference",
+  "referenceHelp": "From the Telebirr SMS or bank slip.",
+  "notes": "Note (optional)",
+  "sendSmsReceipt": "Send SMS receipt to the tenant",
+  "quickBalance": "Balance {amount}",
+  "@quickBalance": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "quickMonths": "{count, plural, =1{1 month} other{{count} months}}",
+  "@quickMonths": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "paymentSaved": "Payment saved",
+  "paymentCovers": "Covers {months}",
+  "@paymentCovers": {
+    "placeholders": {
+      "months": {
+        "type": "String"
+      }
+    }
+  },
+  "receiptNumber": "Receipt {number}",
+  "@receiptNumber": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "smsQueued": "SMS receipt sent to the tenant.",
+  "shareReceipt": "Share receipt link",
+  "done": "Done",
+  "payments": "Payments",
+  "paymentsEmpty": "No payments logged yet.",
+  "removePayment": "Remove payment",
+  "removePaymentConfirm": "Remove this payment of {amount}? The months it covered become unpaid again.",
+  "@removePaymentConfirm": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "dashboardCollected": "Collected this month",
+  "dashboardOutstanding": "Outstanding",
+  "dashboardLateTenants": "Late tenants",
+  "dashboardOpenRepairs": "Open repairs",
+  "dashboardLeasesEnding": "Leases ending in 60 days",
+  "dashboardDueThisMonth": "Due this month: {amount}",
+  "@dashboardDueThisMonth": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "smsReminders": "SMS rent reminders",
+  "smsRemindersHelp": "Text tenants 3 days before and on the due date."
 }
