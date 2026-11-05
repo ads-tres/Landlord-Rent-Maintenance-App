@@ -769,4 +769,15 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get tenantAnonymized => 'Personal data removed.';
+
+  @override
+  String get sendFeedback => 'Send feedback';
+
+  @override
+  String get sendFeedbackHelp => 'Tell us what broke or what is missing';
+
+  @override
+  String appVersion(String version) {
+    return 'Version $version';
+  }
 }

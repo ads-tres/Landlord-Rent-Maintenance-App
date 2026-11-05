@@ -9,4 +9,8 @@ class AppConfig {
     'API_BASE_URL',
     defaultValue: 'http://10.0.2.2:8000/api/v1',
   );
+
+  /// Pilot feedback link (e.g. the pilot Telegram group). Settings hides the item when empty.
+  /// `--dart-define=FEEDBACK_URL=https://t.me/+xxxx`
+  static const feedbackUrl = String.fromEnvironment('FEEDBACK_URL');
 }

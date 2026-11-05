@@ -46,6 +46,7 @@ properties, units, tenants, leases, rent and repairs. It talks only to the Larav
 - **Privacy:** from the Tenants list menu, **Export data** shares the tenant's records as JSON, and
   **Remove personal data** anonymizes a past tenant (payment amounts stay).
 - Money is handled in santim (integers) and shown as `Br 12,500`.
+- Settings shows the app version and, when configured, a **Send feedback** link to the pilot group.
 - Next: pilot with 10 landlords, including a test pass on low-end Android phones.
 
 ## Structure
@@ -83,6 +84,33 @@ flutter run --dart-define=API_BASE_URL=https://api.example.et/api/v1
 ```
 
 With the backend's `SMS_DRIVER=log`, the login code appears in the backend's `storage/logs/laravel.log`.
+
+## Release build (pilot APKs)
+
+Android builds are made by GitHub Actions (`.github/workflows/release-apk.yml`) and come out as two small
+signed APKs: `arm64-v8a` for most phones and `armeabi-v7a` for older or low-end phones.
+
+1. **Create a signing key once** and keep a copy offline. Losing it means pilots must uninstall to update.
+   ```bash
+   keytool -genkey -v -keystore upload-keystore.jks -keyalg RSA -keysize 2048 -validity 10000 -alias upload
+   base64 -w0 upload-keystore.jks   # paste into the ANDROID_KEYSTORE_BASE64 secret
+   ```
+2. In the repository's Settings → Secrets and variables → Actions, add:
+   - **Secrets:** `ANDROID_KEYSTORE_BASE64`, `ANDROID_KEYSTORE_PASSWORD`, `ANDROID_KEY_ALIAS` (`upload`),
+     `ANDROID_KEY_PASSWORD`
+   - **Variables:** `API_BASE_URL` (e.g. `https://api.example.et/api/v1`), and optionally `FEEDBACK_URL`
+     (the pilot Telegram group link, shown as "Send feedback" in Settings)
+3. Run **Actions → Release APK → Run workflow**, or push a tag (`git tag v1.0.0 && git push origin v1.0.0`)
+   to also attach the APKs to a GitHub release. Bump `version:` in `pubspec.yaml` for each release.
+4. Send the APK to pilots (Telegram works well). Install it for them during setup, and check Settings shows
+   the version.
+
+To build locally, put a `key.properties` (see `android/app/build.gradle.kts`) in `android/` and run
+`flutter build apk --release --split-per-abi --dart-define=API_BASE_URL=https://…/api/v1`. Without
+`key.properties`, the release build is signed with debug keys (fine for testing, not for pilots).
+
+Release builds talk to the server over HTTPS only. Plain `http` is allowed in debug builds, for the local dev
+server.
 
 ## Tests
 

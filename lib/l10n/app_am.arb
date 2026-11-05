@@ -216,5 +216,8 @@
   "tenantExport": "መረጃ ላክ",
   "tenantAnonymize": "የግል መረጃ አስወግድ",
   "tenantAnonymizeConfirm": "የ{name} ስም፣ ስልክ፣ የመታወቂያ ቁጥር፣ አድራሻ እና የጥገና ፎቶዎች ይወገዱ? የክፍያ መጠኖች በመዝገብዎ ይቆያሉ። ይህ ሊቀለበስ አይችልም።",
-  "tenantAnonymized": "የግል መረጃው ተወግዷል።"
+  "tenantAnonymized": "የግል መረጃው ተወግዷል።",
+  "sendFeedback": "አስተያየት ይላኩ",
+  "sendFeedbackHelp": "የተበላሸውን ወይም የጎደለውን ይንገሩን",
+  "appVersion": "ስሪት {version}"
 }

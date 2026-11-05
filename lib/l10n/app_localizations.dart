@@ -1399,6 +1399,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Personal data removed.'**
   String get tenantAnonymized;
+
+  /// No description provided for @sendFeedback.
+  ///
+  /// In en, this message translates to:
+  /// **'Send feedback'**
+  String get sendFeedback;
+
+  /// No description provided for @sendFeedbackHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Tell us what broke or what is missing'**
+  String get sendFeedbackHelp;
+
+  /// No description provided for @appVersion.
+  ///
+  /// In en, this message translates to:
+  /// **'Version {version}'**
+  String appVersion(String version);
 }
 
 class _AppLocalizationsDelegate
