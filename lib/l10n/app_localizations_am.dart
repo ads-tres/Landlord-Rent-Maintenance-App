@@ -661,4 +661,102 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get repairLinkSent => 'የጥገና ሊንኩ ለተከራዩ ተልኳል።';
+
+  @override
+  String get reportTitle => 'የሩብ ዓመት ገቢ';
+
+  @override
+  String get reportOpen => 'የሩብ ዓመት የገቢ ሪፖርት';
+
+  @override
+  String get reportOpenHelp => 'ለግብር ማቅረቢያ በየሩብ ዓመቱ የተቀበሉት ኪራይ';
+
+  @override
+  String reportPayments(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ክፍያዎች',
+      one: '1 ክፍያ',
+      zero: 'ምንም ክፍያ የለም',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get reportByMonth => 'በወር';
+
+  @override
+  String get reportByProperty => 'በንብረት';
+
+  @override
+  String get reportByMethod => 'በክፍያ ዘዴ';
+
+  @override
+  String get reportNone => 'በዚህ ሩብ ዓመት የተቀበሉት ኪራይ የለም።';
+
+  @override
+  String get reportSharePdf => 'PDF አጋራ';
+
+  @override
+  String get reportDisclaimer =>
+      'በመተግበሪያው የተመዘገበ የተቀበሉት ኪራይ ነው። የግብር ስሌት አይደለም፤ የሚከፍሉትን ከሂሳብ ባለሙያ ወይም ከግብር ቢሮ ያረጋግጡ።';
+
+  @override
+  String get previousQuarter => 'ያለፈው ሩብ ዓመት';
+
+  @override
+  String get nextQuarter => 'የሚቀጥለው ሩብ ዓመት';
+
+  @override
+  String get offlineBanner => 'ግንኙነት የለም። የተቀመጠ መረጃ እያሳየ ነው።';
+
+  @override
+  String pendingPaymentsBanner(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ክፍያዎች አልተላኩም',
+      one: '1 ክፍያ አልተላከም',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncNow => 'አሁን ላክ';
+
+  @override
+  String get notSynced => 'አልተላከም';
+
+  @override
+  String get savedOffline => 'በዚህ ስልክ ላይ ተቀምጧል';
+
+  @override
+  String get savedOfflineHelp =>
+      'ግንኙነት የለም። ክፍያው ኢንተርኔት ሲመለስ በራሱ ይላካል። የኤስኤምኤስ ደረሰኙም ያኔ ይላካል።';
+
+  @override
+  String syncFailed(String error) {
+    return 'መላክ አልተቻለም፦ $error';
+  }
+
+  @override
+  String get discardPending => 'ተው';
+
+  @override
+  String get discardPendingConfirm => 'ያልተላከውን ይህን ክፍያ ይተዉት?';
+
+  @override
+  String get tenantExport => 'መረጃ ላክ';
+
+  @override
+  String get tenantAnonymize => 'የግል መረጃ አስወግድ';
+
+  @override
+  String tenantAnonymizeConfirm(String name) {
+    return 'የ$name ስም፣ ስልክ፣ የመታወቂያ ቁጥር፣ አድራሻ እና የጥገና ፎቶዎች ይወገዱ? የክፍያ መጠኖች በመዝገብዎ ይቆያሉ። ይህ ሊቀለበስ አይችልም።';
+  }
+
+  @override
+  String get tenantAnonymized => 'የግል መረጃው ተወግዷል።';
 }

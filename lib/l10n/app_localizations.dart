@@ -1249,6 +1249,156 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Repair link sent to the tenant.'**
   String get repairLinkSent;
+
+  /// No description provided for @reportTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Quarterly income'**
+  String get reportTitle;
+
+  /// No description provided for @reportOpen.
+  ///
+  /// In en, this message translates to:
+  /// **'Quarterly income report'**
+  String get reportOpen;
+
+  /// No description provided for @reportOpenHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Rent received per quarter, for tax filing'**
+  String get reportOpenHelp;
+
+  /// No description provided for @reportPayments.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{No payments} =1{1 payment} other{{count} payments}}'**
+  String reportPayments(int count);
+
+  /// No description provided for @reportByMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'By month'**
+  String get reportByMonth;
+
+  /// No description provided for @reportByProperty.
+  ///
+  /// In en, this message translates to:
+  /// **'By property'**
+  String get reportByProperty;
+
+  /// No description provided for @reportByMethod.
+  ///
+  /// In en, this message translates to:
+  /// **'By payment method'**
+  String get reportByMethod;
+
+  /// No description provided for @reportNone.
+  ///
+  /// In en, this message translates to:
+  /// **'No rent received in this quarter.'**
+  String get reportNone;
+
+  /// No description provided for @reportSharePdf.
+  ///
+  /// In en, this message translates to:
+  /// **'Share PDF'**
+  String get reportSharePdf;
+
+  /// No description provided for @reportDisclaimer.
+  ///
+  /// In en, this message translates to:
+  /// **'Rent received as recorded in the app. This is not a tax calculation; confirm what you owe with an accountant or the tax office.'**
+  String get reportDisclaimer;
+
+  /// No description provided for @previousQuarter.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous quarter'**
+  String get previousQuarter;
+
+  /// No description provided for @nextQuarter.
+  ///
+  /// In en, this message translates to:
+  /// **'Next quarter'**
+  String get nextQuarter;
+
+  /// No description provided for @offlineBanner.
+  ///
+  /// In en, this message translates to:
+  /// **'No connection. Showing saved data.'**
+  String get offlineBanner;
+
+  /// No description provided for @pendingPaymentsBanner.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 payment not synced} other{{count} payments not synced}}'**
+  String pendingPaymentsBanner(int count);
+
+  /// No description provided for @syncNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Sync now'**
+  String get syncNow;
+
+  /// No description provided for @notSynced.
+  ///
+  /// In en, this message translates to:
+  /// **'Not synced'**
+  String get notSynced;
+
+  /// No description provided for @savedOffline.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved on this phone'**
+  String get savedOffline;
+
+  /// No description provided for @savedOfflineHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'There is no connection. The payment will be sent automatically when you are back online. The SMS receipt goes out then.'**
+  String get savedOfflineHelp;
+
+  /// No description provided for @syncFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not sync: {error}'**
+  String syncFailed(String error);
+
+  /// No description provided for @discardPending.
+  ///
+  /// In en, this message translates to:
+  /// **'Discard'**
+  String get discardPending;
+
+  /// No description provided for @discardPendingConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Discard this payment that was never sent?'**
+  String get discardPendingConfirm;
+
+  /// No description provided for @tenantExport.
+  ///
+  /// In en, this message translates to:
+  /// **'Export data'**
+  String get tenantExport;
+
+  /// No description provided for @tenantAnonymize.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove personal data'**
+  String get tenantAnonymize;
+
+  /// No description provided for @tenantAnonymizeConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove {name}\'s name, phone, ID number, address and repair photos? Payment amounts stay in your records. This cannot be undone.'**
+  String tenantAnonymizeConfirm(String name);
+
+  /// No description provided for @tenantAnonymized.
+  ///
+  /// In en, this message translates to:
+  /// **'Personal data removed.'**
+  String get tenantAnonymized;
 }
 
 class _AppLocalizationsDelegate

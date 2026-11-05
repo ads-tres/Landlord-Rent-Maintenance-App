@@ -19,6 +19,7 @@ class PaymentsRepository {
     String? reference,
     String? notes,
     bool sendSms = true,
+    String? clientRef,
   }) async {
     final data = await _api.post(
       '/payments',
@@ -30,6 +31,7 @@ class PaymentsRepository {
         if (reference != null && reference.isNotEmpty) 'reference': reference,
         if (notes != null && notes.isNotEmpty) 'notes': notes,
         'send_sms': sendSms,
+        'client_ref': ?clientRef,
       },
     ) as Map<String, dynamic>;
     return Payment.fromJson(data['data'] as Map<String, dynamic>);

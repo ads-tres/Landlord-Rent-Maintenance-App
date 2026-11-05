@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/api/api_client.dart';
@@ -43,6 +45,17 @@ class TenantsRepository {
   }
 
   Future<void> delete(int id) => _api.delete('/tenants/$id');
+
+  /// The tenant's data as JSON text (right of access, Proclamation 1321/2024).
+  Future<String> export(int id) async =>
+      jsonEncode(await _api.get('/tenants/$id/export'));
+
+  /// Removes personal details; payment amounts stay. Refused while a lease is active.
+  Future<Tenant> anonymize(int id) async {
+    final data =
+        await _api.post('/tenants/$id/anonymize') as Map<String, dynamic>;
+    return Tenant.fromJson(data['data'] as Map<String, dynamic>);
+  }
 }
 
 final tenantsRepositoryProvider = Provider<TenantsRepository>(

@@ -5,6 +5,7 @@ import 'package:share_plus/share_plus.dart';
 
 import '../../../core/api/api_exception.dart';
 import '../../../core/locale_controller.dart';
+import '../../../core/utils/app_dates.dart';
 import '../../../core/utils/dates.dart';
 import '../../../core/utils/money.dart';
 import '../../../core/widgets/async_views.dart';
@@ -13,6 +14,7 @@ import '../../../l10n/app_localizations.dart';
 import '../../leases/data/leases_repository.dart';
 import '../../leases/domain/lease.dart';
 import '../../rent/presentation/rent_screen.dart';
+import '../application/pending_payments.dart';
 import '../data/payments_repository.dart';
 import '../domain/payment.dart';
 import 'payment_labels.dart';
@@ -63,6 +65,9 @@ class _PaymentFormState extends ConsumerState<_PaymentForm> {
   DateTime _paidAt = dateOnly(DateTime.now());
   PaymentMethod _method = PaymentMethod.telebirr;
   bool _sendSms = true;
+
+  /// Same id for every attempt from this form, so a retry never duplicates the payment.
+  final String _clientRef = newClientRef();
   bool _saving = false;
   Map<String, String> _errors = const {};
   String? _error;
@@ -98,6 +103,7 @@ class _PaymentFormState extends ConsumerState<_PaymentForm> {
             reference: _method.needsReference ? _reference.text.trim() : null,
             notes: _notes.text.trim(),
             sendSms: _sendSms,
+            clientRef: _clientRef,
           );
       final leaseId = widget.lease.id;
       ref.invalidate(leaseProvider(leaseId));
@@ -115,6 +121,10 @@ class _PaymentFormState extends ConsumerState<_PaymentForm> {
       );
       if (mounted) Navigator.of(context).pop(payment);
     } on ApiException catch (e) {
+      if (e.isNetworkError) {
+        await _saveOffline();
+        return;
+      }
       if (!mounted) return;
       setState(() {
         _errors = e.fieldErrors;
@@ -125,10 +135,49 @@ class _PaymentFormState extends ConsumerState<_PaymentForm> {
     }
   }
 
+  /// No connection: keep the payment on the phone and send it later.
+  Future<void> _saveOffline() async {
+    await ref
+        .read(pendingPaymentsProvider.notifier)
+        .add(
+          PendingPayment(
+            clientRef: _clientRef,
+            leaseId: widget.lease.id,
+            amount: parseBirr(_amount.text)!,
+            paidAt: _paidAt,
+            method: _method,
+            reference: _method.needsReference ? _reference.text.trim() : null,
+            notes: _notes.text.trim(),
+            sendSms: _sendSms,
+            tenantName: widget.lease.tenantName,
+            unitLabel: widget.lease.unitLabel,
+          ),
+        );
+    if (!mounted) return;
+    setState(() => _saving = false);
+    final l10n = AppLocalizations.of(context);
+    await showDialog<void>(
+      context: context,
+      builder: (context) => AlertDialog(
+        icon: const Icon(Icons.cloud_off),
+        title: Text(l10n.savedOffline),
+        content: Text(l10n.savedOfflineHelp),
+        actions: [
+          FilledButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text(l10n.done),
+          ),
+        ],
+      ),
+    );
+    if (mounted) Navigator.of(context).pop();
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final locale = ref.watch(localeControllerProvider).languageCode;
+    final dates = ref.watch(appDatesProvider);
     final lease = widget.lease;
     final scheme = Theme.of(context).colorScheme;
 
@@ -234,7 +283,7 @@ class _PaymentFormState extends ConsumerState<_PaymentForm> {
                   errorText: _errors['paid_at'],
                   suffixIcon: const Icon(Icons.calendar_today_outlined),
                 ),
-                child: Text(formatDate(_paidAt, locale)),
+                child: Text(dates.date(_paidAt)),
               ),
             ),
             fieldGap,
@@ -281,8 +330,9 @@ class PaymentSavedSheet extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
     final locale = ref.watch(localeControllerProvider).languageCode;
+    final dates = ref.watch(appDatesProvider);
     final periods = payment.allocations
-        .map((a) => formatPeriod(a.period, locale))
+        .map((a) => dates.period(a.period))
         .toList();
 
     return SafeArea(

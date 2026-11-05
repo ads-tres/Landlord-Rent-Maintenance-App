@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../core/locale_controller.dart';
-import '../../../core/utils/dates.dart';
+import '../../../core/utils/app_dates.dart';
 import '../../../core/widgets/async_views.dart';
 import '../../../l10n/app_localizations.dart';
 import '../data/repairs_repository.dart';
@@ -15,7 +14,7 @@ class RepairsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
-    final locale = ref.watch(localeControllerProvider).languageCode;
+    final dates = ref.watch(appDatesProvider);
     final filter = ref.watch(repairFilterProvider);
     final repairs = ref.watch(repairsProvider);
 
@@ -88,9 +87,7 @@ class RepairsScreen extends ConsumerWidget {
                               r.propertyName,
                             ].whereType<String>().join(' · '),
                             [
-                              l10n.repairOpenedOn(
-                                formatDate(r.openedAt, locale),
-                              ),
+                              l10n.repairOpenedOn(dates.date(r.openedAt)),
                               if (r.fromTenant) l10n.repairFromTenant,
                               if (r.photosCount > 0) '📷 ${r.photosCount}',
                             ].join(' · '),

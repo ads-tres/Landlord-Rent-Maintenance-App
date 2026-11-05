@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/locale_controller.dart';
+import '../../../core/utils/app_dates.dart';
 import '../../../core/utils/dates.dart';
 import '../../../core/utils/money.dart';
 import '../../../core/widgets/async_views.dart';
@@ -10,6 +11,8 @@ import '../../../l10n/app_localizations.dart';
 import '../../leases/data/leases_repository.dart';
 import '../../leases/domain/charge.dart';
 import '../../leases/presentation/status_chips.dart';
+import '../../payments/application/pending_payments.dart';
+import '../../payments/presentation/pending_payment_tile.dart';
 
 /// Which month the rent list shows (first day of the month).
 class RentMonth extends Notifier<DateTime> {
@@ -56,9 +59,11 @@ class RentScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
     final locale = ref.watch(localeControllerProvider).languageCode;
+    final dates = ref.watch(appDatesProvider);
     final month = ref.watch(rentMonthProvider);
     final filter = ref.watch(rentFilterProvider);
     final charges = ref.watch(monthChargesProvider);
+    final pending = ref.watch(pendingPaymentsProvider).value ?? const [];
 
     final filters = <String?, String>{
       null: l10n.filterAll,
@@ -84,7 +89,7 @@ class RentScreen extends ConsumerWidget {
               SizedBox(
                 width: 180,
                 child: Text(
-                  formatPeriod(periodOf(month), locale),
+                  dates.month(month),
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
@@ -110,7 +115,10 @@ class RentScreen extends ConsumerWidget {
           final shown = items.where((c) => matchesFilter(c, filter)).toList();
 
           return RefreshIndicator(
-            onRefresh: () => ref.refresh(monthChargesProvider.future),
+            onRefresh: () async {
+              await ref.read(pendingPaymentsProvider.notifier).sync();
+              return ref.refresh(monthChargesProvider.future);
+            },
             child: ListView(
               padding: const EdgeInsets.only(bottom: 24),
               children: [
@@ -137,6 +145,7 @@ class RentScreen extends ConsumerWidget {
                     ],
                   ),
                 ),
+                for (final p in pending) PendingPaymentTile(payment: p),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   padding: const EdgeInsets.symmetric(
@@ -179,7 +188,7 @@ class RentScreen extends ConsumerWidget {
                           ].whereType<String>().join(' · '),
                           c.status == ChargeStatus.late
                               ? l10n.daysLate(c.daysLate)
-                              : l10n.dueOn(formatDate(c.dueDate, locale)),
+                              : l10n.dueOn(dates.date(c.dueDate)),
                         ].join('\n'),
                       ),
                       isThreeLine: true,

@@ -1,11 +1,18 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:share_plus/share_plus.dart';
+
+import '../../../core/api/api_exception.dart';
 
 import '../../../core/utils/phone_number.dart';
 import '../../../core/widgets/async_views.dart';
 import '../../../l10n/app_localizations.dart';
 import '../data/tenants_repository.dart';
+import '../domain/tenant.dart';
 
 class TenantsScreen extends ConsumerWidget {
   const TenantsScreen({super.key});
@@ -67,6 +74,22 @@ class TenantsScreen extends ConsumerWidget {
                   ),
                   title: Text(t.fullName),
                   subtitle: Text(formatEthiopianPhone(t.phone)),
+                  trailing: PopupMenuButton<String>(
+                    key: Key('tenantMenu-${t.id}'),
+                    onSelected: (action) => action == 'export'
+                        ? _export(context, ref, t)
+                        : _anonymize(context, ref, t),
+                    itemBuilder: (_) => [
+                      PopupMenuItem(
+                        value: 'export',
+                        child: Text(l10n.tenantExport),
+                      ),
+                      PopupMenuItem(
+                        value: 'anonymize',
+                        child: Text(l10n.tenantAnonymize),
+                      ),
+                    ],
+                  ),
                 );
               },
             ),
@@ -75,4 +98,54 @@ class TenantsScreen extends ConsumerWidget {
       ),
     );
   }
+
+  Future<void> _export(BuildContext context, WidgetRef ref, Tenant t) async {
+    try {
+      final json = await ref.read(tenantsRepositoryProvider).export(t.id);
+      final dir = await getTemporaryDirectory();
+      final file = File('${dir.path}/tenant-${t.id}-data.json');
+      await file.writeAsString(json, flush: true);
+      await SharePlus.instance.share(
+        ShareParams(
+          files: [XFile(file.path, mimeType: 'application/json')],
+          text: t.fullName,
+        ),
+      );
+    } on ApiException catch (e) {
+      if (context.mounted) _snack(context, friendlyError(context, e));
+    }
+  }
+
+  Future<void> _anonymize(BuildContext context, WidgetRef ref, Tenant t) async {
+    final l10n = AppLocalizations.of(context);
+    final ok = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(l10n.tenantAnonymize),
+        content: Text(l10n.tenantAnonymizeConfirm(t.fullName)),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: Text(l10n.cancel),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(context, true),
+            child: Text(l10n.tenantAnonymize),
+          ),
+        ],
+      ),
+    );
+    if (ok != true) return;
+    try {
+      await ref.read(tenantsRepositoryProvider).anonymize(t.id);
+      ref.invalidate(tenantsProvider);
+      if (context.mounted) _snack(context, l10n.tenantAnonymized);
+    } on ApiException catch (e) {
+      if (context.mounted) _snack(context, friendlyError(context, e));
+    }
+  }
+
+  void _snack(BuildContext context, String message) =>
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(message)));
 }

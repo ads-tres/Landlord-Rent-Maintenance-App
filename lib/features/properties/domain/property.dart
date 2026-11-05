@@ -35,8 +35,9 @@ class Property {
   final int vacantUnitsCount;
   final List<Unit> units;
 
-  String get location => [
-    subCity,
-    if (woreda != null && woreda!.isNotEmpty) 'W. $woreda',
-  ].whereType<String>().where((s) => s.isNotEmpty).join(', ');
+  /// "Bole, Woreda 3"; [woredaLabel] is the localized word for woreda.
+  String location(String woredaLabel) => [
+    if (subCity != null && subCity!.isNotEmpty) subCity!,
+    if (woreda != null && woreda!.isNotEmpty) '$woredaLabel $woreda',
+  ].join(', ');
 }

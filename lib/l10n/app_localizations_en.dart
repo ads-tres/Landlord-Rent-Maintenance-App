@@ -670,4 +670,103 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get repairLinkSent => 'Repair link sent to the tenant.';
+
+  @override
+  String get reportTitle => 'Quarterly income';
+
+  @override
+  String get reportOpen => 'Quarterly income report';
+
+  @override
+  String get reportOpenHelp => 'Rent received per quarter, for tax filing';
+
+  @override
+  String reportPayments(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count payments',
+      one: '1 payment',
+      zero: 'No payments',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get reportByMonth => 'By month';
+
+  @override
+  String get reportByProperty => 'By property';
+
+  @override
+  String get reportByMethod => 'By payment method';
+
+  @override
+  String get reportNone => 'No rent received in this quarter.';
+
+  @override
+  String get reportSharePdf => 'Share PDF';
+
+  @override
+  String get reportDisclaimer =>
+      'Rent received as recorded in the app. This is not a tax calculation; confirm what you owe with an accountant or the tax office.';
+
+  @override
+  String get previousQuarter => 'Previous quarter';
+
+  @override
+  String get nextQuarter => 'Next quarter';
+
+  @override
+  String get offlineBanner => 'No connection. Showing saved data.';
+
+  @override
+  String pendingPaymentsBanner(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count payments not synced',
+      one: '1 payment not synced',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get syncNow => 'Sync now';
+
+  @override
+  String get notSynced => 'Not synced';
+
+  @override
+  String get savedOffline => 'Saved on this phone';
+
+  @override
+  String get savedOfflineHelp =>
+      'There is no connection. The payment will be sent automatically when you are back online. The SMS receipt goes out then.';
+
+  @override
+  String syncFailed(String error) {
+    return 'Could not sync: $error';
+  }
+
+  @override
+  String get discardPending => 'Discard';
+
+  @override
+  String get discardPendingConfirm =>
+      'Discard this payment that was never sent?';
+
+  @override
+  String get tenantExport => 'Export data';
+
+  @override
+  String get tenantAnonymize => 'Remove personal data';
+
+  @override
+  String tenantAnonymizeConfirm(String name) {
+    return 'Remove $name\'s name, phone, ID number, address and repair photos? Payment amounts stay in your records. This cannot be undone.';
+  }
+
+  @override
+  String get tenantAnonymized => 'Personal data removed.';
 }

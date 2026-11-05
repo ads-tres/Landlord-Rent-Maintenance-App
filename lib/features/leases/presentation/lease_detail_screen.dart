@@ -6,13 +6,16 @@ import 'package:share_plus/share_plus.dart';
 
 import '../../../core/api/api_exception.dart';
 import '../../../core/locale_controller.dart';
+import '../../../core/utils/app_dates.dart';
 import '../../../core/utils/dates.dart';
 import '../../../core/utils/money.dart';
 import '../../../core/utils/phone_number.dart';
 import '../../../core/widgets/async_views.dart';
 import '../../../core/widgets/form_sheet.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../payments/application/pending_payments.dart';
 import '../../payments/data/payments_repository.dart';
+import '../../payments/presentation/pending_payment_tile.dart';
 import '../../payments/presentation/payment_labels.dart';
 import '../../properties/data/properties_repository.dart';
 import '../../repairs/data/repairs_repository.dart';
@@ -43,6 +46,7 @@ class LeaseDetailScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
     final locale = ref.watch(localeControllerProvider).languageCode;
+    final dates = ref.watch(appDatesProvider);
     final lease = ref.watch(leaseProvider(leaseId));
 
     return Scaffold(
@@ -111,7 +115,7 @@ class LeaseDetailScreen extends ConsumerWidget {
                       l10n.rentChangeLine(
                         formatBirr(c.oldRent, locale: locale),
                         formatBirr(c.newRent, locale: locale),
-                        formatDate(c.effectiveDate, locale),
+                        dates.date(c.effectiveDate),
                         RentRules(
                           capPercent: c.capPercent,
                           minLeaseYears: 2,
@@ -163,6 +167,7 @@ class LeaseDetailScreen extends ConsumerWidget {
   ) {
     final l10n = AppLocalizations.of(context);
     final locale = ref.read(localeControllerProvider).languageCode;
+    final dates = ref.read(appDatesProvider);
     final amount = TextEditingController(
       text: santimToInput(lease.monthlyRent),
     );
@@ -257,7 +262,7 @@ class LeaseDetailScreen extends ConsumerWidget {
                       errorText: errors['effective_date'],
                       suffixIcon: const Icon(Icons.calendar_today_outlined),
                     ),
-                    child: Text(formatDate(effective, locale)),
+                    child: Text(dates.date(effective)),
                   ),
                 ),
               ],
@@ -274,7 +279,7 @@ class LeaseDetailScreen extends ConsumerWidget {
     Lease lease,
   ) async {
     final l10n = AppLocalizations.of(context);
-    final locale = ref.read(localeControllerProvider).languageCode;
+    final dates = ref.read(appDatesProvider);
     final today = dateOnly(DateTime.now());
     final initial = today.isBefore(lease.startDate)
         ? lease.startDate
@@ -293,7 +298,7 @@ class LeaseDetailScreen extends ConsumerWidget {
       context: context,
       builder: (context) => AlertDialog(
         title: Text(l10n.endLease),
-        content: Text(l10n.endLeaseConfirm(formatDate(endedOn, locale))),
+        content: Text(l10n.endLeaseConfirm(dates.date(endedOn))),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
@@ -321,14 +326,15 @@ class LeaseDetailScreen extends ConsumerWidget {
   }
 }
 
-class _Header extends StatelessWidget {
+class _Header extends ConsumerWidget {
   const _Header({required this.lease, required this.locale});
 
   final Lease lease;
   final String locale;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final dates = ref.watch(appDatesProvider);
     final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
     final statusText = switch (lease.status) {
@@ -338,7 +344,7 @@ class _Header extends StatelessWidget {
             : l10n.leaseActive,
       LeaseStatus.ended =>
         lease.terminatedOn != null
-            ? l10n.endedOn(formatDate(lease.terminatedOn!, locale))
+            ? l10n.endedOn(dates.date(lease.terminatedOn!))
             : l10n.leaseEnded,
       LeaseStatus.draft => l10n.leaseDraft,
     };
@@ -390,13 +396,13 @@ class _Header extends StatelessWidget {
             ),
             row(l10n.deposit, formatBirr(lease.deposit, locale: locale)),
             row(l10n.dueDay, '${lease.dueDay}'),
-            row(l10n.startDate, formatDate(lease.startDate, locale)),
-            row(l10n.endDate, formatDate(lease.endDate, locale)),
+            row(l10n.startDate, dates.date(lease.startDate)),
+            row(l10n.endDate, dates.date(lease.endDate)),
             row(
               l10n.registeredOn,
               lease.registeredAt == null
                   ? l10n.notRegistered
-                  : formatDate(lease.registeredAt!, locale),
+                  : dates.date(lease.registeredAt!),
             ),
             if ((lease.conditionNotes ?? '').isNotEmpty)
               row(l10n.conditionNotes, lease.conditionNotes!),
@@ -490,6 +496,7 @@ class _LeaseCharges extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final dates = ref.watch(appDatesProvider);
     final l10n = AppLocalizations.of(context);
     final charges = ref.watch(leaseChargesProvider(leaseId));
 
@@ -507,8 +514,8 @@ class _LeaseCharges extends ConsumerWidget {
           for (final c in items.reversed)
             ListTile(
               contentPadding: EdgeInsets.zero,
-              title: Text(formatPeriod(c.period, locale)),
-              subtitle: Text(l10n.dueOn(formatDate(c.dueDate, locale))),
+              title: Text(dates.period(c.period)),
+              subtitle: Text(l10n.dueOn(dates.date(c.dueDate))),
               trailing: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -537,7 +544,11 @@ class _LeasePayments extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final dates = ref.watch(appDatesProvider);
     final l10n = AppLocalizations.of(context);
+    final pending = (ref.watch(pendingPaymentsProvider).value ?? const [])
+        .where((p) => p.leaseId == leaseId)
+        .toList();
     final payments = ref.watch(leasePaymentsProvider(leaseId));
 
     return payments.when(
@@ -550,7 +561,7 @@ class _LeasePayments extends ConsumerWidget {
         onRetry: () => ref.invalidate(leasePaymentsProvider(leaseId)),
       ),
       data: (items) {
-        if (items.isEmpty) {
+        if (items.isEmpty && pending.isEmpty) {
           return Padding(
             padding: const EdgeInsets.symmetric(vertical: 8),
             child: Text(l10n.paymentsEmpty),
@@ -558,6 +569,8 @@ class _LeasePayments extends ConsumerWidget {
         }
         return Column(
           children: [
+            for (final p in pending)
+              PendingPaymentTile(payment: p, showTenant: false),
             for (final p in items)
               ListTile(
                 contentPadding: EdgeInsets.zero,
@@ -565,7 +578,7 @@ class _LeasePayments extends ConsumerWidget {
                 title: Text(formatBirr(p.amount, locale: locale)),
                 subtitle: Text(
                   [
-                    formatDate(p.paidAt, locale),
+                    dates.date(p.paidAt),
                     p.method.label(l10n),
                     if (p.reference != null) p.reference!,
                   ].join(' · '),

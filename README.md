@@ -32,8 +32,21 @@ properties, units, tenants, leases, rent and repairs. It talks only to the Larav
   Move a repair from new to in progress to done, with an optional note texted to the tenant. Photos are
   private and load with your login.
 - Settings: turn SMS rent reminders on or off.
-- Money is handled in santim (integers) and shown as `Br 12,500`. Dates are Gregorian for now.
-- Next: quarterly income report, the Ethiopian calendar, the offline cache and a low-end phone test pass.
+- **Ethiopian calendar** (default; switch in Settings): dates show as e.g. "6 ኅዳር 2019", and rent months
+  as the Ethiopian months they span ("ጥቅምት–ኅዳር 2019"). Conversion is in
+  `lib/core/utils/ethiopian_date.dart`, checked against the backend's andegna/calender results.
+- **Quarterly income report** (Home): Ethiopian fiscal or Gregorian quarters, totals by month, property
+  and method, and **Share PDF** for an accountant or the tax office. There's no tax calculation.
+- **Works with weak signal:**
+  - The main lists are saved on the phone and shown with a "No connection" banner when offline.
+  - Payments logged offline are kept on the phone, marked **Not synced**, and sent automatically on start,
+    when the app reopens, on pull-to-refresh or from **Sync now**. A `client_ref` makes sure a resend never
+    creates a duplicate.
+  - Saved data and unsent payments are cleared on logout.
+- **Privacy:** from the Tenants list menu, **Export data** shares the tenant's records as JSON, and
+  **Remove personal data** anonymizes a past tenant (payment amounts stay).
+- Money is handled in santim (integers) and shown as `Br 12,500`.
+- Next: pilot with 10 landlords, including a test pass on low-end Android phones.
 
 ## Structure
 
@@ -49,6 +62,9 @@ lib/
     rent/        monthly rent list
     payments/    data · domain (Payment, DashboardSummary) · presentation (log payment, receipt sheet)
     repairs/     data · domain (Repair, UnitOption) · presentation (list, detail, add)
+    reports/     quarterly income report + PDF sharing
+  core/offline/  response cache (saved screens) and offline banner state
+  features/payments/application/  pending (offline) payments queue
     home/        bottom-nav shell, dashboard, settings
   l10n/          app_en.arb, app_am.arb (+ generated AppLocalizations)
 ```

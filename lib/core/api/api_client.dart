@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../config.dart';
 import '../locale_controller.dart';
+import '../offline/response_cache.dart';
 import '../storage/secure_store.dart';
 import 'api_exception.dart';
 
@@ -39,6 +40,15 @@ final dioProvider = Provider<Dio>((ref) {
     ),
   );
 
+  // Last: answers GETs from the saved copy when there is no connection.
+  dio.interceptors.add(
+    ResponseCacheInterceptor(
+      store: ref.watch(cacheStoreProvider),
+      onOfflineChanged: (offline) =>
+          ref.read(offlineStatusProvider.notifier).set(offline),
+    ),
+  );
+
   return dio;
 });
 
@@ -50,6 +60,21 @@ class ApiClient {
 
   Future<dynamic> get(String path, {Map<String, dynamic>? query}) =>
       _send(() => _dio.get(path, queryParameters: query));
+
+  /// Downloads a file (e.g. a PDF) as bytes.
+  Future<List<int>> getBytes(String path, {Map<String, dynamic>? query}) async {
+    final data = await _send(
+      () => _dio.get<List<int>>(
+        path,
+        queryParameters: query,
+        options: Options(
+          responseType: ResponseType.bytes,
+          headers: {'Accept': 'application/pdf'},
+        ),
+      ),
+    );
+    return data as List<int>;
+  }
 
   Future<dynamic> post(String path, {Object? data}) =>
       _send(() => _dio.post(path, data: data));

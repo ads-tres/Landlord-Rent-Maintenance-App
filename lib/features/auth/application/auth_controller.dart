@@ -2,7 +2,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/api/api_exception.dart';
 import '../../../core/locale_controller.dart';
+import '../../../core/offline/response_cache.dart';
 import '../../../core/storage/secure_store.dart';
+import '../../payments/application/pending_payments.dart'
+    show pendingPaymentsKey;
 import '../data/auth_repository.dart';
 import '../domain/app_user.dart';
 
@@ -67,6 +70,9 @@ class AuthController extends AsyncNotifier<AppUser?> {
 
   Future<void> signOutLocally() async {
     await ref.read(tokenStoreProvider).save(null);
+    // Saved screens and unsent payments belong to this landlord only.
+    await ref.read(cacheStoreProvider).clear();
+    await ref.read(keyValueStoreProvider).write(pendingPaymentsKey, null);
     state = const AsyncData(null);
   }
 }
