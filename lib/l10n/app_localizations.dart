@@ -1021,6 +1021,234 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Text tenants 3 days before and on the due date.'**
   String get smsRemindersHelp;
+
+  /// No description provided for @navRepairs.
+  ///
+  /// In en, this message translates to:
+  /// **'Repairs'**
+  String get navRepairs;
+
+  /// No description provided for @repairsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No repairs here.'**
+  String get repairsEmpty;
+
+  /// No description provided for @repairActive.
+  ///
+  /// In en, this message translates to:
+  /// **'Active'**
+  String get repairActive;
+
+  /// No description provided for @repairOpen.
+  ///
+  /// In en, this message translates to:
+  /// **'New'**
+  String get repairOpen;
+
+  /// No description provided for @repairInProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'In progress'**
+  String get repairInProgress;
+
+  /// No description provided for @repairDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get repairDone;
+
+  /// No description provided for @addRepair.
+  ///
+  /// In en, this message translates to:
+  /// **'Record repair'**
+  String get addRepair;
+
+  /// No description provided for @repairTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What needs fixing'**
+  String get repairTitle;
+
+  /// No description provided for @repairCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Type'**
+  String get repairCategory;
+
+  /// No description provided for @repairDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Details (optional)'**
+  String get repairDescription;
+
+  /// No description provided for @repairUnit.
+  ///
+  /// In en, this message translates to:
+  /// **'Unit'**
+  String get repairUnit;
+
+  /// No description provided for @repairFromTenant.
+  ///
+  /// In en, this message translates to:
+  /// **'From tenant'**
+  String get repairFromTenant;
+
+  /// No description provided for @repairOpenedOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Reported {date}'**
+  String repairOpenedOn(String date);
+
+  /// No description provided for @repairClosedOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Done {date}'**
+  String repairClosedOn(String date);
+
+  /// No description provided for @addPhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Add photo'**
+  String get addPhoto;
+
+  /// No description provided for @takePhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera'**
+  String get takePhoto;
+
+  /// No description provided for @choosePhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Gallery'**
+  String get choosePhoto;
+
+  /// No description provided for @photos.
+  ///
+  /// In en, this message translates to:
+  /// **'Photos'**
+  String get photos;
+
+  /// No description provided for @startRepair.
+  ///
+  /// In en, this message translates to:
+  /// **'Start work'**
+  String get startRepair;
+
+  /// No description provided for @finishRepair.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark done'**
+  String get finishRepair;
+
+  /// No description provided for @reopenRepair.
+  ///
+  /// In en, this message translates to:
+  /// **'Reopen'**
+  String get reopenRepair;
+
+  /// No description provided for @repairNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Note for the tenant (optional)'**
+  String get repairNote;
+
+  /// No description provided for @repairNoteHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Plumber coming at 3pm'**
+  String get repairNoteHint;
+
+  /// No description provided for @notifyTenantSms.
+  ///
+  /// In en, this message translates to:
+  /// **'Text the tenant'**
+  String get notifyTenantSms;
+
+  /// No description provided for @categoryWater.
+  ///
+  /// In en, this message translates to:
+  /// **'Water supply'**
+  String get categoryWater;
+
+  /// No description provided for @categoryElectric.
+  ///
+  /// In en, this message translates to:
+  /// **'Electricity'**
+  String get categoryElectric;
+
+  /// No description provided for @categoryPlumbing.
+  ///
+  /// In en, this message translates to:
+  /// **'Plumbing / leak'**
+  String get categoryPlumbing;
+
+  /// No description provided for @categoryDoorLock.
+  ///
+  /// In en, this message translates to:
+  /// **'Door or lock'**
+  String get categoryDoorLock;
+
+  /// No description provided for @categoryRoof.
+  ///
+  /// In en, this message translates to:
+  /// **'Roof or ceiling'**
+  String get categoryRoof;
+
+  /// No description provided for @categoryAppliance.
+  ///
+  /// In en, this message translates to:
+  /// **'Appliance'**
+  String get categoryAppliance;
+
+  /// No description provided for @categoryOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get categoryOther;
+
+  /// No description provided for @repairLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Tenant repair link'**
+  String get repairLink;
+
+  /// No description provided for @repairLinkHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'The tenant can report repairs with a photo here, without an app.'**
+  String get repairLinkHelp;
+
+  /// No description provided for @sendRepairLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Send by SMS'**
+  String get sendRepairLink;
+
+  /// No description provided for @shareRepairLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Share'**
+  String get shareRepairLink;
+
+  /// No description provided for @resetRepairLink.
+  ///
+  /// In en, this message translates to:
+  /// **'New link'**
+  String get resetRepairLink;
+
+  /// No description provided for @resetRepairLinkConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Make a new link? The old link will stop working.'**
+  String get resetRepairLinkConfirm;
+
+  /// No description provided for @repairLinkSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Repair link sent to the tenant.'**
+  String get repairLinkSent;
 }
 
 class _AppLocalizationsDelegate

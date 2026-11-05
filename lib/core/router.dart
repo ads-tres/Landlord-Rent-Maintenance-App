@@ -12,6 +12,9 @@ import '../features/leases/presentation/add_lease_screen.dart';
 import '../features/leases/presentation/lease_detail_screen.dart';
 import '../features/payments/presentation/log_payment_screen.dart';
 import '../features/properties/presentation/properties_screen.dart';
+import '../features/repairs/presentation/add_repair_screen.dart';
+import '../features/repairs/presentation/repair_detail_screen.dart';
+import '../features/repairs/presentation/repairs_screen.dart';
 import '../features/properties/presentation/property_detail_screen.dart';
 import '../features/rent/presentation/rent_screen.dart';
 import '../features/tenants/presentation/add_tenant_screen.dart';
@@ -80,6 +83,25 @@ final routerProvider = Provider<GoRouter>((ref) {
           leaseId: int.parse(state.uri.queryParameters['leaseId']!),
         ),
       ),
+      GoRoute(
+        path: '/settings',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (_, _) => const SettingsScreen(),
+      ),
+      GoRoute(
+        path: '/repairs/new',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (_, state) => AddRepairScreen(
+          unitId: int.tryParse(state.uri.queryParameters['unitId'] ?? ''),
+        ),
+      ),
+      GoRoute(
+        path: '/repairs/:id',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (_, state) => RepairDetailScreen(
+          repairId: int.parse(state.pathParameters['id']!),
+        ),
+      ),
       StatefulShellRoute.indexedStack(
         builder: (_, _, shell) => HomeShell(shell: shell),
         branches: [
@@ -112,6 +134,14 @@ final routerProvider = Provider<GoRouter>((ref) {
           StatefulShellBranch(
             routes: [
               GoRoute(
+                path: '/repairs',
+                builder: (_, _) => const RepairsScreen(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
                 path: '/tenants',
                 builder: (_, _) => const TenantsScreen(),
                 routes: [
@@ -120,14 +150,6 @@ final routerProvider = Provider<GoRouter>((ref) {
                     builder: (_, _) => const AddTenantScreen(),
                   ),
                 ],
-              ),
-            ],
-          ),
-          StatefulShellBranch(
-            routes: [
-              GoRoute(
-                path: '/settings',
-                builder: (_, _) => const SettingsScreen(),
               ),
             ],
           ),

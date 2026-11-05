@@ -9,7 +9,7 @@ properties, units, tenants, leases, rent and repairs. It talks only to the Larav
 ## What's built so far
 
 - Phone login with an SMS code (`/auth/otp` → `/auth/verify`). The token is kept in secure storage.
-- Home, Properties, Rent, Tenants and Settings tabs.
+- Home, Properties, Rent, Repairs and Tenants tabs. Settings is behind the gear icon on Home.
 - Properties list with unit and vacancy counts, add property, property detail with units, add unit.
 - Tenants list with search, and an add-tenant form with the required privacy-notice confirmation.
 - Amharic (default) and English, switchable on the login screen and in Settings.
@@ -27,9 +27,13 @@ properties, units, tenants, leases, rent and repairs. It talks only to the Larav
   link** button. Payment history sits on the lease, where a mistaken entry can be removed.
 - Home dashboard: collected this month, outstanding, late tenants, open repairs, leases ending soon and
   vacant units, with shortcuts to the filtered Rent tab.
+- Repairs: tenants report through their repair link (shown on the lease, sent by SMS or shared). You can
+  also record repairs yourself with up to 4 photos (camera or gallery, shrunk on the phone to save data).
+  Move a repair from new to in progress to done, with an optional note texted to the tenant. Photos are
+  private and load with your login.
 - Settings: turn SMS rent reminders on or off.
 - Money is handled in santim (integers) and shown as `Br 12,500`. Dates are Gregorian for now.
-- Next: repairs (tenant link with photo), quarterly report, the Ethiopian calendar and the offline cache.
+- Next: quarterly income report, the Ethiopian calendar, the offline cache and a low-end phone test pass.
 
 ## Structure
 
@@ -44,6 +48,7 @@ lib/
     leases/      data · domain (Lease, Charge, RentRules) · presentation (add, detail)
     rent/        monthly rent list
     payments/    data · domain (Payment, DashboardSummary) · presentation (log payment, receipt sheet)
+    repairs/     data · domain (Repair, UnitOption) · presentation (list, detail, add)
     home/        bottom-nav shell, dashboard, settings
   l10n/          app_en.arb, app_am.arb (+ generated AppLocalizations)
 ```

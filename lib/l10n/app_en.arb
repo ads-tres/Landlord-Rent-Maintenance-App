@@ -329,5 +329,57 @@
     }
   },
   "smsReminders": "SMS rent reminders",
-  "smsRemindersHelp": "Text tenants 3 days before and on the due date."
+  "smsRemindersHelp": "Text tenants 3 days before and on the due date.",
+  "navRepairs": "Repairs",
+  "repairsEmpty": "No repairs here.",
+  "repairActive": "Active",
+  "repairOpen": "New",
+  "repairInProgress": "In progress",
+  "repairDone": "Done",
+  "addRepair": "Record repair",
+  "repairTitle": "What needs fixing",
+  "repairCategory": "Type",
+  "repairDescription": "Details (optional)",
+  "repairUnit": "Unit",
+  "repairFromTenant": "From tenant",
+  "repairOpenedOn": "Reported {date}",
+  "@repairOpenedOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "repairClosedOn": "Done {date}",
+  "@repairClosedOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "addPhoto": "Add photo",
+  "takePhoto": "Camera",
+  "choosePhoto": "Gallery",
+  "photos": "Photos",
+  "startRepair": "Start work",
+  "finishRepair": "Mark done",
+  "reopenRepair": "Reopen",
+  "repairNote": "Note for the tenant (optional)",
+  "repairNoteHint": "e.g. Plumber coming at 3pm",
+  "notifyTenantSms": "Text the tenant",
+  "categoryWater": "Water supply",
+  "categoryElectric": "Electricity",
+  "categoryPlumbing": "Plumbing / leak",
+  "categoryDoorLock": "Door or lock",
+  "categoryRoof": "Roof or ceiling",
+  "categoryAppliance": "Appliance",
+  "categoryOther": "Other",
+  "repairLink": "Tenant repair link",
+  "repairLinkHelp": "The tenant can report repairs with a photo here, without an app.",
+  "sendRepairLink": "Send by SMS",
+  "shareRepairLink": "Share",
+  "resetRepairLink": "New link",
+  "resetRepairLinkConfirm": "Make a new link? The old link will stop working.",
+  "repairLinkSent": "Repair link sent to the tenant."
 }
