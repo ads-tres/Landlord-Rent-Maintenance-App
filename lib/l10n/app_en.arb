@@ -434,5 +434,15 @@
       }
     }
   },
-  "tenantAnonymized": "Personal data removed."
+  "tenantAnonymized": "Personal data removed.",
+  "sendFeedback": "Send feedback",
+  "sendFeedbackHelp": "Tell us what broke or what is missing",
+  "appVersion": "Version {version}",
+  "@appVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  }
 }

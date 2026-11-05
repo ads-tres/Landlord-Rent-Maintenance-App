@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../core/api/api_exception.dart';
+import '../../core/config.dart';
 import '../../core/locale_controller.dart';
 import '../../core/utils/phone_number.dart';
 import '../../l10n/app_localizations.dart';
@@ -95,6 +98,16 @@ class SettingsScreen extends ConsumerWidget {
             title: Text(l10n.logout),
             onTap: () => ref.read(authControllerProvider.notifier).logout(),
           ),
+          if (AppConfig.feedbackUrl.isNotEmpty)
+            ListTile(
+              leading: const Icon(Icons.feedback_outlined),
+              title: Text(l10n.sendFeedback),
+              subtitle: Text(l10n.sendFeedbackHelp),
+              onTap: () => launchUrl(
+                Uri.parse(AppConfig.feedbackUrl),
+                mode: LaunchMode.externalApplication,
+              ),
+            ),
           Padding(
             padding: const EdgeInsets.all(16),
             child: Text(
@@ -102,8 +115,33 @@ class SettingsScreen extends ConsumerWidget {
               style: Theme.of(context).textTheme.bodySmall,
             ),
           ),
+          const _VersionLine(),
         ],
       ),
+    );
+  }
+}
+
+/// App version, so pilot feedback can say which build it is about.
+class _VersionLine extends StatelessWidget {
+  const _VersionLine();
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<PackageInfo>(
+      future: PackageInfo.fromPlatform(),
+      builder: (context, snapshot) {
+        final info = snapshot.data;
+        if (info == null) return const SizedBox.shrink();
+        return Padding(
+          padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+          child: Text(
+            AppLocalizations.of(context)
+                .appVersion('${info.version} (${info.buildNumber})'),
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+        );
+      },
     );
   }
 }

@@ -759,4 +759,15 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get tenantAnonymized => 'የግል መረጃው ተወግዷል።';
+
+  @override
+  String get sendFeedback => 'አስተያየት ይላኩ';
+
+  @override
+  String get sendFeedbackHelp => 'የተበላሸውን ወይም የጎደለውን ይንገሩን';
+
+  @override
+  String appVersion(String version) {
+    return 'ስሪት $version';
+  }
 }
