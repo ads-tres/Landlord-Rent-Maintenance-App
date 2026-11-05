@@ -30,6 +30,11 @@ class HomeShell extends StatelessWidget {
             label: l10n.navProperties,
           ),
           NavigationDestination(
+            icon: const Icon(Icons.receipt_long_outlined),
+            selectedIcon: const Icon(Icons.receipt_long),
+            label: l10n.navRent,
+          ),
+          NavigationDestination(
             icon: const Icon(Icons.people_outline),
             selectedIcon: const Icon(Icons.people),
             label: l10n.navTenants,

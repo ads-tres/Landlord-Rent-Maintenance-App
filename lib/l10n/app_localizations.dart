@@ -475,6 +475,372 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'A record-keeping tool, not legal or tax advice.'**
   String get disclaimer;
+
+  /// No description provided for @navRent.
+  ///
+  /// In en, this message translates to:
+  /// **'Rent'**
+  String get navRent;
+
+  /// No description provided for @currency.
+  ///
+  /// In en, this message translates to:
+  /// **'Br'**
+  String get currency;
+
+  /// No description provided for @addLease.
+  ///
+  /// In en, this message translates to:
+  /// **'Create lease'**
+  String get addLease;
+
+  /// No description provided for @leaseTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Lease'**
+  String get leaseTitle;
+
+  /// No description provided for @leaseFor.
+  ///
+  /// In en, this message translates to:
+  /// **'Lease for {unit}'**
+  String leaseFor(String unit);
+
+  /// No description provided for @tenant.
+  ///
+  /// In en, this message translates to:
+  /// **'Tenant'**
+  String get tenant;
+
+  /// No description provided for @selectTenant.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a tenant'**
+  String get selectTenant;
+
+  /// No description provided for @newTenant.
+  ///
+  /// In en, this message translates to:
+  /// **'New tenant'**
+  String get newTenant;
+
+  /// No description provided for @noTenantsYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No tenants yet. Add the tenant first.'**
+  String get noTenantsYet;
+
+  /// No description provided for @startDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Start date'**
+  String get startDate;
+
+  /// No description provided for @endDate.
+  ///
+  /// In en, this message translates to:
+  /// **'End date'**
+  String get endDate;
+
+  /// No description provided for @endDateHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Leases run at least {years} years (Addis directive).'**
+  String endDateHelp(int years);
+
+  /// No description provided for @endDateTooEarly.
+  ///
+  /// In en, this message translates to:
+  /// **'The end date must be {date} or later.'**
+  String endDateTooEarly(String date);
+
+  /// No description provided for @monthlyRent.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly rent (Br)'**
+  String get monthlyRent;
+
+  /// No description provided for @deposit.
+  ///
+  /// In en, this message translates to:
+  /// **'Deposit (Br)'**
+  String get deposit;
+
+  /// No description provided for @dueDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Rent due on day'**
+  String get dueDay;
+
+  /// No description provided for @dueDayHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Day of the month rent is due.'**
+  String get dueDayHelp;
+
+  /// No description provided for @conditionNotes.
+  ///
+  /// In en, this message translates to:
+  /// **'Property condition'**
+  String get conditionNotes;
+
+  /// No description provided for @conditionNotesHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Walls, floors, fixtures, meters, keys handed over…'**
+  String get conditionNotesHint;
+
+  /// No description provided for @registeredOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Registered with the woreda on'**
+  String get registeredOn;
+
+  /// No description provided for @notRegistered.
+  ///
+  /// In en, this message translates to:
+  /// **'Not registered yet'**
+  String get notRegistered;
+
+  /// No description provided for @amountInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter an amount in birr.'**
+  String get amountInvalid;
+
+  /// No description provided for @leaseActive.
+  ///
+  /// In en, this message translates to:
+  /// **'Active'**
+  String get leaseActive;
+
+  /// No description provided for @leaseEnded.
+  ///
+  /// In en, this message translates to:
+  /// **'Ended'**
+  String get leaseEnded;
+
+  /// No description provided for @leaseDraft.
+  ///
+  /// In en, this message translates to:
+  /// **'Draft'**
+  String get leaseDraft;
+
+  /// No description provided for @endsIn.
+  ///
+  /// In en, this message translates to:
+  /// **'{days, plural, =0{Ends today} =1{Ends tomorrow} other{Ends in {days} days}}'**
+  String endsIn(int days);
+
+  /// No description provided for @endedOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Ended on {date}'**
+  String endedOn(String date);
+
+  /// No description provided for @missingLeaseFields.
+  ///
+  /// In en, this message translates to:
+  /// **'Missing for the directive: {fields}'**
+  String missingLeaseFields(String fields);
+
+  /// No description provided for @missingLandlordName.
+  ///
+  /// In en, this message translates to:
+  /// **'your name (Settings)'**
+  String get missingLandlordName;
+
+  /// No description provided for @missingTenantAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'tenant address'**
+  String get missingTenantAddress;
+
+  /// No description provided for @missingConditionNotes.
+  ///
+  /// In en, this message translates to:
+  /// **'property condition'**
+  String get missingConditionNotes;
+
+  /// No description provided for @balanceCharged.
+  ///
+  /// In en, this message translates to:
+  /// **'Charged'**
+  String get balanceCharged;
+
+  /// No description provided for @balancePaid.
+  ///
+  /// In en, this message translates to:
+  /// **'Paid'**
+  String get balancePaid;
+
+  /// No description provided for @balanceOutstanding.
+  ///
+  /// In en, this message translates to:
+  /// **'Outstanding'**
+  String get balanceOutstanding;
+
+  /// No description provided for @rentHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'Rent changes'**
+  String get rentHistory;
+
+  /// No description provided for @rentChangeLine.
+  ///
+  /// In en, this message translates to:
+  /// **'{from} → {to} from {date} (cap {cap}%)'**
+  String rentChangeLine(String from, String to, String date, String cap);
+
+  /// No description provided for @changeRent.
+  ///
+  /// In en, this message translates to:
+  /// **'Change rent'**
+  String get changeRent;
+
+  /// No description provided for @newRent.
+  ///
+  /// In en, this message translates to:
+  /// **'New monthly rent (Br)'**
+  String get newRent;
+
+  /// No description provided for @effectiveDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Effective from'**
+  String get effectiveDate;
+
+  /// No description provided for @currentRent.
+  ///
+  /// In en, this message translates to:
+  /// **'Current rent: {amount}'**
+  String currentRent(String amount);
+
+  /// No description provided for @aboveCap.
+  ///
+  /// In en, this message translates to:
+  /// **'Above the {cap}% yearly cap. The most allowed is {max}.'**
+  String aboveCap(String cap, String max);
+
+  /// No description provided for @withinCap.
+  ///
+  /// In en, this message translates to:
+  /// **'Increase of {percent}% (cap {cap}%).'**
+  String withinCap(String percent, String cap);
+
+  /// No description provided for @endLease.
+  ///
+  /// In en, this message translates to:
+  /// **'End lease'**
+  String get endLease;
+
+  /// No description provided for @endLeaseConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'End this lease on {date}? The unit becomes vacant and unpaid rent for later months is removed.'**
+  String endLeaseConfirm(String date);
+
+  /// No description provided for @endedOnLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Last day'**
+  String get endedOnLabel;
+
+  /// No description provided for @charges.
+  ///
+  /// In en, this message translates to:
+  /// **'Rent schedule'**
+  String get charges;
+
+  /// No description provided for @chargesEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No rent due for this month.'**
+  String get chargesEmpty;
+
+  /// No description provided for @statusDue.
+  ///
+  /// In en, this message translates to:
+  /// **'Due'**
+  String get statusDue;
+
+  /// No description provided for @statusPartial.
+  ///
+  /// In en, this message translates to:
+  /// **'Partly paid'**
+  String get statusPartial;
+
+  /// No description provided for @statusPaid.
+  ///
+  /// In en, this message translates to:
+  /// **'Paid'**
+  String get statusPaid;
+
+  /// No description provided for @statusLate.
+  ///
+  /// In en, this message translates to:
+  /// **'Late'**
+  String get statusLate;
+
+  /// No description provided for @daysLate.
+  ///
+  /// In en, this message translates to:
+  /// **'{days, plural, =1{1 day late} other{{days} days late}}'**
+  String daysLate(int days);
+
+  /// No description provided for @dueOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Due {date}'**
+  String dueOn(String date);
+
+  /// No description provided for @filterAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get filterAll;
+
+  /// No description provided for @filterUnpaid.
+  ///
+  /// In en, this message translates to:
+  /// **'Unpaid'**
+  String get filterUnpaid;
+
+  /// No description provided for @monthTotalDue.
+  ///
+  /// In en, this message translates to:
+  /// **'Due this month'**
+  String get monthTotalDue;
+
+  /// No description provided for @monthCollected.
+  ///
+  /// In en, this message translates to:
+  /// **'Collected'**
+  String get monthCollected;
+
+  /// No description provided for @monthOutstanding.
+  ///
+  /// In en, this message translates to:
+  /// **'Outstanding'**
+  String get monthOutstanding;
+
+  /// No description provided for @paymentsComingSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment logging comes in the next update.'**
+  String get paymentsComingSoon;
+
+  /// No description provided for @unitVacantTapToLease.
+  ///
+  /// In en, this message translates to:
+  /// **'Vacant · tap to create a lease'**
+  String get unitVacantTapToLease;
+
+  /// No description provided for @confirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm'**
+  String get confirm;
 }
 
 class _AppLocalizationsDelegate

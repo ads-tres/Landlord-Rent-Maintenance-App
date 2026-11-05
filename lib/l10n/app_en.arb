@@ -9,7 +9,13 @@
   "sendCode": "Send code",
   "codeTitle": "Enter the code",
   "codeSentTo": "We sent a code to {phone}.",
-  "@codeSentTo": { "placeholders": { "phone": { "type": "String" } } },
+  "@codeSentTo": {
+    "placeholders": {
+      "phone": {
+        "type": "String"
+      }
+    }
+  },
   "codeLabel": "6-digit code",
   "codeInvalid": "Enter the 6-digit code.",
   "verify": "Log in",
@@ -20,7 +26,13 @@
   "navTenants": "Tenants",
   "navSettings": "Settings",
   "dashboardWelcome": "Welcome, {name}",
-  "@dashboardWelcome": { "placeholders": { "name": { "type": "String" } } },
+  "@dashboardWelcome": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "dashboardWelcomeNoName": "Welcome",
   "dashboardComingSoon": "Rent totals, late tenants, open repairs and leases ending soon will show here once leases and payments are added.",
   "dashboardProperties": "Properties",
@@ -34,9 +46,21 @@
   "woreda": "Woreda",
   "address": "Address",
   "unitsCount": "{count, plural, =0{No units} =1{1 unit} other{{count} units}}",
-  "@unitsCount": { "placeholders": { "count": { "type": "int" } } },
+  "@unitsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "vacantCount": "{count} vacant",
-  "@vacantCount": { "placeholders": { "count": { "type": "int" } } },
+  "@vacantCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "unitsEmpty": "No units yet. Add the rooms or apartments you rent out.",
   "addUnit": "Add unit",
   "unitLabel": "Label",
@@ -66,5 +90,172 @@
   "calendarEthiopian": "Ethiopian",
   "calendarGregorian": "Gregorian",
   "logout": "Log out",
-  "disclaimer": "A record-keeping tool, not legal or tax advice."
+  "disclaimer": "A record-keeping tool, not legal or tax advice.",
+  "navRent": "Rent",
+  "currency": "Br",
+  "addLease": "Create lease",
+  "leaseTitle": "Lease",
+  "leaseFor": "Lease for {unit}",
+  "@leaseFor": {
+    "placeholders": {
+      "unit": {
+        "type": "String"
+      }
+    }
+  },
+  "tenant": "Tenant",
+  "selectTenant": "Choose a tenant",
+  "newTenant": "New tenant",
+  "noTenantsYet": "No tenants yet. Add the tenant first.",
+  "startDate": "Start date",
+  "endDate": "End date",
+  "endDateHelp": "Leases run at least {years} years (Addis directive).",
+  "@endDateHelp": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
+  "endDateTooEarly": "The end date must be {date} or later.",
+  "@endDateTooEarly": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "monthlyRent": "Monthly rent (Br)",
+  "deposit": "Deposit (Br)",
+  "dueDay": "Rent due on day",
+  "dueDayHelp": "Day of the month rent is due.",
+  "conditionNotes": "Property condition",
+  "conditionNotesHint": "Walls, floors, fixtures, meters, keys handed over…",
+  "registeredOn": "Registered with the woreda on",
+  "notRegistered": "Not registered yet",
+  "amountInvalid": "Enter an amount in birr.",
+  "leaseActive": "Active",
+  "leaseEnded": "Ended",
+  "leaseDraft": "Draft",
+  "endsIn": "{days, plural, =0{Ends today} =1{Ends tomorrow} other{Ends in {days} days}}",
+  "@endsIn": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "endedOn": "Ended on {date}",
+  "@endedOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "missingLeaseFields": "Missing for the directive: {fields}",
+  "@missingLeaseFields": {
+    "placeholders": {
+      "fields": {
+        "type": "String"
+      }
+    }
+  },
+  "missingLandlordName": "your name (Settings)",
+  "missingTenantAddress": "tenant address",
+  "missingConditionNotes": "property condition",
+  "balanceCharged": "Charged",
+  "balancePaid": "Paid",
+  "balanceOutstanding": "Outstanding",
+  "rentHistory": "Rent changes",
+  "rentChangeLine": "{from} → {to} from {date} (cap {cap}%)",
+  "@rentChangeLine": {
+    "placeholders": {
+      "from": {
+        "type": "String"
+      },
+      "to": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      },
+      "cap": {
+        "type": "String"
+      }
+    }
+  },
+  "changeRent": "Change rent",
+  "newRent": "New monthly rent (Br)",
+  "effectiveDate": "Effective from",
+  "currentRent": "Current rent: {amount}",
+  "@currentRent": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "aboveCap": "Above the {cap}% yearly cap. The most allowed is {max}.",
+  "@aboveCap": {
+    "placeholders": {
+      "cap": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "withinCap": "Increase of {percent}% (cap {cap}%).",
+  "@withinCap": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      },
+      "cap": {
+        "type": "String"
+      }
+    }
+  },
+  "endLease": "End lease",
+  "endLeaseConfirm": "End this lease on {date}? The unit becomes vacant and unpaid rent for later months is removed.",
+  "@endLeaseConfirm": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "endedOnLabel": "Last day",
+  "charges": "Rent schedule",
+  "chargesEmpty": "No rent due for this month.",
+  "statusDue": "Due",
+  "statusPartial": "Partly paid",
+  "statusPaid": "Paid",
+  "statusLate": "Late",
+  "daysLate": "{days, plural, =1{1 day late} other{{days} days late}}",
+  "@daysLate": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "dueOn": "Due {date}",
+  "@dueOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "filterAll": "All",
+  "filterUnpaid": "Unpaid",
+  "monthTotalDue": "Due this month",
+  "monthCollected": "Collected",
+  "monthOutstanding": "Outstanding",
+  "paymentsComingSoon": "Payment logging comes in the next update.",
+  "unitVacantTapToLease": "Vacant · tap to create a lease",
+  "confirm": "Confirm"
 }
