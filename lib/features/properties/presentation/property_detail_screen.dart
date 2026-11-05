@@ -1,0 +1,142 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../../core/widgets/async_views.dart';
+import '../../../core/widgets/form_sheet.dart';
+import '../../../l10n/app_localizations.dart';
+import '../data/properties_repository.dart';
+import '../domain/unit.dart';
+
+class PropertyDetailScreen extends ConsumerWidget {
+  const PropertyDetailScreen({super.key, required this.propertyId});
+
+  final int propertyId;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final property = ref.watch(propertyProvider(propertyId));
+
+    return Scaffold(
+      appBar: AppBar(title: Text(property.value?.name ?? '')),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () => _addUnit(context, ref),
+        icon: const Icon(Icons.add),
+        label: Text(l10n.addUnit),
+      ),
+      body: property.when(
+        loading: () => const Center(child: CircularProgressIndicator()),
+        error: (e, _) => ErrorView(
+          error: e,
+          onRetry: () => ref.invalidate(propertyProvider(propertyId)),
+        ),
+        data: (p) => RefreshIndicator(
+          onRefresh: () => ref.refresh(propertyProvider(propertyId).future),
+          child: ListView(
+            padding: const EdgeInsets.only(bottom: 96),
+            children: [
+              if (p.location.isNotEmpty || (p.address ?? '').isNotEmpty)
+                ListTile(
+                  leading: const Icon(Icons.place_outlined),
+                  title: Text(p.location.isNotEmpty ? p.location : p.address!),
+                  subtitle:
+                      p.location.isNotEmpty && (p.address ?? '').isNotEmpty
+                      ? Text(p.address!)
+                      : null,
+                ),
+              const Divider(height: 1),
+              if (p.units.isEmpty)
+                Padding(
+                  padding: const EdgeInsets.only(top: 48),
+                  child: EmptyView(
+                    message: l10n.unitsEmpty,
+                    icon: Icons.meeting_room_outlined,
+                  ),
+                )
+              else
+                for (final unit in p.units)
+                  ListTile(
+                    leading: const Icon(Icons.meeting_room_outlined),
+                    title: Text(unit.label),
+                    subtitle: unit.bedrooms != null
+                        ? Text('${l10n.bedrooms}: ${unit.bedrooms}')
+                        : null,
+                    trailing: _StatusChip(status: unit.status),
+                  ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Future<void> _addUnit(BuildContext context, WidgetRef ref) async {
+    final l10n = AppLocalizations.of(context);
+    final label = TextEditingController();
+    final bedrooms = TextEditingController();
+
+    final saved = await showFormSheet(
+      context,
+      FormSheet(
+        title: l10n.addUnit,
+        onSave: () => ref
+            .read(propertiesRepositoryProvider)
+            .addUnit(
+              propertyId,
+              label: label.text.trim(),
+              bedrooms: int.tryParse(bedrooms.text),
+            ),
+        fieldsBuilder: (context, errors) => [
+          TextFormField(
+            controller: label,
+            autofocus: true,
+            decoration: InputDecoration(
+              labelText: l10n.unitLabel,
+              hintText: l10n.unitLabelHint,
+              errorText: errors['label'],
+            ),
+            validator: (v) =>
+                (v == null || v.trim().isEmpty) ? l10n.required : null,
+          ),
+          fieldGap,
+          TextFormField(
+            controller: bedrooms,
+            keyboardType: TextInputType.number,
+            inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+            decoration: InputDecoration(
+              labelText: l10n.bedrooms,
+              errorText: errors['bedrooms'],
+            ),
+          ),
+        ],
+      ),
+    );
+
+    if (saved) {
+      ref.invalidate(propertyProvider(propertyId));
+      ref.invalidate(propertiesProvider);
+    }
+  }
+}
+
+class _StatusChip extends StatelessWidget {
+  const _StatusChip({required this.status});
+
+  final UnitStatus status;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final scheme = Theme.of(context).colorScheme;
+    final vacant = status == UnitStatus.vacant;
+    return Chip(
+      label: Text(vacant ? l10n.statusVacant : l10n.statusOccupied),
+      backgroundColor: vacant
+          ? scheme.tertiaryContainer
+          : scheme.secondaryContainer,
+      side: BorderSide.none,
+      visualDensity: VisualDensity.compact,
+    );
+  }
+}
