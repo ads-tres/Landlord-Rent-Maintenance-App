@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../../core/locale_controller.dart';
+import '../../../core/utils/money.dart';
 
 import '../../../core/widgets/async_views.dart';
 import '../../../core/widgets/form_sheet.dart';
@@ -17,6 +21,7 @@ class PropertyDetailScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
     final property = ref.watch(propertyProvider(propertyId));
+    final locale = ref.watch(localeControllerProvider).languageCode;
 
     return Scaffold(
       appBar: AppBar(title: Text(property.value?.name ?? '')),
@@ -59,10 +64,30 @@ class PropertyDetailScreen extends ConsumerWidget {
                   ListTile(
                     leading: const Icon(Icons.meeting_room_outlined),
                     title: Text(unit.label),
-                    subtitle: unit.bedrooms != null
-                        ? Text('${l10n.bedrooms}: ${unit.bedrooms}')
-                        : null,
+                    subtitle: Text(
+                      unit.activeLease != null
+                          ? [
+                              unit.activeLease!.tenantName ?? '',
+                              formatBirr(
+                                unit.activeLease!.monthlyRent,
+                                locale: locale,
+                              ),
+                            ].join(' · ')
+                          : l10n.unitVacantTapToLease,
+                    ),
                     trailing: _StatusChip(status: unit.status),
+                    onTap: () => unit.activeLease != null
+                        ? context.push('/leases/${unit.activeLease!.id}')
+                        : context.push(
+                            Uri(
+                              path: '/leases/new',
+                              queryParameters: {
+                                'unitId': '${unit.id}',
+                                'unitLabel': unit.label,
+                                'propertyId': '$propertyId',
+                              },
+                            ).toString(),
+                          ),
                   ),
             ],
           ),

@@ -214,4 +214,226 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get disclaimer => 'የመዝገብ መያዣ መሳሪያ ነው እንጂ የሕግ ወይም የግብር ምክር አይደለም።';
+
+  @override
+  String get navRent => 'ኪራይ';
+
+  @override
+  String get currency => 'ብር';
+
+  @override
+  String get addLease => 'ውል ፍጠር';
+
+  @override
+  String get leaseTitle => 'ውል';
+
+  @override
+  String leaseFor(String unit) {
+    return 'የ$unit ውል';
+  }
+
+  @override
+  String get tenant => 'ተከራይ';
+
+  @override
+  String get selectTenant => 'ተከራይ ይምረጡ';
+
+  @override
+  String get newTenant => 'አዲስ ተከራይ';
+
+  @override
+  String get noTenantsYet => 'እስካሁን ተከራይ የለም። መጀመሪያ ተከራዩን ያክሉ።';
+
+  @override
+  String get startDate => 'የመጀመሪያ ቀን';
+
+  @override
+  String get endDate => 'የማብቂያ ቀን';
+
+  @override
+  String endDateHelp(int years) {
+    return 'ውል ቢያንስ $years ዓመት ነው (የአዲስ አበባ መመሪያ)።';
+  }
+
+  @override
+  String endDateTooEarly(String date) {
+    return 'የማብቂያ ቀኑ $date ወይም ከዚያ በኋላ መሆን አለበት።';
+  }
+
+  @override
+  String get monthlyRent => 'ወርሃዊ ኪራይ (ብር)';
+
+  @override
+  String get deposit => 'ማስያዣ (ብር)';
+
+  @override
+  String get dueDay => 'ኪራይ የሚከፈልበት ቀን';
+
+  @override
+  String get dueDayHelp => 'ኪራይ የሚከፈልበት የወሩ ቀን።';
+
+  @override
+  String get conditionNotes => 'የቤቱ ሁኔታ';
+
+  @override
+  String get conditionNotesHint => 'ግድግዳ፣ ወለል፣ እቃዎች፣ ቆጣሪዎች፣ የተሰጡ ቁልፎች…';
+
+  @override
+  String get registeredOn => 'በወረዳ የተመዘገበበት ቀን';
+
+  @override
+  String get notRegistered => 'ገና አልተመዘገበም';
+
+  @override
+  String get amountInvalid => 'መጠኑን በብር ያስገቡ።';
+
+  @override
+  String get leaseActive => 'የሚሰራ';
+
+  @override
+  String get leaseEnded => 'ያበቃ';
+
+  @override
+  String get leaseDraft => 'ረቂቅ';
+
+  @override
+  String endsIn(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: 'በ$days ቀናት ውስጥ ያበቃል',
+      one: 'ነገ ያበቃል',
+      zero: 'ዛሬ ያበቃል',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String endedOn(String date) {
+    return '$date ላይ አብቅቷል';
+  }
+
+  @override
+  String missingLeaseFields(String fields) {
+    return 'ለመመሪያው የጎደለ፦ $fields';
+  }
+
+  @override
+  String get missingLandlordName => 'ስምዎ (ቅንብሮች)';
+
+  @override
+  String get missingTenantAddress => 'የተከራይ አድራሻ';
+
+  @override
+  String get missingConditionNotes => 'የቤቱ ሁኔታ';
+
+  @override
+  String get balanceCharged => 'የተጠየቀ';
+
+  @override
+  String get balancePaid => 'የተከፈለ';
+
+  @override
+  String get balanceOutstanding => 'ቀሪ';
+
+  @override
+  String get rentHistory => 'የኪራይ ለውጦች';
+
+  @override
+  String rentChangeLine(String from, String to, String date, String cap) {
+    return '$from → $to ከ$date ጀምሮ (ጣሪያ $cap%)';
+  }
+
+  @override
+  String get changeRent => 'ኪራይ ቀይር';
+
+  @override
+  String get newRent => 'አዲስ ወርሃዊ ኪራይ (ብር)';
+
+  @override
+  String get effectiveDate => 'ከዚህ ቀን ጀምሮ';
+
+  @override
+  String currentRent(String amount) {
+    return 'የአሁኑ ኪራይ፦ $amount';
+  }
+
+  @override
+  String aboveCap(String cap, String max) {
+    return 'ከዓመታዊው $cap% ጣሪያ በላይ ነው። ከፍተኛው የሚፈቀደው $max ነው።';
+  }
+
+  @override
+  String withinCap(String percent, String cap) {
+    return 'የ$percent% ጭማሪ (ጣሪያ $cap%)።';
+  }
+
+  @override
+  String get endLease => 'ውል አቋርጥ';
+
+  @override
+  String endLeaseConfirm(String date) {
+    return 'ይህ ውል $date ላይ ይቋረጥ? ቤቱ ባዶ ይሆናል፣ ለቀጣይ ወራት ያልተከፈለ ኪራይ ይሰረዛል።';
+  }
+
+  @override
+  String get endedOnLabel => 'የመጨረሻ ቀን';
+
+  @override
+  String get charges => 'የኪራይ መርሃ ግብር';
+
+  @override
+  String get chargesEmpty => 'ለዚህ ወር የሚከፈል ኪራይ የለም።';
+
+  @override
+  String get statusDue => 'የሚከፈል';
+
+  @override
+  String get statusPartial => 'በከፊል የተከፈለ';
+
+  @override
+  String get statusPaid => 'የተከፈለ';
+
+  @override
+  String get statusLate => 'የዘገየ';
+
+  @override
+  String daysLate(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: '$days ቀናት ዘግይቷል',
+      one: '1 ቀን ዘግይቷል',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String dueOn(String date) {
+    return 'የሚከፈልበት $date';
+  }
+
+  @override
+  String get filterAll => 'ሁሉም';
+
+  @override
+  String get filterUnpaid => 'ያልተከፈለ';
+
+  @override
+  String get monthTotalDue => 'በዚህ ወር የሚከፈል';
+
+  @override
+  String get monthCollected => 'የተሰበሰበ';
+
+  @override
+  String get monthOutstanding => 'ቀሪ';
+
+  @override
+  String get paymentsComingSoon => 'ክፍያ መመዝገብ በሚቀጥለው ዝመና ይመጣል።';
+
+  @override
+  String get unitVacantTapToLease => 'ባዶ · ውል ለመፍጠር ይንኩ';
+
+  @override
+  String get confirm => 'አረጋግጥ';
 }

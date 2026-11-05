@@ -36,8 +36,8 @@ class TenantsScreen extends ConsumerWidget {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {
-          final added = await context.push<bool>('/tenants/new');
-          if (added == true) ref.invalidate(tenantsProvider);
+          final added = await context.push<Object?>('/tenants/new');
+          if (added != null) ref.invalidate(tenantsProvider);
         },
         icon: const Icon(Icons.person_add_alt),
         label: Text(l10n.addTenant),

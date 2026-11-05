@@ -8,10 +8,15 @@ import '../features/auth/presentation/phone_screen.dart';
 import '../features/home/dashboard_screen.dart';
 import '../features/home/home_shell.dart';
 import '../features/home/settings_screen.dart';
+import '../features/leases/presentation/add_lease_screen.dart';
+import '../features/leases/presentation/lease_detail_screen.dart';
 import '../features/properties/presentation/properties_screen.dart';
 import '../features/properties/presentation/property_detail_screen.dart';
+import '../features/rent/presentation/rent_screen.dart';
 import '../features/tenants/presentation/add_tenant_screen.dart';
 import '../features/tenants/presentation/tenants_screen.dart';
+
+final _rootNavigatorKey = GlobalKey<NavigatorState>();
 
 final routerProvider = Provider<GoRouter>((ref) {
   // Re-run redirects whenever the auth state changes.
@@ -20,6 +25,7 @@ final routerProvider = Provider<GoRouter>((ref) {
   ref.onDispose(refresh.dispose);
 
   final router = GoRouter(
+    navigatorKey: _rootNavigatorKey,
     initialLocation: '/',
     refreshListenable: refresh,
     redirect: (context, state) {
@@ -47,6 +53,25 @@ final routerProvider = Provider<GoRouter>((ref) {
           ),
         ],
       ),
+      // Full-screen lease pages, reachable from any tab.
+      GoRoute(
+        path: '/leases/new',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (_, state) {
+          final q = state.uri.queryParameters;
+          return AddLeaseScreen(
+            unitId: int.parse(q['unitId']!),
+            unitLabel: q['unitLabel'] ?? '',
+            propertyId: int.tryParse(q['propertyId'] ?? ''),
+          );
+        },
+      ),
+      GoRoute(
+        path: '/leases/:id',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (_, state) =>
+            LeaseDetailScreen(leaseId: int.parse(state.pathParameters['id']!)),
+      ),
       StatefulShellRoute.indexedStack(
         builder: (_, _, shell) => HomeShell(shell: shell),
         branches: [
@@ -69,6 +94,11 @@ final routerProvider = Provider<GoRouter>((ref) {
                   ),
                 ],
               ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(path: '/rent', builder: (_, _) => const RentScreen()),
             ],
           ),
           StatefulShellBranch(

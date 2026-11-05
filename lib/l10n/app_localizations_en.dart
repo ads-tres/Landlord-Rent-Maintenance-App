@@ -219,4 +219,227 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get disclaimer => 'A record-keeping tool, not legal or tax advice.';
+
+  @override
+  String get navRent => 'Rent';
+
+  @override
+  String get currency => 'Br';
+
+  @override
+  String get addLease => 'Create lease';
+
+  @override
+  String get leaseTitle => 'Lease';
+
+  @override
+  String leaseFor(String unit) {
+    return 'Lease for $unit';
+  }
+
+  @override
+  String get tenant => 'Tenant';
+
+  @override
+  String get selectTenant => 'Choose a tenant';
+
+  @override
+  String get newTenant => 'New tenant';
+
+  @override
+  String get noTenantsYet => 'No tenants yet. Add the tenant first.';
+
+  @override
+  String get startDate => 'Start date';
+
+  @override
+  String get endDate => 'End date';
+
+  @override
+  String endDateHelp(int years) {
+    return 'Leases run at least $years years (Addis directive).';
+  }
+
+  @override
+  String endDateTooEarly(String date) {
+    return 'The end date must be $date or later.';
+  }
+
+  @override
+  String get monthlyRent => 'Monthly rent (Br)';
+
+  @override
+  String get deposit => 'Deposit (Br)';
+
+  @override
+  String get dueDay => 'Rent due on day';
+
+  @override
+  String get dueDayHelp => 'Day of the month rent is due.';
+
+  @override
+  String get conditionNotes => 'Property condition';
+
+  @override
+  String get conditionNotesHint =>
+      'Walls, floors, fixtures, meters, keys handed over…';
+
+  @override
+  String get registeredOn => 'Registered with the woreda on';
+
+  @override
+  String get notRegistered => 'Not registered yet';
+
+  @override
+  String get amountInvalid => 'Enter an amount in birr.';
+
+  @override
+  String get leaseActive => 'Active';
+
+  @override
+  String get leaseEnded => 'Ended';
+
+  @override
+  String get leaseDraft => 'Draft';
+
+  @override
+  String endsIn(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: 'Ends in $days days',
+      one: 'Ends tomorrow',
+      zero: 'Ends today',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String endedOn(String date) {
+    return 'Ended on $date';
+  }
+
+  @override
+  String missingLeaseFields(String fields) {
+    return 'Missing for the directive: $fields';
+  }
+
+  @override
+  String get missingLandlordName => 'your name (Settings)';
+
+  @override
+  String get missingTenantAddress => 'tenant address';
+
+  @override
+  String get missingConditionNotes => 'property condition';
+
+  @override
+  String get balanceCharged => 'Charged';
+
+  @override
+  String get balancePaid => 'Paid';
+
+  @override
+  String get balanceOutstanding => 'Outstanding';
+
+  @override
+  String get rentHistory => 'Rent changes';
+
+  @override
+  String rentChangeLine(String from, String to, String date, String cap) {
+    return '$from → $to from $date (cap $cap%)';
+  }
+
+  @override
+  String get changeRent => 'Change rent';
+
+  @override
+  String get newRent => 'New monthly rent (Br)';
+
+  @override
+  String get effectiveDate => 'Effective from';
+
+  @override
+  String currentRent(String amount) {
+    return 'Current rent: $amount';
+  }
+
+  @override
+  String aboveCap(String cap, String max) {
+    return 'Above the $cap% yearly cap. The most allowed is $max.';
+  }
+
+  @override
+  String withinCap(String percent, String cap) {
+    return 'Increase of $percent% (cap $cap%).';
+  }
+
+  @override
+  String get endLease => 'End lease';
+
+  @override
+  String endLeaseConfirm(String date) {
+    return 'End this lease on $date? The unit becomes vacant and unpaid rent for later months is removed.';
+  }
+
+  @override
+  String get endedOnLabel => 'Last day';
+
+  @override
+  String get charges => 'Rent schedule';
+
+  @override
+  String get chargesEmpty => 'No rent due for this month.';
+
+  @override
+  String get statusDue => 'Due';
+
+  @override
+  String get statusPartial => 'Partly paid';
+
+  @override
+  String get statusPaid => 'Paid';
+
+  @override
+  String get statusLate => 'Late';
+
+  @override
+  String daysLate(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: '$days days late',
+      one: '1 day late',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String dueOn(String date) {
+    return 'Due $date';
+  }
+
+  @override
+  String get filterAll => 'All';
+
+  @override
+  String get filterUnpaid => 'Unpaid';
+
+  @override
+  String get monthTotalDue => 'Due this month';
+
+  @override
+  String get monthCollected => 'Collected';
+
+  @override
+  String get monthOutstanding => 'Outstanding';
+
+  @override
+  String get paymentsComingSoon => 'Payment logging comes in the next update.';
+
+  @override
+  String get unitVacantTapToLease => 'Vacant · tap to create a lease';
+
+  @override
+  String get confirm => 'Confirm';
 }

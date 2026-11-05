@@ -49,7 +49,7 @@ class _AddTenantScreenState extends ConsumerState<AddTenantScreen> {
       _error = null;
     });
     try {
-      await ref
+      final tenant = await ref
           .read(tenantsRepositoryProvider)
           .create(
             fullName: _name.text.trim(),
@@ -59,7 +59,7 @@ class _AddTenantScreenState extends ConsumerState<AddTenantScreen> {
             privacyNoticeShown: _noticeShown,
             noticeLocale: ref.read(localeControllerProvider).languageCode,
           );
-      if (mounted) Navigator.of(context).pop(true);
+      if (mounted) Navigator.of(context).pop(tenant);
     } on ApiException catch (e) {
       if (!mounted) return;
       setState(() {
