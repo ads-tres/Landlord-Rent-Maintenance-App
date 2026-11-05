@@ -15,6 +15,7 @@ import '../../../l10n/app_localizations.dart';
 import '../../payments/data/payments_repository.dart';
 import '../../payments/presentation/payment_labels.dart';
 import '../../properties/data/properties_repository.dart';
+import '../../repairs/data/repairs_repository.dart';
 import '../../rent/presentation/rent_screen.dart';
 import '../data/leases_repository.dart';
 import '../domain/lease.dart';
@@ -87,6 +88,10 @@ class LeaseDetailScreen extends ConsumerWidget {
               if (l.missingFields.isNotEmpty) ...[
                 const SizedBox(height: 12),
                 _DirectiveWarning(missing: l.missingFields),
+              ],
+              if (l.repairUrl != null) ...[
+                const SizedBox(height: 12),
+                _RepairLinkCard(lease: l, onReset: () => _refreshAll(ref, l)),
               ],
               if (l.balance != null) ...[
                 const SizedBox(height: 12),
@@ -628,6 +633,103 @@ class _LeasePayments extends ConsumerWidget {
             child: Text(l10n.removePayment),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _RepairLinkCard extends ConsumerWidget {
+  const _RepairLinkCard({required this.lease, required this.onReset});
+
+  final Lease lease;
+  final VoidCallback onReset;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final repo = ref.read(repairsRepositoryProvider);
+
+    Future<void> run(Future<void> Function() action, {String? done}) async {
+      try {
+        await action();
+        if (done != null && context.mounted) {
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text(done)));
+        }
+      } on ApiException catch (e) {
+        if (context.mounted) {
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text(friendlyError(context, e))));
+        }
+      }
+    }
+
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 12, 8, 4),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              l10n.repairLink,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            const SizedBox(height: 4),
+            Text(l10n.repairLinkHelp),
+            const SizedBox(height: 4),
+            SelectableText(
+              lease.repairUrl!,
+              style: TextStyle(color: Theme.of(context).colorScheme.primary),
+            ),
+            Wrap(
+              spacing: 4,
+              children: [
+                TextButton.icon(
+                  key: const Key('sendRepairLink'),
+                  onPressed: () => run(
+                    () => repo.sendRepairLink(lease.id),
+                    done: l10n.repairLinkSent,
+                  ),
+                  icon: const Icon(Icons.sms_outlined),
+                  label: Text(l10n.sendRepairLink),
+                ),
+                TextButton.icon(
+                  onPressed: () => SharePlus.instance.share(
+                    ShareParams(text: lease.repairUrl!),
+                  ),
+                  icon: const Icon(Icons.share),
+                  label: Text(l10n.shareRepairLink),
+                ),
+                TextButton.icon(
+                  onPressed: () async {
+                    final ok = await showDialog<bool>(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        content: Text(l10n.resetRepairLinkConfirm),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.pop(context, false),
+                            child: Text(l10n.cancel),
+                          ),
+                          FilledButton(
+                            onPressed: () => Navigator.pop(context, true),
+                            child: Text(l10n.resetRepairLink),
+                          ),
+                        ],
+                      ),
+                    );
+                    if (ok == true) {
+                      await run(() => repo.resetRepairLink(lease.id));
+                      onReset();
+                    }
+                  },
+                  icon: const Icon(Icons.refresh),
+                  label: Text(l10n.resetRepairLink),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

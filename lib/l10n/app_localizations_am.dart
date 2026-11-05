@@ -543,4 +543,122 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get smsRemindersHelp => 'ከመክፈያ ቀኑ 3 ቀን በፊት እና በዕለቱ ለተከራዮች ይላካል።';
+
+  @override
+  String get navRepairs => 'ጥገና';
+
+  @override
+  String get repairsEmpty => 'እዚህ ጥገና የለም።';
+
+  @override
+  String get repairActive => 'ክፍት';
+
+  @override
+  String get repairOpen => 'አዲስ';
+
+  @override
+  String get repairInProgress => 'እየተሰራ';
+
+  @override
+  String get repairDone => 'የተጠናቀቀ';
+
+  @override
+  String get addRepair => 'ጥገና መዝግብ';
+
+  @override
+  String get repairTitle => 'የሚጠገነው';
+
+  @override
+  String get repairCategory => 'አይነት';
+
+  @override
+  String get repairDescription => 'ዝርዝር (አማራጭ)';
+
+  @override
+  String get repairUnit => 'ቤት';
+
+  @override
+  String get repairFromTenant => 'ከተከራይ';
+
+  @override
+  String repairOpenedOn(String date) {
+    return 'የተገለጸበት $date';
+  }
+
+  @override
+  String repairClosedOn(String date) {
+    return 'የተጠናቀቀበት $date';
+  }
+
+  @override
+  String get addPhoto => 'ፎቶ ጨምር';
+
+  @override
+  String get takePhoto => 'ካሜራ';
+
+  @override
+  String get choosePhoto => 'ጋለሪ';
+
+  @override
+  String get photos => 'ፎቶዎች';
+
+  @override
+  String get startRepair => 'ስራ ጀምር';
+
+  @override
+  String get finishRepair => 'ተጠናቋል በል';
+
+  @override
+  String get reopenRepair => 'እንደገና ክፈት';
+
+  @override
+  String get repairNote => 'ለተከራዩ ማስታወሻ (አማራጭ)';
+
+  @override
+  String get repairNoteHint => 'ለምሳሌ ቧንቧ ሰራተኛ 9 ሰዓት ይመጣል';
+
+  @override
+  String get notifyTenantSms => 'ለተከራዩ በኤስኤምኤስ አሳውቅ';
+
+  @override
+  String get categoryWater => 'የውሃ አቅርቦት';
+
+  @override
+  String get categoryElectric => 'መብራት / ኤሌክትሪክ';
+
+  @override
+  String get categoryPlumbing => 'ቧንቧ / መፍሰስ';
+
+  @override
+  String get categoryDoorLock => 'በር ወይም ቁልፍ';
+
+  @override
+  String get categoryRoof => 'ጣሪያ ወይም ኮርኒስ';
+
+  @override
+  String get categoryAppliance => 'የቤት እቃ';
+
+  @override
+  String get categoryOther => 'ሌላ';
+
+  @override
+  String get repairLink => 'የተከራይ የጥገና ሊንክ';
+
+  @override
+  String get repairLinkHelp => 'ተከራዩ ያለ መተግበሪያ ጥገናን ከፎቶ ጋር እዚህ ማሳወቅ ይችላል።';
+
+  @override
+  String get sendRepairLink => 'በኤስኤምኤስ ላክ';
+
+  @override
+  String get shareRepairLink => 'አጋራ';
+
+  @override
+  String get resetRepairLink => 'አዲስ ሊንክ';
+
+  @override
+  String get resetRepairLinkConfirm => 'አዲስ ሊንክ ይፈጠር? የድሮው ሊንክ መስራት ያቆማል።';
+
+  @override
+  String get repairLinkSent => 'የጥገና ሊንኩ ለተከራዩ ተልኳል።';
 }

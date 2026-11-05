@@ -23,7 +23,17 @@ class DashboardScreen extends ConsumerWidget {
     final name = user?.name;
 
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.appName)),
+      appBar: AppBar(
+        title: Text(l10n.appName),
+        actions: [
+          IconButton(
+            key: const Key('settingsButton'),
+            tooltip: l10n.navSettings,
+            onPressed: () => context.push('/settings'),
+            icon: const Icon(Icons.settings_outlined),
+          ),
+        ],
+      ),
       body: RefreshIndicator(
         onRefresh: () => ref.refresh(dashboardProvider.future),
         child: ListView(

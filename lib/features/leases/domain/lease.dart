@@ -66,6 +66,7 @@ class Lease {
     this.conditionNotes,
     this.registeredAt,
     this.daysUntilEnd,
+    this.repairUrl,
     this.unitLabel,
     this.propertyId,
     this.propertyName,
@@ -99,6 +100,7 @@ class Lease {
           ? null
           : parseYmd(j['registered_at'] as String),
       daysUntilEnd: j['days_until_end'] as int?,
+      repairUrl: j['repair_url'] as String?,
       unitLabel: unit?['label'] as String?,
       propertyId: unit?['property_id'] as int?,
       propertyName: unit?['property_name'] as String?,
@@ -125,6 +127,7 @@ class Lease {
   final String? conditionNotes;
   final DateTime? registeredAt;
   final int? daysUntilEnd;
+  final String? repairUrl;
   final String? unitLabel;
   final int? propertyId;
   final String? propertyName;

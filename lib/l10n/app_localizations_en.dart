@@ -550,4 +550,124 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get smsRemindersHelp =>
       'Text tenants 3 days before and on the due date.';
+
+  @override
+  String get navRepairs => 'Repairs';
+
+  @override
+  String get repairsEmpty => 'No repairs here.';
+
+  @override
+  String get repairActive => 'Active';
+
+  @override
+  String get repairOpen => 'New';
+
+  @override
+  String get repairInProgress => 'In progress';
+
+  @override
+  String get repairDone => 'Done';
+
+  @override
+  String get addRepair => 'Record repair';
+
+  @override
+  String get repairTitle => 'What needs fixing';
+
+  @override
+  String get repairCategory => 'Type';
+
+  @override
+  String get repairDescription => 'Details (optional)';
+
+  @override
+  String get repairUnit => 'Unit';
+
+  @override
+  String get repairFromTenant => 'From tenant';
+
+  @override
+  String repairOpenedOn(String date) {
+    return 'Reported $date';
+  }
+
+  @override
+  String repairClosedOn(String date) {
+    return 'Done $date';
+  }
+
+  @override
+  String get addPhoto => 'Add photo';
+
+  @override
+  String get takePhoto => 'Camera';
+
+  @override
+  String get choosePhoto => 'Gallery';
+
+  @override
+  String get photos => 'Photos';
+
+  @override
+  String get startRepair => 'Start work';
+
+  @override
+  String get finishRepair => 'Mark done';
+
+  @override
+  String get reopenRepair => 'Reopen';
+
+  @override
+  String get repairNote => 'Note for the tenant (optional)';
+
+  @override
+  String get repairNoteHint => 'e.g. Plumber coming at 3pm';
+
+  @override
+  String get notifyTenantSms => 'Text the tenant';
+
+  @override
+  String get categoryWater => 'Water supply';
+
+  @override
+  String get categoryElectric => 'Electricity';
+
+  @override
+  String get categoryPlumbing => 'Plumbing / leak';
+
+  @override
+  String get categoryDoorLock => 'Door or lock';
+
+  @override
+  String get categoryRoof => 'Roof or ceiling';
+
+  @override
+  String get categoryAppliance => 'Appliance';
+
+  @override
+  String get categoryOther => 'Other';
+
+  @override
+  String get repairLink => 'Tenant repair link';
+
+  @override
+  String get repairLinkHelp =>
+      'The tenant can report repairs with a photo here, without an app.';
+
+  @override
+  String get sendRepairLink => 'Send by SMS';
+
+  @override
+  String get shareRepairLink => 'Share';
+
+  @override
+  String get resetRepairLink => 'New link';
+
+  @override
+  String get resetRepairLinkConfirm =>
+      'Make a new link? The old link will stop working.';
+
+  @override
+  String get repairLinkSent => 'Repair link sent to the tenant.';
 }
