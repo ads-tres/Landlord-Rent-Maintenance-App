@@ -65,6 +65,7 @@ class Repair {
     this.tenantPhone,
     this.photosCount = 0,
     this.photos = const [],
+    this.voiceNotes = const [],
   });
 
   factory Repair.fromJson(Map<String, dynamic> j) {
@@ -92,6 +93,9 @@ class Repair {
       tenantPhone: tenant?['phone'] as String?,
       photosCount: j['photos_count'] as int? ?? photos.length,
       photos: photos,
+      voiceNotes: (j['voice_notes'] as List<dynamic>? ?? [])
+          .map((p) => RepairPhoto.fromJson(p as Map<String, dynamic>))
+          .toList(),
     );
   }
 
@@ -111,6 +115,9 @@ class Repair {
   final String? tenantPhone;
   final int photosCount;
   final List<RepairPhoto> photos;
+
+  /// Voice notes sent by the tenant on Telegram; `url` is a short-lived signed link.
+  final List<RepairPhoto> voiceNotes;
 }
 
 /// A unit for pickers (`GET /units`).

@@ -896,12 +896,6 @@ abstract class AppLocalizations {
   /// **'Note (optional)'**
   String get notes;
 
-  /// No description provided for @sendSmsReceipt.
-  ///
-  /// In en, this message translates to:
-  /// **'Send SMS receipt to the tenant'**
-  String get sendSmsReceipt;
-
   /// No description provided for @quickBalance.
   ///
   /// In en, this message translates to:
@@ -1417,6 +1411,78 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Version {version}'**
   String appVersion(String version);
+
+  /// No description provided for @telegram.
+  ///
+  /// In en, this message translates to:
+  /// **'Telegram'**
+  String get telegram;
+
+  /// No description provided for @telegramConnected.
+  ///
+  /// In en, this message translates to:
+  /// **'Connected: repair alerts come to Telegram'**
+  String get telegramConnected;
+
+  /// No description provided for @telegramNotConnected.
+  ///
+  /// In en, this message translates to:
+  /// **'Get an alert when a tenant reports a repair'**
+  String get telegramNotConnected;
+
+  /// No description provided for @telegramConnect.
+  ///
+  /// In en, this message translates to:
+  /// **'Connect Telegram'**
+  String get telegramConnect;
+
+  /// No description provided for @telegramDisconnect.
+  ///
+  /// In en, this message translates to:
+  /// **'Disconnect Telegram'**
+  String get telegramDisconnect;
+
+  /// No description provided for @telegramDisconnectConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop repair alerts on Telegram?'**
+  String get telegramDisconnectConfirm;
+
+  /// No description provided for @telegramOpenHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Telegram opens. Tap Start to finish connecting.'**
+  String get telegramOpenHint;
+
+  /// No description provided for @tenantOnTelegram.
+  ///
+  /// In en, this message translates to:
+  /// **'Gets messages on Telegram'**
+  String get tenantOnTelegram;
+
+  /// No description provided for @voiceNotes.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice notes'**
+  String get voiceNotes;
+
+  /// No description provided for @voiceNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice note {number}'**
+  String voiceNote(int number);
+
+  /// No description provided for @sendReceipt.
+  ///
+  /// In en, this message translates to:
+  /// **'Send receipt to the tenant'**
+  String get sendReceipt;
+
+  /// No description provided for @sendReceiptHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'On Telegram if they connected, otherwise by SMS'**
+  String get sendReceiptHelp;
 }
 
 class _AppLocalizationsDelegate

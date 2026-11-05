@@ -470,9 +470,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get notes => 'Note (optional)';
 
   @override
-  String get sendSmsReceipt => 'Send SMS receipt to the tenant';
-
-  @override
   String quickBalance(String amount) {
     return 'Balance $amount';
   }
@@ -780,4 +777,45 @@ class AppLocalizationsEn extends AppLocalizations {
   String appVersion(String version) {
     return 'Version $version';
   }
+
+  @override
+  String get telegram => 'Telegram';
+
+  @override
+  String get telegramConnected => 'Connected: repair alerts come to Telegram';
+
+  @override
+  String get telegramNotConnected =>
+      'Get an alert when a tenant reports a repair';
+
+  @override
+  String get telegramConnect => 'Connect Telegram';
+
+  @override
+  String get telegramDisconnect => 'Disconnect Telegram';
+
+  @override
+  String get telegramDisconnectConfirm => 'Stop repair alerts on Telegram?';
+
+  @override
+  String get telegramOpenHint =>
+      'Telegram opens. Tap Start to finish connecting.';
+
+  @override
+  String get tenantOnTelegram => 'Gets messages on Telegram';
+
+  @override
+  String get voiceNotes => 'Voice notes';
+
+  @override
+  String voiceNote(int number) {
+    return 'Voice note $number';
+  }
+
+  @override
+  String get sendReceipt => 'Send receipt to the tenant';
+
+  @override
+  String get sendReceiptHelp =>
+      'On Telegram if they connected, otherwise by SMS';
 }

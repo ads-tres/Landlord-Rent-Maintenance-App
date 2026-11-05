@@ -464,9 +464,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get notes => 'ማስታወሻ (አማራጭ)';
 
   @override
-  String get sendSmsReceipt => 'ለተከራዩ ደረሰኝ በኤስኤምኤስ ላክ';
-
-  @override
   String quickBalance(String amount) {
     return 'ቀሪ $amount';
   }
@@ -770,4 +767,42 @@ class AppLocalizationsAm extends AppLocalizations {
   String appVersion(String version) {
     return 'ስሪት $version';
   }
+
+  @override
+  String get telegram => 'ቴሌግራም';
+
+  @override
+  String get telegramConnected => 'ተገናኝቷል፦ የጥገና ማሳወቂያዎች በቴሌግራም ይመጣሉ';
+
+  @override
+  String get telegramNotConnected => 'ተከራይ ጥገና ሲያሳውቅ ማሳወቂያ ያግኙ';
+
+  @override
+  String get telegramConnect => 'ቴሌግራም ያገናኙ';
+
+  @override
+  String get telegramDisconnect => 'ቴሌግራም ያላቅቁ';
+
+  @override
+  String get telegramDisconnectConfirm => 'የቴሌግራም የጥገና ማሳወቂያዎች ይቁሙ?';
+
+  @override
+  String get telegramOpenHint => 'ቴሌግራም ይከፈታል። ለማገናኘት Start ይንኩ።';
+
+  @override
+  String get tenantOnTelegram => 'መልዕክቶችን በቴሌግራም ይቀበላል';
+
+  @override
+  String get voiceNotes => 'የድምፅ መልዕክቶች';
+
+  @override
+  String voiceNote(int number) {
+    return 'የድምፅ መልዕክት $number';
+  }
+
+  @override
+  String get sendReceipt => 'ለተከራዩ ደረሰኝ ላክ';
+
+  @override
+  String get sendReceiptHelp => 'ካገናኙ በቴሌግራም፣ ካልሆነ በኤስኤምኤስ';
 }

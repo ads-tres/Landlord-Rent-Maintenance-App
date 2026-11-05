@@ -267,7 +267,6 @@
   "reference": "Transaction reference",
   "referenceHelp": "From the Telebirr SMS or bank slip.",
   "notes": "Note (optional)",
-  "sendSmsReceipt": "Send SMS receipt to the tenant",
   "quickBalance": "Balance {amount}",
   "@quickBalance": {
     "placeholders": {
@@ -444,5 +443,24 @@
         "type": "String"
       }
     }
-  }
+  },
+  "telegram": "Telegram",
+  "telegramConnected": "Connected: repair alerts come to Telegram",
+  "telegramNotConnected": "Get an alert when a tenant reports a repair",
+  "telegramConnect": "Connect Telegram",
+  "telegramDisconnect": "Disconnect Telegram",
+  "telegramDisconnectConfirm": "Stop repair alerts on Telegram?",
+  "telegramOpenHint": "Telegram opens. Tap Start to finish connecting.",
+  "tenantOnTelegram": "Gets messages on Telegram",
+  "voiceNotes": "Voice notes",
+  "voiceNote": "Voice note {number}",
+  "@voiceNote": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "sendReceipt": "Send receipt to the tenant",
+  "sendReceiptHelp": "On Telegram if they connected, otherwise by SMS"
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/api/api_exception.dart';
 import '../../../core/utils/app_dates.dart';
@@ -124,6 +125,24 @@ class RepairDetailScreen extends ConsumerWidget {
                   ),
                 ),
               ),
+            if (r.voiceNotes.isNotEmpty) ...[
+              const SizedBox(height: 16),
+              Text(
+                l10n.voiceNotes,
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              for (final (i, v) in r.voiceNotes.indexed)
+                ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: const Icon(Icons.play_circle_outline),
+                  title: Text(l10n.voiceNote(i + 1)),
+                  // Signed link valid for 30 minutes; opens in the phone's audio player.
+                  onTap: () => launchUrl(
+                    Uri.parse(v.url),
+                    mode: LaunchMode.externalApplication,
+                  ),
+                ),
+            ],
             const SizedBox(height: 24),
             ..._actions(context, ref, r),
           ],

@@ -31,7 +31,11 @@ properties, units, tenants, leases, rent and repairs. It talks only to the Larav
   also record repairs yourself with up to 4 photos (camera or gallery, shrunk on the phone to save data).
   Move a repair from new to in progress to done, with an optional note texted to the tenant. Photos are
   private and load with your login.
-- Settings: turn SMS rent reminders on or off.
+- Settings: turn SMS rent reminders on or off, and **Connect Telegram** (when the server has a bot) to get an
+  alert for each new tenant repair.
+- **Telegram:** tenants who linked the bot get receipts, reminders and repair updates there instead of SMS, and
+  are marked with a Telegram icon in the Tenants list. Repairs reported in the bot can include voice notes,
+  which play from the repair page.
 - **Ethiopian calendar** (default; switch in Settings): dates show as e.g. "6 ኅዳር 2019", and rent months
   as the Ethiopian months they span ("ጥቅምት–ኅዳር 2019"). Conversion is in
   `lib/core/utils/ethiopian_date.dart`, checked against the backend's andegna/calender results.

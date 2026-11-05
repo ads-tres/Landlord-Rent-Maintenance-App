@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../core/offline/response_cache.dart';
 import '../../l10n/app_localizations.dart';
+import '../auth/application/auth_controller.dart';
 import '../payments/application/pending_payments.dart';
 
 /// Bottom navigation for the signed-in landlord, with offline and unsent-payment banners.
@@ -23,7 +24,13 @@ class _HomeShellState extends ConsumerState<HomeShell> {
   @override
   void initState() {
     super.initState();
-    _lifecycle = AppLifecycleListener(onResume: _sync);
+    _lifecycle = AppLifecycleListener(
+      onResume: () {
+        _sync();
+        // Picks up changes made outside the app, e.g. linking Telegram.
+        ref.read(authControllerProvider.notifier).refreshUser();
+      },
+    );
     WidgetsBinding.instance.addPostFrameCallback((_) => _sync());
   }
 

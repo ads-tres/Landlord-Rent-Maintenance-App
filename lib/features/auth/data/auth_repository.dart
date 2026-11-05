@@ -69,6 +69,14 @@ class AuthRepository {
     return AppUser.fromJson(data['data'] as Map<String, dynamic>);
   }
 
+  /// One-time t.me link that opens the bot and links this landlord.
+  Future<String> telegramLinkUrl() async {
+    final data = await _api.post('/telegram/link') as Map<String, dynamic>;
+    return (data['data'] as Map<String, dynamic>)['url'] as String;
+  }
+
+  Future<void> telegramUnlink() => _api.delete('/telegram/link');
+
   Future<void> logout() async {
     await _api.post('/auth/logout');
   }
