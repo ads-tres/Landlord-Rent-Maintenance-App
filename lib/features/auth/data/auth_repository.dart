@@ -55,10 +55,16 @@ class AuthRepository {
     String? name,
     String? locale,
     String? calendarPref,
+    bool? smsReminders,
   }) async {
     final data = await _api.patch(
       '/auth/me',
-      data: {'name': ?name, 'locale': ?locale, 'calendar_pref': ?calendarPref},
+      data: {
+        'name': ?name,
+        'locale': ?locale,
+        'calendar_pref': ?calendarPref,
+        'sms_reminders': ?smsReminders,
+      },
     ) as Map<String, dynamic>;
     return AppUser.fromJson(data['data'] as Map<String, dynamic>);
   }

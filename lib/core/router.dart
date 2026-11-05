@@ -10,6 +10,7 @@ import '../features/home/home_shell.dart';
 import '../features/home/settings_screen.dart';
 import '../features/leases/presentation/add_lease_screen.dart';
 import '../features/leases/presentation/lease_detail_screen.dart';
+import '../features/payments/presentation/log_payment_screen.dart';
 import '../features/properties/presentation/properties_screen.dart';
 import '../features/properties/presentation/property_detail_screen.dart';
 import '../features/rent/presentation/rent_screen.dart';
@@ -71,6 +72,13 @@ final routerProvider = Provider<GoRouter>((ref) {
         parentNavigatorKey: _rootNavigatorKey,
         builder: (_, state) =>
             LeaseDetailScreen(leaseId: int.parse(state.pathParameters['id']!)),
+      ),
+      GoRoute(
+        path: '/payments/new',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (_, state) => LogPaymentScreen(
+          leaseId: int.parse(state.uri.queryParameters['leaseId']!),
+        ),
       ),
       StatefulShellRoute.indexedStack(
         builder: (_, _, shell) => HomeShell(shell: shell),

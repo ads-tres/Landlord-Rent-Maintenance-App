@@ -16,11 +16,19 @@ class SettingsScreen extends ConsumerWidget {
     final user = ref.watch(authControllerProvider).value;
     final locale = ref.watch(localeControllerProvider);
 
-    Future<void> sync({String? locale, String? calendarPref}) async {
+    Future<void> sync({
+      String? locale,
+      String? calendarPref,
+      bool? smsReminders,
+    }) async {
       try {
         await ref
             .read(authControllerProvider.notifier)
-            .updateProfile(locale: locale, calendarPref: calendarPref);
+            .updateProfile(
+              locale: locale,
+              calendarPref: calendarPref,
+              smsReminders: smsReminders,
+            );
       } on ApiException {
         // Offline: the local choice still applies; it syncs next time.
       }
@@ -73,6 +81,13 @@ class SettingsScreen extends ConsumerWidget {
               selected: {user?.calendarPref ?? 'ethiopian'},
               onSelectionChanged: (s) => sync(calendarPref: s.first),
             ),
+          ),
+          SwitchListTile(
+            secondary: const Icon(Icons.sms_outlined),
+            title: Text(l10n.smsReminders),
+            subtitle: Text(l10n.smsRemindersHelp),
+            value: user?.smsReminders ?? true,
+            onChanged: (v) => sync(smsReminders: v),
           ),
           const Divider(),
           ListTile(

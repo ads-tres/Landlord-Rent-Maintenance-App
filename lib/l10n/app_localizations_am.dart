@@ -74,10 +74,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get dashboardWelcomeNoName => 'እንኳን ደህና መጡ';
 
   @override
-  String get dashboardComingSoon =>
-      'ውሎችና ክፍያዎች ሲጨመሩ የኪራይ ድምር፣ የዘገዩ ተከራዮች፣ ክፍት ጥገናዎች እና የሚያበቁ ውሎች እዚህ ይታያሉ።';
-
-  @override
   String get dashboardProperties => 'ንብረቶች';
 
   @override
@@ -429,11 +425,122 @@ class AppLocalizationsAm extends AppLocalizations {
   String get monthOutstanding => 'ቀሪ';
 
   @override
-  String get paymentsComingSoon => 'ክፍያ መመዝገብ በሚቀጥለው ዝመና ይመጣል።';
-
-  @override
   String get unitVacantTapToLease => 'ባዶ · ውል ለመፍጠር ይንኩ';
 
   @override
   String get confirm => 'አረጋግጥ';
+
+  @override
+  String get logPayment => 'ክፍያ መዝግብ';
+
+  @override
+  String get amountPaid => 'የተከፈለ መጠን (ብር)';
+
+  @override
+  String get paidOn => 'የተከፈለበት ቀን';
+
+  @override
+  String get paymentMethod => 'የክፍያ ዘዴ';
+
+  @override
+  String get methodCash => 'ጥሬ ገንዘብ';
+
+  @override
+  String get methodTelebirr => 'ቴሌብር';
+
+  @override
+  String get methodBank => 'ባንክ';
+
+  @override
+  String get methodChapa => 'ቻፓ';
+
+  @override
+  String get reference => 'የግብይት ማጣቀሻ ቁጥር';
+
+  @override
+  String get referenceHelp => 'ከቴሌብር ኤስኤምኤስ ወይም ከባንክ ደረሰኝ።';
+
+  @override
+  String get notes => 'ማስታወሻ (አማራጭ)';
+
+  @override
+  String get sendSmsReceipt => 'ለተከራዩ ደረሰኝ በኤስኤምኤስ ላክ';
+
+  @override
+  String quickBalance(String amount) {
+    return 'ቀሪ $amount';
+  }
+
+  @override
+  String quickMonths(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ወራት',
+      one: '1 ወር',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get paymentSaved => 'ክፍያው ተመዝግቧል';
+
+  @override
+  String paymentCovers(String months) {
+    return 'የሚሸፍነው፦ $months';
+  }
+
+  @override
+  String receiptNumber(String number) {
+    return 'ደረሰኝ $number';
+  }
+
+  @override
+  String get smsQueued => 'ደረሰኝ ለተከራዩ በኤስኤምኤስ ተልኳል።';
+
+  @override
+  String get shareReceipt => 'የደረሰኝ ሊንክ አጋራ';
+
+  @override
+  String get done => 'ጨርስ';
+
+  @override
+  String get payments => 'ክፍያዎች';
+
+  @override
+  String get paymentsEmpty => 'እስካሁን የተመዘገበ ክፍያ የለም።';
+
+  @override
+  String get removePayment => 'ክፍያውን ሰርዝ';
+
+  @override
+  String removePaymentConfirm(String amount) {
+    return 'ይህ የ$amount ክፍያ ይሰረዝ? የሸፈናቸው ወራት እንደገና ያልተከፈሉ ይሆናሉ።';
+  }
+
+  @override
+  String get dashboardCollected => 'በዚህ ወር የተሰበሰበ';
+
+  @override
+  String get dashboardOutstanding => 'ቀሪ ዕዳ';
+
+  @override
+  String get dashboardLateTenants => 'የዘገዩ ተከራዮች';
+
+  @override
+  String get dashboardOpenRepairs => 'ክፍት ጥገናዎች';
+
+  @override
+  String get dashboardLeasesEnding => 'በ60 ቀናት የሚያበቁ ውሎች';
+
+  @override
+  String dashboardDueThisMonth(String amount) {
+    return 'በዚህ ወር የሚከፈል፦ $amount';
+  }
+
+  @override
+  String get smsReminders => 'የኪራይ ማሳሰቢያ በኤስኤምኤስ';
+
+  @override
+  String get smsRemindersHelp => 'ከመክፈያ ቀኑ 3 ቀን በፊት እና በዕለቱ ለተከራዮች ይላካል።';
 }

@@ -75,10 +75,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get dashboardWelcomeNoName => 'Welcome';
 
   @override
-  String get dashboardComingSoon =>
-      'Rent totals, late tenants, open repairs and leases ending soon will show here once leases and payments are added.';
-
-  @override
   String get dashboardProperties => 'Properties';
 
   @override
@@ -435,11 +431,123 @@ class AppLocalizationsEn extends AppLocalizations {
   String get monthOutstanding => 'Outstanding';
 
   @override
-  String get paymentsComingSoon => 'Payment logging comes in the next update.';
-
-  @override
   String get unitVacantTapToLease => 'Vacant · tap to create a lease';
 
   @override
   String get confirm => 'Confirm';
+
+  @override
+  String get logPayment => 'Log payment';
+
+  @override
+  String get amountPaid => 'Amount paid (Br)';
+
+  @override
+  String get paidOn => 'Paid on';
+
+  @override
+  String get paymentMethod => 'Paid by';
+
+  @override
+  String get methodCash => 'Cash';
+
+  @override
+  String get methodTelebirr => 'Telebirr';
+
+  @override
+  String get methodBank => 'Bank';
+
+  @override
+  String get methodChapa => 'Chapa';
+
+  @override
+  String get reference => 'Transaction reference';
+
+  @override
+  String get referenceHelp => 'From the Telebirr SMS or bank slip.';
+
+  @override
+  String get notes => 'Note (optional)';
+
+  @override
+  String get sendSmsReceipt => 'Send SMS receipt to the tenant';
+
+  @override
+  String quickBalance(String amount) {
+    return 'Balance $amount';
+  }
+
+  @override
+  String quickMonths(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count months',
+      one: '1 month',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get paymentSaved => 'Payment saved';
+
+  @override
+  String paymentCovers(String months) {
+    return 'Covers $months';
+  }
+
+  @override
+  String receiptNumber(String number) {
+    return 'Receipt $number';
+  }
+
+  @override
+  String get smsQueued => 'SMS receipt sent to the tenant.';
+
+  @override
+  String get shareReceipt => 'Share receipt link';
+
+  @override
+  String get done => 'Done';
+
+  @override
+  String get payments => 'Payments';
+
+  @override
+  String get paymentsEmpty => 'No payments logged yet.';
+
+  @override
+  String get removePayment => 'Remove payment';
+
+  @override
+  String removePaymentConfirm(String amount) {
+    return 'Remove this payment of $amount? The months it covered become unpaid again.';
+  }
+
+  @override
+  String get dashboardCollected => 'Collected this month';
+
+  @override
+  String get dashboardOutstanding => 'Outstanding';
+
+  @override
+  String get dashboardLateTenants => 'Late tenants';
+
+  @override
+  String get dashboardOpenRepairs => 'Open repairs';
+
+  @override
+  String get dashboardLeasesEnding => 'Leases ending in 60 days';
+
+  @override
+  String dashboardDueThisMonth(String amount) {
+    return 'Due this month: $amount';
+  }
+
+  @override
+  String get smsReminders => 'SMS rent reminders';
+
+  @override
+  String get smsRemindersHelp =>
+      'Text tenants 3 days before and on the due date.';
 }

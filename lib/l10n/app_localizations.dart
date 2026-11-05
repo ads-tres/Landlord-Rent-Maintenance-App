@@ -218,12 +218,6 @@ abstract class AppLocalizations {
   /// **'Welcome'**
   String get dashboardWelcomeNoName;
 
-  /// No description provided for @dashboardComingSoon.
-  ///
-  /// In en, this message translates to:
-  /// **'Rent totals, late tenants, open repairs and leases ending soon will show here once leases and payments are added.'**
-  String get dashboardComingSoon;
-
   /// No description provided for @dashboardProperties.
   ///
   /// In en, this message translates to:
@@ -824,12 +818,6 @@ abstract class AppLocalizations {
   /// **'Outstanding'**
   String get monthOutstanding;
 
-  /// No description provided for @paymentsComingSoon.
-  ///
-  /// In en, this message translates to:
-  /// **'Payment logging comes in the next update.'**
-  String get paymentsComingSoon;
-
   /// No description provided for @unitVacantTapToLease.
   ///
   /// In en, this message translates to:
@@ -841,6 +829,198 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Confirm'**
   String get confirm;
+
+  /// No description provided for @logPayment.
+  ///
+  /// In en, this message translates to:
+  /// **'Log payment'**
+  String get logPayment;
+
+  /// No description provided for @amountPaid.
+  ///
+  /// In en, this message translates to:
+  /// **'Amount paid (Br)'**
+  String get amountPaid;
+
+  /// No description provided for @paidOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Paid on'**
+  String get paidOn;
+
+  /// No description provided for @paymentMethod.
+  ///
+  /// In en, this message translates to:
+  /// **'Paid by'**
+  String get paymentMethod;
+
+  /// No description provided for @methodCash.
+  ///
+  /// In en, this message translates to:
+  /// **'Cash'**
+  String get methodCash;
+
+  /// No description provided for @methodTelebirr.
+  ///
+  /// In en, this message translates to:
+  /// **'Telebirr'**
+  String get methodTelebirr;
+
+  /// No description provided for @methodBank.
+  ///
+  /// In en, this message translates to:
+  /// **'Bank'**
+  String get methodBank;
+
+  /// No description provided for @methodChapa.
+  ///
+  /// In en, this message translates to:
+  /// **'Chapa'**
+  String get methodChapa;
+
+  /// No description provided for @reference.
+  ///
+  /// In en, this message translates to:
+  /// **'Transaction reference'**
+  String get reference;
+
+  /// No description provided for @referenceHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'From the Telebirr SMS or bank slip.'**
+  String get referenceHelp;
+
+  /// No description provided for @notes.
+  ///
+  /// In en, this message translates to:
+  /// **'Note (optional)'**
+  String get notes;
+
+  /// No description provided for @sendSmsReceipt.
+  ///
+  /// In en, this message translates to:
+  /// **'Send SMS receipt to the tenant'**
+  String get sendSmsReceipt;
+
+  /// No description provided for @quickBalance.
+  ///
+  /// In en, this message translates to:
+  /// **'Balance {amount}'**
+  String quickBalance(String amount);
+
+  /// No description provided for @quickMonths.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 month} other{{count} months}}'**
+  String quickMonths(int count);
+
+  /// No description provided for @paymentSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment saved'**
+  String get paymentSaved;
+
+  /// No description provided for @paymentCovers.
+  ///
+  /// In en, this message translates to:
+  /// **'Covers {months}'**
+  String paymentCovers(String months);
+
+  /// No description provided for @receiptNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Receipt {number}'**
+  String receiptNumber(String number);
+
+  /// No description provided for @smsQueued.
+  ///
+  /// In en, this message translates to:
+  /// **'SMS receipt sent to the tenant.'**
+  String get smsQueued;
+
+  /// No description provided for @shareReceipt.
+  ///
+  /// In en, this message translates to:
+  /// **'Share receipt link'**
+  String get shareReceipt;
+
+  /// No description provided for @done.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get done;
+
+  /// No description provided for @payments.
+  ///
+  /// In en, this message translates to:
+  /// **'Payments'**
+  String get payments;
+
+  /// No description provided for @paymentsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No payments logged yet.'**
+  String get paymentsEmpty;
+
+  /// No description provided for @removePayment.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove payment'**
+  String get removePayment;
+
+  /// No description provided for @removePaymentConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove this payment of {amount}? The months it covered become unpaid again.'**
+  String removePaymentConfirm(String amount);
+
+  /// No description provided for @dashboardCollected.
+  ///
+  /// In en, this message translates to:
+  /// **'Collected this month'**
+  String get dashboardCollected;
+
+  /// No description provided for @dashboardOutstanding.
+  ///
+  /// In en, this message translates to:
+  /// **'Outstanding'**
+  String get dashboardOutstanding;
+
+  /// No description provided for @dashboardLateTenants.
+  ///
+  /// In en, this message translates to:
+  /// **'Late tenants'**
+  String get dashboardLateTenants;
+
+  /// No description provided for @dashboardOpenRepairs.
+  ///
+  /// In en, this message translates to:
+  /// **'Open repairs'**
+  String get dashboardOpenRepairs;
+
+  /// No description provided for @dashboardLeasesEnding.
+  ///
+  /// In en, this message translates to:
+  /// **'Leases ending in 60 days'**
+  String get dashboardLeasesEnding;
+
+  /// No description provided for @dashboardDueThisMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'Due this month: {amount}'**
+  String dashboardDueThisMonth(String amount);
+
+  /// No description provided for @smsReminders.
+  ///
+  /// In en, this message translates to:
+  /// **'SMS rent reminders'**
+  String get smsReminders;
+
+  /// No description provided for @smsRemindersHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Text tenants 3 days before and on the due date.'**
+  String get smsRemindersHelp;
 }
 
 class _AppLocalizationsDelegate

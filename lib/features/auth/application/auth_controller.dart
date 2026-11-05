@@ -43,10 +43,16 @@ class AuthController extends AsyncNotifier<AppUser?> {
     String? name,
     String? locale,
     String? calendarPref,
+    bool? smsReminders,
   }) async {
     final user = await ref
         .read(authRepositoryProvider)
-        .updateMe(name: name, locale: locale, calendarPref: calendarPref);
+        .updateMe(
+          name: name,
+          locale: locale,
+          calendarPref: calendarPref,
+          smsReminders: smsReminders,
+        );
     state = AsyncData(user);
   }
 

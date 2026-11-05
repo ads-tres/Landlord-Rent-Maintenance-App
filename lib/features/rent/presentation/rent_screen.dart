@@ -196,15 +196,13 @@ class RentScreen extends ConsumerWidget {
                           ChargeStatusChip(status: c.status),
                         ],
                       ),
-                      onTap: () => context.push('/leases/${c.leaseId}'),
+                      onTap: () => context.push(
+                        c.status == ChargeStatus.paid
+                            ? '/leases/${c.leaseId}'
+                            : '/payments/new?leaseId=${c.leaseId}',
+                      ),
+                      onLongPress: () => context.push('/leases/${c.leaseId}'),
                     ),
-                Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Text(
-                    l10n.paymentsComingSoon,
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
-                ),
               ],
             ),
           );

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:share_plus/share_plus.dart';
 
 import '../../../core/api/api_exception.dart';
 import '../../../core/locale_controller.dart';
@@ -10,6 +12,8 @@ import '../../../core/utils/phone_number.dart';
 import '../../../core/widgets/async_views.dart';
 import '../../../core/widgets/form_sheet.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../payments/data/payments_repository.dart';
+import '../../payments/presentation/payment_labels.dart';
 import '../../properties/data/properties_repository.dart';
 import '../../rent/presentation/rent_screen.dart';
 import '../data/leases_repository.dart';
@@ -25,7 +29,9 @@ class LeaseDetailScreen extends ConsumerWidget {
   void _refreshAll(WidgetRef ref, Lease lease) {
     ref.invalidate(leaseProvider(leaseId));
     ref.invalidate(leaseChargesProvider(leaseId));
+    ref.invalidate(leasePaymentsProvider(leaseId));
     ref.invalidate(monthChargesProvider);
+    ref.invalidate(dashboardProvider);
     ref.invalidate(propertiesProvider);
     if (lease.propertyId != null) {
       ref.invalidate(propertyProvider(lease.propertyId!));
@@ -39,6 +45,14 @@ class LeaseDetailScreen extends ConsumerWidget {
     final lease = ref.watch(leaseProvider(leaseId));
 
     return Scaffold(
+      floatingActionButton: (lease.value?.isActive ?? false)
+          ? FloatingActionButton.extended(
+              key: const Key('logPaymentFab'),
+              onPressed: () => context.push('/payments/new?leaseId=$leaseId'),
+              icon: const Icon(Icons.payments_outlined),
+              label: Text(l10n.logPayment),
+            )
+          : null,
       appBar: AppBar(
         title: Text(l10n.leaseTitle),
         actions: [
@@ -108,6 +122,17 @@ class LeaseDetailScreen extends ConsumerWidget {
               ),
               const SizedBox(height: 4),
               _LeaseCharges(leaseId: leaseId, locale: locale),
+              const SizedBox(height: 16),
+              Text(
+                l10n.payments,
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              _LeasePayments(
+                leaseId: leaseId,
+                locale: locale,
+                onChanged: () => _refreshAll(ref, l),
+              ),
+              const SizedBox(height: 80),
             ],
           ),
         ),
@@ -488,6 +513,120 @@ class _LeaseCharges extends ConsumerWidget {
                 ],
               ),
             ),
+        ],
+      ),
+    );
+  }
+}
+
+class _LeasePayments extends ConsumerWidget {
+  const _LeasePayments({
+    required this.leaseId,
+    required this.locale,
+    required this.onChanged,
+  });
+
+  final int leaseId;
+  final String locale;
+  final VoidCallback onChanged;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final payments = ref.watch(leasePaymentsProvider(leaseId));
+
+    return payments.when(
+      loading: () => const Padding(
+        padding: EdgeInsets.all(16),
+        child: LinearProgressIndicator(),
+      ),
+      error: (e, _) => ErrorView(
+        error: e,
+        onRetry: () => ref.invalidate(leasePaymentsProvider(leaseId)),
+      ),
+      data: (items) {
+        if (items.isEmpty) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            child: Text(l10n.paymentsEmpty),
+          );
+        }
+        return Column(
+          children: [
+            for (final p in items)
+              ListTile(
+                contentPadding: EdgeInsets.zero,
+                leading: const Icon(Icons.receipt_outlined),
+                title: Text(formatBirr(p.amount, locale: locale)),
+                subtitle: Text(
+                  [
+                    formatDate(p.paidAt, locale),
+                    p.method.label(l10n),
+                    if (p.reference != null) p.reference!,
+                  ].join(' · '),
+                ),
+                trailing: PopupMenuButton<String>(
+                  onSelected: (action) async {
+                    if (action == 'share' && p.receiptUrl != null) {
+                      await SharePlus.instance.share(
+                        ShareParams(
+                          text:
+                              '${l10n.receiptNumber(p.receiptNumber)}: ${p.receiptUrl}',
+                        ),
+                      );
+                    } else if (action == 'remove') {
+                      final ok = await _confirmRemove(context, p.amount);
+                      if (ok != true) return;
+                      try {
+                        await ref.read(paymentsRepositoryProvider).remove(p.id);
+                        onChanged();
+                      } on ApiException catch (e) {
+                        if (context.mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text(friendlyError(context, e))),
+                          );
+                        }
+                      }
+                    }
+                  },
+                  itemBuilder: (_) => [
+                    if (p.receiptUrl != null)
+                      PopupMenuItem(
+                        value: 'share',
+                        child: Text(l10n.shareReceipt),
+                      ),
+                    if (p.isManual)
+                      PopupMenuItem(
+                        value: 'remove',
+                        child: Text(l10n.removePayment),
+                      ),
+                  ],
+                ),
+              ),
+          ],
+        );
+      },
+    );
+  }
+
+  Future<bool?> _confirmRemove(BuildContext context, int amount) {
+    final l10n = AppLocalizations.of(context);
+    return showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(l10n.removePayment),
+        content: Text(
+          l10n.removePaymentConfirm(formatBirr(amount, locale: locale)),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: Text(l10n.cancel),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(context, true),
+            child: Text(l10n.removePayment),
+          ),
         ],
       ),
     );

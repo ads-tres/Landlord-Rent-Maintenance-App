@@ -5,6 +5,7 @@ class AppUser {
     this.name,
     this.locale = 'am',
     this.calendarPref = 'ethiopian',
+    this.smsReminders = true,
   });
 
   factory AppUser.fromJson(Map<String, dynamic> json) => AppUser(
@@ -20,4 +21,5 @@ class AppUser {
   final String? name;
   final String locale;
   final String calendarPref;
+  final bool smsReminders;
 }
