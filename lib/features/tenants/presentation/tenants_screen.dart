@@ -73,7 +73,20 @@ class TenantsScreen extends ConsumerWidget {
                     child: Text(t.fullName.characters.first),
                   ),
                   title: Text(t.fullName),
-                  subtitle: Text(formatEthiopianPhone(t.phone)),
+                  subtitle: Row(
+                    children: [
+                      Text(formatEthiopianPhone(t.phone)),
+                      if (t.telegramLinked) ...[
+                        const SizedBox(width: 6),
+                        Icon(
+                          Icons.telegram,
+                          size: 16,
+                          color: Theme.of(context).colorScheme.primary,
+                          semanticLabel: l10n.tenantOnTelegram,
+                        ),
+                      ],
+                    ],
+                  ),
                   trailing: PopupMenuButton<String>(
                     key: Key('tenantMenu-${t.id}'),
                     onSelected: (action) => action == 'export'

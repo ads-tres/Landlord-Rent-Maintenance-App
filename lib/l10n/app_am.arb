@@ -133,7 +133,6 @@
   "reference": "የግብይት ማጣቀሻ ቁጥር",
   "referenceHelp": "ከቴሌብር ኤስኤምኤስ ወይም ከባንክ ደረሰኝ።",
   "notes": "ማስታወሻ (አማራጭ)",
-  "sendSmsReceipt": "ለተከራዩ ደረሰኝ በኤስኤምኤስ ላክ",
   "quickBalance": "ቀሪ {amount}",
   "quickMonths": "{count, plural, =1{1 ወር} other{{count} ወራት}}",
   "paymentSaved": "ክፍያው ተመዝግቧል",
@@ -219,5 +218,17 @@
   "tenantAnonymized": "የግል መረጃው ተወግዷል።",
   "sendFeedback": "አስተያየት ይላኩ",
   "sendFeedbackHelp": "የተበላሸውን ወይም የጎደለውን ይንገሩን",
-  "appVersion": "ስሪት {version}"
+  "appVersion": "ስሪት {version}",
+  "telegram": "ቴሌግራም",
+  "telegramConnected": "ተገናኝቷል፦ የጥገና ማሳወቂያዎች በቴሌግራም ይመጣሉ",
+  "telegramNotConnected": "ተከራይ ጥገና ሲያሳውቅ ማሳወቂያ ያግኙ",
+  "telegramConnect": "ቴሌግራም ያገናኙ",
+  "telegramDisconnect": "ቴሌግራም ያላቅቁ",
+  "telegramDisconnectConfirm": "የቴሌግራም የጥገና ማሳወቂያዎች ይቁሙ?",
+  "telegramOpenHint": "ቴሌግራም ይከፈታል። ለማገናኘት Start ይንኩ።",
+  "tenantOnTelegram": "መልዕክቶችን በቴሌግራም ይቀበላል",
+  "voiceNotes": "የድምፅ መልዕክቶች",
+  "voiceNote": "የድምፅ መልዕክት {number}",
+  "sendReceipt": "ለተከራዩ ደረሰኝ ላክ",
+  "sendReceiptHelp": "ካገናኙ በቴሌግራም፣ ካልሆነ በኤስኤምኤስ"
 }

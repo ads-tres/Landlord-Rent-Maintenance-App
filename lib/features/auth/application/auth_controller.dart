@@ -59,6 +59,15 @@ class AuthController extends AsyncNotifier<AppUser?> {
     state = AsyncData(user);
   }
 
+  /// Reloads the profile without showing a loading state (e.g. after linking Telegram).
+  Future<void> refreshUser() async {
+    try {
+      state = AsyncData(await ref.read(authRepositoryProvider).me());
+    } on ApiException {
+      // Keep what we have; it refreshes on the next start.
+    }
+  }
+
   Future<void> logout() async {
     try {
       await ref.read(authRepositoryProvider).logout();

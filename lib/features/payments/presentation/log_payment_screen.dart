@@ -298,7 +298,8 @@ class _PaymentFormState extends ConsumerState<_PaymentForm> {
               contentPadding: EdgeInsets.zero,
               value: _sendSms,
               onChanged: (v) => setState(() => _sendSms = v),
-              title: Text(l10n.sendSmsReceipt),
+              title: Text(l10n.sendReceipt),
+              subtitle: Text(l10n.sendReceiptHelp),
             ),
             if (_error != null)
               Text(_error!, style: TextStyle(color: scheme.error)),

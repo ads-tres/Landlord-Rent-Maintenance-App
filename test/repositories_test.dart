@@ -127,6 +127,12 @@ void main() {
               'label': 'Room 1',
               'bedrooms': 1,
               'status': 'occupied',
+              'active_lease': {
+                'id': 44,
+                'monthly_rent': 1200000,
+                'end_date': '2028-08-31',
+                'tenant_name': 'Almaz',
+              },
             },
             {
               'id': 2,
@@ -145,6 +151,10 @@ void main() {
     expect(property.location('Woreda'), 'Bole, Woreda 3');
     expect(property.unitsCount, 2);
     expect(property.units.first.status, UnitStatus.occupied);
+    // Occupied units open their lease, so the active lease must be read.
+    expect(property.units.first.activeLease?.id, 44);
+    expect(property.units.first.activeLease?.tenantName, 'Almaz');
+    expect(property.units.last.activeLease, isNull);
     expect(property.units.last.bedrooms, isNull);
   });
 

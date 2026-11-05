@@ -46,6 +46,11 @@ class Unit {
     label: json['label'] as String,
     bedrooms: json['bedrooms'] as int?,
     status: UnitStatus.parse(json['status'] as String?),
+    activeLease: json['active_lease'] == null
+        ? null
+        : ActiveLeaseSummary.fromJson(
+            json['active_lease'] as Map<String, dynamic>,
+          ),
   );
 
   final int id;
