@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../features/arrears/presentation/arrears_detail_screen.dart';
+import '../features/arrears/presentation/arrears_screen.dart';
 import '../features/auth/application/auth_controller.dart';
 import '../features/auth/presentation/code_screen.dart';
 import '../features/auth/presentation/phone_screen.dart';
@@ -141,6 +143,20 @@ final routerProvider = Provider<GoRouter>((ref) {
         parentNavigatorKey: _rootNavigatorKey,
         builder: (_, state) =>
             MoveOutScreen(moveOutId: int.parse(state.pathParameters['id']!)),
+      ),
+      GoRoute(
+        path: '/arrears',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (_, _) => const ArrearsScreen(),
+        routes: [
+          GoRoute(
+            path: ':id',
+            parentNavigatorKey: _rootNavigatorKey,
+            builder: (_, state) => ArrearsDetailScreen(
+              leaseId: int.parse(state.pathParameters['id']!),
+            ),
+          ),
+        ],
       ),
       GoRoute(
         path: '/expenses',

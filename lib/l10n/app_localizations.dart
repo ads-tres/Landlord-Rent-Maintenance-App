@@ -2923,6 +2923,174 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Open'**
   String get open;
+
+  /// No description provided for @arrears.
+  ///
+  /// In en, this message translates to:
+  /// **'Late rent'**
+  String get arrears;
+
+  /// No description provided for @arrearsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Nobody is behind on rent.'**
+  String get arrearsEmpty;
+
+  /// No description provided for @daysOverdue.
+  ///
+  /// In en, this message translates to:
+  /// **'{days} days overdue'**
+  String daysOverdue(int days);
+
+  /// No description provided for @monthsBehind.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} months behind'**
+  String monthsBehind(int count);
+
+  /// No description provided for @nextStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Next step: {step}'**
+  String nextStep(String step);
+
+  /// No description provided for @onPaymentPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'On a payment plan'**
+  String get onPaymentPlan;
+
+  /// No description provided for @arrearsCleared.
+  ///
+  /// In en, this message translates to:
+  /// **'All caught up'**
+  String get arrearsCleared;
+
+  /// No description provided for @arrearsReminder.
+  ///
+  /// In en, this message translates to:
+  /// **'Friendly reminder'**
+  String get arrearsReminder;
+
+  /// No description provided for @arrearsNotice.
+  ///
+  /// In en, this message translates to:
+  /// **'Firm notice'**
+  String get arrearsNotice;
+
+  /// No description provided for @arrearsDemandLetter.
+  ///
+  /// In en, this message translates to:
+  /// **'Demand letter'**
+  String get arrearsDemandLetter;
+
+  /// No description provided for @arrearsPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment plan'**
+  String get arrearsPlan;
+
+  /// No description provided for @arrearsNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Note'**
+  String get arrearsNote;
+
+  /// No description provided for @arrearsReminderHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'A polite SMS with the amount and their tenant page, asking them to pay or call to agree a date.'**
+  String get arrearsReminderHelp;
+
+  /// No description provided for @arrearsNoticeHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'An SMS asking them to pay within 7 days or agree a payment plan.'**
+  String get arrearsNoticeHelp;
+
+  /// No description provided for @arrearsDemandLetterHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'A formal letter (PDF) listing each unpaid month with a 15-day deadline, to print and deliver.'**
+  String get arrearsDemandLetterHelp;
+
+  /// No description provided for @arrearsSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Sent to the tenant.'**
+  String get arrearsSent;
+
+  /// No description provided for @arrearsHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'History'**
+  String get arrearsHistory;
+
+  /// No description provided for @arrearsNoHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing done yet.'**
+  String get arrearsNoHistory;
+
+  /// No description provided for @arrearsNoteHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Called, will pay on Friday'**
+  String get arrearsNoteHint;
+
+  /// No description provided for @send.
+  ///
+  /// In en, this message translates to:
+  /// **'Send'**
+  String get send;
+
+  /// No description provided for @agreePlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Agree plan'**
+  String get agreePlan;
+
+  /// No description provided for @planIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Split {amount} into monthly instalments. The tenant is reminded the day before each one.'**
+  String planIntro(String amount);
+
+  /// No description provided for @instalments.
+  ///
+  /// In en, this message translates to:
+  /// **'Instalments'**
+  String get instalments;
+
+  /// No description provided for @firstInstalment.
+  ///
+  /// In en, this message translates to:
+  /// **'First instalment'**
+  String get firstInstalment;
+
+  /// No description provided for @planProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan: {paid} of {total} paid'**
+  String planProgress(String paid, String total);
+
+  /// No description provided for @cancelPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel plan'**
+  String get cancelPlan;
+
+  /// No description provided for @cancelPlanConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel this payment plan?'**
+  String get cancelPlanConfirm;
+
+  /// No description provided for @no.
+  ///
+  /// In en, this message translates to:
+  /// **'No'**
+  String get no;
 }
 
 class _AppLocalizationsDelegate

@@ -107,10 +107,11 @@ class DashboardScreen extends ConsumerWidget {
                         onTap: () => _openRent(context, ref, 'unpaid'),
                       ),
                       _Tile(
+                        key: const Key('lateTenantsTile'),
                         label: l10n.dashboardLateTenants,
                         value: '${s.lateTenants}',
                         alert: s.lateTenants > 0,
-                        onTap: () => _openRent(context, ref, 'late'),
+                        onTap: () => context.push('/arrears'),
                       ),
                       _Tile(
                         label: l10n.dashboardOpenRepairs,

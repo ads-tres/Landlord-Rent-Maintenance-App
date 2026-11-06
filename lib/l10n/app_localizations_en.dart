@@ -1649,4 +1649,101 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get open => 'Open';
+
+  @override
+  String get arrears => 'Late rent';
+
+  @override
+  String get arrearsEmpty => 'Nobody is behind on rent.';
+
+  @override
+  String daysOverdue(int days) {
+    return '$days days overdue';
+  }
+
+  @override
+  String monthsBehind(int count) {
+    return '$count months behind';
+  }
+
+  @override
+  String nextStep(String step) {
+    return 'Next step: $step';
+  }
+
+  @override
+  String get onPaymentPlan => 'On a payment plan';
+
+  @override
+  String get arrearsCleared => 'All caught up';
+
+  @override
+  String get arrearsReminder => 'Friendly reminder';
+
+  @override
+  String get arrearsNotice => 'Firm notice';
+
+  @override
+  String get arrearsDemandLetter => 'Demand letter';
+
+  @override
+  String get arrearsPlan => 'Payment plan';
+
+  @override
+  String get arrearsNote => 'Note';
+
+  @override
+  String get arrearsReminderHelp =>
+      'A polite SMS with the amount and their tenant page, asking them to pay or call to agree a date.';
+
+  @override
+  String get arrearsNoticeHelp =>
+      'An SMS asking them to pay within 7 days or agree a payment plan.';
+
+  @override
+  String get arrearsDemandLetterHelp =>
+      'A formal letter (PDF) listing each unpaid month with a 15-day deadline, to print and deliver.';
+
+  @override
+  String get arrearsSent => 'Sent to the tenant.';
+
+  @override
+  String get arrearsHistory => 'History';
+
+  @override
+  String get arrearsNoHistory => 'Nothing done yet.';
+
+  @override
+  String get arrearsNoteHint => 'e.g. Called, will pay on Friday';
+
+  @override
+  String get send => 'Send';
+
+  @override
+  String get agreePlan => 'Agree plan';
+
+  @override
+  String planIntro(String amount) {
+    return 'Split $amount into monthly instalments. The tenant is reminded the day before each one.';
+  }
+
+  @override
+  String get instalments => 'Instalments';
+
+  @override
+  String get firstInstalment => 'First instalment';
+
+  @override
+  String planProgress(String paid, String total) {
+    return 'Plan: $paid of $total paid';
+  }
+
+  @override
+  String get cancelPlan => 'Cancel plan';
+
+  @override
+  String get cancelPlanConfirm => 'Cancel this payment plan?';
+
+  @override
+  String get no => 'No';
 }
