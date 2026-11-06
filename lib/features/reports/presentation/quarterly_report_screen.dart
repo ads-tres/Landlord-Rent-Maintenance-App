@@ -27,15 +27,19 @@ class _QuarterlyReportScreenState extends ConsumerState<QuarterlyReportScreen> {
   QuarterKey _key = (year: null, quarter: null);
   bool _sharing = false;
 
-  Future<void> _share(QuarterlyReport r) async {
+  static const _xlsxMime =
+      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+
+  Future<void> _share(QuarterlyReport r, {bool excel = false}) async {
     setState(() => _sharing = true);
     try {
-      final path = await ref
-          .read(reportsRepositoryProvider)
-          .downloadPdf(year: r.year, quarter: r.quarter);
+      final repo = ref.read(reportsRepositoryProvider);
+      final path = excel
+          ? await repo.downloadExcel(year: r.year, quarter: r.quarter)
+          : await repo.downloadPdf(year: r.year, quarter: r.quarter);
       await SharePlus.instance.share(
         ShareParams(
-          files: [XFile(path, mimeType: 'application/pdf')],
+          files: [XFile(path, mimeType: excel ? _xlsxMime : 'application/pdf')],
           text: r.label,
         ),
       );
@@ -194,6 +198,19 @@ class _QuarterlyReportScreenState extends ConsumerState<QuarterlyReportScreen> {
                     )
                   : const Icon(Icons.picture_as_pdf_outlined),
               label: Text(l10n.reportSharePdf),
+            ),
+            const SizedBox(height: 8),
+            OutlinedButton.icon(
+              key: const Key('shareExcel'),
+              onPressed: _sharing ? null : () => _share(r, excel: true),
+              icon: const Icon(Icons.table_chart_outlined),
+              label: Text(l10n.reportShareExcel),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              l10n.reportShareExcelHelp,
+              style: Theme.of(context).textTheme.bodySmall,
+              textAlign: TextAlign.center,
             ),
             const SizedBox(height: 12),
             Text(

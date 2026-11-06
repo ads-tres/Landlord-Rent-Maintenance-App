@@ -465,5 +465,7 @@
   "close": "ዝጋ",
   "leasesEnding": "በቅርቡ የሚያበቁ ውሎች",
   "leasesEndingEmpty": "በሚቀጥሉት 60 ቀናት የሚያበቃ ውል የለም።",
-  "aboveYearlyLimit": "ከዓመታዊ ገደቡ በላይ ነው።"
+  "aboveYearlyLimit": "ከዓመታዊ ገደቡ በላይ ነው።",
+  "reportShareExcel": "ለሂሳብ ባለሙያ Excel ያጋሩ",
+  "reportShareExcelHelp": "ሁሉም ክፍያዎችና ወጪዎች፣ የኪራይ ዝርዝር እና ማጠቃለያ በሰንጠረዥ።"
 }

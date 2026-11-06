@@ -833,5 +833,7 @@
   "close": "Close",
   "leasesEnding": "Leases ending soon",
   "leasesEndingEmpty": "No leases end in the next 60 days.",
-  "aboveYearlyLimit": "Above the yearly limit."
+  "aboveYearlyLimit": "Above the yearly limit.",
+  "reportShareExcel": "Share Excel for accountant",
+  "reportShareExcelHelp": "Every payment and expense, a rent roll and a summary, in a spreadsheet."
 }

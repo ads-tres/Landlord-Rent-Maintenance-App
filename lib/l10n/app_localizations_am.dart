@@ -1609,4 +1609,11 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get aboveYearlyLimit => 'ከዓመታዊ ገደቡ በላይ ነው።';
+
+  @override
+  String get reportShareExcel => 'ለሂሳብ ባለሙያ Excel ያጋሩ';
+
+  @override
+  String get reportShareExcelHelp =>
+      'ሁሉም ክፍያዎችና ወጪዎች፣ የኪራይ ዝርዝር እና ማጠቃለያ በሰንጠረዥ።';
 }

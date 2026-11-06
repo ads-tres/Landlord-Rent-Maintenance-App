@@ -1632,4 +1632,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get aboveYearlyLimit => 'Above the yearly limit.';
+
+  @override
+  String get reportShareExcel => 'Share Excel for accountant';
+
+  @override
+  String get reportShareExcelHelp =>
+      'Every payment and expense, a rent roll and a summary, in a spreadsheet.';
 }
