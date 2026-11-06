@@ -13,23 +13,47 @@ enum LeaseStatus {
 
 class RentChange {
   const RentChange({
+    this.id = 0,
     required this.oldRent,
     required this.newRent,
     required this.effectiveDate,
     required this.capPercent,
+    this.noticeDays,
+    this.tenantAgreed = false,
+    this.tenantNotified = false,
+    this.upcoming = false,
   });
 
   factory RentChange.fromJson(Map<String, dynamic> j) => RentChange(
+    id: j['id'] as int? ?? 0,
     oldRent: j['old_rent'] as int,
     newRent: j['new_rent'] as int,
     effectiveDate: parseYmd(j['effective_date'] as String),
     capPercent: (j['cap_percent'] as num).toDouble(),
+    noticeDays: j['notice_days'] as int?,
+    tenantAgreed: j['tenant_agreed'] as bool? ?? false,
+    tenantNotified: j['notified_at'] != null,
+    upcoming: j['upcoming'] as bool? ?? false,
   );
+
+  final int id;
 
   final int oldRent;
   final int newRent;
   final DateTime effectiveDate;
   final double capPercent;
+
+  /// Days between saving the change and the new rent starting.
+  final int? noticeDays;
+  final bool tenantAgreed;
+
+  /// The tenant was sent the notice by SMS or Telegram.
+  final bool tenantNotified;
+
+  /// Not started yet, so it can still be cancelled.
+  final bool upcoming;
+
+  bool get isIncrease => newRent > oldRent;
 }
 
 class LeaseBalance {

@@ -1006,5 +1006,22 @@
   "@syncedSome": {"placeholders": {"sent": {"type": "int"}, "left": {"type": "int"}}},
   "photosCount": "{count, plural, =1{1 photo} other{{count} photos}}",
   "@photosCount": {"placeholders": {"count": {"type": "int"}}},
-  "discardItemConfirm": "Discard this entry that was never sent? Its photos are deleted too."
+  "discardItemConfirm": "Discard this entry that was never sent? Its photos are deleted too.",
+  "rentNoticeHint": "An increase needs {days} days' written notice: earliest start {date}.",
+  "@rentNoticeHint": {"placeholders": {"days": {"type": "int"}, "date": {"type": "String"}}},
+  "tenantAgreedInWriting": "Tenant agreed in writing",
+  "tenantAgreedHelp": "Allows an earlier start. Keep the signed agreement.",
+  "textTenantAboutRent": "Text the tenant",
+  "textTenantAboutRentHelp": "Sends the new rent and start date now, and a reminder a week before.",
+  "rentChangeUpcoming": "Upcoming",
+  "rentNoticeGiven": "{days} days' notice",
+  "@rentNoticeGiven": {"placeholders": {"days": {"type": "int"}}},
+  "tenantTexted": "Tenant texted",
+  "rentNoticeLetter": "Notice letter",
+  "rentNoticeLetterHelp": "Print it, have the tenant sign, and keep a copy.",
+  "cancelRentChange": "Cancel change",
+  "cancelRentChangeConfirm": "Cancel this rent change? The rent stays as it is.",
+  "cancelRentChangeNotified": "Cancel this rent change? The tenant was told, so they will get a text that it is cancelled.",
+  "keepIt": "Keep it",
+  "rentChangeCancelled": "Rent change cancelled"
 }

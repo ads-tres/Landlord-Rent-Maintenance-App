@@ -619,5 +619,20 @@
   "allSynced": "ሁሉም ተልኳል",
   "syncedSome": "{sent} ተልኳል። {left} ገና ይጠብቃሉ።",
   "photosCount": "{count, plural, =1{1 ፎቶ} other{{count} ፎቶዎች}}",
-  "discardItemConfirm": "ያልተላከውን ይህን መረጃ ይሰርዙ? ፎቶዎቹም ይሰረዛሉ።"
+  "discardItemConfirm": "ያልተላከውን ይህን መረጃ ይሰርዙ? ፎቶዎቹም ይሰረዛሉ።",
+  "rentNoticeHint": "ጭማሪ የ{days} ቀን የጽሑፍ ማስታወቂያ ያስፈልገዋል፤ ቀደም ብሎ የሚጀምርበት ቀን {date}።",
+  "tenantAgreedInWriting": "ተከራዩ በጽሑፍ ተስማምተዋል",
+  "tenantAgreedHelp": "ቀደም ብሎ ለመጀመር ያስችላል። የተፈረመውን ስምምነት ያስቀምጡ።",
+  "textTenantAboutRent": "ለተከራዩ መልዕክት ላክ",
+  "textTenantAboutRentHelp": "አዲሱን ኪራይና የሚጀምርበትን ቀን አሁን፣ ማስታወሻውን ደግሞ ከአንድ ሳምንት በፊት ይልካል።",
+  "rentChangeUpcoming": "የሚመጣ",
+  "rentNoticeGiven": "የ{days} ቀን ማስታወቂያ",
+  "tenantTexted": "ለተከራዩ ተልኳል",
+  "rentNoticeLetter": "የማስታወቂያ ደብዳቤ",
+  "rentNoticeLetterHelp": "ያትሙት፣ ተከራዩ እንዲፈርሙ ያድርጉ፣ ቅጂውንም ያስቀምጡ።",
+  "cancelRentChange": "ለውጡን ሰርዝ",
+  "cancelRentChangeConfirm": "ይህን የኪራይ ለውጥ ይሰርዙ? ኪራዩ እንዳለ ይቀጥላል።",
+  "cancelRentChangeNotified": "ይህን የኪራይ ለውጥ ይሰርዙ? ተከራዩ ስለተነገራቸው መሰረዙን የሚገልጽ መልዕክት ይደርሳቸዋል።",
+  "keepIt": "ይቆይ",
+  "rentChangeCancelled": "የኪራይ ለውጡ ተሰርዟል"
 }

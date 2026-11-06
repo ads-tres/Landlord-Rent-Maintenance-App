@@ -2177,4 +2177,58 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get discardItemConfirm =>
       'Discard this entry that was never sent? Its photos are deleted too.';
+
+  @override
+  String rentNoticeHint(int days, String date) {
+    return 'An increase needs $days days\' written notice: earliest start $date.';
+  }
+
+  @override
+  String get tenantAgreedInWriting => 'Tenant agreed in writing';
+
+  @override
+  String get tenantAgreedHelp =>
+      'Allows an earlier start. Keep the signed agreement.';
+
+  @override
+  String get textTenantAboutRent => 'Text the tenant';
+
+  @override
+  String get textTenantAboutRentHelp =>
+      'Sends the new rent and start date now, and a reminder a week before.';
+
+  @override
+  String get rentChangeUpcoming => 'Upcoming';
+
+  @override
+  String rentNoticeGiven(int days) {
+    return '$days days\' notice';
+  }
+
+  @override
+  String get tenantTexted => 'Tenant texted';
+
+  @override
+  String get rentNoticeLetter => 'Notice letter';
+
+  @override
+  String get rentNoticeLetterHelp =>
+      'Print it, have the tenant sign, and keep a copy.';
+
+  @override
+  String get cancelRentChange => 'Cancel change';
+
+  @override
+  String get cancelRentChangeConfirm =>
+      'Cancel this rent change? The rent stays as it is.';
+
+  @override
+  String get cancelRentChangeNotified =>
+      'Cancel this rent change? The tenant was told, so they will get a text that it is cancelled.';
+
+  @override
+  String get keepIt => 'Keep it';
+
+  @override
+  String get rentChangeCancelled => 'Rent change cancelled';
 }
