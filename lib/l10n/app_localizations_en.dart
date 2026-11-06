@@ -1844,4 +1844,45 @@ class AppLocalizationsEn extends AppLocalizations {
   String registeredDate(String date) {
     return 'Registered $date';
   }
+
+  @override
+  String get pasteSms => 'Paste payment SMS';
+
+  @override
+  String get pasteSmsHelp =>
+      'Copy the Telebirr or bank confirmation message, then paste it here. The amount, reference and date are filled in for you to check.';
+
+  @override
+  String get pasteSmsHint => 'Paste the SMS here';
+
+  @override
+  String get pasteFromClipboard => 'Paste';
+
+  @override
+  String get smsNoAmount =>
+      'No amount found in this message. Check that you copied the whole SMS.';
+
+  @override
+  String get smsFrom => 'From';
+
+  @override
+  String get useSms => 'Use these details';
+
+  @override
+  String get smsFilled =>
+      'Filled in from the SMS. Check the details before saving.';
+
+  @override
+  String smsOtherPayer(String payer, String tenant) {
+    return 'This message seems to be from $payer, not $tenant. Check before saving.';
+  }
+
+  @override
+  String get smsPickLease => 'Which tenant is this payment from?';
+
+  @override
+  String get smsLikely => 'Likely';
+
+  @override
+  String get smsNoLeases => 'No active leases.';
 }

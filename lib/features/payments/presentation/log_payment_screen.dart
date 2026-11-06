@@ -17,13 +17,18 @@ import '../../rent/presentation/rent_screen.dart';
 import '../application/pending_payments.dart';
 import '../data/payments_repository.dart';
 import '../domain/payment.dart';
+import '../domain/payment_sms.dart';
+import 'paste_sms_sheet.dart';
 import 'payment_labels.dart';
 
 /// Records money a tenant paid (cash, Telebirr or bank) against a lease.
 class LogPaymentScreen extends ConsumerWidget {
-  const LogPaymentScreen({super.key, required this.leaseId});
+  const LogPaymentScreen({super.key, required this.leaseId, this.prefill});
 
   final int leaseId;
+
+  /// A pasted payment SMS to fill the form with.
+  final PaymentSms? prefill;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -38,16 +43,17 @@ class LogPaymentScreen extends ConsumerWidget {
           error: e,
           onRetry: () => ref.invalidate(leaseProvider(leaseId)),
         ),
-        data: (l) => _PaymentForm(lease: l),
+        data: (l) => _PaymentForm(lease: l, prefill: prefill),
       ),
     );
   }
 }
 
 class _PaymentForm extends ConsumerStatefulWidget {
-  const _PaymentForm({required this.lease});
+  const _PaymentForm({required this.lease, this.prefill});
 
   final Lease lease;
+  final PaymentSms? prefill;
 
   @override
   ConsumerState<_PaymentForm> createState() => _PaymentFormState();
@@ -73,6 +79,45 @@ class _PaymentFormState extends ConsumerState<_PaymentForm> {
   String? _error;
 
   int get _outstanding => widget.lease.balance?.outstanding ?? 0;
+
+  /// The SMS the form was filled from, to show what came from it.
+  PaymentSms? _sms;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.prefill != null) _applySms(widget.prefill!, notify: false);
+  }
+
+  void _applySms(PaymentSms sms, {bool notify = true}) {
+    void apply() {
+      _sms = sms;
+      if (sms.amount != null) _amount.text = santimToInput(sms.amount!);
+      if (sms.method != null && PaymentMethod.manual.contains(sms.method)) {
+        _method = sms.method!;
+      }
+      if (sms.reference != null) _reference.text = sms.reference!;
+      final earliest = widget.lease.startDate.subtract(
+        const Duration(days: 60),
+      );
+      if (sms.paidAt != null && !sms.paidAt!.isBefore(earliest)) {
+        _paidAt = sms.paidAt!;
+      }
+    }
+
+    notify ? setState(apply) : apply();
+  }
+
+  Future<void> _paste() async {
+    final sms = await showPasteSmsSheet(context);
+    if (sms != null && mounted) _applySms(sms);
+  }
+
+  /// The SMS names someone who doesn't look like this lease's tenant.
+  bool get _otherPayer =>
+      _sms != null &&
+      _sms!.hasPayer &&
+      matchLeasesToSms(_sms!, [widget.lease]).isEmpty;
 
   @override
   void dispose() {
@@ -198,6 +243,34 @@ class _PaymentFormState extends ConsumerState<_PaymentForm> {
                 ].whereType<String>().join(' · '),
               ),
             ),
+            OutlinedButton.icon(
+              key: const Key('pasteSms'),
+              onPressed: _paste,
+              icon: const Icon(Icons.content_paste_go),
+              label: Text(l10n.pasteSms),
+            ),
+            if (_sms != null) ...[
+              const SizedBox(height: 8),
+              Card(
+                key: const Key('smsFilled'),
+                color: _otherPayer
+                    ? scheme.errorContainer
+                    : scheme.secondaryContainer,
+                child: ListTile(
+                  leading: Icon(
+                    _otherPayer ? Icons.warning_amber : Icons.sms_outlined,
+                  ),
+                  title: Text(
+                    _otherPayer
+                        ? l10n.smsOtherPayer(
+                            [?_sms!.payerName, ?_sms!.payerPhone].join(' · '),
+                            lease.tenantName ?? '',
+                          )
+                        : l10n.smsFilled,
+                  ),
+                ),
+              ),
+            ],
             const SizedBox(height: 8),
             TextFormField(
               key: const Key('amountField'),

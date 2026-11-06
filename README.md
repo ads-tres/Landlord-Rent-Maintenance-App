@@ -160,3 +160,23 @@ No `google-services.json` is needed. The server needs the same project's service
 After login the app asks for notification permission and registers the phone; tapping a notification opens the
 repair, lease or screen it is about; alerts that arrive while the app is open show at the bottom of the screen.
 Settings → Notifications switches them off. Logging out unregisters the phone.
+
+## Paste a payment SMS
+
+**Where:** in Log payment, and from the Rent tab (the paste icon).
+
+**What happens:** the landlord pastes the Telebirr, CBE, CBE Birr or bank confirmation SMS. The clipboard is read automatically when it opens. `lib/features/payments/domain/payment_sms.dart` then reads the message:
+- **Amount:** the amount received, skipping balances, fees and VAT.
+- **Reference:** the transaction number or bank reference (for example `FT…`).
+- **Date:** day/month, ISO and month-name formats are all read. Ethiopian-calendar dates are converted, and future dates are ignored.
+- **Sender:** the name and the phone number, which may be masked (`2519****5678`).
+- **Channel:** Telebirr or bank.
+
+It runs on the phone, so it also works offline. Every field is optional, and the form says "Filled in from the SMS" so the landlord checks it before saving.
+
+**Matching the tenant:**
+- From the Rent tab, the sender is matched against active leases by phone (masked digits allowed), then name, then amount. A clear match opens Log payment already filled in. Otherwise a list opens with the likely tenants first.
+- In Log payment, the form warns when the SMS seems to come from someone other than this lease's tenant.
+
+**Duplicates:** the server refuses a reference already logged for the same channel, ignoring case, and says when and for which tenant it was logged.
+
