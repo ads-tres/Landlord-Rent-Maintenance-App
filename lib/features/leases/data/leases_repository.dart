@@ -62,6 +62,14 @@ class LeasesRepository {
     return Lease.fromJson(data['data'] as Map<String, dynamic>);
   }
 
+  /// Texts the tenant their page link.
+  Future<void> sendPortalLink(int leaseId) =>
+      _api.post('/leases/$leaseId/portal-link/send');
+
+  /// Replaces the tenant page link; the old one stops working.
+  Future<void> resetPortalLink(int leaseId) =>
+      _api.post('/leases/$leaseId/portal-link/reset');
+
   Future<Lease> end(int leaseId, {required DateTime endedOn}) async {
     final data = await _api.post(
       '/leases/$leaseId/end',

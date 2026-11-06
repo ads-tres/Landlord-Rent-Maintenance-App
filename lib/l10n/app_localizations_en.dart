@@ -1492,4 +1492,30 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get methodDeposit => 'From deposit';
+
+  @override
+  String get tenantPage => 'Tenant page';
+
+  @override
+  String get tenantPageHelp =>
+      'The tenant\'s own page: balance, receipts, repairs and announcements. No app needed.';
+
+  @override
+  String get tenantPageSent => 'Link sent to the tenant.';
+
+  @override
+  String get sendToTenant => 'Send';
+
+  @override
+  String get share => 'Share';
+
+  @override
+  String get copy => 'Copy';
+
+  @override
+  String get resetLink => 'New link';
+
+  @override
+  String get resetTenantPageConfirm =>
+      'Make a new link? The old one will stop working.';
 }

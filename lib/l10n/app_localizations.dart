@@ -2659,6 +2659,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'From deposit'**
   String get methodDeposit;
+
+  /// No description provided for @tenantPage.
+  ///
+  /// In en, this message translates to:
+  /// **'Tenant page'**
+  String get tenantPage;
+
+  /// No description provided for @tenantPageHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'The tenant\'s own page: balance, receipts, repairs and announcements. No app needed.'**
+  String get tenantPageHelp;
+
+  /// No description provided for @tenantPageSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Link sent to the tenant.'**
+  String get tenantPageSent;
+
+  /// No description provided for @sendToTenant.
+  ///
+  /// In en, this message translates to:
+  /// **'Send'**
+  String get sendToTenant;
+
+  /// No description provided for @share.
+  ///
+  /// In en, this message translates to:
+  /// **'Share'**
+  String get share;
+
+  /// No description provided for @copy.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy'**
+  String get copy;
+
+  /// No description provided for @resetLink.
+  ///
+  /// In en, this message translates to:
+  /// **'New link'**
+  String get resetLink;
+
+  /// No description provided for @resetTenantPageConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Make a new link? The old one will stop working.'**
+  String get resetTenantPageConfirm;
 }
 
 class _AppLocalizationsDelegate

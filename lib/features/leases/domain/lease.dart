@@ -67,6 +67,7 @@ class Lease {
     this.registeredAt,
     this.daysUntilEnd,
     this.repairUrl,
+    this.portalUrl,
     this.payUrl,
     this.unitLabel,
     this.propertyId,
@@ -104,6 +105,7 @@ class Lease {
           : parseYmd(j['registered_at'] as String),
       daysUntilEnd: j['days_until_end'] as int?,
       repairUrl: j['repair_url'] as String?,
+      portalUrl: j['portal_url'] as String?,
       payUrl: j['pay_url'] as String?,
       unitLabel: unit?['label'] as String?,
       propertyId: unit?['property_id'] as int?,
@@ -130,6 +132,9 @@ class Lease {
   final int monthlyRent;
   final int deposit;
   final int dueDay;
+
+  /// The tenant's own page (balance, receipts, repairs); null once it has closed.
+  final String? portalUrl;
 
   /// The lease's move-out, once started.
   final int? moveOutId;

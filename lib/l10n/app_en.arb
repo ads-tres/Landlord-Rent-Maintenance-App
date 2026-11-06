@@ -785,5 +785,13 @@
   "depositStatement": "Deposit statement",
   "shareStatement": "Share statement (PDF)",
   "statementSent": "Statement sent to the tenant.",
-  "methodDeposit": "From deposit"
+  "methodDeposit": "From deposit",
+  "tenantPage": "Tenant page",
+  "tenantPageHelp": "The tenant's own page: balance, receipts, repairs and announcements. No app needed.",
+  "tenantPageSent": "Link sent to the tenant.",
+  "sendToTenant": "Send",
+  "share": "Share",
+  "copy": "Copy",
+  "resetLink": "New link",
+  "resetTenantPageConfirm": "Make a new link? The old one will stop working."
 }
