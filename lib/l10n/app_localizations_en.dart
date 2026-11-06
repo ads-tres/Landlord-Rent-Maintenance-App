@@ -1928,4 +1928,94 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get shareStatementPdf => 'Share statement (PDF)';
+
+  @override
+  String get getStarted => 'Get started';
+
+  @override
+  String get getStartedHelp =>
+      'A few steps to start collecting rent with the app.';
+
+  @override
+  String stepsDone(int done, int total) {
+    return '$done of $total done';
+  }
+
+  @override
+  String get setupComplete => 'All set up. Well done!';
+
+  @override
+  String get hide => 'Hide';
+
+  @override
+  String get optional => 'optional';
+
+  @override
+  String get setupProfileTitle => 'Add your name';
+
+  @override
+  String get setupProfileHelp =>
+      'It goes on receipts, agreements and messages to tenants.';
+
+  @override
+  String get yourFullName => 'Your full name';
+
+  @override
+  String get yourFullNameHelp => 'As tenants know you, e.g. Abel Kebede';
+
+  @override
+  String get setupPropertyTitle => 'Add your property';
+
+  @override
+  String get setupPropertyHelp =>
+      'The compound or building, with its sub-city and woreda.';
+
+  @override
+  String get setupUnitsTitle => 'Add the rooms or apartments';
+
+  @override
+  String get setupUnitsHelp =>
+      'Open the property and add each unit you rent out.';
+
+  @override
+  String get setupTenantTitle => 'Add a tenant';
+
+  @override
+  String get setupTenantHelp =>
+      'Name and phone number; they get receipts by SMS or Telegram.';
+
+  @override
+  String get setupLeaseTitle => 'Add a lease';
+
+  @override
+  String get setupLeaseHelp =>
+      'Open a property and tap a vacant unit to add the lease. Rent is then charged every month.';
+
+  @override
+  String get setupPaymentTitle => 'Log a payment';
+
+  @override
+  String get setupPaymentHelp =>
+      'From the Rent tab, or paste a Telebirr or bank SMS. The tenant gets a receipt.';
+
+  @override
+  String get setupTenantPageTitle => 'Send a tenant their page';
+
+  @override
+  String get setupTenantPageHelp =>
+      'Open a lease and send the tenant page: balance, receipts and repairs, no app needed.';
+
+  @override
+  String get setupTelegramTitle => 'Connect Telegram';
+
+  @override
+  String get setupTelegramHelp =>
+      'Get repair and payment alerts on Telegram for free.';
+
+  @override
+  String get setupCaretakerTitle => 'Invite a caretaker';
+
+  @override
+  String get setupCaretakerHelp =>
+      'Someone on site who logs payments and handles repairs.';
 }

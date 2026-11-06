@@ -9,6 +9,8 @@ import '../../l10n/app_localizations.dart';
 import '../auth/application/auth_controller.dart';
 import '../payments/data/payments_repository.dart';
 import '../rent/presentation/rent_screen.dart';
+import '../onboarding/data/onboarding_repository.dart';
+import '../onboarding/presentation/onboarding_screen.dart';
 
 /// Home screen: this month's money, late tenants, repairs and leases ending soon.
 class DashboardScreen extends ConsumerWidget {
@@ -36,7 +38,10 @@ class DashboardScreen extends ConsumerWidget {
         ],
       ),
       body: RefreshIndicator(
-        onRefresh: () => ref.refresh(dashboardProvider.future),
+        onRefresh: () {
+          ref.invalidate(onboardingProvider);
+          return ref.refresh(dashboardProvider.future);
+        },
         child: ListView(
           padding: const EdgeInsets.all(16),
           children: [
@@ -82,6 +87,7 @@ class DashboardScreen extends ConsumerWidget {
                       ),
                     ),
                   ),
+                  if (!caretaker) const OnboardingCard(),
                   if (!caretaker && s.unregisteredLeases > 0)
                     Card(
                       clipBehavior: Clip.antiAlias,

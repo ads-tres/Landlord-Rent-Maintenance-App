@@ -1900,4 +1900,87 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get shareStatementPdf => 'መግለጫውን ያጋሩ (PDF)';
+
+  @override
+  String get getStarted => 'እንጀምር';
+
+  @override
+  String get getStartedHelp => 'በመተግበሪያው ኪራይ መሰብሰብ ለመጀመር ጥቂት እርምጃዎች።';
+
+  @override
+  String stepsDone(int done, int total) {
+    return 'ከ$total $done ተጠናቀዋል';
+  }
+
+  @override
+  String get setupComplete => 'ሁሉም ተዘጋጅቷል። በጣም ጥሩ!';
+
+  @override
+  String get hide => 'ደብቅ';
+
+  @override
+  String get optional => 'አማራጭ';
+
+  @override
+  String get setupProfileTitle => 'ስምዎን ያስገቡ';
+
+  @override
+  String get setupProfileHelp => 'በደረሰኞች፣ በውሎች እና ለተከራዮች በሚላኩ መልዕክቶች ላይ ይወጣል።';
+
+  @override
+  String get yourFullName => 'ሙሉ ስምዎ';
+
+  @override
+  String get yourFullNameHelp => 'ተከራዮች እንደሚያውቁዎት፣ ለምሳሌ አቤል ከበደ';
+
+  @override
+  String get setupPropertyTitle => 'ንብረትዎን ያክሉ';
+
+  @override
+  String get setupPropertyHelp => 'ግቢው ወይም ሕንፃው፣ ከክፍለ ከተማውና ወረዳው ጋር።';
+
+  @override
+  String get setupUnitsTitle => 'ክፍሎቹን ወይም አፓርታማዎቹን ያክሉ';
+
+  @override
+  String get setupUnitsHelp => 'ንብረቱን ከፍተው የሚያከራዩትን እያንዳንዱን ክፍል ያክሉ።';
+
+  @override
+  String get setupTenantTitle => 'ተከራይ ያክሉ';
+
+  @override
+  String get setupTenantHelp => 'ስምና ስልክ ቁጥር፤ ደረሰኝ በSMS ወይም በቴሌግራም ይደርሳቸዋል።';
+
+  @override
+  String get setupLeaseTitle => 'ውል ያክሉ';
+
+  @override
+  String get setupLeaseHelp =>
+      'ንብረቱን ከፍተው ባዶ ክፍል ላይ በመንካት ውሉን ያክሉ። ከዚያ ኪራይ በየወሩ ይጠየቃል።';
+
+  @override
+  String get setupPaymentTitle => 'ክፍያ ይመዝግቡ';
+
+  @override
+  String get setupPaymentHelp =>
+      'ከኪራይ ገጽ፣ ወይም የቴሌብር ወይም የባንክ SMS በመለጠፍ። ተከራዩ ደረሰኝ ያገኛሉ።';
+
+  @override
+  String get setupTenantPageTitle => 'ለተከራይ ገጻቸውን ይላኩ';
+
+  @override
+  String get setupTenantPageHelp =>
+      'ውል ከፍተው የተከራይ ገጹን ይላኩ፦ ቀሪ ሂሳብ፣ ደረሰኞችና ጥገና፣ መተግበሪያ ሳያስፈልግ።';
+
+  @override
+  String get setupTelegramTitle => 'ቴሌግራም ያገናኙ';
+
+  @override
+  String get setupTelegramHelp => 'የጥገናና የክፍያ ማሳወቂያዎችን በቴሌግራም በነጻ ያግኙ።';
+
+  @override
+  String get setupCaretakerTitle => 'ጠባቂ ይጋብዙ';
+
+  @override
+  String get setupCaretakerHelp => 'ክፍያ የሚመዘግብና ጥገና የሚከታተል በቦታው ያለ ሰው።';
 }
