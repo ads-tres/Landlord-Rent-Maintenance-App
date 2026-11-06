@@ -112,7 +112,13 @@ class PropertyDetailScreen extends ConsumerWidget {
               else
                 for (final unit in p.units)
                   ListTile(
-                    leading: const Icon(Icons.meeting_room_outlined),
+                    leading: IconButton(
+                      key: Key('unitHistory-${unit.id}'),
+                      tooltip: l10n.unitHistory,
+                      icon: const Icon(Icons.history),
+                      onPressed: () =>
+                          context.push('/units/${unit.id}/history'),
+                    ),
                     title: Text(unit.label),
                     subtitle: Text(
                       unit.activeLease != null
@@ -213,13 +219,20 @@ class PropertyDetailScreen extends ConsumerWidget {
               ),
               onTap: () => Navigator.pop(context, 'listing'),
             ),
+            ListTile(
+              leading: const Icon(Icons.history),
+              title: Text(l10n.unitHistory),
+              onTap: () => Navigator.pop(context, 'history'),
+            ),
           ],
         ),
       ),
     );
     if (!context.mounted || choice == null) return;
 
-    if (choice == 'lease') {
+    if (choice == 'history') {
+      await context.push('/units/${unit.id}/history');
+    } else if (choice == 'lease') {
       context.push(
         Uri(
           path: '/leases/new',

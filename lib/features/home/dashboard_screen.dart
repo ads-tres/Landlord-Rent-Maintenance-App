@@ -172,6 +172,17 @@ class DashboardScreen extends ConsumerWidget {
                         value: '${s.vacantUnits}',
                         onTap: () => context.go('/properties'),
                       ),
+                      if (s.vacancyLostThisYear != null)
+                        _Tile(
+                          key: const Key('vacancyLostTile'),
+                          label: l10n.dashboardVacancyLost,
+                          value: formatBirr(
+                            s.vacancyLostThisYear!,
+                            locale: locale,
+                          ),
+                          alert: s.vacancyLostThisYear! > 0,
+                          onTap: () => context.push('/vacancy'),
+                        ),
                     ],
                   ),
                 ],
