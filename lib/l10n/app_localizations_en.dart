@@ -722,8 +722,8 @@ class AppLocalizationsEn extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count payments not synced',
-      one: '1 payment not synced',
+      other: '$count entries not synced',
+      one: '1 entry not synced',
     );
     return '$_temp0';
   }
@@ -2134,4 +2134,47 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get keepAccount => 'Keep account';
+
+  @override
+  String get savedOfflineItemHelp =>
+      'There is no connection. It will be sent automatically when you are back online, with any photos.';
+
+  @override
+  String get waitingToSync => 'Waiting to sync';
+
+  @override
+  String get waitingToSyncHelp =>
+      'These were saved on this phone without a connection. They are sent automatically when you are back online.';
+
+  @override
+  String get syncPayments => 'Payments';
+
+  @override
+  String get syncExpenses => 'Expenses';
+
+  @override
+  String get syncRepairs => 'Repairs';
+
+  @override
+  String get allSynced => 'Everything is synced';
+
+  @override
+  String syncedSome(int sent, int left) {
+    return 'Sent $sent. $left still waiting.';
+  }
+
+  @override
+  String photosCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count photos',
+      one: '1 photo',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get discardItemConfirm =>
+      'Discard this entry that was never sent? Its photos are deleted too.';
 }

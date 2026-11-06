@@ -3,12 +3,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
+import '../../../core/offline/outbox.dart';
 import '../../../core/api/api_exception.dart';
 import '../../../core/locale_controller.dart';
 import '../../../core/utils/app_dates.dart';
 import '../../../core/utils/money.dart';
 import '../../../core/widgets/async_views.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../home/presentation/sync_screen.dart';
 import '../../payments/data/payments_repository.dart';
 import '../../properties/data/properties_repository.dart';
 import '../../repairs/presentation/repair_widgets.dart';
@@ -93,6 +95,7 @@ class _ExpensesScreenState extends ConsumerState<ExpensesScreen> {
                 ],
               ),
             ),
+          const QueuedEntries(kind: OutboxKind.expense),
           Expanded(
             child: expenses.when(
               loading: () => const Center(child: CircularProgressIndicator()),

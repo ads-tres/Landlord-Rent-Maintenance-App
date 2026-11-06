@@ -5,10 +5,10 @@ import 'package:go_router/go_router.dart';
 import '../../core/offline/response_cache.dart';
 import '../../l10n/app_localizations.dart';
 import '../auth/application/auth_controller.dart';
-import '../payments/application/pending_payments.dart';
+import 'presentation/sync_screen.dart';
 
-/// Bottom navigation for the signed-in landlord, with offline and unsent-payment banners.
-/// Unsent payments are retried on start and whenever the app returns to the foreground.
+/// Bottom navigation for the signed-in landlord, with offline and unsent-entry banners.
+/// Unsent payments, expenses and repairs are retried on start and whenever the app returns to the foreground.
 class HomeShell extends ConsumerStatefulWidget {
   const HomeShell({super.key, required this.shell});
 
@@ -40,14 +40,14 @@ class _HomeShellState extends ConsumerState<HomeShell> {
     super.dispose();
   }
 
-  Future<void> _sync() => ref.read(pendingPaymentsProvider.notifier).sync();
+  Future<void> _sync() => syncAll(ref);
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final shell = widget.shell;
     final offline = ref.watch(offlineStatusProvider);
-    final pending = ref.watch(pendingPaymentsProvider).value ?? const [];
+    final pending = pendingCount(ref);
     final scheme = Theme.of(context).colorScheme;
 
     return Scaffold(
@@ -66,7 +66,7 @@ class _HomeShellState extends ConsumerState<HomeShell> {
                 ),
               ),
             ),
-          if (pending.isNotEmpty)
+          if (pending > 0)
             Material(
               key: const Key('pendingBanner'),
               color: scheme.tertiaryContainer,
@@ -75,12 +75,13 @@ class _HomeShellState extends ConsumerState<HomeShell> {
                 top: !offline,
                 child: ListTile(
                   dense: true,
+                  onTap: () => context.push('/sync'),
                   leading: Icon(
                     Icons.cloud_upload_outlined,
                     color: scheme.onTertiaryContainer,
                   ),
                   title: Text(
-                    l10n.pendingPaymentsBanner(pending.length),
+                    l10n.pendingPaymentsBanner(pending),
                     style: TextStyle(color: scheme.onTertiaryContainer),
                   ),
                   trailing: TextButton(
@@ -93,7 +94,7 @@ class _HomeShellState extends ConsumerState<HomeShell> {
           Expanded(
             child: MediaQuery.removePadding(
               context: context,
-              removeTop: offline || pending.isNotEmpty,
+              removeTop: offline || pending > 0,
               child: shell,
             ),
           ),

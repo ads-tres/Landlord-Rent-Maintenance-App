@@ -5,6 +5,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/api/api_exception.dart';
+import '../../../core/locale_controller.dart';
+import '../../../core/offline/outbox.dart';
+import '../../home/presentation/sync_screen.dart';
 import '../../../core/utils/app_dates.dart';
 import '../../../core/utils/dates.dart';
 import '../../../core/utils/money.dart';
@@ -36,6 +39,7 @@ class _AddExpenseScreenState extends ConsumerState<AddExpenseScreen> {
   ExpenseCategory _category = ExpenseCategory.repair;
   DateTime _spentOn = dateOnly(DateTime.now());
   String? _photo;
+  final String _clientRef = newClientRef();
   bool _saving = false;
   Map<String, String> _errors = const {};
   String? _error;
@@ -67,9 +71,14 @@ class _AddExpenseScreenState extends ConsumerState<AddExpenseScreen> {
             description: _description.text.trim(),
             vendor: _vendor.text.trim(),
             photoPath: _photo,
+            clientRef: _clientRef,
           );
       if (mounted) Navigator.of(context).pop(expense);
     } on ApiException catch (e) {
+      if (e.isNetworkError) {
+        await _saveOffline();
+        return;
+      }
       if (!mounted) return;
       setState(() {
         _errors = e.fieldErrors;
@@ -78,6 +87,51 @@ class _AddExpenseScreenState extends ConsumerState<AddExpenseScreen> {
     } finally {
       if (mounted) setState(() => _saving = false);
     }
+  }
+
+  /// No connection: keep the expense on the phone and send it later.
+  Future<void> _saveOffline() async {
+    final l10n = AppLocalizations.of(context);
+    final locale = ref.read(localeControllerProvider).languageCode;
+    final amount = parseBirr(_amount.text)!;
+    final property = ref
+        .read(propertiesProvider)
+        .value
+        ?.where((p) => p.id == _propertyId)
+        .firstOrNull;
+    final description = _description.text.trim();
+    final vendor = _vendor.text.trim();
+    await ref
+        .read(outboxProvider.notifier)
+        .add(
+          OutboxItem(
+            kind: OutboxKind.expense,
+            clientRef: _clientRef,
+            createdAt: DateTime.now(),
+            title: [
+              _category.label(l10n),
+              formatBirr(amount, locale: locale),
+            ].join(' · '),
+            subtitle: [
+              ?property?.name,
+              ref.read(appDatesProvider).date(_spentOn),
+            ].join(' · '),
+            fields: {
+              'property_id': _propertyId,
+              'unit_id': ?_unitId,
+              'category': _category.apiValue,
+              'amount': amount,
+              'spent_on': ymd(_spentOn),
+              if (description.isNotEmpty) 'description': description,
+              if (vendor.isNotEmpty) 'vendor': vendor,
+            },
+            photos: [?_photo],
+          ),
+        );
+    if (!mounted) return;
+    setState(() => _saving = false);
+    await showSavedOfflineDialog(context, l10n.savedOfflineItemHelp);
+    if (mounted) Navigator.of(context).pop();
   }
 
   @override

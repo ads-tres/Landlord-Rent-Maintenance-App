@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../core/offline/outbox.dart';
 import '../../../core/utils/app_dates.dart';
 import '../../../core/widgets/async_views.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../home/presentation/sync_screen.dart';
 import '../data/repairs_repository.dart';
 import 'repair_widgets.dart';
 
@@ -55,6 +57,7 @@ class RepairsScreen extends ConsumerWidget {
               ],
             ),
           ),
+          const QueuedEntries(kind: OutboxKind.repair),
           Expanded(
             child: repairs.when(
               loading: () => const Center(child: CircularProgressIndicator()),

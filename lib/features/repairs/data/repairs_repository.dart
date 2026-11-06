@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/api/api_client.dart';
+import '../../../core/offline/outbox.dart';
 import '../domain/repair.dart';
 
 class RepairsRepository {
@@ -31,6 +32,7 @@ class RepairsRepository {
     required RepairCategory category,
     String? description,
     List<String> photoPaths = const [],
+    String? clientRef,
   }) async {
     final form = FormData.fromMap({
       'unit_id': unitId,
@@ -38,6 +40,7 @@ class RepairsRepository {
       'category': category.apiValue,
       if (description != null && description.isNotEmpty)
         'description': description,
+      'client_ref': ?clientRef,
       'photos[]': [for (final p in photoPaths) await MultipartFile.fromFile(p)],
     });
     final data =
@@ -106,7 +109,8 @@ final repairFilterProvider = NotifierProvider<RepairFilter, String>(
 );
 
 final repairsProvider = FutureProvider.autoDispose<List<Repair>>(
-  (ref) => ref
+  // Watching outboxSyncedProvider refetches once offline repairs are sent.
+  (ref) => (ref..watch(outboxSyncedProvider))
       .watch(repairsRepositoryProvider)
       .list(status: ref.watch(repairFilterProvider)),
 );

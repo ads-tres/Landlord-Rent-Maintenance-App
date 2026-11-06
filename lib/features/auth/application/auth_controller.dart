@@ -2,12 +2,14 @@ import '../../../core/push/push_service.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/offline/outbox.dart';
+
 import '../../../core/api/api_exception.dart';
 import '../../../core/locale_controller.dart';
 import '../../../core/offline/response_cache.dart';
 import '../../../core/storage/secure_store.dart';
 import '../../payments/application/pending_payments.dart'
-    show pendingPaymentsKey;
+    show pendingPaymentsKey, pendingPaymentsProvider;
 import '../data/auth_repository.dart';
 import '../domain/app_user.dart';
 
@@ -109,6 +111,16 @@ class AuthController extends AsyncNotifier<AppUser?> {
     // Saved screens and unsent payments belong to this landlord only.
     await ref.read(cacheStoreProvider).clear();
     await ref.read(keyValueStoreProvider).write(pendingPaymentsKey, null);
+    final queued = await ref
+        .read(outboxProvider.future)
+        .catchError((_) => <OutboxItem>[]);
+    await ref.read(outboxFilesProvider).remove([
+      for (final i in queued) ...i.photos,
+    ]);
+    await ref.read(keyValueStoreProvider).write(outboxKey, null);
+    ref
+      ..invalidate(pendingPaymentsProvider)
+      ..invalidate(outboxProvider);
     state = const AsyncData(null);
   }
 }

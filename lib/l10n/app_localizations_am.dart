@@ -713,8 +713,8 @@ class AppLocalizationsAm extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count ክፍያዎች አልተላኩም',
-      one: '1 ክፍያ አልተላከም',
+      other: '$count ያልተላኩ መረጃዎች',
+      one: '1 ያልተላከ መረጃ',
     );
     return '$_temp0';
   }
@@ -2096,4 +2096,46 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get keepAccount => 'አካውንቱን አቆይ';
+
+  @override
+  String get savedOfflineItemHelp =>
+      'ግንኙነት የለም። ኢንተርኔት ሲመለስ ከፎቶዎቹ ጋር በራሱ ይላካል።';
+
+  @override
+  String get waitingToSync => 'ለመላክ በመጠባበቅ ላይ';
+
+  @override
+  String get waitingToSyncHelp =>
+      'እነዚህ ያለ ግንኙነት በዚህ ስልክ ላይ ተቀምጠዋል። ኢንተርኔት ሲመለስ በራሳቸው ይላካሉ።';
+
+  @override
+  String get syncPayments => 'ክፍያዎች';
+
+  @override
+  String get syncExpenses => 'ወጪዎች';
+
+  @override
+  String get syncRepairs => 'ጥገናዎች';
+
+  @override
+  String get allSynced => 'ሁሉም ተልኳል';
+
+  @override
+  String syncedSome(int sent, int left) {
+    return '$sent ተልኳል። $left ገና ይጠብቃሉ።';
+  }
+
+  @override
+  String photosCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ፎቶዎች',
+      one: '1 ፎቶ',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get discardItemConfirm => 'ያልተላከውን ይህን መረጃ ይሰርዙ? ፎቶዎቹም ይሰረዛሉ።';
 }

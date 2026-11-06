@@ -204,7 +204,7 @@
   "previousQuarter": "ያለፈው ሩብ ዓመት",
   "nextQuarter": "የሚቀጥለው ሩብ ዓመት",
   "offlineBanner": "ግንኙነት የለም። የተቀመጠ መረጃ እያሳየ ነው።",
-  "pendingPaymentsBanner": "{count, plural, =1{1 ክፍያ አልተላከም} other{{count} ክፍያዎች አልተላኩም}}",
+  "pendingPaymentsBanner": "{count, plural, =1{1 ያልተላከ መረጃ} other{{count} ያልተላኩ መረጃዎች}}",
   "syncNow": "አሁን ላክ",
   "notSynced": "አልተላከም",
   "savedOffline": "በዚህ ስልክ ላይ ተቀምጧል",
@@ -609,5 +609,15 @@
   "deleteAccountConfirm": "በ30 ቀናት ውስጥ ሰርዝ",
   "typeYourPhone": "ለማረጋገጥ ስልክ ቁጥርዎን ያስገቡ",
   "deletionScheduled": "አካውንትዎ {date} ይሰረዛል።",
-  "keepAccount": "አካውንቱን አቆይ"
+  "keepAccount": "አካውንቱን አቆይ",
+  "savedOfflineItemHelp": "ግንኙነት የለም። ኢንተርኔት ሲመለስ ከፎቶዎቹ ጋር በራሱ ይላካል።",
+  "waitingToSync": "ለመላክ በመጠባበቅ ላይ",
+  "waitingToSyncHelp": "እነዚህ ያለ ግንኙነት በዚህ ስልክ ላይ ተቀምጠዋል። ኢንተርኔት ሲመለስ በራሳቸው ይላካሉ።",
+  "syncPayments": "ክፍያዎች",
+  "syncExpenses": "ወጪዎች",
+  "syncRepairs": "ጥገናዎች",
+  "allSynced": "ሁሉም ተልኳል",
+  "syncedSome": "{sent} ተልኳል። {left} ገና ይጠብቃሉ።",
+  "photosCount": "{count, plural, =1{1 ፎቶ} other{{count} ፎቶዎች}}",
+  "discardItemConfirm": "ያልተላከውን ይህን መረጃ ይሰርዙ? ፎቶዎቹም ይሰረዛሉ።"
 }

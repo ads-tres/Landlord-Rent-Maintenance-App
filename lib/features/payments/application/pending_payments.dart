@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:math';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -11,16 +10,9 @@ import '../../rent/presentation/rent_screen.dart';
 import '../data/payments_repository.dart';
 import '../domain/payment.dart';
 
-const pendingPaymentsKey = 'pending_payments';
+export '../../../core/offline/outbox.dart' show newClientRef;
 
-/// Random id the server uses to recognise a payment sent more than once.
-String newClientRef() {
-  final r = Random.secure();
-  return List.generate(
-    16,
-    (_) => r.nextInt(256).toRadixString(16).padLeft(2, '0'),
-  ).join();
-}
+const pendingPaymentsKey = 'pending_payments';
 
 /// A payment logged without a connection, waiting to be sent. Amounts in santim.
 class PendingPayment {

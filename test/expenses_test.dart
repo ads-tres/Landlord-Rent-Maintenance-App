@@ -212,6 +212,7 @@ void main() {
         description: any(named: 'description'),
         vendor: any(named: 'vendor'),
         photoPath: any(named: 'photoPath'),
+        clientRef: any(named: 'clientRef'),
       ),
     ).thenAnswer((_) async => Expense.fromJson(expenseJson(3)));
 
@@ -245,6 +246,7 @@ void main() {
         description: 'New pump',
         vendor: '',
         photoPath: null,
+        clientRef: any(named: 'clientRef'),
       ),
     ).called(1);
   });

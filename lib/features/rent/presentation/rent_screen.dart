@@ -12,6 +12,7 @@ import '../../leases/data/leases_repository.dart';
 import '../../leases/domain/charge.dart';
 import '../../leases/presentation/status_chips.dart';
 import '../../leases/presentation/charge_labels.dart';
+import '../../home/presentation/sync_screen.dart';
 import '../../payments/application/pending_payments.dart';
 import '../../payments/presentation/paste_sms_sheet.dart';
 import '../../payments/presentation/pending_payment_tile.dart';
@@ -126,7 +127,7 @@ class RentScreen extends ConsumerWidget {
 
           return RefreshIndicator(
             onRefresh: () async {
-              await ref.read(pendingPaymentsProvider.notifier).sync();
+              await syncAll(ref);
               return ref.refresh(monthChargesProvider.future);
             },
             child: ListView(
