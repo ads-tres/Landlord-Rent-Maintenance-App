@@ -1557,4 +1557,56 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get onlyLandlordSettles => 'ተቀማጩን አጠናቅቆ ውሉን ማቋረጥ የሚችሉት አከራዩ ብቻ ናቸው።';
+
+  @override
+  String get renewLease => 'ውል ያድሱ';
+
+  @override
+  String renewLeaseHelp(int days) {
+    return 'በ$days ቀናት ያበቃል። ወደ አዲስ ማብቂያ ቀን ያራዝሙት።';
+  }
+
+  @override
+  String get renew => 'አድስ';
+
+  @override
+  String currentEnd(String date) {
+    return 'አሁን ያለው ማብቂያ፦ $date';
+  }
+
+  @override
+  String get newEndDate => 'አዲስ ማብቂያ ቀን';
+
+  @override
+  String rentFrom(String date) {
+    return 'ከ$date ጀምሮ ወርሃዊ ኪራይ (ብር)';
+  }
+
+  @override
+  String maxRentHint(String amount, String cap) {
+    return 'እስከ $amount (የዓመት $cap% ገደብ)';
+  }
+
+  @override
+  String get leaseRenewed => 'ውሉ ታድሷል';
+
+  @override
+  String leaseRenewedBody(String date, String rent) {
+    return 'አሁን የሚያበቃው $date። ኪራይ፦ $rent። ተጨማሪ ስምምነቱን አትመው ከተከራዩ ጋር ፈርመው በወረዳ ያስመዝግቡ።';
+  }
+
+  @override
+  String get renewalAddendum => 'የማደሻ ተጨማሪ ስምምነት';
+
+  @override
+  String get close => 'ዝጋ';
+
+  @override
+  String get leasesEnding => 'በቅርቡ የሚያበቁ ውሎች';
+
+  @override
+  String get leasesEndingEmpty => 'በሚቀጥሉት 60 ቀናት የሚያበቃ ውል የለም።';
+
+  @override
+  String get aboveYearlyLimit => 'ከዓመታዊ ገደቡ በላይ ነው።';
 }

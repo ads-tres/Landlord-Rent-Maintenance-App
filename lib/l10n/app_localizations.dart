@@ -2809,6 +2809,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Only the landlord can settle the deposit and end the lease.'**
   String get onlyLandlordSettles;
+
+  /// No description provided for @renewLease.
+  ///
+  /// In en, this message translates to:
+  /// **'Renew lease'**
+  String get renewLease;
+
+  /// No description provided for @renewLeaseHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Ends in {days} days. Extend it to a new end date.'**
+  String renewLeaseHelp(int days);
+
+  /// No description provided for @renew.
+  ///
+  /// In en, this message translates to:
+  /// **'Renew'**
+  String get renew;
+
+  /// No description provided for @currentEnd.
+  ///
+  /// In en, this message translates to:
+  /// **'Current end: {date}'**
+  String currentEnd(String date);
+
+  /// No description provided for @newEndDate.
+  ///
+  /// In en, this message translates to:
+  /// **'New end date'**
+  String get newEndDate;
+
+  /// No description provided for @rentFrom.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly rent from {date} (Br)'**
+  String rentFrom(String date);
+
+  /// No description provided for @maxRentHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Up to {amount} ({cap}% yearly limit)'**
+  String maxRentHint(String amount, String cap);
+
+  /// No description provided for @leaseRenewed.
+  ///
+  /// In en, this message translates to:
+  /// **'Lease renewed'**
+  String get leaseRenewed;
+
+  /// No description provided for @leaseRenewedBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Now ends {date}. Rent: {rent}. Print the addendum, sign it with the tenant and register it with the woreda.'**
+  String leaseRenewedBody(String date, String rent);
+
+  /// No description provided for @renewalAddendum.
+  ///
+  /// In en, this message translates to:
+  /// **'Renewal addendum'**
+  String get renewalAddendum;
+
+  /// No description provided for @close.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
+
+  /// No description provided for @leasesEnding.
+  ///
+  /// In en, this message translates to:
+  /// **'Leases ending soon'**
+  String get leasesEnding;
+
+  /// No description provided for @leasesEndingEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No leases end in the next 60 days.'**
+  String get leasesEndingEmpty;
+
+  /// No description provided for @aboveYearlyLimit.
+  ///
+  /// In en, this message translates to:
+  /// **'Above the yearly limit.'**
+  String get aboveYearlyLimit;
 }
 
 class _AppLocalizationsDelegate

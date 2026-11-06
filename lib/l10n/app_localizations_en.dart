@@ -1580,4 +1580,56 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get onlyLandlordSettles =>
       'Only the landlord can settle the deposit and end the lease.';
+
+  @override
+  String get renewLease => 'Renew lease';
+
+  @override
+  String renewLeaseHelp(int days) {
+    return 'Ends in $days days. Extend it to a new end date.';
+  }
+
+  @override
+  String get renew => 'Renew';
+
+  @override
+  String currentEnd(String date) {
+    return 'Current end: $date';
+  }
+
+  @override
+  String get newEndDate => 'New end date';
+
+  @override
+  String rentFrom(String date) {
+    return 'Monthly rent from $date (Br)';
+  }
+
+  @override
+  String maxRentHint(String amount, String cap) {
+    return 'Up to $amount ($cap% yearly limit)';
+  }
+
+  @override
+  String get leaseRenewed => 'Lease renewed';
+
+  @override
+  String leaseRenewedBody(String date, String rent) {
+    return 'Now ends $date. Rent: $rent. Print the addendum, sign it with the tenant and register it with the woreda.';
+  }
+
+  @override
+  String get renewalAddendum => 'Renewal addendum';
+
+  @override
+  String get close => 'Close';
+
+  @override
+  String get leasesEnding => 'Leases ending soon';
+
+  @override
+  String get leasesEndingEmpty => 'No leases end in the next 60 days.';
+
+  @override
+  String get aboveYearlyLimit => 'Above the yearly limit.';
 }

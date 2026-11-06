@@ -19,6 +19,7 @@ import '../features/home/home_shell.dart';
 import '../features/home/settings_screen.dart';
 import '../features/leases/presentation/add_lease_screen.dart';
 import '../features/leases/presentation/lease_detail_screen.dart';
+import '../features/leases/presentation/leases_ending_screen.dart';
 import '../features/payments/presentation/log_payment_screen.dart';
 import '../features/properties/presentation/properties_screen.dart';
 import '../features/reports/presentation/quarterly_report_screen.dart';
@@ -80,6 +81,11 @@ final routerProvider = Provider<GoRouter>((ref) {
             propertyId: int.tryParse(q['propertyId'] ?? ''),
           );
         },
+      ),
+      GoRoute(
+        path: '/leases/ending',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (_, _) => const LeasesEndingScreen(),
       ),
       GoRoute(
         path: '/leases/:id',

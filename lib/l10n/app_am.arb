@@ -451,5 +451,19 @@
   "caretakerHelp": "አንዳንድ ተግባራት ለአከራዩ ብቻ ናቸው።",
   "loggedBy": "የመዘገበው {name}",
   "handledBy": "የተከታተለው {name}",
-  "onlyLandlordSettles": "ተቀማጩን አጠናቅቆ ውሉን ማቋረጥ የሚችሉት አከራዩ ብቻ ናቸው።"
+  "onlyLandlordSettles": "ተቀማጩን አጠናቅቆ ውሉን ማቋረጥ የሚችሉት አከራዩ ብቻ ናቸው።",
+  "renewLease": "ውል ያድሱ",
+  "renewLeaseHelp": "በ{days} ቀናት ያበቃል። ወደ አዲስ ማብቂያ ቀን ያራዝሙት።",
+  "renew": "አድስ",
+  "currentEnd": "አሁን ያለው ማብቂያ፦ {date}",
+  "newEndDate": "አዲስ ማብቂያ ቀን",
+  "rentFrom": "ከ{date} ጀምሮ ወርሃዊ ኪራይ (ብር)",
+  "maxRentHint": "እስከ {amount} (የዓመት {cap}% ገደብ)",
+  "leaseRenewed": "ውሉ ታድሷል",
+  "leaseRenewedBody": "አሁን የሚያበቃው {date}። ኪራይ፦ {rent}። ተጨማሪ ስምምነቱን አትመው ከተከራዩ ጋር ፈርመው በወረዳ ያስመዝግቡ።",
+  "renewalAddendum": "የማደሻ ተጨማሪ ስምምነት",
+  "close": "ዝጋ",
+  "leasesEnding": "በቅርቡ የሚያበቁ ውሎች",
+  "leasesEndingEmpty": "በሚቀጥሉት 60 ቀናት የሚያበቃ ውል የለም።",
+  "aboveYearlyLimit": "ከዓመታዊ ገደቡ በላይ ነው።"
 }

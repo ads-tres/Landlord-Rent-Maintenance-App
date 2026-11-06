@@ -1,9 +1,13 @@
+import 'dart:io';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:path_provider/path_provider.dart';
 
 import '../../../core/api/api_client.dart';
 import '../../../core/utils/dates.dart';
 import '../domain/charge.dart';
 import '../domain/lease.dart';
+import '../domain/renewal.dart';
 import '../domain/rent_rules.dart';
 
 /// Amounts are sent and received in santim.
@@ -62,6 +66,51 @@ class LeasesRepository {
     return Lease.fromJson(data['data'] as Map<String, dynamic>);
   }
 
+  /// Active leases ending within [days], soonest first.
+  Future<List<Lease>> ending({int days = 60}) async {
+    final data = await _api.get(
+      '/leases',
+      query: {'ending_within_days': days},
+    ) as Map<String, dynamic>;
+    return (data['data'] as List<dynamic>)
+        .map((l) => Lease.fromJson(l as Map<String, dynamic>))
+        .toList();
+  }
+
+  Future<RenewalCheck> renewalCheck(int leaseId) async {
+    final data = await _api.get(
+      '/leases/$leaseId/renewal-check',
+    ) as Map<String, dynamic>;
+    return RenewalCheck.fromJson(data['data'] as Map<String, dynamic>);
+  }
+
+  /// Extends the lease; a rent change applies from the day after the old end.
+  Future<LeaseRenewal> renew(
+    int leaseId, {
+    required DateTime newEndDate,
+    required int newRent,
+    bool notifyTenant = true,
+  }) async {
+    final data = await _api.post(
+      '/leases/$leaseId/renew',
+      data: {
+        'new_end_date': ymd(newEndDate),
+        'new_rent': newRent,
+        'notify_tenant': notifyTenant,
+      },
+    ) as Map<String, dynamic>;
+    return LeaseRenewal.fromJson(data['data'] as Map<String, dynamic>);
+  }
+
+  /// The renewal addendum PDF, saved to a temporary file for sharing.
+  Future<String> downloadAddendum(int renewalId) async {
+    final bytes = await _api.getBytes('/lease-renewals/$renewalId/addendum');
+    final dir = await getTemporaryDirectory();
+    final file = File('${dir.path}/lease-renewal-$renewalId.pdf');
+    await file.writeAsBytes(bytes, flush: true);
+    return file.path;
+  }
+
   /// Texts the tenant their page link.
   Future<void> sendPortalLink(int leaseId) =>
       _api.post('/leases/$leaseId/portal-link/send');
@@ -116,3 +165,7 @@ final leaseChargesProvider = FutureProvider.autoDispose
       (ref, leaseId) =>
           ref.watch(leasesRepositoryProvider).charges(leaseId: leaseId),
     );
+
+final endingLeasesProvider = FutureProvider.autoDispose<List<Lease>>(
+  (ref) => ref.watch(leasesRepositoryProvider).ending(),
+);
