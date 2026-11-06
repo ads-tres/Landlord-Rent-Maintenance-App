@@ -11,9 +11,13 @@ class FormSheet extends StatefulWidget {
     required this.title,
     required this.fieldsBuilder,
     required this.onSave,
+    this.saveLabel,
   });
 
   final String title;
+
+  /// Text on the save button; "Save" when null.
+  final String? saveLabel;
 
   /// Builds the form fields. `errors` holds server validation messages by field name.
   final List<Widget> Function(BuildContext context, Map<String, String> errors)
@@ -82,7 +86,7 @@ class _FormSheetState extends State<FormSheet> {
                         dimension: 22,
                         child: CircularProgressIndicator(),
                       )
-                    : Text(l10n.save),
+                    : Text(widget.saveLabel ?? l10n.save),
               ),
             ],
           ),

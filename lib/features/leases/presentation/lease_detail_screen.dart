@@ -14,6 +14,7 @@ import '../../../core/widgets/async_views.dart';
 import '../../../core/widgets/form_sheet.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../listings/data/listings_repository.dart';
+import '../../move_out/data/move_out_repository.dart';
 import '../../online_rent/data/online_rent_repository.dart';
 import '../../payments/application/pending_payments.dart';
 import '../../payments/data/payments_repository.dart';
@@ -68,12 +69,21 @@ class LeaseDetailScreen extends ConsumerWidget {
             PopupMenuButton<String>(
               onSelected: (action) async {
                 final l = lease.requireValue;
+                if (action == 'moveout') {
+                  await _startMoveOut(context, ref, l);
+                  return;
+                }
                 final changed = action == 'rent'
                     ? await _changeRent(context, ref, l)
                     : await _endLease(context, ref, l);
                 if (changed) _refreshAll(ref, l);
               },
               itemBuilder: (_) => [
+                PopupMenuItem(
+                  key: const Key('moveOutMenuItem'),
+                  value: 'moveout',
+                  child: Text(l10n.moveOut),
+                ),
                 PopupMenuItem(value: 'rent', child: Text(l10n.changeRent)),
                 PopupMenuItem(value: 'end', child: Text(l10n.endLease)),
               ],
@@ -112,6 +122,32 @@ class LeaseDetailScreen extends ConsumerWidget {
                         ),
                       ],
                     ),
+                  ),
+                ),
+                const SizedBox(height: 12),
+              ],
+              if (l.moveOutId != null) ...[
+                Card(
+                  color: l.moveOutSettled
+                      ? null
+                      : Theme.of(context).colorScheme.tertiaryContainer,
+                  child: ListTile(
+                    key: const Key('moveOutCard'),
+                    leading: Icon(
+                      l.moveOutSettled
+                          ? Icons.receipt_long_outlined
+                          : Icons.moving_outlined,
+                    ),
+                    title: Text(
+                      l.moveOutSettled
+                          ? l10n.depositStatement
+                          : l10n.moveOutInProgress,
+                    ),
+                    trailing: const Icon(Icons.chevron_right),
+                    onTap: () async {
+                      await context.push('/move-outs/${l.moveOutId}');
+                      _refreshAll(ref, l);
+                    },
                   ),
                 ),
                 const SizedBox(height: 12),
@@ -389,6 +425,45 @@ class LeaseDetailScreen extends ConsumerWidget {
         ),
       ],
     );
+  }
+
+  Future<void> _startMoveOut(
+    BuildContext context,
+    WidgetRef ref,
+    Lease lease,
+  ) async {
+    final l10n = AppLocalizations.of(context);
+    if (lease.moveOutId != null) {
+      await context.push('/move-outs/${lease.moveOutId}');
+      _refreshAll(ref, lease);
+      return;
+    }
+    final today = dateOnly(DateTime.now());
+    final initial = today.isBefore(lease.startDate)
+        ? lease.startDate
+        : (today.isAfter(lease.endDate) ? lease.endDate : today);
+    final movedOutOn = await showDatePicker(
+      context: context,
+      helpText: l10n.movedOutOn,
+      initialDate: initial,
+      firstDate: lease.startDate,
+      lastDate: lease.endDate,
+    );
+    if (movedOutOn == null || !context.mounted) return;
+
+    try {
+      final m = await ref
+          .read(moveOutRepositoryProvider)
+          .start(lease.id, movedOutOn: movedOutOn);
+      if (!context.mounted) return;
+      await context.push('/move-outs/${m.id}');
+      _refreshAll(ref, lease);
+    } on ApiException catch (e) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text(friendlyError(context, e))));
+      }
+    }
   }
 
   Future<bool> _endLease(
@@ -703,7 +778,11 @@ class _LeasePayments extends ConsumerWidget {
                     if (!p.isManual) ...[
                       const SizedBox(width: 8),
                       Chip(
-                        label: Text(l10n.paidOnline),
+                        label: Text(
+                          p.source == 'deposit'
+                              ? l10n.methodDeposit
+                              : l10n.paidOnline,
+                        ),
                         visualDensity: VisualDensity.compact,
                         side: BorderSide.none,
                       ),
