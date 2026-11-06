@@ -100,6 +100,8 @@ void main() {
     expect(find.text('Room 1'), findsOneWidget);
     expect(find.text('Telebirr'), findsOneWidget);
     expect(find.text('Share PDF'), findsOneWidget);
+    expect(find.byKey(const Key('shareExcel')), findsOneWidget);
+    expect(find.text('Share Excel for accountant'), findsOneWidget);
     expect(find.text('Land lease'), findsOneWidget);
     expect(find.text('− Br 15,000'), findsOneWidget);
     expect(

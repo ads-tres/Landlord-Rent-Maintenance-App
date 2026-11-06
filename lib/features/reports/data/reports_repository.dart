@@ -22,13 +22,30 @@ class ReportsRepository {
   }
 
   /// Downloads the report PDF into the temp folder and returns its path.
-  Future<String> downloadPdf({required int year, required int quarter}) async {
+  Future<String> downloadPdf({required int year, required int quarter}) =>
+      _download(year, quarter, 'pdf', 'rent-income-$year-Q$quarter.pdf');
+
+  /// Downloads the Excel workbook (summary, payments, expenses, rent roll).
+  Future<String> downloadExcel({required int year, required int quarter}) =>
+      _download(
+        year,
+        quarter,
+        'xlsx',
+        'rent-and-expenses-$year-Q$quarter.xlsx',
+      );
+
+  Future<String> _download(
+    int year,
+    int quarter,
+    String format,
+    String name,
+  ) async {
     final bytes = await _api.getBytes(
       '/reports/quarterly',
-      query: {'year': year, 'quarter': quarter, 'format': 'pdf'},
+      query: {'year': year, 'quarter': quarter, 'format': format},
     );
     final dir = await getTemporaryDirectory();
-    final file = File('${dir.path}/rent-income-$year-Q$quarter.pdf');
+    final file = File('${dir.path}/$name');
     await file.writeAsBytes(bytes, flush: true);
     return file.path;
   }

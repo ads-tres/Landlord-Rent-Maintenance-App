@@ -2893,6 +2893,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Above the yearly limit.'**
   String get aboveYearlyLimit;
+
+  /// No description provided for @reportShareExcel.
+  ///
+  /// In en, this message translates to:
+  /// **'Share Excel for accountant'**
+  String get reportShareExcel;
+
+  /// No description provided for @reportShareExcelHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Every payment and expense, a rent roll and a summary, in a spreadsheet.'**
+  String get reportShareExcelHelp;
 }
 
 class _AppLocalizationsDelegate
