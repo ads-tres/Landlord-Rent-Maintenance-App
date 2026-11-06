@@ -16,6 +16,7 @@ class AppUser {
     this.onlineRentEnabled = false,
     this.role = 'landlord',
     this.landlordName,
+    this.deletionScheduledFor,
   });
 
   factory AppUser.fromJson(Map<String, dynamic> json) => AppUser(
@@ -35,6 +36,9 @@ class AppUser {
     onlineRentEnabled: json['online_rent_enabled'] as bool? ?? false,
     role: json['role'] as String? ?? 'landlord',
     landlordName: json['landlord_name'] as String?,
+    deletionScheduledFor: json['deletion_scheduled_for'] == null
+        ? null
+        : DateTime.parse(json['deletion_scheduled_for'] as String),
   );
 
   final int id;
@@ -67,6 +71,9 @@ class AppUser {
 
   /// For a caretaker: the landlord they work for.
   final String? landlordName;
+
+  /// The account will be deleted on this day unless the landlord cancels.
+  final DateTime? deletionScheduledFor;
 
   /// Works on a landlord's data with limited rights.
   bool get isCaretaker => role == 'caretaker';

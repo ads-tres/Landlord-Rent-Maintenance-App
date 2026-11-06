@@ -983,5 +983,16 @@
   "averageOccupancy": "Average occupancy",
   "occupancyShort": "{percent}% let",
   "@occupancyShort": {"placeholders": {"percent": {"type": "int"}}},
-  "wholeYear": "Year"
+  "wholeYear": "Year",
+  "downloadMyData": "Download my data",
+  "downloadMyDataHelp": "Everything in the app as spreadsheet files (ZIP).",
+  "preparingData": "Preparing your data…",
+  "deleteAccount": "Delete account",
+  "deleteAccountHelp": "Removes your account and all its data after 30 days.",
+  "deleteAccountWarning": "Your properties, tenants, leases, payments, photos and caretakers will be deleted 30 days from now. Until then you can change your mind. Download your data first if you want a copy.",
+  "deleteAccountConfirm": "Delete in 30 days",
+  "typeYourPhone": "Type your phone number to confirm",
+  "deletionScheduled": "Your account will be deleted on {date}.",
+  "@deletionScheduled": {"placeholders": {"date": {"type": "String"}}},
+  "keepAccount": "Keep account"
 }

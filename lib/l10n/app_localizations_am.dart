@@ -2063,4 +2063,37 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get wholeYear => 'ዓመት';
+
+  @override
+  String get downloadMyData => 'መረጃዬን አውርድ';
+
+  @override
+  String get downloadMyDataHelp => 'በመተግበሪያው ያለውን ሁሉ እንደ ሰንጠረዥ ፋይሎች (ZIP)።';
+
+  @override
+  String get preparingData => 'መረጃዎ እየተዘጋጀ ነው…';
+
+  @override
+  String get deleteAccount => 'አካውንቱን ሰርዝ';
+
+  @override
+  String get deleteAccountHelp => 'አካውንትዎንና መረጃዎን በሙሉ ከ30 ቀናት በኋላ ያጠፋል።';
+
+  @override
+  String get deleteAccountWarning =>
+      'ንብረቶችዎ፣ ተከራዮችዎ፣ ውሎችዎ፣ ክፍያዎችዎ፣ ፎቶዎችዎና ጠባቂዎችዎ ከዛሬ ጀምሮ በ30 ቀናት ውስጥ ይሰረዛሉ። እስከዚያ ሐሳብዎን መቀየር ይችላሉ። ቅጂ ከፈለጉ መጀመሪያ መረጃዎን ያውርዱ።';
+
+  @override
+  String get deleteAccountConfirm => 'በ30 ቀናት ውስጥ ሰርዝ';
+
+  @override
+  String get typeYourPhone => 'ለማረጋገጥ ስልክ ቁጥርዎን ያስገቡ';
+
+  @override
+  String deletionScheduled(String date) {
+    return 'አካውንትዎ $date ይሰረዛል።';
+  }
+
+  @override
+  String get keepAccount => 'አካውንቱን አቆይ';
 }

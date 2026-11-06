@@ -76,6 +76,15 @@ class AuthController extends AsyncNotifier<AppUser?> {
     }
   }
 
+  /// Asks for the account to be deleted in 30 days (confirmed with the phone number).
+  Future<void> requestDeletion(String phone) async => state = AsyncData(
+    await ref.read(authRepositoryProvider).requestDeletion(phone),
+  );
+
+  Future<void> cancelDeletion() async => state = AsyncData(
+    await ref.read(authRepositoryProvider).cancelDeletion(),
+  );
+
   Future<void> logout() async {
     // Stop this phone getting the account's alerts before the token is revoked.
     final push = ref.read(pushServiceProvider);

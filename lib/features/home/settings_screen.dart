@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../core/api/api_exception.dart';
 import '../../core/config.dart';
+import '../../core/utils/app_dates.dart';
 import '../../core/locale_controller.dart';
 import '../../core/utils/phone_number.dart';
 import '../../l10n/app_localizations.dart';
@@ -169,6 +171,49 @@ class SettingsScreen extends ConsumerWidget {
                   ? _disconnectTelegram(context, ref)
                   : _connectTelegram(context, ref),
             ),
+          if (user != null && !user.isCaretaker) ...[
+            const Divider(),
+            if (user.deletionScheduledFor != null)
+              Card(
+                key: const Key('deletionBanner'),
+                margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                color: Theme.of(context).colorScheme.errorContainer,
+                child: ListTile(
+                  title: Text(
+                    l10n.deletionScheduled(
+                      ref
+                          .read(appDatesProvider)
+                          .date(user.deletionScheduledFor!),
+                    ),
+                  ),
+                  trailing: TextButton(
+                    key: const Key('cancelDeletion'),
+                    onPressed: () => ref
+                        .read(authControllerProvider.notifier)
+                        .cancelDeletion(),
+                    child: Text(l10n.keepAccount),
+                  ),
+                ),
+              ),
+            ListTile(
+              key: const Key('exportData'),
+              leading: const Icon(Icons.download_outlined),
+              title: Text(l10n.downloadMyData),
+              subtitle: Text(l10n.downloadMyDataHelp),
+              onTap: () => _exportData(context, ref),
+            ),
+            if (user.deletionScheduledFor == null)
+              ListTile(
+                key: const Key('deleteAccount'),
+                leading: Icon(
+                  Icons.delete_forever_outlined,
+                  color: Theme.of(context).colorScheme.error,
+                ),
+                title: Text(l10n.deleteAccount),
+                subtitle: Text(l10n.deleteAccountHelp),
+                onTap: () => _deleteAccount(context, ref),
+              ),
+          ],
           const Divider(),
           ListTile(
             leading: const Icon(Icons.logout),
@@ -197,6 +242,54 @@ class SettingsScreen extends ConsumerWidget {
       ),
     );
   }
+}
+
+Future<void> _exportData(BuildContext context, WidgetRef ref) async {
+  final l10n = AppLocalizations.of(context);
+  final messenger = ScaffoldMessenger.of(context);
+  messenger.showSnackBar(SnackBar(content: Text(l10n.preparingData)));
+  try {
+    final path = await ref.read(authRepositoryProvider).exportData();
+    await SharePlus.instance.share(
+      ShareParams(files: [XFile(path, mimeType: 'application/zip')]),
+    );
+  } on ApiException catch (e) {
+    if (context.mounted) {
+      messenger.showSnackBar(
+        SnackBar(content: Text(friendlyError(context, e))),
+      );
+    }
+  }
+}
+
+Future<void> _deleteAccount(BuildContext context, WidgetRef ref) async {
+  final l10n = AppLocalizations.of(context);
+  final phone = TextEditingController();
+  await showFormSheet(
+    context,
+    FormSheet(
+      title: l10n.deleteAccount,
+      saveLabel: l10n.deleteAccountConfirm,
+      onSave: () => ref
+          .read(authControllerProvider.notifier)
+          .requestDeletion(phone.text.trim()),
+      fieldsBuilder: (context, errors) => [
+        Text(l10n.deleteAccountWarning),
+        fieldGap,
+        TextFormField(
+          key: const Key('confirmPhoneField'),
+          controller: phone,
+          keyboardType: TextInputType.phone,
+          decoration: InputDecoration(
+            labelText: l10n.typeYourPhone,
+            errorText: errors['phone'],
+          ),
+          validator: (v) =>
+              (v == null || v.trim().isEmpty) ? l10n.required : null,
+        ),
+      ],
+    ),
+  );
 }
 
 Future<void> _editDocumentDetails(BuildContext context, WidgetRef ref) async {

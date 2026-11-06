@@ -3697,6 +3697,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Year'**
   String get wholeYear;
+
+  /// No description provided for @downloadMyData.
+  ///
+  /// In en, this message translates to:
+  /// **'Download my data'**
+  String get downloadMyData;
+
+  /// No description provided for @downloadMyDataHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything in the app as spreadsheet files (ZIP).'**
+  String get downloadMyDataHelp;
+
+  /// No description provided for @preparingData.
+  ///
+  /// In en, this message translates to:
+  /// **'Preparing your data…'**
+  String get preparingData;
+
+  /// No description provided for @deleteAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete account'**
+  String get deleteAccount;
+
+  /// No description provided for @deleteAccountHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Removes your account and all its data after 30 days.'**
+  String get deleteAccountHelp;
+
+  /// No description provided for @deleteAccountWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Your properties, tenants, leases, payments, photos and caretakers will be deleted 30 days from now. Until then you can change your mind. Download your data first if you want a copy.'**
+  String get deleteAccountWarning;
+
+  /// No description provided for @deleteAccountConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete in 30 days'**
+  String get deleteAccountConfirm;
+
+  /// No description provided for @typeYourPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Type your phone number to confirm'**
+  String get typeYourPhone;
+
+  /// No description provided for @deletionScheduled.
+  ///
+  /// In en, this message translates to:
+  /// **'Your account will be deleted on {date}.'**
+  String deletionScheduled(String date);
+
+  /// No description provided for @keepAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep account'**
+  String get keepAccount;
 }
 
 class _AppLocalizationsDelegate

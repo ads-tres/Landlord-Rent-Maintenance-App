@@ -2099,4 +2099,39 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get wholeYear => 'Year';
+
+  @override
+  String get downloadMyData => 'Download my data';
+
+  @override
+  String get downloadMyDataHelp =>
+      'Everything in the app as spreadsheet files (ZIP).';
+
+  @override
+  String get preparingData => 'Preparing your data…';
+
+  @override
+  String get deleteAccount => 'Delete account';
+
+  @override
+  String get deleteAccountHelp =>
+      'Removes your account and all its data after 30 days.';
+
+  @override
+  String get deleteAccountWarning =>
+      'Your properties, tenants, leases, payments, photos and caretakers will be deleted 30 days from now. Until then you can change your mind. Download your data first if you want a copy.';
+
+  @override
+  String get deleteAccountConfirm => 'Delete in 30 days';
+
+  @override
+  String get typeYourPhone => 'Type your phone number to confirm';
+
+  @override
+  String deletionScheduled(String date) {
+    return 'Your account will be deleted on $date.';
+  }
+
+  @override
+  String get keepAccount => 'Keep account';
 }
