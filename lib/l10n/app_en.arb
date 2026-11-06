@@ -967,5 +967,16 @@
   "addressHint": "e.g. Bole, Woreda 03, house 55",
   "missingLandlordIdNumber": "your ID number (Settings)",
   "prepaidRent": "Rent paid ahead (after move-out)",
-  "reportRefunded": "Rent refunded"
+  "reportRefunded": "Rent refunded",
+  "messages": "Messages",
+  "rentReminders": "Rent reminders",
+  "rentRemindersHelp": "Reminders before and on the due day. Receipts and notices are always sent.",
+  "quietHoursNote": "Nothing is sent between 9 pm and 7 am; those messages go out at 7 am.",
+  "noMessages": "No messages sent yet.",
+  "messageSent": "Sent",
+  "messageFailed": "Failed",
+  "messageQueued": "Sending",
+  "messageScheduled": "At {time}",
+  "@messageScheduled": {"placeholders": {"time": {"type": "String"}}},
+  "remindersOff": "Reminders off"
 }

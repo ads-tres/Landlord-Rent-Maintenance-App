@@ -46,6 +46,27 @@ class TenantsRepository {
 
   Future<void> delete(int id) => _api.delete('/tenants/$id');
 
+  Future<Tenant> get(int id) async {
+    final data = await _api.get('/tenants/$id') as Map<String, dynamic>;
+    return Tenant.fromJson(data['data'] as Map<String, dynamic>);
+  }
+
+  Future<Tenant> setRemindersOptOut(int id, bool optOut) async {
+    final data = await _api.patch(
+      '/tenants/$id',
+      data: {'reminders_opt_out': optOut},
+    ) as Map<String, dynamic>;
+    return Tenant.fromJson(data['data'] as Map<String, dynamic>);
+  }
+
+  Future<List<TenantMessage>> messages(int id) async {
+    final data =
+        await _api.get('/tenants/$id/messages') as Map<String, dynamic>;
+    return (data['data'] as List<dynamic>)
+        .map((m) => TenantMessage.fromJson(m as Map<String, dynamic>))
+        .toList();
+  }
+
   /// The tenant's data as JSON text (right of access, Proclamation 1321/2024).
   Future<String> export(int id) async =>
       jsonEncode(await _api.get('/tenants/$id/export'));
@@ -78,3 +99,12 @@ final tenantsProvider = FutureProvider.autoDispose<List<Tenant>>(
       .watch(tenantsRepositoryProvider)
       .list(query: ref.watch(tenantSearchProvider)),
 );
+
+final tenantProvider = FutureProvider.autoDispose.family<Tenant, int>(
+  (ref, id) => ref.watch(tenantsRepositoryProvider).get(id),
+);
+
+final tenantMessagesProvider = FutureProvider.autoDispose
+    .family<List<TenantMessage>, int>(
+      (ref, id) => ref.watch(tenantsRepositoryProvider).messages(id),
+    );

@@ -35,6 +35,7 @@ import '../features/properties/presentation/property_detail_screen.dart';
 import '../features/rent/presentation/rent_screen.dart';
 import '../features/tenants/presentation/add_tenant_screen.dart';
 import '../features/team/presentation/team_screen.dart';
+import '../features/tenants/presentation/tenant_messages_screen.dart';
 import '../features/tenants/presentation/tenants_screen.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -163,6 +164,13 @@ final routerProvider = Provider<GoRouter>((ref) {
         parentNavigatorKey: _rootNavigatorKey,
         builder: (_, state) =>
             MoveOutScreen(moveOutId: int.parse(state.pathParameters['id']!)),
+      ),
+      GoRoute(
+        path: '/tenants/:id/messages',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (_, state) => TenantMessagesScreen(
+          tenantId: int.parse(state.pathParameters['id']!),
+        ),
       ),
       GoRoute(
         path: '/setup',
