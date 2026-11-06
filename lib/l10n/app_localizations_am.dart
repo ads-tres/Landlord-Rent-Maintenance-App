@@ -2049,4 +2049,18 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get remindersOff => 'ማስታወሻ ጠፍቷል';
+
+  @override
+  String get annualSummary => 'የዓመት ማጠቃለያ';
+
+  @override
+  String get averageOccupancy => 'አማካይ የተከራዩ ክፍሎች';
+
+  @override
+  String occupancyShort(int percent) {
+    return '$percent% ተከራይቷል';
+  }
+
+  @override
+  String get wholeYear => 'ዓመት';
 }

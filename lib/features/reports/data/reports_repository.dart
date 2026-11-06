@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:path_provider/path_provider.dart';
 
 import '../../../core/api/api_client.dart';
+import '../domain/annual_report.dart';
 import '../domain/quarterly_report.dart';
 
 class ReportsRepository {
@@ -34,15 +35,28 @@ class ReportsRepository {
         'rent-and-expenses-$year-Q$quarter.xlsx',
       );
 
+  /// Without [year], the server returns the current one in the landlord's calendar.
+  Future<AnnualReport> annual({int? year}) async {
+    final data = await _api.get(
+      '/reports/annual',
+      query: {'year': ?year},
+    ) as Map<String, dynamic>;
+    return AnnualReport.fromJson(data['data'] as Map<String, dynamic>);
+  }
+
+  /// The annual summary as `pdf` or `xlsx`.
+  Future<String> downloadAnnual(int year, String format) =>
+      _download(year, null, format, 'annual-summary-$year.$format');
+
   Future<String> _download(
     int year,
-    int quarter,
+    int? quarter,
     String format,
     String name,
   ) async {
     final bytes = await _api.getBytes(
-      '/reports/quarterly',
-      query: {'year': year, 'quarter': quarter, 'format': format},
+      quarter == null ? '/reports/annual' : '/reports/quarterly',
+      query: {'year': year, 'quarter': ?quarter, 'format': format},
     );
     final dir = await getTemporaryDirectory();
     final file = File('${dir.path}/$name');
@@ -60,4 +74,9 @@ final quarterlyReportProvider = FutureProvider.autoDispose
       (ref, key) => ref
           .watch(reportsRepositoryProvider)
           .quarterly(year: key.year, quarter: key.quarter),
+    );
+
+final annualReportProvider = FutureProvider.autoDispose
+    .family<AnnualReport, int?>(
+      (ref, year) => ref.watch(reportsRepositoryProvider).annual(year: year),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../../../core/api/api_exception.dart';
@@ -61,7 +62,17 @@ class _QuarterlyReportScreenState extends ConsumerState<QuarterlyReportScreen> {
     String birr(int s) => formatBirr(s, locale: locale);
 
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.reportTitle)),
+      appBar: AppBar(
+        title: Text(l10n.reportTitle),
+        actions: [
+          TextButton.icon(
+            key: const Key('openAnnual'),
+            onPressed: () => context.push('/reports/annual'),
+            icon: const Icon(Icons.calendar_view_month),
+            label: Text(l10n.wholeYear),
+          ),
+        ],
+      ),
       body: report.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (e, _) => ErrorView(
