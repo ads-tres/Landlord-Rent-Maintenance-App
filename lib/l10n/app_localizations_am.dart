@@ -1361,4 +1361,115 @@ class AppLocalizationsAm extends AppLocalizations {
   @override
   String get reportExpensesNote =>
       'ወጪዎቹ በመተግበሪያው የመዘገቧቸው ናቸው። የትኞቹ ከግብር እንደሚቀነሱ ከሂሳብ ባለሙያዎ ይጠይቁ።';
+
+  @override
+  String get moveOut => 'ቤት መልቀቅ';
+
+  @override
+  String get moveOutInProgress => 'መልቀቅ በሂደት ላይ';
+
+  @override
+  String get settleMoveOut => 'ተቀማጩን አጠናቅቀው ውሉን ያቋርጡ';
+
+  @override
+  String get settleMoveOutConfirm => 'አጠናቅቅ';
+
+  @override
+  String settleRefundLine(String amount) {
+    return 'ለተከራዩ የሚመለስ፦ $amount';
+  }
+
+  @override
+  String get settleNoRefund => 'የሚመለስ የለም፤ ተቀማጩ በቅናሾቹ ተሸፍኗል።';
+
+  @override
+  String moveOutBalanceOwed(String amount) {
+    return 'ተከራዩ አሁንም $amount ይቀራቸዋል።';
+  }
+
+  @override
+  String get settleEndsLease => 'ይህ ውሉን ያቋርጣል፣ ክፍሉን ባዶ ያደርጋል፤ መመለስ አይቻልም።';
+
+  @override
+  String get refundReference => 'የተመላሽ ማጣቀሻ (ካለ)';
+
+  @override
+  String get sendStatementToTenant => 'መግለጫውን ለተከራዩ ይላኩ';
+
+  @override
+  String get moveOutCondition => 'የቤቱ ሁኔታ ፍተሻ';
+
+  @override
+  String get movedOutOn => 'የለቀቁበት ቀን';
+
+  @override
+  String get keysReturned => 'ቁልፍ ተመልሷል';
+
+  @override
+  String get conditionNotesEmpty => 'ስለ ቤቱ ሁኔታ ማስታወሻ ያክሉ (ግድግዳ፣ ወለል፣ ቆጣሪ…)';
+
+  @override
+  String get deductions => 'ቅናሾች';
+
+  @override
+  String get addDeduction => 'አክል';
+
+  @override
+  String get noDeductions => 'ምንም ቅናሽ የለም። ሙሉ ተቀማጩ ይመለሳል።';
+
+  @override
+  String get deductionKind => 'ዓይነት';
+
+  @override
+  String get deductionDescription => 'ለምን';
+
+  @override
+  String get deductionDescriptionHint => 'ለምሳሌ የመኝታ ቤት ግድግዳ ቀለም';
+
+  @override
+  String get deductionUnpaidRent => 'ያልተከፈለ ኪራይ';
+
+  @override
+  String get deductionUnpaidUtility => 'ያልተከፈለ የአገልግሎት ድርሻ';
+
+  @override
+  String get deductionDamage => 'ጉዳት';
+
+  @override
+  String get deductionCleaning => 'ጽዳት';
+
+  @override
+  String get deductionKeys => 'ቁልፍ';
+
+  @override
+  String get deductionOther => 'ሌላ';
+
+  @override
+  String get depositHeld => 'የተያዘ ተቀማጭ';
+
+  @override
+  String get refund => 'ተመላሽ';
+
+  @override
+  String get stillOwed => 'የሚቀር እዳ';
+
+  @override
+  String get moveOutSettled => 'ተጠናቋል። ውሉ አብቅቷል።';
+
+  @override
+  String refundedBy(String method) {
+    return 'በ$method ተመልሷል';
+  }
+
+  @override
+  String get depositStatement => 'የተቀማጭ ሂሳብ መግለጫ';
+
+  @override
+  String get shareStatement => 'መግለጫውን ያጋሩ (PDF)';
+
+  @override
+  String get statementSent => 'መግለጫው ለተከራዩ ተልኳል።';
+
+  @override
+  String get methodDeposit => 'ከተቀማጭ';
 }

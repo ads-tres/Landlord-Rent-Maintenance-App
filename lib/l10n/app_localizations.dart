@@ -2449,6 +2449,216 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Expenses are what you recorded in the app. Ask your accountant which ones are deductible.'**
   String get reportExpensesNote;
+
+  /// No description provided for @moveOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Move out'**
+  String get moveOut;
+
+  /// No description provided for @moveOutInProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Move-out in progress'**
+  String get moveOutInProgress;
+
+  /// No description provided for @settleMoveOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Settle deposit and end lease'**
+  String get settleMoveOut;
+
+  /// No description provided for @settleMoveOutConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Settle'**
+  String get settleMoveOutConfirm;
+
+  /// No description provided for @settleRefundLine.
+  ///
+  /// In en, this message translates to:
+  /// **'Refund to the tenant: {amount}'**
+  String settleRefundLine(String amount);
+
+  /// No description provided for @settleNoRefund.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing to refund: the deposit is used up by the deductions.'**
+  String get settleNoRefund;
+
+  /// No description provided for @moveOutBalanceOwed.
+  ///
+  /// In en, this message translates to:
+  /// **'The tenant will still owe {amount}.'**
+  String moveOutBalanceOwed(String amount);
+
+  /// No description provided for @settleEndsLease.
+  ///
+  /// In en, this message translates to:
+  /// **'This ends the lease, marks the unit vacant and can\'t be undone.'**
+  String get settleEndsLease;
+
+  /// No description provided for @refundReference.
+  ///
+  /// In en, this message translates to:
+  /// **'Refund reference (optional)'**
+  String get refundReference;
+
+  /// No description provided for @sendStatementToTenant.
+  ///
+  /// In en, this message translates to:
+  /// **'Send the statement to the tenant'**
+  String get sendStatementToTenant;
+
+  /// No description provided for @moveOutCondition.
+  ///
+  /// In en, this message translates to:
+  /// **'Condition check'**
+  String get moveOutCondition;
+
+  /// No description provided for @movedOutOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Move-out date'**
+  String get movedOutOn;
+
+  /// No description provided for @keysReturned.
+  ///
+  /// In en, this message translates to:
+  /// **'Keys returned'**
+  String get keysReturned;
+
+  /// No description provided for @conditionNotesEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Add notes on the condition (walls, floors, meters…)'**
+  String get conditionNotesEmpty;
+
+  /// No description provided for @deductions.
+  ///
+  /// In en, this message translates to:
+  /// **'Deductions'**
+  String get deductions;
+
+  /// No description provided for @addDeduction.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get addDeduction;
+
+  /// No description provided for @noDeductions.
+  ///
+  /// In en, this message translates to:
+  /// **'No deductions. The whole deposit is refunded.'**
+  String get noDeductions;
+
+  /// No description provided for @deductionKind.
+  ///
+  /// In en, this message translates to:
+  /// **'Type'**
+  String get deductionKind;
+
+  /// No description provided for @deductionDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'What for'**
+  String get deductionDescription;
+
+  /// No description provided for @deductionDescriptionHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Repaint bedroom wall'**
+  String get deductionDescriptionHint;
+
+  /// No description provided for @deductionUnpaidRent.
+  ///
+  /// In en, this message translates to:
+  /// **'Unpaid rent'**
+  String get deductionUnpaidRent;
+
+  /// No description provided for @deductionUnpaidUtility.
+  ///
+  /// In en, this message translates to:
+  /// **'Unpaid utility share'**
+  String get deductionUnpaidUtility;
+
+  /// No description provided for @deductionDamage.
+  ///
+  /// In en, this message translates to:
+  /// **'Damage'**
+  String get deductionDamage;
+
+  /// No description provided for @deductionCleaning.
+  ///
+  /// In en, this message translates to:
+  /// **'Cleaning'**
+  String get deductionCleaning;
+
+  /// No description provided for @deductionKeys.
+  ///
+  /// In en, this message translates to:
+  /// **'Keys'**
+  String get deductionKeys;
+
+  /// No description provided for @deductionOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get deductionOther;
+
+  /// No description provided for @depositHeld.
+  ///
+  /// In en, this message translates to:
+  /// **'Deposit held'**
+  String get depositHeld;
+
+  /// No description provided for @refund.
+  ///
+  /// In en, this message translates to:
+  /// **'Refund'**
+  String get refund;
+
+  /// No description provided for @stillOwed.
+  ///
+  /// In en, this message translates to:
+  /// **'Still owed'**
+  String get stillOwed;
+
+  /// No description provided for @moveOutSettled.
+  ///
+  /// In en, this message translates to:
+  /// **'Settled. The lease has ended.'**
+  String get moveOutSettled;
+
+  /// No description provided for @refundedBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Refunded by {method}'**
+  String refundedBy(String method);
+
+  /// No description provided for @depositStatement.
+  ///
+  /// In en, this message translates to:
+  /// **'Deposit statement'**
+  String get depositStatement;
+
+  /// No description provided for @shareStatement.
+  ///
+  /// In en, this message translates to:
+  /// **'Share statement (PDF)'**
+  String get shareStatement;
+
+  /// No description provided for @statementSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Statement sent to the tenant.'**
+  String get statementSent;
+
+  /// No description provided for @methodDeposit.
+  ///
+  /// In en, this message translates to:
+  /// **'From deposit'**
+  String get methodDeposit;
 }
 
 class _AppLocalizationsDelegate

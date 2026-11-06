@@ -7,5 +7,6 @@ extension PaymentMethodLabel on PaymentMethod {
     PaymentMethod.telebirr => l10n.methodTelebirr,
     PaymentMethod.bank => l10n.methodBank,
     PaymentMethod.chapa => l10n.methodChapa,
+    PaymentMethod.deposit => l10n.methodDeposit,
   };
 }

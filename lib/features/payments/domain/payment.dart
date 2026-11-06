@@ -4,7 +4,10 @@ enum PaymentMethod {
   cash,
   telebirr,
   bank,
-  chapa;
+  chapa,
+
+  /// Paid from the deposit at move-out.
+  deposit;
 
   static PaymentMethod parse(String? v) => PaymentMethod.values.firstWhere(
     (m) => m.name == v,

@@ -1378,4 +1378,118 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get reportExpensesNote =>
       'Expenses are what you recorded in the app. Ask your accountant which ones are deductible.';
+
+  @override
+  String get moveOut => 'Move out';
+
+  @override
+  String get moveOutInProgress => 'Move-out in progress';
+
+  @override
+  String get settleMoveOut => 'Settle deposit and end lease';
+
+  @override
+  String get settleMoveOutConfirm => 'Settle';
+
+  @override
+  String settleRefundLine(String amount) {
+    return 'Refund to the tenant: $amount';
+  }
+
+  @override
+  String get settleNoRefund =>
+      'Nothing to refund: the deposit is used up by the deductions.';
+
+  @override
+  String moveOutBalanceOwed(String amount) {
+    return 'The tenant will still owe $amount.';
+  }
+
+  @override
+  String get settleEndsLease =>
+      'This ends the lease, marks the unit vacant and can\'t be undone.';
+
+  @override
+  String get refundReference => 'Refund reference (optional)';
+
+  @override
+  String get sendStatementToTenant => 'Send the statement to the tenant';
+
+  @override
+  String get moveOutCondition => 'Condition check';
+
+  @override
+  String get movedOutOn => 'Move-out date';
+
+  @override
+  String get keysReturned => 'Keys returned';
+
+  @override
+  String get conditionNotesEmpty =>
+      'Add notes on the condition (walls, floors, meters…)';
+
+  @override
+  String get deductions => 'Deductions';
+
+  @override
+  String get addDeduction => 'Add';
+
+  @override
+  String get noDeductions => 'No deductions. The whole deposit is refunded.';
+
+  @override
+  String get deductionKind => 'Type';
+
+  @override
+  String get deductionDescription => 'What for';
+
+  @override
+  String get deductionDescriptionHint => 'e.g. Repaint bedroom wall';
+
+  @override
+  String get deductionUnpaidRent => 'Unpaid rent';
+
+  @override
+  String get deductionUnpaidUtility => 'Unpaid utility share';
+
+  @override
+  String get deductionDamage => 'Damage';
+
+  @override
+  String get deductionCleaning => 'Cleaning';
+
+  @override
+  String get deductionKeys => 'Keys';
+
+  @override
+  String get deductionOther => 'Other';
+
+  @override
+  String get depositHeld => 'Deposit held';
+
+  @override
+  String get refund => 'Refund';
+
+  @override
+  String get stillOwed => 'Still owed';
+
+  @override
+  String get moveOutSettled => 'Settled. The lease has ended.';
+
+  @override
+  String refundedBy(String method) {
+    return 'Refunded by $method';
+  }
+
+  @override
+  String get depositStatement => 'Deposit statement';
+
+  @override
+  String get shareStatement => 'Share statement (PDF)';
+
+  @override
+  String get statementSent => 'Statement sent to the tenant.';
+
+  @override
+  String get methodDeposit => 'From deposit';
 }

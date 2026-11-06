@@ -222,4 +222,30 @@ void main() {
     await tester.pump();
     expect(find.text('Increase of 10.0% (cap 11.5%).'), findsOneWidget);
   });
+
+  testWidgets('lease detail shows a move-out in progress and offers move out', (
+    tester,
+  ) async {
+    final repo = MockLeasesRepository();
+    when(() => repo.get(7)).thenAnswer(
+      (_) async => Lease.fromJson({
+        ...leaseJson,
+        'move_out': {'id': 4, 'status': 'draft'},
+      }),
+    );
+    when(() => repo.charges(leaseId: 7)).thenAnswer((_) async => []);
+
+    tester.view.physicalSize = const Size(1080, 2400);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+
+    await tester.pumpWidget(harness(const LeaseDetailScreen(leaseId: 7), repo));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Move-out in progress'), findsOneWidget);
+    await tester.tap(find.byType(PopupMenuButton<String>));
+    await tester.pumpAndSettle();
+    expect(find.byKey(const Key('moveOutMenuItem')), findsOneWidget);
+    expect(Lease.fromJson(leaseJson).moveOutId, isNull);
+  });
 }

@@ -76,6 +76,8 @@ class Lease {
     this.missingFields = const [],
     this.balance,
     this.rentChanges = const [],
+    this.moveOutId,
+    this.moveOutSettled = false,
   });
 
   factory Lease.fromJson(Map<String, dynamic> j) {
@@ -110,6 +112,9 @@ class Lease {
       tenantPhone: tenant?['phone'] as String?,
       missingFields: (check?['missing'] as List<dynamic>? ?? []).cast<String>(),
       balance: balance == null ? null : LeaseBalance.fromJson(balance),
+      moveOutId: (j['move_out'] as Map<String, dynamic>?)?['id'] as int?,
+      moveOutSettled:
+          (j['move_out'] as Map<String, dynamic>?)?['status'] == 'settled',
       rentChanges: (j['rent_changes'] as List<dynamic>? ?? [])
           .map((c) => RentChange.fromJson(c as Map<String, dynamic>))
           .toList(),
@@ -125,6 +130,10 @@ class Lease {
   final int monthlyRent;
   final int deposit;
   final int dueDay;
+
+  /// The lease's move-out, once started.
+  final int? moveOutId;
+  final bool moveOutSettled;
   final LeaseStatus status;
   final String? conditionNotes;
   final DateTime? registeredAt;
