@@ -117,9 +117,11 @@ class DashboardScreen extends ConsumerWidget {
                         value: '${s.openRepairs}',
                       ),
                       _Tile(
+                        key: const Key('leasesEndingTile'),
                         label: l10n.dashboardLeasesEnding,
                         value: '${s.leasesEndingSoon}',
                         alert: s.leasesEndingSoon > 0,
+                        onTap: () => context.push('/leases/ending'),
                       ),
                       _Tile(
                         key: const Key('servicesDueTile'),

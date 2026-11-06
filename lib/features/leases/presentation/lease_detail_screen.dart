@@ -27,6 +27,7 @@ import '../data/leases_repository.dart';
 import '../domain/lease.dart';
 import '../domain/rent_rules.dart';
 import 'charge_labels.dart';
+import 'renew_lease.dart';
 import 'status_chips.dart';
 import '../../auth/application/auth_controller.dart';
 
@@ -155,6 +156,14 @@ class LeaseDetailScreen extends ConsumerWidget {
                     },
                   ),
                 ),
+                const SizedBox(height: 12),
+              ],
+              if (l.isActive &&
+                  !caretaker &&
+                  l.moveOutId == null &&
+                  l.daysUntilEnd != null &&
+                  l.daysUntilEnd! <= 180) ...[
+                RenewLeaseCard(lease: l, onRenewed: () => _refreshAll(ref, l)),
                 const SizedBox(height: 12),
               ],
               _Header(lease: l, locale: locale),
