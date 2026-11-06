@@ -10,6 +10,7 @@ import '../../core/locale_controller.dart';
 import '../../core/utils/phone_number.dart';
 import '../../l10n/app_localizations.dart';
 import '../../core/widgets/async_views.dart';
+import '../../core/widgets/form_sheet.dart';
 import '../auth/application/auth_controller.dart';
 import '../auth/data/auth_repository.dart';
 
@@ -53,6 +54,19 @@ class SettingsScreen extends ConsumerWidget {
               subtitle: user.name != null
                   ? Text(formatEthiopianPhone(user.phone))
                   : null,
+            ),
+          if (user != null && !user.isCaretaker)
+            ListTile(
+              key: const Key('documentDetails'),
+              leading: const Icon(Icons.badge_outlined),
+              title: Text(l10n.documentDetails),
+              subtitle: Text(
+                (user.idNumber ?? '').isEmpty || (user.address ?? '').isEmpty
+                    ? l10n.documentDetailsMissing
+                    : l10n.documentDetailsHelp,
+              ),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => _editDocumentDetails(context, ref),
             ),
           if (user?.isCaretaker ?? false)
             ListTile(
@@ -183,6 +197,60 @@ class SettingsScreen extends ConsumerWidget {
       ),
     );
   }
+}
+
+Future<void> _editDocumentDetails(BuildContext context, WidgetRef ref) async {
+  final l10n = AppLocalizations.of(context);
+  final user = ref.read(authControllerProvider).value;
+  final name = TextEditingController(text: user?.name);
+  final idNumber = TextEditingController(text: user?.idNumber);
+  final address = TextEditingController(text: user?.address);
+  await showFormSheet(
+    context,
+    FormSheet(
+      title: l10n.documentDetails,
+      onSave: () => ref
+          .read(authControllerProvider.notifier)
+          .updateProfile(
+            name: name.text.trim(),
+            idNumber: idNumber.text.trim(),
+            address: address.text.trim(),
+          ),
+      fieldsBuilder: (context, errors) => [
+        Text(l10n.documentDetailsHelp),
+        fieldGap,
+        TextFormField(
+          key: const Key('profileNameField'),
+          controller: name,
+          textCapitalization: TextCapitalization.words,
+          decoration: InputDecoration(
+            labelText: l10n.yourFullName,
+            errorText: errors['name'],
+          ),
+        ),
+        fieldGap,
+        TextFormField(
+          key: const Key('profileIdField'),
+          controller: idNumber,
+          decoration: InputDecoration(
+            labelText: l10n.idNumberLabel,
+            helperText: l10n.idNumberPrivate,
+            errorText: errors['id_number'],
+          ),
+        ),
+        fieldGap,
+        TextFormField(
+          key: const Key('profileAddressField'),
+          controller: address,
+          decoration: InputDecoration(
+            labelText: l10n.addressLabel,
+            hintText: l10n.addressHint,
+            errorText: errors['address'],
+          ),
+        ),
+      ],
+    ),
+  );
 }
 
 Future<void> _connectTelegram(BuildContext context, WidgetRef ref) async {

@@ -2018,4 +2018,31 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get setupCaretakerHelp =>
       'Someone on site who logs payments and handles repairs.';
+
+  @override
+  String get documentDetails => 'Details for documents';
+
+  @override
+  String get documentDetailsHelp =>
+      'Your name, ID number and address, printed on lease agreements and letters.';
+
+  @override
+  String get documentDetailsMissing =>
+      'Add your ID number and address so agreements don\'t print blanks.';
+
+  @override
+  String get idNumberLabel => 'ID number (kebele ID or Fayda)';
+
+  @override
+  String get idNumberPrivate =>
+      'Kept encrypted; only printed on your documents.';
+
+  @override
+  String get addressLabel => 'Your address';
+
+  @override
+  String get addressHint => 'e.g. Bole, Woreda 03, house 55';
+
+  @override
+  String get missingLandlordIdNumber => 'your ID number (Settings)';
 }

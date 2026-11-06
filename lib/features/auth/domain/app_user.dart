@@ -3,6 +3,8 @@ class AppUser {
     required this.id,
     required this.phone,
     this.name,
+    this.idNumber,
+    this.address,
     this.locale = 'am',
     this.calendarPref = 'ethiopian',
     this.smsReminders = true,
@@ -20,6 +22,8 @@ class AppUser {
     id: json['id'] as int,
     phone: json['phone'] as String,
     name: json['name'] as String?,
+    idNumber: json['id_number'] as String?,
+    address: json['address'] as String?,
     locale: json['locale'] as String? ?? 'am',
     calendarPref: json['calendar_pref'] as String? ?? 'ethiopian',
     smsReminders: json['sms_reminders'] as bool? ?? true,
@@ -36,6 +40,10 @@ class AppUser {
   final int id;
   final String phone;
   final String? name;
+
+  /// Printed on lease agreements (landlords only).
+  final String? idNumber;
+  final String? address;
   final String locale;
   final String calendarPref;
   final bool smsReminders;

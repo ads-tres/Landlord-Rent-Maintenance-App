@@ -1983,4 +1983,30 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get setupCaretakerHelp => 'ክፍያ የሚመዘግብና ጥገና የሚከታተል በቦታው ያለ ሰው።';
+
+  @override
+  String get documentDetails => 'ለሰነዶች የሚያስፈልጉ ዝርዝሮች';
+
+  @override
+  String get documentDetailsHelp =>
+      'ስምዎ፣ የመታወቂያ ቁጥርዎና አድራሻዎ፤ በውሎችና በደብዳቤዎች ላይ ይታተማሉ።';
+
+  @override
+  String get documentDetailsMissing =>
+      'ውሎች ባዶ ቦታ እንዳይኖራቸው የመታወቂያ ቁጥርዎንና አድራሻዎን ያስገቡ።';
+
+  @override
+  String get idNumberLabel => 'የመታወቂያ ቁጥር (የቀበሌ መታወቂያ ወይም ፋይዳ)';
+
+  @override
+  String get idNumberPrivate => 'ተመስጥሮ ይቀመጣል፤ በሰነዶችዎ ላይ ብቻ ይታተማል።';
+
+  @override
+  String get addressLabel => 'አድራሻዎ';
+
+  @override
+  String get addressHint => 'ለምሳሌ ቦሌ፣ ወረዳ 03፣ የቤት ቁጥር 55';
+
+  @override
+  String get missingLandlordIdNumber => 'የእርስዎ መታወቂያ ቁጥር (ቅንብሮች)';
 }

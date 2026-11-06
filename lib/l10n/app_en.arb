@@ -957,5 +957,13 @@
   "setupTelegramTitle": "Connect Telegram",
   "setupTelegramHelp": "Get repair and payment alerts on Telegram for free.",
   "setupCaretakerTitle": "Invite a caretaker",
-  "setupCaretakerHelp": "Someone on site who logs payments and handles repairs."
+  "setupCaretakerHelp": "Someone on site who logs payments and handles repairs.",
+  "documentDetails": "Details for documents",
+  "documentDetailsHelp": "Your name, ID number and address, printed on lease agreements and letters.",
+  "documentDetailsMissing": "Add your ID number and address so agreements don't print blanks.",
+  "idNumberLabel": "ID number (kebele ID or Fayda)",
+  "idNumberPrivate": "Kept encrypted; only printed on your documents.",
+  "addressLabel": "Your address",
+  "addressHint": "e.g. Bole, Woreda 03, house 55",
+  "missingLandlordIdNumber": "your ID number (Settings)"
 }
