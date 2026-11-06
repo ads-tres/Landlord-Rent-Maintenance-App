@@ -524,5 +524,17 @@
   "startedOn": "የጀመረው {date}",
   "unregisteredBanner": "{count, plural, =1{1 ውል ገና አልተመዘገበም} other{{count} ውሎች ገና አልተመዘገቡም}}",
   "unregisteredBannerHelp": "ውሉን አትመው ይፈርሙ እና በወረዳ ያስመዝግቡ።",
-  "registeredDate": "{date} ተመዝግቧል"
+  "registeredDate": "{date} ተመዝግቧል",
+  "pasteSms": "የክፍያ SMS ይለጥፉ",
+  "pasteSmsHelp": "የቴሌብር ወይም የባንክ ማረጋገጫ መልዕክቱን ቀድተው እዚህ ይለጥፉ። መጠኑ፣ ማጣቀሻው እና ቀኑ እንዲያረጋግጡ ይሞላሉ።",
+  "pasteSmsHint": "SMS-ውን እዚህ ይለጥፉ",
+  "pasteFromClipboard": "ለጥፍ",
+  "smsNoAmount": "በዚህ መልዕክት ውስጥ መጠን አልተገኘም። ሙሉውን SMS መቅዳትዎን ያረጋግጡ።",
+  "smsFrom": "ከ",
+  "useSms": "እነዚህን ዝርዝሮች ተጠቀም",
+  "smsFilled": "ከSMS-ው ተሞልቷል። ከማስቀመጥዎ በፊት ዝርዝሮቹን ያረጋግጡ።",
+  "smsOtherPayer": "ይህ መልዕክት ከ{tenant} ሳይሆን ከ{payer} የመጣ ይመስላል። ከማስቀመጥዎ በፊት ያረጋግጡ።",
+  "smsPickLease": "ይህ ክፍያ ከየትኛው ተከራይ ነው?",
+  "smsLikely": "ሊሆን ይችላል",
+  "smsNoLeases": "ንቁ ውል የለም።"
 }

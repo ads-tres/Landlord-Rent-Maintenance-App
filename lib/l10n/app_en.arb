@@ -902,5 +902,18 @@
   "@unregisteredBanner": {"placeholders": {"count": {"type": "int"}}},
   "unregisteredBannerHelp": "Print the agreement, sign it and register it with the woreda.",
   "registeredDate": "Registered {date}",
-  "@registeredDate": {"placeholders": {"date": {"type": "String"}}}
+  "@registeredDate": {"placeholders": {"date": {"type": "String"}}},
+  "pasteSms": "Paste payment SMS",
+  "pasteSmsHelp": "Copy the Telebirr or bank confirmation message, then paste it here. The amount, reference and date are filled in for you to check.",
+  "pasteSmsHint": "Paste the SMS here",
+  "pasteFromClipboard": "Paste",
+  "smsNoAmount": "No amount found in this message. Check that you copied the whole SMS.",
+  "smsFrom": "From",
+  "useSms": "Use these details",
+  "smsFilled": "Filled in from the SMS. Check the details before saving.",
+  "smsOtherPayer": "This message seems to be from {payer}, not {tenant}. Check before saving.",
+  "@smsOtherPayer": {"placeholders": {"payer": {"type": "String"}, "tenant": {"type": "String"}}},
+  "smsPickLease": "Which tenant is this payment from?",
+  "smsLikely": "Likely",
+  "smsNoLeases": "No active leases."
 }

@@ -13,6 +13,7 @@ import '../../leases/domain/charge.dart';
 import '../../leases/presentation/status_chips.dart';
 import '../../leases/presentation/charge_labels.dart';
 import '../../payments/application/pending_payments.dart';
+import '../../payments/presentation/paste_sms_sheet.dart';
 import '../../payments/presentation/pending_payment_tile.dart';
 
 /// Which month the rent list shows (first day of the month).
@@ -77,6 +78,14 @@ class RentScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(l10n.navRent),
+        actions: [
+          IconButton(
+            key: const Key('pasteSmsAction'),
+            tooltip: l10n.pasteSms,
+            icon: const Icon(Icons.content_paste_go),
+            onPressed: () => logPaymentFromSms(context, ref),
+          ),
+        ],
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(48),
           child: Row(

@@ -3247,6 +3247,78 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Registered {date}'**
   String registeredDate(String date);
+
+  /// No description provided for @pasteSms.
+  ///
+  /// In en, this message translates to:
+  /// **'Paste payment SMS'**
+  String get pasteSms;
+
+  /// No description provided for @pasteSmsHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy the Telebirr or bank confirmation message, then paste it here. The amount, reference and date are filled in for you to check.'**
+  String get pasteSmsHelp;
+
+  /// No description provided for @pasteSmsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Paste the SMS here'**
+  String get pasteSmsHint;
+
+  /// No description provided for @pasteFromClipboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Paste'**
+  String get pasteFromClipboard;
+
+  /// No description provided for @smsNoAmount.
+  ///
+  /// In en, this message translates to:
+  /// **'No amount found in this message. Check that you copied the whole SMS.'**
+  String get smsNoAmount;
+
+  /// No description provided for @smsFrom.
+  ///
+  /// In en, this message translates to:
+  /// **'From'**
+  String get smsFrom;
+
+  /// No description provided for @useSms.
+  ///
+  /// In en, this message translates to:
+  /// **'Use these details'**
+  String get useSms;
+
+  /// No description provided for @smsFilled.
+  ///
+  /// In en, this message translates to:
+  /// **'Filled in from the SMS. Check the details before saving.'**
+  String get smsFilled;
+
+  /// No description provided for @smsOtherPayer.
+  ///
+  /// In en, this message translates to:
+  /// **'This message seems to be from {payer}, not {tenant}. Check before saving.'**
+  String smsOtherPayer(String payer, String tenant);
+
+  /// No description provided for @smsPickLease.
+  ///
+  /// In en, this message translates to:
+  /// **'Which tenant is this payment from?'**
+  String get smsPickLease;
+
+  /// No description provided for @smsLikely.
+  ///
+  /// In en, this message translates to:
+  /// **'Likely'**
+  String get smsLikely;
+
+  /// No description provided for @smsNoLeases.
+  ///
+  /// In en, this message translates to:
+  /// **'No active leases.'**
+  String get smsNoLeases;
 }
 
 class _AppLocalizationsDelegate

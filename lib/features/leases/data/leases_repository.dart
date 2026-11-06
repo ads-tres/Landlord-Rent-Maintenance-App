@@ -78,6 +78,17 @@ class LeasesRepository {
         .toList();
   }
 
+  /// All active leases (with tenant name and phone), e.g. to match a payment SMS.
+  Future<List<Lease>> active() async {
+    final data = await _api.get(
+      '/leases',
+      query: {'status': 'active'},
+    ) as Map<String, dynamic>;
+    return (data['data'] as List<dynamic>)
+        .map((l) => Lease.fromJson(l as Map<String, dynamic>))
+        .toList();
+  }
+
   /// Active leases not yet registered with the woreda or sub-city office.
   Future<List<Lease>> unregistered() async {
     final data = await _api.get(

@@ -1818,4 +1818,43 @@ class AppLocalizationsAm extends AppLocalizations {
   String registeredDate(String date) {
     return '$date ተመዝግቧል';
   }
+
+  @override
+  String get pasteSms => 'የክፍያ SMS ይለጥፉ';
+
+  @override
+  String get pasteSmsHelp =>
+      'የቴሌብር ወይም የባንክ ማረጋገጫ መልዕክቱን ቀድተው እዚህ ይለጥፉ። መጠኑ፣ ማጣቀሻው እና ቀኑ እንዲያረጋግጡ ይሞላሉ።';
+
+  @override
+  String get pasteSmsHint => 'SMS-ውን እዚህ ይለጥፉ';
+
+  @override
+  String get pasteFromClipboard => 'ለጥፍ';
+
+  @override
+  String get smsNoAmount => 'በዚህ መልዕክት ውስጥ መጠን አልተገኘም። ሙሉውን SMS መቅዳትዎን ያረጋግጡ።';
+
+  @override
+  String get smsFrom => 'ከ';
+
+  @override
+  String get useSms => 'እነዚህን ዝርዝሮች ተጠቀም';
+
+  @override
+  String get smsFilled => 'ከSMS-ው ተሞልቷል። ከማስቀመጥዎ በፊት ዝርዝሮቹን ያረጋግጡ።';
+
+  @override
+  String smsOtherPayer(String payer, String tenant) {
+    return 'ይህ መልዕክት ከ$tenant ሳይሆን ከ$payer የመጣ ይመስላል። ከማስቀመጥዎ በፊት ያረጋግጡ።';
+  }
+
+  @override
+  String get smsPickLease => 'ይህ ክፍያ ከየትኛው ተከራይ ነው?';
+
+  @override
+  String get smsLikely => 'ሊሆን ይችላል';
+
+  @override
+  String get smsNoLeases => 'ንቁ ውል የለም።';
 }
