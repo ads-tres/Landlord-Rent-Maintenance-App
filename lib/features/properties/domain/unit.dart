@@ -38,6 +38,7 @@ class Unit {
     this.bedrooms,
     this.status = UnitStatus.vacant,
     this.activeLease,
+    this.openListingId,
   });
 
   factory Unit.fromJson(Map<String, dynamic> json) => Unit(
@@ -51,6 +52,8 @@ class Unit {
         : ActiveLeaseSummary.fromJson(
             json['active_lease'] as Map<String, dynamic>,
           ),
+    openListingId:
+        (json['open_listing'] as Map<String, dynamic>?)?['id'] as int?,
   );
 
   final int id;
@@ -59,4 +62,7 @@ class Unit {
   final int? bedrooms;
   final UnitStatus status;
   final ActiveLeaseSummary? activeLease;
+
+  /// The unit's draft or live vacancy listing, if any.
+  final int? openListingId;
 }

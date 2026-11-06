@@ -588,5 +588,101 @@
   "announcementSent": "Announcement sent.",
   "announcementHistory": "Sent before",
   "utilityElectricity": "Electricity",
-  "utilityWater": "Water"
+  "utilityWater": "Water",
+  "listings": "Listings",
+  "listingsEmpty": "No listings yet. Open a vacant unit and choose “List this unit”.",
+  "listUnit": "List this unit",
+  "viewListing": "View listing",
+  "askingRent": "Asking rent (Br)",
+  "availableFrom": "Available from",
+  "listingDescription": "Description (optional)",
+  "listingDescriptionHint": "e.g. Sunny, water tank, near the main road",
+  "createListing": "Create listing",
+  "listingDraft": "Draft",
+  "listingLive": "Live",
+  "listingClosed": "Closed",
+  "listingSuspended": "Suspended",
+  "publish": "Publish for 30 days",
+  "closeListing": "Close listing",
+  "shareListing": "Share listing",
+  "copyLink": "Copy link",
+  "linkCopied": "Link copied.",
+  "expiresOn": "Open until {date}",
+  "@expiresOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "rentAboveCap": "Above the allowed rent: the last rent was {last}, and the most allowed after the {cap}% cap is {max}. Under the rent law a new tenant's rent should match the renewal rent.",
+  "@rentAboveCap": {
+    "placeholders": {
+      "last": {
+        "type": "String"
+      },
+      "cap": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "rentWithinCap": "Last rent {last}; up to {max} is within the yearly cap.",
+  "@rentWithinCap": {
+    "placeholders": {
+      "last": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "applications": "Applications",
+  "applicationsEmpty": "No applications yet. Share the listing to get some.",
+  "appNew": "New",
+  "appShortlisted": "Shortlisted",
+  "appRejected": "Not chosen",
+  "appApproved": "Approved",
+  "householdSize": "{count, plural, =1{1 person} other{{count} people}}",
+  "@householdSize": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "moveInOn": "Move in {date}",
+  "@moveInOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "call": "Call",
+  "shortlist": "Shortlist",
+  "reject": "Reject",
+  "approve": "Approve",
+  "approveConfirm": "Approve {name}? This creates the tenant and a draft lease, closes the listing, and texts the other applicants that someone else was chosen.",
+  "@approveConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "leaseDraftBanner": "Draft lease from an approved application. Add the property condition and activate it to start rent.",
+  "activateLease": "Activate lease",
+  "listingReports": "{count, plural, =1{Reported once} other{Reported {count} times}}",
+  "@listingReports": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "addListingPhoto": "Add photo"
 }

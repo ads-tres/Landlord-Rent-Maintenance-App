@@ -16,7 +16,17 @@ class PropertiesScreen extends ConsumerWidget {
     final properties = ref.watch(propertiesProvider);
 
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.navProperties)),
+      appBar: AppBar(
+        title: Text(l10n.navProperties),
+        actions: [
+          TextButton.icon(
+            key: const Key('listingsButton'),
+            onPressed: () => context.push('/listings'),
+            icon: const Icon(Icons.campaign_outlined),
+            label: Text(l10n.listings),
+          ),
+        ],
+      ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => _addProperty(context, ref),
         icon: const Icon(Icons.add_home_work_outlined),

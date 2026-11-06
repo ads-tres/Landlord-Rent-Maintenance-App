@@ -57,6 +57,13 @@ properties, units, tenants, leases, rent and repairs. It talks only to the Larav
     **Services due** for the coming week.
   - **Announcements:** one message to all current tenants, with the number of tenants, how many go free on
     Telegram, how many SMS and roughly what they cost before sending.
+- **Vacancy listings:** tap a vacant unit → **List this unit** (asking rent, date, description, photos).
+  - The listing page warns when the asking rent is above the last rent plus the yearly cap.
+  - **Publish** for 30 days, then **Share listing** posts ready text in Amharic and English (Telegram,
+    Facebook, a broker).
+  - Applicants confirm their phone before they appear. Call, shortlist, reject or **Approve** them.
+  - Approving creates the tenant and a draft lease. **Activate lease** (with the property condition) starts
+    rent. All listings are under Properties → Listings.
 - Money is handled in santim (integers) and shown as `Br 12,500`.
 - Settings shows the app version and, when configured, a **Send feedback** link to the pilot group.
 - Next: pilot with 10 landlords, including a test pass on low-end Android phones.
@@ -76,6 +83,7 @@ lib/
     payments/    data · domain (Payment, DashboardSummary) · presentation (log payment, receipt sheet)
     repairs/     data · domain (Repair, UnitOption) · presentation (list, detail, add)
     compound/    shared meters and bills, equipment, announcements
+    listings/    vacancy listings, applications
     reports/     quarterly income report + PDF sharing
   core/offline/  response cache (saved screens) and offline banner state
   features/payments/application/  pending (offline) payments queue

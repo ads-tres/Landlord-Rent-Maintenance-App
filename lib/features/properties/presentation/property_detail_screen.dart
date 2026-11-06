@@ -116,16 +116,7 @@ class PropertyDetailScreen extends ConsumerWidget {
                     trailing: _StatusChip(status: unit.status),
                     onTap: () => unit.activeLease != null
                         ? context.push('/leases/${unit.activeLease!.id}')
-                        : context.push(
-                            Uri(
-                              path: '/leases/new',
-                              queryParameters: {
-                                'unitId': '${unit.id}',
-                                'unitLabel': unit.label,
-                                'propertyId': '$propertyId',
-                              },
-                            ).toString(),
-                          ),
+                        : _vacantUnitActions(context, ref, unit),
                   ),
             ],
           ),
@@ -179,6 +170,60 @@ class PropertyDetailScreen extends ConsumerWidget {
     if (saved) {
       ref.invalidate(propertyProvider(propertyId));
       ref.invalidate(propertiesProvider);
+    }
+  }
+
+  Future<void> _vacantUnitActions(
+    BuildContext context,
+    WidgetRef ref,
+    Unit unit,
+  ) async {
+    final l10n = AppLocalizations.of(context);
+    final choice = await showModalBottomSheet<String>(
+      context: context,
+      showDragHandle: true,
+      builder: (context) => SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ListTile(
+              leading: const Icon(Icons.description_outlined),
+              title: Text(l10n.addLease),
+              onTap: () => Navigator.pop(context, 'lease'),
+            ),
+            ListTile(
+              key: const Key('listUnitAction'),
+              leading: const Icon(Icons.campaign_outlined),
+              title: Text(
+                unit.openListingId != null ? l10n.viewListing : l10n.listUnit,
+              ),
+              onTap: () => Navigator.pop(context, 'listing'),
+            ),
+          ],
+        ),
+      ),
+    );
+    if (!context.mounted || choice == null) return;
+
+    if (choice == 'lease') {
+      context.push(
+        Uri(
+          path: '/leases/new',
+          queryParameters: {
+            'unitId': '${unit.id}',
+            'unitLabel': unit.label,
+            'propertyId': '$propertyId',
+          },
+        ).toString(),
+      );
+    } else if (unit.openListingId != null) {
+      await context.push('/listings/${unit.openListingId}');
+      ref.invalidate(propertyProvider(propertyId));
+    } else {
+      await context.push(
+        '/listings/new?unitId=${unit.id}&unitLabel=${Uri.encodeQueryComponent(unit.label)}',
+      );
+      ref.invalidate(propertyProvider(propertyId));
     }
   }
 }
