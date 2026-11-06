@@ -35,6 +35,7 @@ import '../features/repairs/presentation/repairs_screen.dart';
 import '../features/properties/presentation/property_detail_screen.dart';
 import '../features/rent/presentation/rent_screen.dart';
 import '../features/tenants/presentation/add_tenant_screen.dart';
+import '../features/home/presentation/sync_screen.dart';
 import '../features/team/presentation/team_screen.dart';
 import '../features/tenants/presentation/tenant_messages_screen.dart';
 import '../features/tenants/presentation/tenants_screen.dart';
@@ -88,6 +89,11 @@ final routerProvider = Provider<GoRouter>((ref) {
             propertyId: int.tryParse(q['propertyId'] ?? ''),
           );
         },
+      ),
+      GoRoute(
+        path: '/sync',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (_, _) => const SyncScreen(),
       ),
       GoRoute(
         path: '/leases/ending',

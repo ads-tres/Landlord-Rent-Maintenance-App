@@ -401,7 +401,7 @@
   "previousQuarter": "Previous quarter",
   "nextQuarter": "Next quarter",
   "offlineBanner": "No connection. Showing saved data.",
-  "pendingPaymentsBanner": "{count, plural, =1{1 payment not synced} other{{count} payments not synced}}",
+  "pendingPaymentsBanner": "{count, plural, =1{1 entry not synced} other{{count} entries not synced}}",
   "@pendingPaymentsBanner": {
     "placeholders": {
       "count": {
@@ -994,5 +994,17 @@
   "typeYourPhone": "Type your phone number to confirm",
   "deletionScheduled": "Your account will be deleted on {date}.",
   "@deletionScheduled": {"placeholders": {"date": {"type": "String"}}},
-  "keepAccount": "Keep account"
+  "keepAccount": "Keep account",
+  "savedOfflineItemHelp": "There is no connection. It will be sent automatically when you are back online, with any photos.",
+  "waitingToSync": "Waiting to sync",
+  "waitingToSyncHelp": "These were saved on this phone without a connection. They are sent automatically when you are back online.",
+  "syncPayments": "Payments",
+  "syncExpenses": "Expenses",
+  "syncRepairs": "Repairs",
+  "allSynced": "Everything is synced",
+  "syncedSome": "Sent {sent}. {left} still waiting.",
+  "@syncedSome": {"placeholders": {"sent": {"type": "int"}, "left": {"type": "int"}}},
+  "photosCount": "{count, plural, =1{1 photo} other{{count} photos}}",
+  "@photosCount": {"placeholders": {"count": {"type": "int"}}},
+  "discardItemConfirm": "Discard this entry that was never sent? Its photos are deleted too."
 }

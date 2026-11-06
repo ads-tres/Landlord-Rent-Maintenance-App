@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/api/api_client.dart';
+import '../../../core/offline/outbox.dart';
 import '../../../core/utils/dates.dart';
 import '../domain/expense.dart';
 
@@ -37,6 +38,7 @@ class ExpensesRepository {
     String? description,
     String? vendor,
     String? photoPath,
+    String? clientRef,
   }) async => _one(
     await _api.post(
       '/expenses',
@@ -49,6 +51,7 @@ class ExpensesRepository {
         if (description != null && description.isNotEmpty)
           'description': description,
         if (vendor != null && vendor.isNotEmpty) 'vendor': vendor,
+        'client_ref': ?clientRef,
         if (photoPath != null) 'photo': await MultipartFile.fromFile(photoPath),
       }),
     ),
@@ -69,7 +72,10 @@ final expensesRepositoryProvider = Provider<ExpensesRepository>(
 );
 
 /// Expenses for one property, or all of them when null.
-final expensesProvider = FutureProvider.autoDispose.family<ExpenseList, int?>(
-  (ref, propertyId) =>
-      ref.watch(expensesRepositoryProvider).list(propertyId: propertyId),
-);
+final expensesProvider = FutureProvider.autoDispose.family<ExpenseList, int?>((
+  ref,
+  propertyId,
+) {
+  ref.watch(outboxSyncedProvider); // refetch once offline expenses are sent
+  return ref.watch(expensesRepositoryProvider).list(propertyId: propertyId);
+});

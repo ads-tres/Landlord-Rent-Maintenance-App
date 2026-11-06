@@ -1325,7 +1325,7 @@ abstract class AppLocalizations {
   /// No description provided for @pendingPaymentsBanner.
   ///
   /// In en, this message translates to:
-  /// **'{count, plural, =1{1 payment not synced} other{{count} payments not synced}}'**
+  /// **'{count, plural, =1{1 entry not synced} other{{count} entries not synced}}'**
   String pendingPaymentsBanner(int count);
 
   /// No description provided for @syncNow.
@@ -3757,6 +3757,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Keep account'**
   String get keepAccount;
+
+  /// No description provided for @savedOfflineItemHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'There is no connection. It will be sent automatically when you are back online, with any photos.'**
+  String get savedOfflineItemHelp;
+
+  /// No description provided for @waitingToSync.
+  ///
+  /// In en, this message translates to:
+  /// **'Waiting to sync'**
+  String get waitingToSync;
+
+  /// No description provided for @waitingToSyncHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'These were saved on this phone without a connection. They are sent automatically when you are back online.'**
+  String get waitingToSyncHelp;
+
+  /// No description provided for @syncPayments.
+  ///
+  /// In en, this message translates to:
+  /// **'Payments'**
+  String get syncPayments;
+
+  /// No description provided for @syncExpenses.
+  ///
+  /// In en, this message translates to:
+  /// **'Expenses'**
+  String get syncExpenses;
+
+  /// No description provided for @syncRepairs.
+  ///
+  /// In en, this message translates to:
+  /// **'Repairs'**
+  String get syncRepairs;
+
+  /// No description provided for @allSynced.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything is synced'**
+  String get allSynced;
+
+  /// No description provided for @syncedSome.
+  ///
+  /// In en, this message translates to:
+  /// **'Sent {sent}. {left} still waiting.'**
+  String syncedSome(int sent, int left);
+
+  /// No description provided for @photosCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 photo} other{{count} photos}}'**
+  String photosCount(int count);
+
+  /// No description provided for @discardItemConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Discard this entry that was never sent? Its photos are deleted too.'**
+  String get discardItemConfirm;
 }
 
 class _AppLocalizationsDelegate

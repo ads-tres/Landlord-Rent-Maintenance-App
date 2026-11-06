@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/api/api_exception.dart';
+import '../../../core/offline/outbox.dart';
+import '../../home/presentation/sync_screen.dart';
 import '../../../core/widgets/async_views.dart';
 import '../../../core/widgets/form_sheet.dart';
 import '../../../l10n/app_localizations.dart';
@@ -29,6 +31,7 @@ class _AddRepairScreenState extends ConsumerState<AddRepairScreen> {
   late int? _unitId = widget.unitId;
   RepairCategory _category = RepairCategory.other;
   final List<String> _photos = [];
+  final String _clientRef = newClientRef();
   bool _saving = false;
   Map<String, String> _errors = const {};
   String? _error;
@@ -56,10 +59,15 @@ class _AddRepairScreenState extends ConsumerState<AddRepairScreen> {
             category: _category,
             description: _description.text.trim(),
             photoPaths: _photos,
+            clientRef: _clientRef,
           );
       ref.invalidate(dashboardProvider);
       if (mounted) Navigator.of(context).pop(repair);
     } on ApiException catch (e) {
+      if (e.isNetworkError) {
+        await _saveOffline();
+        return;
+      }
       if (!mounted) return;
       setState(() {
         _errors = e.fieldErrors;
@@ -68,6 +76,42 @@ class _AddRepairScreenState extends ConsumerState<AddRepairScreen> {
     } finally {
       if (mounted) setState(() => _saving = false);
     }
+  }
+
+  /// No connection: keep the repair on the phone and send it later.
+  Future<void> _saveOffline() async {
+    final l10n = AppLocalizations.of(context);
+    final unit = ref
+        .read(unitOptionsProvider)
+        .value
+        ?.where((u) => u.id == _unitId)
+        .firstOrNull;
+    final title = _title.text.trim();
+    final description = _description.text.trim();
+    await ref
+        .read(outboxProvider.notifier)
+        .add(
+          OutboxItem(
+            kind: OutboxKind.repair,
+            clientRef: _clientRef,
+            createdAt: DateTime.now(),
+            title: title,
+            subtitle: unit == null
+                ? null
+                : [unit.label, unit.propertyName].join(' · '),
+            fields: {
+              'unit_id': _unitId,
+              'title': title,
+              'category': _category.apiValue,
+              if (description.isNotEmpty) 'description': description,
+            },
+            photos: [..._photos],
+          ),
+        );
+    if (!mounted) return;
+    setState(() => _saving = false);
+    await showSavedOfflineDialog(context, l10n.savedOfflineItemHelp);
+    if (mounted) Navigator.of(context).pop();
   }
 
   @override
