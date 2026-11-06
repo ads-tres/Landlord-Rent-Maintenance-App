@@ -23,6 +23,7 @@ import '../../rent/presentation/rent_screen.dart';
 import '../data/leases_repository.dart';
 import '../domain/lease.dart';
 import '../domain/rent_rules.dart';
+import 'charge_labels.dart';
 import 'status_chips.dart';
 
 class LeaseDetailScreen extends ConsumerWidget {
@@ -514,7 +515,11 @@ class _LeaseCharges extends ConsumerWidget {
           for (final c in items.reversed)
             ListTile(
               contentPadding: EdgeInsets.zero,
-              title: Text(dates.period(c.period)),
+              title: Text(
+                c.isUtility
+                    ? '${utilityLabel(l10n, c.utilityKind)} · ${dates.period(c.period)}'
+                    : dates.period(c.period),
+              ),
               subtitle: Text(l10n.dueOn(dates.date(c.dueDate))),
               trailing: Row(
                 mainAxisSize: MainAxisSize.min,

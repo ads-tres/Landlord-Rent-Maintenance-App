@@ -1483,6 +1483,408 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'On Telegram if they connected, otherwise by SMS'**
   String get sendReceiptHelp;
+
+  /// No description provided for @sharedMeters.
+  ///
+  /// In en, this message translates to:
+  /// **'Shared meters'**
+  String get sharedMeters;
+
+  /// No description provided for @sharedMetersEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No shared meters. Add one to split a water or electricity bill across units.'**
+  String get sharedMetersEmpty;
+
+  /// No description provided for @addMeter.
+  ///
+  /// In en, this message translates to:
+  /// **'Add meter'**
+  String get addMeter;
+
+  /// No description provided for @meterName.
+  ///
+  /// In en, this message translates to:
+  /// **'Meter name'**
+  String get meterName;
+
+  /// No description provided for @meterNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Main electricity'**
+  String get meterNameHint;
+
+  /// No description provided for @meterKind.
+  ///
+  /// In en, this message translates to:
+  /// **'Type'**
+  String get meterKind;
+
+  /// No description provided for @kindElectricity.
+  ///
+  /// In en, this message translates to:
+  /// **'Electricity'**
+  String get kindElectricity;
+
+  /// No description provided for @kindWater.
+  ///
+  /// In en, this message translates to:
+  /// **'Water'**
+  String get kindWater;
+
+  /// No description provided for @splitMethod.
+  ///
+  /// In en, this message translates to:
+  /// **'How to split the bill'**
+  String get splitMethod;
+
+  /// No description provided for @splitEqual.
+  ///
+  /// In en, this message translates to:
+  /// **'Equal shares'**
+  String get splitEqual;
+
+  /// No description provided for @splitPercent.
+  ///
+  /// In en, this message translates to:
+  /// **'Fixed percentages'**
+  String get splitPercent;
+
+  /// No description provided for @splitSubmeter.
+  ///
+  /// In en, this message translates to:
+  /// **'Sub-meter readings'**
+  String get splitSubmeter;
+
+  /// No description provided for @meterUnits.
+  ///
+  /// In en, this message translates to:
+  /// **'Units on this meter'**
+  String get meterUnits;
+
+  /// No description provided for @sharePercent.
+  ///
+  /// In en, this message translates to:
+  /// **'Share %'**
+  String get sharePercent;
+
+  /// No description provided for @sharesTotal.
+  ///
+  /// In en, this message translates to:
+  /// **'Total: {total}% (must be 100%)'**
+  String sharesTotal(String total);
+
+  /// No description provided for @selectUnits.
+  ///
+  /// In en, this message translates to:
+  /// **'Select at least one unit.'**
+  String get selectUnits;
+
+  /// No description provided for @bills.
+  ///
+  /// In en, this message translates to:
+  /// **'Bills'**
+  String get bills;
+
+  /// No description provided for @billsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No bills entered yet.'**
+  String get billsEmpty;
+
+  /// No description provided for @enterBill.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter bill'**
+  String get enterBill;
+
+  /// No description provided for @billMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'Bill for'**
+  String get billMonth;
+
+  /// No description provided for @billAmount.
+  ///
+  /// In en, this message translates to:
+  /// **'Bill amount (Br)'**
+  String get billAmount;
+
+  /// No description provided for @billDueDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Tenants pay by'**
+  String get billDueDate;
+
+  /// No description provided for @readings.
+  ///
+  /// In en, this message translates to:
+  /// **'Readings'**
+  String get readings;
+
+  /// No description provided for @previousReading.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous'**
+  String get previousReading;
+
+  /// No description provided for @currentReading.
+  ///
+  /// In en, this message translates to:
+  /// **'Current'**
+  String get currentReading;
+
+  /// No description provided for @billPhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Photo of the bill'**
+  String get billPhoto;
+
+  /// No description provided for @notifyTenants.
+  ///
+  /// In en, this message translates to:
+  /// **'Tell tenants their share'**
+  String get notifyTenants;
+
+  /// No description provided for @previewSplit.
+  ///
+  /// In en, this message translates to:
+  /// **'Preview split'**
+  String get previewSplit;
+
+  /// No description provided for @splitResult.
+  ///
+  /// In en, this message translates to:
+  /// **'Split'**
+  String get splitResult;
+
+  /// No description provided for @landlordShare.
+  ///
+  /// In en, this message translates to:
+  /// **'Your share (vacant units): {amount}'**
+  String landlordShare(String amount);
+
+  /// No description provided for @vacant.
+  ///
+  /// In en, this message translates to:
+  /// **'vacant'**
+  String get vacant;
+
+  /// No description provided for @saveBill.
+  ///
+  /// In en, this message translates to:
+  /// **'Save bill'**
+  String get saveBill;
+
+  /// No description provided for @billSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Bill saved. Each tenant\'s share was added to their rent.'**
+  String get billSaved;
+
+  /// No description provided for @removeBill.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove bill'**
+  String get removeBill;
+
+  /// No description provided for @equipment.
+  ///
+  /// In en, this message translates to:
+  /// **'Equipment'**
+  String get equipment;
+
+  /// No description provided for @equipmentEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No equipment yet. Add the generator, water tank or pump to get service reminders.'**
+  String get equipmentEmpty;
+
+  /// No description provided for @addEquipment.
+  ///
+  /// In en, this message translates to:
+  /// **'Add equipment'**
+  String get addEquipment;
+
+  /// No description provided for @equipmentKind.
+  ///
+  /// In en, this message translates to:
+  /// **'Type'**
+  String get equipmentKind;
+
+  /// No description provided for @kindGenerator.
+  ///
+  /// In en, this message translates to:
+  /// **'Generator'**
+  String get kindGenerator;
+
+  /// No description provided for @kindWaterTank.
+  ///
+  /// In en, this message translates to:
+  /// **'Water tank'**
+  String get kindWaterTank;
+
+  /// No description provided for @kindPump.
+  ///
+  /// In en, this message translates to:
+  /// **'Pump'**
+  String get kindPump;
+
+  /// No description provided for @kindOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get kindOther;
+
+  /// No description provided for @equipmentName.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get equipmentName;
+
+  /// No description provided for @serviceEveryDays.
+  ///
+  /// In en, this message translates to:
+  /// **'Service every (days)'**
+  String get serviceEveryDays;
+
+  /// No description provided for @lastServiced.
+  ///
+  /// In en, this message translates to:
+  /// **'Last serviced'**
+  String get lastServiced;
+
+  /// No description provided for @neverServiced.
+  ///
+  /// In en, this message translates to:
+  /// **'Not serviced yet'**
+  String get neverServiced;
+
+  /// No description provided for @nextService.
+  ///
+  /// In en, this message translates to:
+  /// **'Next service {date}'**
+  String nextService(String date);
+
+  /// No description provided for @serviceOverdue.
+  ///
+  /// In en, this message translates to:
+  /// **'Service overdue'**
+  String get serviceOverdue;
+
+  /// No description provided for @serviceDueIn.
+  ///
+  /// In en, this message translates to:
+  /// **'{days, plural, =0{Service due today} =1{Service due tomorrow} other{Service due in {days} days}}'**
+  String serviceDueIn(int days);
+
+  /// No description provided for @logService.
+  ///
+  /// In en, this message translates to:
+  /// **'Log service'**
+  String get logService;
+
+  /// No description provided for @servicedOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Serviced on'**
+  String get servicedOn;
+
+  /// No description provided for @serviceCost.
+  ///
+  /// In en, this message translates to:
+  /// **'Cost (Br, optional)'**
+  String get serviceCost;
+
+  /// No description provided for @serviceNotes.
+  ///
+  /// In en, this message translates to:
+  /// **'What was done (optional)'**
+  String get serviceNotes;
+
+  /// No description provided for @dashboardServicesDue.
+  ///
+  /// In en, this message translates to:
+  /// **'Services due'**
+  String get dashboardServicesDue;
+
+  /// No description provided for @announce.
+  ///
+  /// In en, this message translates to:
+  /// **'Send announcement'**
+  String get announce;
+
+  /// No description provided for @announcement.
+  ///
+  /// In en, this message translates to:
+  /// **'Message to all tenants'**
+  String get announcement;
+
+  /// No description provided for @announcementHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. No water tomorrow from 8 to 12.'**
+  String get announcementHint;
+
+  /// No description provided for @announcementPreview.
+  ///
+  /// In en, this message translates to:
+  /// **'Check before sending'**
+  String get announcementPreview;
+
+  /// No description provided for @announcementRecipients.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 tenant} other{{count} tenants}}'**
+  String announcementRecipients(int count);
+
+  /// No description provided for @announcementChannels.
+  ///
+  /// In en, this message translates to:
+  /// **'{telegram} on Telegram (free) · {sms} by SMS'**
+  String announcementChannels(int telegram, int sms);
+
+  /// No description provided for @announcementSms.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{No SMS} =1{1 SMS} other{{count} SMS}}'**
+  String announcementSms(int count);
+
+  /// No description provided for @announcementCost.
+  ///
+  /// In en, this message translates to:
+  /// **'About {amount}'**
+  String announcementCost(String amount);
+
+  /// No description provided for @announcementSend.
+  ///
+  /// In en, this message translates to:
+  /// **'Send to all'**
+  String get announcementSend;
+
+  /// No description provided for @announcementSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Announcement sent.'**
+  String get announcementSent;
+
+  /// No description provided for @announcementHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'Sent before'**
+  String get announcementHistory;
+
+  /// No description provided for @utilityElectricity.
+  ///
+  /// In en, this message translates to:
+  /// **'Electricity'**
+  String get utilityElectricity;
+
+  /// No description provided for @utilityWater.
+  ///
+  /// In en, this message translates to:
+  /// **'Water'**
+  String get utilityWater;
 }
 
 class _AppLocalizationsDelegate

@@ -11,6 +11,7 @@ import '../../../l10n/app_localizations.dart';
 import '../../leases/data/leases_repository.dart';
 import '../../leases/domain/charge.dart';
 import '../../leases/presentation/status_chips.dart';
+import '../../leases/presentation/charge_labels.dart';
 import '../../payments/application/pending_payments.dart';
 import '../../payments/presentation/pending_payment_tile.dart';
 
@@ -179,7 +180,12 @@ class RentScreen extends ConsumerWidget {
                 else
                   for (final c in shown)
                     ListTile(
-                      title: Text(c.tenantName ?? ''),
+                      title: Text(
+                        [
+                          c.tenantName ?? '',
+                          if (c.isUtility) utilityLabel(l10n, c.utilityKind),
+                        ].join(' · '),
+                      ),
                       subtitle: Text(
                         [
                           [

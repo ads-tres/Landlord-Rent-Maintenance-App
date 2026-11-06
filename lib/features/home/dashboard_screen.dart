@@ -120,6 +120,13 @@ class DashboardScreen extends ConsumerWidget {
                         alert: s.leasesEndingSoon > 0,
                       ),
                       _Tile(
+                        key: const Key('servicesDueTile'),
+                        label: l10n.dashboardServicesDue,
+                        value: '${s.servicesDue}',
+                        alert: s.servicesDue > 0,
+                        onTap: () => context.push('/equipment/due'),
+                      ),
+                      _Tile(
                         label: l10n.dashboardUnits,
                         value: '${s.units}',
                         onTap: () => context.go('/properties'),
@@ -148,6 +155,7 @@ class DashboardScreen extends ConsumerWidget {
 
 class _Tile extends StatelessWidget {
   const _Tile({
+    super.key,
     required this.label,
     required this.value,
     this.alert = false,

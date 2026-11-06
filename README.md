@@ -49,6 +49,14 @@ properties, units, tenants, leases, rent and repairs. It talks only to the Larav
   - Saved data and unsent payments are cleared on logout.
 - **Privacy:** from the Tenants list menu, **Export data** shares the tenant's records as JSON, and
   **Remove personal data** anonymizes a past tenant (payment amounts stay).
+- **Compound tools** (property page ⋮ menu):
+  - **Shared meters:** set up a water or electricity meter for some units (equal shares, fixed percentages or
+    sub-meter readings). Enter each bill with an optional photo, preview the split, then save; each tenant's
+    share becomes a charge next to their rent (marked "Electricity" or "Water"), and tenants are told.
+  - **Equipment:** generator, water tank and pump with a service interval. Tap one to log a service. Home shows
+    **Services due** for the coming week.
+  - **Announcements:** one message to all current tenants, with the number of tenants, how many go free on
+    Telegram, how many SMS and roughly what they cost before sending.
 - Money is handled in santim (integers) and shown as `Br 12,500`.
 - Settings shows the app version and, when configured, a **Send feedback** link to the pilot group.
 - Next: pilot with 10 landlords, including a test pass on low-end Android phones.
@@ -67,6 +75,7 @@ lib/
     rent/        monthly rent list
     payments/    data · domain (Payment, DashboardSummary) · presentation (log payment, receipt sheet)
     repairs/     data · domain (Repair, UnitOption) · presentation (list, detail, add)
+    compound/    shared meters and bills, equipment, announcements
     reports/     quarterly income report + PDF sharing
   core/offline/  response cache (saved screens) and offline banner state
   features/payments/application/  pending (offline) payments queue

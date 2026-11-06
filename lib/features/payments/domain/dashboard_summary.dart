@@ -7,6 +7,7 @@ class DashboardSummary {
     required this.lateTenants,
     required this.openRepairs,
     required this.leasesEndingSoon,
+    this.servicesDue = 0,
     required this.properties,
     required this.units,
     required this.vacantUnits,
@@ -19,6 +20,7 @@ class DashboardSummary {
     lateTenants: j['late_tenants'] as int,
     openRepairs: j['open_repairs'] as int,
     leasesEndingSoon: j['leases_ending_soon'] as int,
+    servicesDue: j['services_due'] as int? ?? 0,
     properties: j['properties'] as int,
     units: j['units'] as int,
     vacantUnits: j['vacant_units'] as int,
@@ -30,6 +32,9 @@ class DashboardSummary {
   final int lateTenants;
   final int openRepairs;
   final int leasesEndingSoon;
+
+  /// Generator / water tank / pump services due within a week.
+  final int servicesDue;
   final int properties;
   final int units;
   final int vacantUnits;

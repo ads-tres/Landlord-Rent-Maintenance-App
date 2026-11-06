@@ -24,7 +24,39 @@ class PropertyDetailScreen extends ConsumerWidget {
     final locale = ref.watch(localeControllerProvider).languageCode;
 
     return Scaffold(
-      appBar: AppBar(title: Text(property.value?.name ?? '')),
+      appBar: AppBar(
+        title: Text(property.value?.name ?? ''),
+        actions: [
+          PopupMenuButton<String>(
+            key: const Key('propertyMenu'),
+            onSelected: (route) =>
+                context.push('/properties/$propertyId/$route'),
+            itemBuilder: (_) => [
+              PopupMenuItem(
+                value: 'meters',
+                child: ListTile(
+                  leading: const Icon(Icons.electric_meter_outlined),
+                  title: Text(l10n.sharedMeters),
+                ),
+              ),
+              PopupMenuItem(
+                value: 'equipment',
+                child: ListTile(
+                  leading: const Icon(Icons.electrical_services),
+                  title: Text(l10n.equipment),
+                ),
+              ),
+              PopupMenuItem(
+                value: 'announce',
+                child: ListTile(
+                  leading: const Icon(Icons.campaign_outlined),
+                  title: Text(l10n.announce),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => _addUnit(context, ref),
         icon: const Icon(Icons.add),

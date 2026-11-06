@@ -818,4 +818,244 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get sendReceiptHelp =>
       'On Telegram if they connected, otherwise by SMS';
+
+  @override
+  String get sharedMeters => 'Shared meters';
+
+  @override
+  String get sharedMetersEmpty =>
+      'No shared meters. Add one to split a water or electricity bill across units.';
+
+  @override
+  String get addMeter => 'Add meter';
+
+  @override
+  String get meterName => 'Meter name';
+
+  @override
+  String get meterNameHint => 'e.g. Main electricity';
+
+  @override
+  String get meterKind => 'Type';
+
+  @override
+  String get kindElectricity => 'Electricity';
+
+  @override
+  String get kindWater => 'Water';
+
+  @override
+  String get splitMethod => 'How to split the bill';
+
+  @override
+  String get splitEqual => 'Equal shares';
+
+  @override
+  String get splitPercent => 'Fixed percentages';
+
+  @override
+  String get splitSubmeter => 'Sub-meter readings';
+
+  @override
+  String get meterUnits => 'Units on this meter';
+
+  @override
+  String get sharePercent => 'Share %';
+
+  @override
+  String sharesTotal(String total) {
+    return 'Total: $total% (must be 100%)';
+  }
+
+  @override
+  String get selectUnits => 'Select at least one unit.';
+
+  @override
+  String get bills => 'Bills';
+
+  @override
+  String get billsEmpty => 'No bills entered yet.';
+
+  @override
+  String get enterBill => 'Enter bill';
+
+  @override
+  String get billMonth => 'Bill for';
+
+  @override
+  String get billAmount => 'Bill amount (Br)';
+
+  @override
+  String get billDueDate => 'Tenants pay by';
+
+  @override
+  String get readings => 'Readings';
+
+  @override
+  String get previousReading => 'Previous';
+
+  @override
+  String get currentReading => 'Current';
+
+  @override
+  String get billPhoto => 'Photo of the bill';
+
+  @override
+  String get notifyTenants => 'Tell tenants their share';
+
+  @override
+  String get previewSplit => 'Preview split';
+
+  @override
+  String get splitResult => 'Split';
+
+  @override
+  String landlordShare(String amount) {
+    return 'Your share (vacant units): $amount';
+  }
+
+  @override
+  String get vacant => 'vacant';
+
+  @override
+  String get saveBill => 'Save bill';
+
+  @override
+  String get billSaved =>
+      'Bill saved. Each tenant\'s share was added to their rent.';
+
+  @override
+  String get removeBill => 'Remove bill';
+
+  @override
+  String get equipment => 'Equipment';
+
+  @override
+  String get equipmentEmpty =>
+      'No equipment yet. Add the generator, water tank or pump to get service reminders.';
+
+  @override
+  String get addEquipment => 'Add equipment';
+
+  @override
+  String get equipmentKind => 'Type';
+
+  @override
+  String get kindGenerator => 'Generator';
+
+  @override
+  String get kindWaterTank => 'Water tank';
+
+  @override
+  String get kindPump => 'Pump';
+
+  @override
+  String get kindOther => 'Other';
+
+  @override
+  String get equipmentName => 'Name';
+
+  @override
+  String get serviceEveryDays => 'Service every (days)';
+
+  @override
+  String get lastServiced => 'Last serviced';
+
+  @override
+  String get neverServiced => 'Not serviced yet';
+
+  @override
+  String nextService(String date) {
+    return 'Next service $date';
+  }
+
+  @override
+  String get serviceOverdue => 'Service overdue';
+
+  @override
+  String serviceDueIn(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: 'Service due in $days days',
+      one: 'Service due tomorrow',
+      zero: 'Service due today',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get logService => 'Log service';
+
+  @override
+  String get servicedOn => 'Serviced on';
+
+  @override
+  String get serviceCost => 'Cost (Br, optional)';
+
+  @override
+  String get serviceNotes => 'What was done (optional)';
+
+  @override
+  String get dashboardServicesDue => 'Services due';
+
+  @override
+  String get announce => 'Send announcement';
+
+  @override
+  String get announcement => 'Message to all tenants';
+
+  @override
+  String get announcementHint => 'e.g. No water tomorrow from 8 to 12.';
+
+  @override
+  String get announcementPreview => 'Check before sending';
+
+  @override
+  String announcementRecipients(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count tenants',
+      one: '1 tenant',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String announcementChannels(int telegram, int sms) {
+    return '$telegram on Telegram (free) · $sms by SMS';
+  }
+
+  @override
+  String announcementSms(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count SMS',
+      one: '1 SMS',
+      zero: 'No SMS',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String announcementCost(String amount) {
+    return 'About $amount';
+  }
+
+  @override
+  String get announcementSend => 'Send to all';
+
+  @override
+  String get announcementSent => 'Announcement sent.';
+
+  @override
+  String get announcementHistory => 'Sent before';
+
+  @override
+  String get utilityElectricity => 'Electricity';
+
+  @override
+  String get utilityWater => 'Water';
 }

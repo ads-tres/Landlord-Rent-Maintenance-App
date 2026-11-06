@@ -5,6 +5,10 @@ import 'package:go_router/go_router.dart';
 import '../features/auth/application/auth_controller.dart';
 import '../features/auth/presentation/code_screen.dart';
 import '../features/auth/presentation/phone_screen.dart';
+import '../features/compound/presentation/announce_screen.dart';
+import '../features/compound/presentation/assets_screen.dart';
+import '../features/compound/presentation/meter_detail_screen.dart';
+import '../features/compound/presentation/meters_screen.dart';
 import '../features/home/dashboard_screen.dart';
 import '../features/home/home_shell.dart';
 import '../features/home/settings_screen.dart';
@@ -107,6 +111,35 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: '/reports/quarterly',
         parentNavigatorKey: _rootNavigatorKey,
         builder: (_, _) => const QuarterlyReportScreen(),
+      ),
+      GoRoute(
+        path: '/properties/:id/meters',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (_, state) =>
+            MetersScreen(propertyId: int.parse(state.pathParameters['id']!)),
+      ),
+      GoRoute(
+        path: '/meters/:id',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (_, state) =>
+            MeterDetailScreen(meterId: int.parse(state.pathParameters['id']!)),
+      ),
+      GoRoute(
+        path: '/properties/:id/equipment',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (_, state) =>
+            AssetsScreen(propertyId: int.parse(state.pathParameters['id']!)),
+      ),
+      GoRoute(
+        path: '/equipment/due',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (_, _) => const AssetsScreen(),
+      ),
+      GoRoute(
+        path: '/properties/:id/announce',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (_, state) =>
+            AnnounceScreen(propertyId: int.parse(state.pathParameters['id']!)),
       ),
       StatefulShellRoute.indexedStack(
         builder: (_, _, shell) => HomeShell(shell: shell),
