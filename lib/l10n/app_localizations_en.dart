@@ -1058,4 +1058,148 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get utilityWater => 'Water';
+
+  @override
+  String get listings => 'Listings';
+
+  @override
+  String get listingsEmpty =>
+      'No listings yet. Open a vacant unit and choose “List this unit”.';
+
+  @override
+  String get listUnit => 'List this unit';
+
+  @override
+  String get viewListing => 'View listing';
+
+  @override
+  String get askingRent => 'Asking rent (Br)';
+
+  @override
+  String get availableFrom => 'Available from';
+
+  @override
+  String get listingDescription => 'Description (optional)';
+
+  @override
+  String get listingDescriptionHint =>
+      'e.g. Sunny, water tank, near the main road';
+
+  @override
+  String get createListing => 'Create listing';
+
+  @override
+  String get listingDraft => 'Draft';
+
+  @override
+  String get listingLive => 'Live';
+
+  @override
+  String get listingClosed => 'Closed';
+
+  @override
+  String get listingSuspended => 'Suspended';
+
+  @override
+  String get publish => 'Publish for 30 days';
+
+  @override
+  String get closeListing => 'Close listing';
+
+  @override
+  String get shareListing => 'Share listing';
+
+  @override
+  String get copyLink => 'Copy link';
+
+  @override
+  String get linkCopied => 'Link copied.';
+
+  @override
+  String expiresOn(String date) {
+    return 'Open until $date';
+  }
+
+  @override
+  String rentAboveCap(String last, String cap, String max) {
+    return 'Above the allowed rent: the last rent was $last, and the most allowed after the $cap% cap is $max. Under the rent law a new tenant\'s rent should match the renewal rent.';
+  }
+
+  @override
+  String rentWithinCap(String last, String max) {
+    return 'Last rent $last; up to $max is within the yearly cap.';
+  }
+
+  @override
+  String get applications => 'Applications';
+
+  @override
+  String get applicationsEmpty =>
+      'No applications yet. Share the listing to get some.';
+
+  @override
+  String get appNew => 'New';
+
+  @override
+  String get appShortlisted => 'Shortlisted';
+
+  @override
+  String get appRejected => 'Not chosen';
+
+  @override
+  String get appApproved => 'Approved';
+
+  @override
+  String householdSize(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count people',
+      one: '1 person',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String moveInOn(String date) {
+    return 'Move in $date';
+  }
+
+  @override
+  String get call => 'Call';
+
+  @override
+  String get shortlist => 'Shortlist';
+
+  @override
+  String get reject => 'Reject';
+
+  @override
+  String get approve => 'Approve';
+
+  @override
+  String approveConfirm(String name) {
+    return 'Approve $name? This creates the tenant and a draft lease, closes the listing, and texts the other applicants that someone else was chosen.';
+  }
+
+  @override
+  String get leaseDraftBanner =>
+      'Draft lease from an approved application. Add the property condition and activate it to start rent.';
+
+  @override
+  String get activateLease => 'Activate lease';
+
+  @override
+  String listingReports(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Reported $count times',
+      one: 'Reported once',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get addListingPhoto => 'Add photo';
 }

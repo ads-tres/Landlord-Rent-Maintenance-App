@@ -1885,6 +1885,234 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Water'**
   String get utilityWater;
+
+  /// No description provided for @listings.
+  ///
+  /// In en, this message translates to:
+  /// **'Listings'**
+  String get listings;
+
+  /// No description provided for @listingsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No listings yet. Open a vacant unit and choose “List this unit”.'**
+  String get listingsEmpty;
+
+  /// No description provided for @listUnit.
+  ///
+  /// In en, this message translates to:
+  /// **'List this unit'**
+  String get listUnit;
+
+  /// No description provided for @viewListing.
+  ///
+  /// In en, this message translates to:
+  /// **'View listing'**
+  String get viewListing;
+
+  /// No description provided for @askingRent.
+  ///
+  /// In en, this message translates to:
+  /// **'Asking rent (Br)'**
+  String get askingRent;
+
+  /// No description provided for @availableFrom.
+  ///
+  /// In en, this message translates to:
+  /// **'Available from'**
+  String get availableFrom;
+
+  /// No description provided for @listingDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Description (optional)'**
+  String get listingDescription;
+
+  /// No description provided for @listingDescriptionHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Sunny, water tank, near the main road'**
+  String get listingDescriptionHint;
+
+  /// No description provided for @createListing.
+  ///
+  /// In en, this message translates to:
+  /// **'Create listing'**
+  String get createListing;
+
+  /// No description provided for @listingDraft.
+  ///
+  /// In en, this message translates to:
+  /// **'Draft'**
+  String get listingDraft;
+
+  /// No description provided for @listingLive.
+  ///
+  /// In en, this message translates to:
+  /// **'Live'**
+  String get listingLive;
+
+  /// No description provided for @listingClosed.
+  ///
+  /// In en, this message translates to:
+  /// **'Closed'**
+  String get listingClosed;
+
+  /// No description provided for @listingSuspended.
+  ///
+  /// In en, this message translates to:
+  /// **'Suspended'**
+  String get listingSuspended;
+
+  /// No description provided for @publish.
+  ///
+  /// In en, this message translates to:
+  /// **'Publish for 30 days'**
+  String get publish;
+
+  /// No description provided for @closeListing.
+  ///
+  /// In en, this message translates to:
+  /// **'Close listing'**
+  String get closeListing;
+
+  /// No description provided for @shareListing.
+  ///
+  /// In en, this message translates to:
+  /// **'Share listing'**
+  String get shareListing;
+
+  /// No description provided for @copyLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy link'**
+  String get copyLink;
+
+  /// No description provided for @linkCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Link copied.'**
+  String get linkCopied;
+
+  /// No description provided for @expiresOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Open until {date}'**
+  String expiresOn(String date);
+
+  /// No description provided for @rentAboveCap.
+  ///
+  /// In en, this message translates to:
+  /// **'Above the allowed rent: the last rent was {last}, and the most allowed after the {cap}% cap is {max}. Under the rent law a new tenant\'s rent should match the renewal rent.'**
+  String rentAboveCap(String last, String cap, String max);
+
+  /// No description provided for @rentWithinCap.
+  ///
+  /// In en, this message translates to:
+  /// **'Last rent {last}; up to {max} is within the yearly cap.'**
+  String rentWithinCap(String last, String max);
+
+  /// No description provided for @applications.
+  ///
+  /// In en, this message translates to:
+  /// **'Applications'**
+  String get applications;
+
+  /// No description provided for @applicationsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No applications yet. Share the listing to get some.'**
+  String get applicationsEmpty;
+
+  /// No description provided for @appNew.
+  ///
+  /// In en, this message translates to:
+  /// **'New'**
+  String get appNew;
+
+  /// No description provided for @appShortlisted.
+  ///
+  /// In en, this message translates to:
+  /// **'Shortlisted'**
+  String get appShortlisted;
+
+  /// No description provided for @appRejected.
+  ///
+  /// In en, this message translates to:
+  /// **'Not chosen'**
+  String get appRejected;
+
+  /// No description provided for @appApproved.
+  ///
+  /// In en, this message translates to:
+  /// **'Approved'**
+  String get appApproved;
+
+  /// No description provided for @householdSize.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 person} other{{count} people}}'**
+  String householdSize(int count);
+
+  /// No description provided for @moveInOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Move in {date}'**
+  String moveInOn(String date);
+
+  /// No description provided for @call.
+  ///
+  /// In en, this message translates to:
+  /// **'Call'**
+  String get call;
+
+  /// No description provided for @shortlist.
+  ///
+  /// In en, this message translates to:
+  /// **'Shortlist'**
+  String get shortlist;
+
+  /// No description provided for @reject.
+  ///
+  /// In en, this message translates to:
+  /// **'Reject'**
+  String get reject;
+
+  /// No description provided for @approve.
+  ///
+  /// In en, this message translates to:
+  /// **'Approve'**
+  String get approve;
+
+  /// No description provided for @approveConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Approve {name}? This creates the tenant and a draft lease, closes the listing, and texts the other applicants that someone else was chosen.'**
+  String approveConfirm(String name);
+
+  /// No description provided for @leaseDraftBanner.
+  ///
+  /// In en, this message translates to:
+  /// **'Draft lease from an approved application. Add the property condition and activate it to start rent.'**
+  String get leaseDraftBanner;
+
+  /// No description provided for @activateLease.
+  ///
+  /// In en, this message translates to:
+  /// **'Activate lease'**
+  String get activateLease;
+
+  /// No description provided for @listingReports.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{Reported once} other{Reported {count} times}}'**
+  String listingReports(int count);
+
+  /// No description provided for @addListingPhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Add photo'**
+  String get addListingPhoto;
 }
 
 class _AppLocalizationsDelegate

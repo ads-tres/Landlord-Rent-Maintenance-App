@@ -13,6 +13,7 @@ import '../../../core/utils/phone_number.dart';
 import '../../../core/widgets/async_views.dart';
 import '../../../core/widgets/form_sheet.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../listings/data/listings_repository.dart';
 import '../../payments/application/pending_payments.dart';
 import '../../payments/data/payments_repository.dart';
 import '../../payments/presentation/pending_payment_tile.dart';
@@ -89,6 +90,31 @@ class LeaseDetailScreen extends ConsumerWidget {
           child: ListView(
             padding: const EdgeInsets.all(16),
             children: [
+              if (l.status == LeaseStatus.draft) ...[
+                Card(
+                  color: Theme.of(context).colorScheme.tertiaryContainer,
+                  child: Padding(
+                    padding: const EdgeInsets.all(12),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Text(l10n.leaseDraftBanner),
+                        const SizedBox(height: 8),
+                        FilledButton(
+                          key: const Key('activateLeaseButton'),
+                          onPressed: () async {
+                            if (await _activate(context, ref, l)) {
+                              _refreshAll(ref, l);
+                            }
+                          },
+                          child: Text(l10n.activateLease),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 12),
+              ],
               _Header(lease: l, locale: locale),
               if (l.missingFields.isNotEmpty) ...[
                 const SizedBox(height: 12),
@@ -146,6 +172,92 @@ class LeaseDetailScreen extends ConsumerWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Future<bool> _activate(BuildContext context, WidgetRef ref, Lease lease) {
+    final l10n = AppLocalizations.of(context);
+    final notes = TextEditingController();
+    final deposit = TextEditingController();
+    var start = lease.startDate;
+    var end = lease.endDate;
+
+    return showFormSheet(
+      context,
+      FormSheet(
+        title: l10n.activateLease,
+        onSave: () => ref
+            .read(listingsRepositoryProvider)
+            .activateLease(
+              lease.id,
+              conditionNotes: notes.text.trim(),
+              startDate: start,
+              endDate: end,
+              deposit: parseBirr(deposit.text),
+            ),
+        fieldsBuilder: (context, errors) => [
+          TextFormField(
+            key: const Key('activateConditionField'),
+            controller: notes,
+            minLines: 3,
+            maxLines: 5,
+            decoration: InputDecoration(
+              labelText: l10n.conditionNotes,
+              hintText: l10n.conditionNotesHint,
+              errorText: errors['condition_notes'],
+            ),
+            validator: (v) =>
+                (v == null || v.trim().isEmpty) ? l10n.required : null,
+          ),
+          fieldGap,
+          StatefulBuilder(
+            builder: (context, setState) {
+              final dates = ref.read(appDatesProvider);
+              return Column(
+                children: [
+                  InkWell(
+                    onTap: () async {
+                      final picked = await showDatePicker(
+                        context: context,
+                        initialDate: start,
+                        firstDate: DateTime(2020),
+                        lastDate: DateTime(2100),
+                      );
+                      if (picked != null) {
+                        setState(() {
+                          start = picked;
+                          end = minimumLeaseEnd(picked, 2);
+                        });
+                      }
+                    },
+                    child: InputDecorator(
+                      decoration: InputDecoration(labelText: l10n.startDate),
+                      child: Text(dates.date(start)),
+                    ),
+                  ),
+                  fieldGap,
+                  InputDecorator(
+                    decoration: InputDecoration(
+                      labelText: l10n.endDate,
+                      errorText: errors['end_date'],
+                    ),
+                    child: Text(dates.date(end)),
+                  ),
+                ],
+              );
+            },
+          ),
+          fieldGap,
+          TextFormField(
+            controller: deposit,
+            keyboardType: const TextInputType.numberWithOptions(decimal: true),
+            decoration: InputDecoration(
+              labelText: l10n.deposit,
+              errorText: errors['deposit'],
+            ),
+          ),
+        ],
       ),
     );
   }

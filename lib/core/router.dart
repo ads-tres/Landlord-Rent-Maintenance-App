@@ -10,6 +10,7 @@ import '../features/compound/presentation/assets_screen.dart';
 import '../features/compound/presentation/meter_detail_screen.dart';
 import '../features/compound/presentation/meters_screen.dart';
 import '../features/home/dashboard_screen.dart';
+import '../features/listings/presentation/listings_screens.dart';
 import '../features/home/home_shell.dart';
 import '../features/home/settings_screen.dart';
 import '../features/leases/presentation/add_lease_screen.dart';
@@ -140,6 +141,28 @@ final routerProvider = Provider<GoRouter>((ref) {
         parentNavigatorKey: _rootNavigatorKey,
         builder: (_, state) =>
             AnnounceScreen(propertyId: int.parse(state.pathParameters['id']!)),
+      ),
+      GoRoute(
+        path: '/listings',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (_, _) => const ListingsScreen(),
+        routes: [
+          GoRoute(
+            path: 'new',
+            parentNavigatorKey: _rootNavigatorKey,
+            builder: (_, state) => CreateListingScreen(
+              unitId: int.parse(state.uri.queryParameters['unitId']!),
+              unitLabel: state.uri.queryParameters['unitLabel'] ?? '',
+            ),
+          ),
+          GoRoute(
+            path: ':id',
+            parentNavigatorKey: _rootNavigatorKey,
+            builder: (_, state) => ListingDetailScreen(
+              listingId: int.parse(state.pathParameters['id']!),
+            ),
+          ),
+        ],
       ),
       StatefulShellRoute.indexedStack(
         builder: (_, _, shell) => HomeShell(shell: shell),

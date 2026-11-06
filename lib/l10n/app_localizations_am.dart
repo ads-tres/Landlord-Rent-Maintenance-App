@@ -1044,4 +1044,146 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get utilityWater => 'ውሃ';
+
+  @override
+  String get listings => 'ማስታወቂያዎች';
+
+  @override
+  String get listingsEmpty =>
+      'እስካሁን ማስታወቂያ የለም። ባዶ ቤት ከፍተው “ይህን ቤት አስተዋውቅ” ይምረጡ።';
+
+  @override
+  String get listUnit => 'ይህን ቤት አስተዋውቅ';
+
+  @override
+  String get viewListing => 'ማስታወቂያውን ይመልከቱ';
+
+  @override
+  String get askingRent => 'የሚጠየቅ ኪራይ (ብር)';
+
+  @override
+  String get availableFrom => 'ዝግጁ የሚሆንበት';
+
+  @override
+  String get listingDescription => 'መግለጫ (አማራጭ)';
+
+  @override
+  String get listingDescriptionHint => 'ለምሳሌ ብርሃናማ፣ የውሃ ታንከር ያለው፣ ለዋና መንገድ ቅርብ';
+
+  @override
+  String get createListing => 'ማስታወቂያ ፍጠር';
+
+  @override
+  String get listingDraft => 'ረቂቅ';
+
+  @override
+  String get listingLive => 'ክፍት';
+
+  @override
+  String get listingClosed => 'ተዘግቷል';
+
+  @override
+  String get listingSuspended => 'ታግዷል';
+
+  @override
+  String get publish => 'ለ30 ቀን አትም';
+
+  @override
+  String get closeListing => 'ማስታወቂያውን ዝጋ';
+
+  @override
+  String get shareListing => 'ማስታወቂያውን አጋራ';
+
+  @override
+  String get copyLink => 'ሊንኩን ቅዳ';
+
+  @override
+  String get linkCopied => 'ሊንኩ ተቀድቷል።';
+
+  @override
+  String expiresOn(String date) {
+    return 'እስከ $date ክፍት';
+  }
+
+  @override
+  String rentAboveCap(String last, String cap, String max) {
+    return 'ከሚፈቀደው ኪራይ በላይ ነው፦ ያለፈው ኪራይ $last ነበር፣ ከ$cap% ጣሪያ በኋላ ከፍተኛው $max ነው። በኪራይ ሕጉ የአዲስ ተከራይ ኪራይ ከእድሳት ኪራይ ጋር መመሳሰል አለበት።';
+  }
+
+  @override
+  String rentWithinCap(String last, String max) {
+    return 'ያለፈው ኪራይ $last፤ እስከ $max በዓመታዊ ጣሪያው ውስጥ ነው።';
+  }
+
+  @override
+  String get applications => 'ማመልከቻዎች';
+
+  @override
+  String get applicationsEmpty => 'እስካሁን ማመልከቻ የለም። ለማግኘት ማስታወቂያውን ያጋሩ።';
+
+  @override
+  String get appNew => 'አዲስ';
+
+  @override
+  String get appShortlisted => 'የተመረጠ';
+
+  @override
+  String get appRejected => 'ያልተመረጠ';
+
+  @override
+  String get appApproved => 'የጸደቀ';
+
+  @override
+  String householdSize(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ሰዎች',
+      one: '1 ሰው',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String moveInOn(String date) {
+    return 'የሚገባበት $date';
+  }
+
+  @override
+  String get call => 'ደውል';
+
+  @override
+  String get shortlist => 'ምረጥ';
+
+  @override
+  String get reject => 'አትቀበል';
+
+  @override
+  String get approve => 'አጽድቅ';
+
+  @override
+  String approveConfirm(String name) {
+    return '$name ይጽደቅ? ይህ ተከራዩንና ረቂቅ ውል ይፈጥራል፣ ማስታወቂያውን ይዘጋል፣ ለሌሎቹ አመልካቾች ሌላ ሰው እንደተመረጠ በኤስኤምኤስ ይነግራል።';
+  }
+
+  @override
+  String get leaseDraftBanner =>
+      'ከጸደቀ ማመልከቻ የተፈጠረ ረቂቅ ውል። ኪራይ እንዲጀምር የቤቱን ሁኔታ ጨምረው ያስጀምሩት።';
+
+  @override
+  String get activateLease => 'ውሉን አስጀምር';
+
+  @override
+  String listingReports(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ጊዜ ሪፖርት ተደርጓል',
+      one: 'አንድ ጊዜ ሪፖርት ተደርጓል',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get addListingPhoto => 'ፎቶ ጨምር';
 }
