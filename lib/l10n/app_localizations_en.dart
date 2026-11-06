@@ -2045,4 +2045,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get missingLandlordIdNumber => 'your ID number (Settings)';
+
+  @override
+  String get prepaidRent => 'Rent paid ahead (after move-out)';
 }

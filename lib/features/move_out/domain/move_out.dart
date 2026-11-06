@@ -65,6 +65,8 @@ class MoveOut {
     required this.deposit,
     required this.depositApplied,
     required this.depositKept,
+    this.prepaid = 0,
+    this.prepaidToUnpaid = 0,
     required this.refundAmount,
     required this.balanceOwed,
     required this.statementUrl,
@@ -89,6 +91,8 @@ class MoveOut {
     deposit: j['deposit'] as int,
     depositApplied: j['deposit_applied'] as int,
     depositKept: j['deposit_kept'] as int,
+    prepaid: j['prepaid'] as int? ?? 0,
+    prepaidToUnpaid: j['prepaid_to_unpaid'] as int? ?? 0,
     refundAmount: j['refund_amount'] as int,
     balanceOwed: j['balance_owed'] as int,
     refundMethod: j['refund_method'] as String?,
@@ -116,6 +120,10 @@ class MoveOut {
   final int deposit;
   final int depositApplied;
   final int depositKept;
+
+  /// Rent already paid for months after the move-out; first covers unpaid charges, the rest is refunded.
+  final int prepaid;
+  final int prepaidToUnpaid;
   final int refundAmount;
   final int balanceOwed;
   final String? refundMethod;

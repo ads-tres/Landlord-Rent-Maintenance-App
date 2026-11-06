@@ -503,6 +503,12 @@ class _Summary extends ConsumerWidget {
           children: [
             line(l10n.depositHeld, birr(m.deposit)),
             line(l10n.deductions, '− ${birr(m.deductionsTotal)}'),
+            if (m.prepaid > 0)
+              line(
+                l10n.prepaidRent,
+                '+ ${birr(m.prepaid)}',
+                key: const Key('prepaidRent'),
+              ),
             const Divider(),
             line(
               l10n.refund,

@@ -2009,4 +2009,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get missingLandlordIdNumber => 'የእርስዎ መታወቂያ ቁጥር (ቅንብሮች)';
+
+  @override
+  String get prepaidRent => 'አስቀድሞ የተከፈለ ኪራይ (ከመልቀቂያ በኋላ)';
 }
