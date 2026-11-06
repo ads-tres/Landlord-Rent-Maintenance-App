@@ -2113,6 +2113,120 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Add photo'**
   String get addListingPhoto;
+
+  /// No description provided for @onlineRent.
+  ///
+  /// In en, this message translates to:
+  /// **'Online rent (Chapa)'**
+  String get onlineRent;
+
+  /// No description provided for @onlineRentHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Tenants pay with Telebirr, CBE Birr or bank; money goes to your bank account.'**
+  String get onlineRentHelp;
+
+  /// No description provided for @onlineRentOn.
+  ///
+  /// In en, this message translates to:
+  /// **'On: tenants can pay online'**
+  String get onlineRentOn;
+
+  /// No description provided for @onlineRentOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Off'**
+  String get onlineRentOff;
+
+  /// No description provided for @payoutAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Payout bank account'**
+  String get payoutAccount;
+
+  /// No description provided for @bank.
+  ///
+  /// In en, this message translates to:
+  /// **'Bank'**
+  String get bank;
+
+  /// No description provided for @accountName.
+  ///
+  /// In en, this message translates to:
+  /// **'Account holder name'**
+  String get accountName;
+
+  /// No description provided for @accountNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Account number'**
+  String get accountNumber;
+
+  /// No description provided for @saveAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Save bank account'**
+  String get saveAccount;
+
+  /// No description provided for @accountActive.
+  ///
+  /// In en, this message translates to:
+  /// **'Active'**
+  String get accountActive;
+
+  /// No description provided for @accountPending.
+  ///
+  /// In en, this message translates to:
+  /// **'Setting up…'**
+  String get accountPending;
+
+  /// No description provided for @accountFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Chapa could not set up this account. Check the details.'**
+  String get accountFailed;
+
+  /// No description provided for @acceptOnlineRent.
+  ///
+  /// In en, this message translates to:
+  /// **'Accept online rent'**
+  String get acceptOnlineRent;
+
+  /// No description provided for @onlineRentFee.
+  ///
+  /// In en, this message translates to:
+  /// **'Each online payment: our fee of {fee} and Chapa\'s fee (about 1.5%) are taken before the rest reaches your bank.'**
+  String onlineRentFee(String fee);
+
+  /// No description provided for @payLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Tenant pay link'**
+  String get payLink;
+
+  /// No description provided for @payLinkHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'The tenant can pay rent online here. It is also added to rent reminders.'**
+  String get payLinkHelp;
+
+  /// No description provided for @sendPayLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Send by SMS'**
+  String get sendPayLink;
+
+  /// No description provided for @payLinkSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Pay link sent to the tenant.'**
+  String get payLinkSent;
+
+  /// No description provided for @paidOnline.
+  ///
+  /// In en, this message translates to:
+  /// **'Online'**
+  String get paidOnline;
 }
 
 class _AppLocalizationsDelegate

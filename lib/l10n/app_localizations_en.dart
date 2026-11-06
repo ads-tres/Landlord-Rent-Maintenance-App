@@ -1202,4 +1202,66 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get addListingPhoto => 'Add photo';
+
+  @override
+  String get onlineRent => 'Online rent (Chapa)';
+
+  @override
+  String get onlineRentHelp =>
+      'Tenants pay with Telebirr, CBE Birr or bank; money goes to your bank account.';
+
+  @override
+  String get onlineRentOn => 'On: tenants can pay online';
+
+  @override
+  String get onlineRentOff => 'Off';
+
+  @override
+  String get payoutAccount => 'Payout bank account';
+
+  @override
+  String get bank => 'Bank';
+
+  @override
+  String get accountName => 'Account holder name';
+
+  @override
+  String get accountNumber => 'Account number';
+
+  @override
+  String get saveAccount => 'Save bank account';
+
+  @override
+  String get accountActive => 'Active';
+
+  @override
+  String get accountPending => 'Setting up…';
+
+  @override
+  String get accountFailed =>
+      'Chapa could not set up this account. Check the details.';
+
+  @override
+  String get acceptOnlineRent => 'Accept online rent';
+
+  @override
+  String onlineRentFee(String fee) {
+    return 'Each online payment: our fee of $fee and Chapa\'s fee (about 1.5%) are taken before the rest reaches your bank.';
+  }
+
+  @override
+  String get payLink => 'Tenant pay link';
+
+  @override
+  String get payLinkHelp =>
+      'The tenant can pay rent online here. It is also added to rent reminders.';
+
+  @override
+  String get sendPayLink => 'Send by SMS';
+
+  @override
+  String get payLinkSent => 'Pay link sent to the tenant.';
+
+  @override
+  String get paidOnline => 'Online';
 }

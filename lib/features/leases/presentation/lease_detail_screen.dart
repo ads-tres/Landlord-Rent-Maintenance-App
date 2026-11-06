@@ -14,6 +14,7 @@ import '../../../core/widgets/async_views.dart';
 import '../../../core/widgets/form_sheet.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../listings/data/listings_repository.dart';
+import '../../online_rent/data/online_rent_repository.dart';
 import '../../payments/application/pending_payments.dart';
 import '../../payments/data/payments_repository.dart';
 import '../../payments/presentation/pending_payment_tile.dart';
@@ -119,6 +120,10 @@ class LeaseDetailScreen extends ConsumerWidget {
               if (l.missingFields.isNotEmpty) ...[
                 const SizedBox(height: 12),
                 _DirectiveWarning(missing: l.missingFields),
+              ],
+              if (l.payUrl != null) ...[
+                const SizedBox(height: 12),
+                _PayLinkCard(lease: l),
               ],
               if (l.repairUrl != null) ...[
                 const SizedBox(height: 12),
@@ -691,8 +696,20 @@ class _LeasePayments extends ConsumerWidget {
             for (final p in items)
               ListTile(
                 contentPadding: EdgeInsets.zero,
-                leading: const Icon(Icons.receipt_outlined),
-                title: Text(formatBirr(p.amount, locale: locale)),
+                leading: Icon(p.isManual ? Icons.receipt_outlined : Icons.bolt),
+                title: Row(
+                  children: [
+                    Text(formatBirr(p.amount, locale: locale)),
+                    if (!p.isManual) ...[
+                      const SizedBox(width: 8),
+                      Chip(
+                        label: Text(l10n.paidOnline),
+                        visualDensity: VisualDensity.compact,
+                        side: BorderSide.none,
+                      ),
+                    ],
+                  ],
+                ),
                 subtitle: Text(
                   [
                     dates.date(p.paidAt),
@@ -855,6 +872,70 @@ class _RepairLinkCard extends ConsumerWidget {
                   },
                   icon: const Icon(Icons.refresh),
                   label: Text(l10n.resetRepairLink),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _PayLinkCard extends ConsumerWidget {
+  const _PayLinkCard({required this.lease});
+
+  final Lease lease;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    return Card(
+      key: const Key('payLinkCard'),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 12, 8, 4),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(l10n.payLink, style: Theme.of(context).textTheme.titleMedium),
+            const SizedBox(height: 4),
+            Text(l10n.payLinkHelp),
+            SelectableText(
+              lease.payUrl!,
+              style: TextStyle(color: Theme.of(context).colorScheme.primary),
+            ),
+            Wrap(
+              spacing: 4,
+              children: [
+                TextButton.icon(
+                  key: const Key('sendPayLink'),
+                  onPressed: () async {
+                    try {
+                      await ref
+                          .read(onlineRentRepositoryProvider)
+                          .sendPayLink(lease.id);
+                      if (context.mounted) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text(l10n.payLinkSent)),
+                        );
+                      }
+                    } on ApiException catch (e) {
+                      if (context.mounted) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text(friendlyError(context, e))),
+                        );
+                      }
+                    }
+                  },
+                  icon: const Icon(Icons.sms_outlined),
+                  label: Text(l10n.sendPayLink),
+                ),
+                TextButton.icon(
+                  onPressed: () => SharePlus.instance.share(
+                    ShareParams(text: lease.payUrl!),
+                  ),
+                  icon: const Icon(Icons.share),
+                  label: Text(l10n.shareRepairLink),
                 ),
               ],
             ),

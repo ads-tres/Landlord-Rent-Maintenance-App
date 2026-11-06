@@ -67,6 +67,7 @@ class Lease {
     this.registeredAt,
     this.daysUntilEnd,
     this.repairUrl,
+    this.payUrl,
     this.unitLabel,
     this.propertyId,
     this.propertyName,
@@ -101,6 +102,7 @@ class Lease {
           : parseYmd(j['registered_at'] as String),
       daysUntilEnd: j['days_until_end'] as int?,
       repairUrl: j['repair_url'] as String?,
+      payUrl: j['pay_url'] as String?,
       unitLabel: unit?['label'] as String?,
       propertyId: unit?['property_id'] as int?,
       propertyName: unit?['property_name'] as String?,
@@ -128,6 +130,9 @@ class Lease {
   final DateTime? registeredAt;
   final int? daysUntilEnd;
   final String? repairUrl;
+
+  /// Tenant's online rent page; null unless the landlord accepts online rent.
+  final String? payUrl;
   final String? unitLabel;
   final int? propertyId;
   final String? propertyName;
