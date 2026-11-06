@@ -6,6 +6,7 @@ import '../../../core/widgets/async_views.dart';
 import '../../../core/widgets/form_sheet.dart';
 import '../../../l10n/app_localizations.dart';
 import '../data/properties_repository.dart';
+import '../../auth/application/auth_controller.dart';
 
 class PropertiesScreen extends ConsumerWidget {
   const PropertiesScreen({super.key});
@@ -27,11 +28,14 @@ class PropertiesScreen extends ConsumerWidget {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => _addProperty(context, ref),
-        icon: const Icon(Icons.add_home_work_outlined),
-        label: Text(l10n.addProperty),
-      ),
+      floatingActionButton: ref.watch(isCaretakerProvider)
+          ? null
+          : FloatingActionButton.extended(
+              key: const Key('addPropertyFab'),
+              onPressed: () => _addProperty(context, ref),
+              icon: const Icon(Icons.add_home_work_outlined),
+              label: Text(l10n.addProperty),
+            ),
       body: properties.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (e, _) => ErrorView(

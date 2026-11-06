@@ -28,6 +28,7 @@ import '../domain/lease.dart';
 import '../domain/rent_rules.dart';
 import 'charge_labels.dart';
 import 'status_chips.dart';
+import '../../auth/application/auth_controller.dart';
 
 class LeaseDetailScreen extends ConsumerWidget {
   const LeaseDetailScreen({super.key, required this.leaseId});
@@ -50,6 +51,7 @@ class LeaseDetailScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
     final locale = ref.watch(localeControllerProvider).languageCode;
+    final caretaker = ref.watch(isCaretakerProvider);
     final dates = ref.watch(appDatesProvider);
     final lease = ref.watch(leaseProvider(leaseId));
 
@@ -84,8 +86,10 @@ class LeaseDetailScreen extends ConsumerWidget {
                   value: 'moveout',
                   child: Text(l10n.moveOut),
                 ),
-                PopupMenuItem(value: 'rent', child: Text(l10n.changeRent)),
-                PopupMenuItem(value: 'end', child: Text(l10n.endLease)),
+                if (!caretaker) ...[
+                  PopupMenuItem(value: 'rent', child: Text(l10n.changeRent)),
+                  PopupMenuItem(value: 'end', child: Text(l10n.endLease)),
+                ],
               ],
             ),
         ],
@@ -111,15 +115,16 @@ class LeaseDetailScreen extends ConsumerWidget {
                       children: [
                         Text(l10n.leaseDraftBanner),
                         const SizedBox(height: 8),
-                        FilledButton(
-                          key: const Key('activateLeaseButton'),
-                          onPressed: () async {
-                            if (await _activate(context, ref, l)) {
-                              _refreshAll(ref, l);
-                            }
-                          },
-                          child: Text(l10n.activateLease),
-                        ),
+                        if (!caretaker)
+                          FilledButton(
+                            key: const Key('activateLeaseButton'),
+                            onPressed: () async {
+                              if (await _activate(context, ref, l)) {
+                                _refreshAll(ref, l);
+                              }
+                            },
+                            child: Text(l10n.activateLease),
+                          ),
                       ],
                     ),
                   ),
@@ -798,6 +803,8 @@ class _LeasePayments extends ConsumerWidget {
                     dates.date(p.paidAt),
                     p.method.label(l10n),
                     if (p.reference != null) p.reference!,
+                    if (p.recordedByName != null)
+                      l10n.loggedBy(p.recordedByName!),
                   ].join(' · '),
                 ),
                 trailing: PopupMenuButton<String>(
@@ -830,7 +837,7 @@ class _LeasePayments extends ConsumerWidget {
                         value: 'share',
                         child: Text(l10n.shareReceipt),
                       ),
-                    if (p.isManual)
+                    if (p.isManual && !ref.watch(isCaretakerProvider))
                       PopupMenuItem(
                         value: 'remove',
                         child: Text(l10n.removePayment),

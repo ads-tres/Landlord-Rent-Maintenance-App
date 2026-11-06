@@ -13,6 +13,7 @@ import '../../../core/widgets/async_views.dart';
 import '../../../l10n/app_localizations.dart';
 import '../data/tenants_repository.dart';
 import '../domain/tenant.dart';
+import '../../auth/application/auth_controller.dart';
 
 class TenantsScreen extends ConsumerWidget {
   const TenantsScreen({super.key});
@@ -87,22 +88,24 @@ class TenantsScreen extends ConsumerWidget {
                       ],
                     ],
                   ),
-                  trailing: PopupMenuButton<String>(
-                    key: Key('tenantMenu-${t.id}'),
-                    onSelected: (action) => action == 'export'
-                        ? _export(context, ref, t)
-                        : _anonymize(context, ref, t),
-                    itemBuilder: (_) => [
-                      PopupMenuItem(
-                        value: 'export',
-                        child: Text(l10n.tenantExport),
-                      ),
-                      PopupMenuItem(
-                        value: 'anonymize',
-                        child: Text(l10n.tenantAnonymize),
-                      ),
-                    ],
-                  ),
+                  trailing: ref.watch(isCaretakerProvider)
+                      ? null
+                      : PopupMenuButton<String>(
+                          key: Key('tenantMenu-${t.id}'),
+                          onSelected: (action) => action == 'export'
+                              ? _export(context, ref, t)
+                              : _anonymize(context, ref, t),
+                          itemBuilder: (_) => [
+                            PopupMenuItem(
+                              value: 'export',
+                              child: Text(l10n.tenantExport),
+                            ),
+                            PopupMenuItem(
+                              value: 'anonymize',
+                              child: Text(l10n.tenantAnonymize),
+                            ),
+                          ],
+                        ),
                 );
               },
             ),

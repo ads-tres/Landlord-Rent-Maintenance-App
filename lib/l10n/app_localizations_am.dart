@@ -1497,4 +1497,64 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get resetTenantPageConfirm => 'አዲስ ሊንክ ይሠራ? የድሮው መሥራት ያቆማል።';
+
+  @override
+  String get team => 'ቡድን';
+
+  @override
+  String get teamHelp => 'ክፍያ የሚመዘግቡ እና ጥገና የሚከታተሉ ጠባቂዎች';
+
+  @override
+  String get addCaretaker => 'ጠባቂ ያክሉ';
+
+  @override
+  String get sendInvite => 'ግብዣ ላክ';
+
+  @override
+  String get caretakerName => 'ስም';
+
+  @override
+  String get inviteHelp => 'መተግበሪያውን ጭነው በዚህ ቁጥር እንዲገቡ የሚገልጽ SMS ይደርሳቸዋል።';
+
+  @override
+  String get caretakerCan =>
+      'ጠባቂዎች ክፍያ መመዝገብ፣ ጥገና መከታተል፣ የቆጣሪ ቢል ማስገባት እና ማስታወቂያ መላክ ይችላሉ። ሪፖርትና ወጪ ማየት፣ የገንዘብ ቅንብሮችን መቀየር ወይም ውልና ንብረት መፍጠር፣ ማቋረጥ ወይም መሰረዝ አይችሉም።';
+
+  @override
+  String get teamEmpty => 'እስካሁን ጠባቂ የለም።';
+
+  @override
+  String get caretakerJoined => 'ንቁ';
+
+  @override
+  String get caretakerInvited => 'ተጋብዘዋል፣ ገና አልገቡም';
+
+  @override
+  String get removeCaretaker => 'አስወግድ';
+
+  @override
+  String removeCaretakerConfirm(String name) {
+    return '$name ይወገዱ? ከመተግበሪያው ይወጣሉ፤ መልሰው እስካላከሏቸው ድረስ መግባት አይችሉም።';
+  }
+
+  @override
+  String workingFor(String name) {
+    return 'የ$name ጠባቂ';
+  }
+
+  @override
+  String get caretakerHelp => 'አንዳንድ ተግባራት ለአከራዩ ብቻ ናቸው።';
+
+  @override
+  String loggedBy(String name) {
+    return 'የመዘገበው $name';
+  }
+
+  @override
+  String handledBy(String name) {
+    return 'የተከታተለው $name';
+  }
+
+  @override
+  String get onlyLandlordSettles => 'ተቀማጩን አጠናቅቆ ውሉን ማቋረጥ የሚችሉት አከራዩ ብቻ ናቸው።';
 }

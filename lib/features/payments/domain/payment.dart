@@ -49,6 +49,7 @@ class Payment {
     this.reference,
     this.notes,
     this.source = 'manual',
+    this.recordedByName,
     this.receiptUrl,
     this.tenantName,
     this.allocations = const [],
@@ -65,6 +66,7 @@ class Payment {
     reference: j['reference'] as String?,
     notes: j['notes'] as String?,
     source: j['source'] as String? ?? 'manual',
+    recordedByName: j['recorded_by_name'] as String?,
     receiptUrl: j['receipt_url'] as String?,
     tenantName: j['tenant_name'] as String?,
     allocations: (j['allocations'] as List<dynamic>? ?? [])
@@ -82,6 +84,9 @@ class Payment {
   final String? reference;
   final String? notes;
   final String source;
+
+  /// The caretaker who logged it (null when the landlord did).
+  final String? recordedByName;
   final String? receiptUrl;
   final String? tenantName;
   final List<PaymentAllocation> allocations;

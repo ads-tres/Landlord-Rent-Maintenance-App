@@ -11,6 +11,7 @@ import '../../../core/widgets/form_sheet.dart';
 import '../../../l10n/app_localizations.dart';
 import '../data/properties_repository.dart';
 import '../domain/unit.dart';
+import '../../auth/application/auth_controller.dart';
 
 class PropertyDetailScreen extends ConsumerWidget {
   const PropertyDetailScreen({super.key, required this.propertyId});
@@ -22,6 +23,7 @@ class PropertyDetailScreen extends ConsumerWidget {
     final l10n = AppLocalizations.of(context);
     final property = ref.watch(propertyProvider(propertyId));
     final locale = ref.watch(localeControllerProvider).languageCode;
+    final caretaker = ref.watch(isCaretakerProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -46,13 +48,14 @@ class PropertyDetailScreen extends ConsumerWidget {
                   title: Text(l10n.equipment),
                 ),
               ),
-              PopupMenuItem(
-                value: 'expenses',
-                child: ListTile(
-                  leading: const Icon(Icons.receipt_long_outlined),
-                  title: Text(l10n.expenses),
+              if (!caretaker)
+                PopupMenuItem(
+                  value: 'expenses',
+                  child: ListTile(
+                    leading: const Icon(Icons.receipt_long_outlined),
+                    title: Text(l10n.expenses),
+                  ),
                 ),
-              ),
               PopupMenuItem(
                 value: 'announce',
                 child: ListTile(
@@ -64,11 +67,13 @@ class PropertyDetailScreen extends ConsumerWidget {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => _addUnit(context, ref),
-        icon: const Icon(Icons.add),
-        label: Text(l10n.addUnit),
-      ),
+      floatingActionButton: caretaker
+          ? null
+          : FloatingActionButton.extended(
+              onPressed: () => _addUnit(context, ref),
+              icon: const Icon(Icons.add),
+              label: Text(l10n.addUnit),
+            ),
       body: property.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (e, _) => ErrorView(
@@ -123,7 +128,9 @@ class PropertyDetailScreen extends ConsumerWidget {
                     trailing: _StatusChip(status: unit.status),
                     onTap: () => unit.activeLease != null
                         ? context.push('/leases/${unit.activeLease!.id}')
-                        : _vacantUnitActions(context, ref, unit),
+                        : (caretaker
+                              ? null
+                              : _vacantUnitActions(context, ref, unit)),
                   ),
             ],
           ),

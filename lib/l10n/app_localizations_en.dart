@@ -1518,4 +1518,66 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get resetTenantPageConfirm =>
       'Make a new link? The old one will stop working.';
+
+  @override
+  String get team => 'Team';
+
+  @override
+  String get teamHelp => 'Caretakers who log payments and handle repairs';
+
+  @override
+  String get addCaretaker => 'Add caretaker';
+
+  @override
+  String get sendInvite => 'Send invite';
+
+  @override
+  String get caretakerName => 'Name';
+
+  @override
+  String get inviteHelp =>
+      'They get an SMS telling them to install the app and log in with this number.';
+
+  @override
+  String get caretakerCan =>
+      'Caretakers can log payments, handle repairs, enter meter bills and send announcements. They can\'t see reports or expenses, change money settings, or create, end or delete leases and properties.';
+
+  @override
+  String get teamEmpty => 'No caretakers yet.';
+
+  @override
+  String get caretakerJoined => 'Active';
+
+  @override
+  String get caretakerInvited => 'Invited, not logged in yet';
+
+  @override
+  String get removeCaretaker => 'Remove';
+
+  @override
+  String removeCaretakerConfirm(String name) {
+    return 'Remove $name? They will be signed out and can\'t log in again unless you add them back.';
+  }
+
+  @override
+  String workingFor(String name) {
+    return 'Caretaker for $name';
+  }
+
+  @override
+  String get caretakerHelp => 'Some actions are only for the landlord.';
+
+  @override
+  String loggedBy(String name) {
+    return 'Logged by $name';
+  }
+
+  @override
+  String handledBy(String name) {
+    return 'Handled by $name';
+  }
+
+  @override
+  String get onlyLandlordSettles =>
+      'Only the landlord can settle the deposit and end the lease.';
 }
