@@ -58,6 +58,7 @@ class Repair {
     required this.openedAt,
     this.description,
     this.resolutionNote,
+    this.cost,
     this.closedAt,
     this.unitLabel,
     this.propertyName,
@@ -87,6 +88,7 @@ class Repair {
           : DateTime.parse(j['closed_at'] as String).toLocal(),
       description: j['description'] as String?,
       resolutionNote: j['resolution_note'] as String?,
+      cost: j['cost'] as int?,
       unitLabel: unit?['label'] as String?,
       propertyName: unit?['property_name'] as String?,
       tenantName: tenant?['full_name'] as String?,
@@ -109,6 +111,9 @@ class Repair {
   final DateTime? closedAt;
   final String? description;
   final String? resolutionNote;
+
+  /// What the repair cost, in santim; recorded as an expense.
+  final int? cost;
   final String? unitLabel;
   final String? propertyName;
   final String? tenantName;

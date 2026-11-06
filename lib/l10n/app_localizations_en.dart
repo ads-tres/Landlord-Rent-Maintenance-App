@@ -1264,4 +1264,118 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get paidOnline => 'Online';
+
+  @override
+  String get expenses => 'Expenses';
+
+  @override
+  String get addExpense => 'Add expense';
+
+  @override
+  String get allProperties => 'All properties';
+
+  @override
+  String get expensesEmpty =>
+      'No expenses yet. Record what you spend on repairs, land lease, utilities and more; repair and service costs are added for you.';
+
+  @override
+  String get expensesTotal => 'Total';
+
+  @override
+  String get expenseAutomatic => 'Automatic';
+
+  @override
+  String get expenseAutomaticHelp =>
+      'Added automatically from a repair, an equipment service or a shared meter bill. Change it there.';
+
+  @override
+  String get expenseVendor => 'Paid to';
+
+  @override
+  String get expenseVendorOptional => 'Paid to (optional)';
+
+  @override
+  String get addReceiptPhoto => 'Receipt photo';
+
+  @override
+  String get deleteExpenseConfirm => 'Delete this expense?';
+
+  @override
+  String get expenseProperty => 'Property';
+
+  @override
+  String get expenseUnit => 'Unit';
+
+  @override
+  String get expenseWholeProperty => 'Whole property';
+
+  @override
+  String get expenseCategory => 'Type';
+
+  @override
+  String get expenseAmount => 'Amount (Br)';
+
+  @override
+  String get expenseDate => 'Date paid';
+
+  @override
+  String get expenseDescription => 'What for';
+
+  @override
+  String get expenseDescriptionHint => 'e.g. New water pump';
+
+  @override
+  String get expenseRepair => 'Repairs';
+
+  @override
+  String get expenseMaintenance => 'Equipment service';
+
+  @override
+  String get expenseLandLease => 'Land lease';
+
+  @override
+  String get expenseUtility => 'Utilities';
+
+  @override
+  String get expenseTax => 'Taxes and fees';
+
+  @override
+  String get expenseInsurance => 'Insurance';
+
+  @override
+  String get expenseSecurityCleaning => 'Guard and cleaning';
+
+  @override
+  String get expenseOther => 'Other';
+
+  @override
+  String get dashboardExpenses => 'Spent this month';
+
+  @override
+  String get repairCost => 'Cost (Br, optional)';
+
+  @override
+  String get repairCostHelp => 'Recorded as an expense';
+
+  @override
+  String get repairCostRecorded => 'Repair cost, recorded as an expense';
+
+  @override
+  String get reportExpenses => 'Expenses';
+
+  @override
+  String get reportNoExpenses => 'No expenses recorded';
+
+  @override
+  String get reportTotalReceived => 'Rent received';
+
+  @override
+  String get reportExpensesTotal => 'Expenses';
+
+  @override
+  String get reportNet => 'Net';
+
+  @override
+  String get reportExpensesNote =>
+      'Expenses are what you recorded in the app. Ask your accountant which ones are deductible.';
 }

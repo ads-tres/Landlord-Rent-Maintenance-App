@@ -7,6 +7,7 @@ import '../../../core/locale_controller.dart';
 import '../../../core/utils/money.dart';
 import '../../../core/widgets/async_views.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../expenses/domain/expense.dart';
 import '../../payments/domain/payment.dart';
 import '../../payments/presentation/payment_labels.dart';
 import '../data/reports_repository.dart';
@@ -147,6 +148,41 @@ class _QuarterlyReportScreenState extends ConsumerState<QuarterlyReportScreen> {
                 ],
               ),
             ],
+            _Section(
+              title: l10n.reportExpenses,
+              rows: [
+                if (r.expensesByCategory.isEmpty)
+                  (l10n.reportNoExpenses, '', true),
+                for (final c in r.expensesByCategory)
+                  (
+                    ExpenseCategory.parse(c.category).label(l10n),
+                    birr(c.total),
+                    false,
+                  ),
+              ],
+            ),
+            const SizedBox(height: 12),
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  children: [
+                    _Line(l10n.reportTotalReceived, birr(r.total)),
+                    _Line(
+                      l10n.reportExpensesTotal,
+                      '− ${birr(r.expensesTotal)}',
+                    ),
+                    const Divider(),
+                    _Line(
+                      l10n.reportNet,
+                      birr(r.net),
+                      key: const Key('reportNet'),
+                      strong: true,
+                    ),
+                  ],
+                ),
+              ),
+            ),
             const SizedBox(height: 16),
             FilledButton.icon(
               key: const Key('sharePdf'),
@@ -164,8 +200,35 @@ class _QuarterlyReportScreenState extends ConsumerState<QuarterlyReportScreen> {
               l10n.reportDisclaimer,
               style: Theme.of(context).textTheme.bodySmall,
             ),
+            const SizedBox(height: 8),
+            Text(
+              l10n.reportExpensesNote,
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class _Line extends StatelessWidget {
+  const _Line(this.label, this.amount, {super.key, this.strong = false});
+
+  final String label;
+  final String amount;
+  final bool strong;
+
+  @override
+  Widget build(BuildContext context) {
+    final style = strong ? Theme.of(context).textTheme.titleMedium : null;
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4),
+      child: Row(
+        children: [
+          Expanded(child: Text(label, style: style)),
+          Text(amount, style: style),
+        ],
       ),
     );
   }

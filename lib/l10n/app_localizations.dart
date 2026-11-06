@@ -2227,6 +2227,228 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Online'**
   String get paidOnline;
+
+  /// No description provided for @expenses.
+  ///
+  /// In en, this message translates to:
+  /// **'Expenses'**
+  String get expenses;
+
+  /// No description provided for @addExpense.
+  ///
+  /// In en, this message translates to:
+  /// **'Add expense'**
+  String get addExpense;
+
+  /// No description provided for @allProperties.
+  ///
+  /// In en, this message translates to:
+  /// **'All properties'**
+  String get allProperties;
+
+  /// No description provided for @expensesEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No expenses yet. Record what you spend on repairs, land lease, utilities and more; repair and service costs are added for you.'**
+  String get expensesEmpty;
+
+  /// No description provided for @expensesTotal.
+  ///
+  /// In en, this message translates to:
+  /// **'Total'**
+  String get expensesTotal;
+
+  /// No description provided for @expenseAutomatic.
+  ///
+  /// In en, this message translates to:
+  /// **'Automatic'**
+  String get expenseAutomatic;
+
+  /// No description provided for @expenseAutomaticHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Added automatically from a repair, an equipment service or a shared meter bill. Change it there.'**
+  String get expenseAutomaticHelp;
+
+  /// No description provided for @expenseVendor.
+  ///
+  /// In en, this message translates to:
+  /// **'Paid to'**
+  String get expenseVendor;
+
+  /// No description provided for @expenseVendorOptional.
+  ///
+  /// In en, this message translates to:
+  /// **'Paid to (optional)'**
+  String get expenseVendorOptional;
+
+  /// No description provided for @addReceiptPhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Receipt photo'**
+  String get addReceiptPhoto;
+
+  /// No description provided for @deleteExpenseConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this expense?'**
+  String get deleteExpenseConfirm;
+
+  /// No description provided for @expenseProperty.
+  ///
+  /// In en, this message translates to:
+  /// **'Property'**
+  String get expenseProperty;
+
+  /// No description provided for @expenseUnit.
+  ///
+  /// In en, this message translates to:
+  /// **'Unit'**
+  String get expenseUnit;
+
+  /// No description provided for @expenseWholeProperty.
+  ///
+  /// In en, this message translates to:
+  /// **'Whole property'**
+  String get expenseWholeProperty;
+
+  /// No description provided for @expenseCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Type'**
+  String get expenseCategory;
+
+  /// No description provided for @expenseAmount.
+  ///
+  /// In en, this message translates to:
+  /// **'Amount (Br)'**
+  String get expenseAmount;
+
+  /// No description provided for @expenseDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Date paid'**
+  String get expenseDate;
+
+  /// No description provided for @expenseDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'What for'**
+  String get expenseDescription;
+
+  /// No description provided for @expenseDescriptionHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. New water pump'**
+  String get expenseDescriptionHint;
+
+  /// No description provided for @expenseRepair.
+  ///
+  /// In en, this message translates to:
+  /// **'Repairs'**
+  String get expenseRepair;
+
+  /// No description provided for @expenseMaintenance.
+  ///
+  /// In en, this message translates to:
+  /// **'Equipment service'**
+  String get expenseMaintenance;
+
+  /// No description provided for @expenseLandLease.
+  ///
+  /// In en, this message translates to:
+  /// **'Land lease'**
+  String get expenseLandLease;
+
+  /// No description provided for @expenseUtility.
+  ///
+  /// In en, this message translates to:
+  /// **'Utilities'**
+  String get expenseUtility;
+
+  /// No description provided for @expenseTax.
+  ///
+  /// In en, this message translates to:
+  /// **'Taxes and fees'**
+  String get expenseTax;
+
+  /// No description provided for @expenseInsurance.
+  ///
+  /// In en, this message translates to:
+  /// **'Insurance'**
+  String get expenseInsurance;
+
+  /// No description provided for @expenseSecurityCleaning.
+  ///
+  /// In en, this message translates to:
+  /// **'Guard and cleaning'**
+  String get expenseSecurityCleaning;
+
+  /// No description provided for @expenseOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get expenseOther;
+
+  /// No description provided for @dashboardExpenses.
+  ///
+  /// In en, this message translates to:
+  /// **'Spent this month'**
+  String get dashboardExpenses;
+
+  /// No description provided for @repairCost.
+  ///
+  /// In en, this message translates to:
+  /// **'Cost (Br, optional)'**
+  String get repairCost;
+
+  /// No description provided for @repairCostHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Recorded as an expense'**
+  String get repairCostHelp;
+
+  /// No description provided for @repairCostRecorded.
+  ///
+  /// In en, this message translates to:
+  /// **'Repair cost, recorded as an expense'**
+  String get repairCostRecorded;
+
+  /// No description provided for @reportExpenses.
+  ///
+  /// In en, this message translates to:
+  /// **'Expenses'**
+  String get reportExpenses;
+
+  /// No description provided for @reportNoExpenses.
+  ///
+  /// In en, this message translates to:
+  /// **'No expenses recorded'**
+  String get reportNoExpenses;
+
+  /// No description provided for @reportTotalReceived.
+  ///
+  /// In en, this message translates to:
+  /// **'Rent received'**
+  String get reportTotalReceived;
+
+  /// No description provided for @reportExpensesTotal.
+  ///
+  /// In en, this message translates to:
+  /// **'Expenses'**
+  String get reportExpensesTotal;
+
+  /// No description provided for @reportNet.
+  ///
+  /// In en, this message translates to:
+  /// **'Net'**
+  String get reportNet;
+
+  /// No description provided for @reportExpensesNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Expenses are what you recorded in the app. Ask your accountant which ones are deductible.'**
+  String get reportExpensesNote;
 }
 
 class _AppLocalizationsDelegate

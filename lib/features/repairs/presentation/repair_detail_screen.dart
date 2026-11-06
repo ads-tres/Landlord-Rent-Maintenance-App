@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/api/api_exception.dart';
 import '../../../core/utils/app_dates.dart';
+import '../../../core/utils/money.dart';
 import '../../../core/utils/phone_number.dart';
 import '../../../core/widgets/async_views.dart';
 import '../../../core/widgets/form_sheet.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../payments/data/payments_repository.dart';
+import '../../expenses/data/expenses_repository.dart';
 import '../data/repairs_repository.dart';
 import '../domain/repair.dart';
 import 'repair_widgets.dart';
@@ -71,6 +74,20 @@ class RepairDetailScreen extends ConsumerWidget {
               const SizedBox(height: 12),
               Text(r.description!),
             ],
+            if (r.cost != null && r.cost! > 0)
+              Card(
+                child: ListTile(
+                  key: const Key('repairCost'),
+                  leading: const Icon(Icons.receipt_long_outlined),
+                  title: Text(
+                    formatBirr(
+                      r.cost!,
+                      locale: Localizations.localeOf(context).languageCode,
+                    ),
+                  ),
+                  subtitle: Text(l10n.repairCostRecorded),
+                ),
+              ),
             if ((r.resolutionNote ?? '').isNotEmpty) ...[
               const SizedBox(height: 12),
               Card(
@@ -196,6 +213,10 @@ class RepairDetailScreen extends ConsumerWidget {
     final l10n = AppLocalizations.of(context);
     final repo = ref.read(repairsRepositoryProvider);
     final note = TextEditingController();
+    final cost = TextEditingController(
+      text: r.cost == null ? '' : santimToInput(r.cost!),
+    );
+    final done = status == RepairStatus.done;
     var notify = r.tenantName != null;
 
     final saved = !askNote
@@ -213,6 +234,7 @@ class RepairDetailScreen extends ConsumerWidget {
                 status,
                 note: note.text.trim(),
                 notifyTenant: notify,
+                cost: done ? parseBirr(cost.text) : null,
               ),
               fieldsBuilder: (context, errors) => [
                 TextFormField(
@@ -224,6 +246,24 @@ class RepairDetailScreen extends ConsumerWidget {
                     errorText: errors['note'],
                   ),
                 ),
+                if (done) ...[
+                  fieldGap,
+                  TextFormField(
+                    key: const Key('repairCostField'),
+                    controller: cost,
+                    keyboardType: const TextInputType.numberWithOptions(
+                      decimal: true,
+                    ),
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp(r'[0-9.,]')),
+                    ],
+                    decoration: InputDecoration(
+                      labelText: l10n.repairCost,
+                      helperText: l10n.repairCostHelp,
+                      errorText: errors['cost'],
+                    ),
+                  ),
+                ],
                 if (r.tenantName != null)
                   StatefulBuilder(
                     builder: (context, setState) => SwitchListTile(
@@ -241,6 +281,7 @@ class RepairDetailScreen extends ConsumerWidget {
       ref.invalidate(repairProvider(repairId));
       ref.invalidate(repairsProvider);
       ref.invalidate(dashboardProvider);
+      ref.invalidate(expensesProvider);
     }
   }
 

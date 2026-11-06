@@ -1247,4 +1247,118 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get paidOnline => 'ኦንላይን';
+
+  @override
+  String get expenses => 'ወጪዎች';
+
+  @override
+  String get addExpense => 'ወጪ ይመዝግቡ';
+
+  @override
+  String get allProperties => 'ሁሉም ንብረቶች';
+
+  @override
+  String get expensesEmpty =>
+      'እስካሁን ወጪ የለም። ለጥገና፣ ለመሬት ሊዝ፣ ለመብራት እና ውሃ የሚያወጡትን ይመዝግቡ፤ የጥገና እና የአገልግሎት ወጪዎች በራሳቸው ይመዘገባሉ።';
+
+  @override
+  String get expensesTotal => 'ጠቅላላ';
+
+  @override
+  String get expenseAutomatic => 'በራሱ የተመዘገበ';
+
+  @override
+  String get expenseAutomaticHelp =>
+      'ከጥገና፣ ከመሣሪያ አገልግሎት ወይም ከጋራ ቆጣሪ ቢል በራሱ የተመዘገበ ነው። እዚያ ላይ ይቀይሩት።';
+
+  @override
+  String get expenseVendor => 'የተከፈለው ለ';
+
+  @override
+  String get expenseVendorOptional => 'የተከፈለው ለ (ካለ)';
+
+  @override
+  String get addReceiptPhoto => 'የደረሰኝ ፎቶ';
+
+  @override
+  String get deleteExpenseConfirm => 'ይህ ወጪ ይሰረዝ?';
+
+  @override
+  String get expenseProperty => 'ንብረት';
+
+  @override
+  String get expenseUnit => 'ክፍል';
+
+  @override
+  String get expenseWholeProperty => 'ሙሉ ንብረቱ';
+
+  @override
+  String get expenseCategory => 'ዓይነት';
+
+  @override
+  String get expenseAmount => 'መጠን (ብር)';
+
+  @override
+  String get expenseDate => 'የተከፈለበት ቀን';
+
+  @override
+  String get expenseDescription => 'ለምን';
+
+  @override
+  String get expenseDescriptionHint => 'ለምሳሌ አዲስ የውሃ ፓምፕ';
+
+  @override
+  String get expenseRepair => 'ጥገና';
+
+  @override
+  String get expenseMaintenance => 'የመሣሪያ አገልግሎት';
+
+  @override
+  String get expenseLandLease => 'የመሬት ሊዝ';
+
+  @override
+  String get expenseUtility => 'መብራት እና ውሃ';
+
+  @override
+  String get expenseTax => 'ግብር እና ክፍያዎች';
+
+  @override
+  String get expenseInsurance => 'ኢንሹራንስ';
+
+  @override
+  String get expenseSecurityCleaning => 'ጥበቃ እና ጽዳት';
+
+  @override
+  String get expenseOther => 'ሌላ';
+
+  @override
+  String get dashboardExpenses => 'በዚህ ወር የወጣ';
+
+  @override
+  String get repairCost => 'ወጪ (ብር፣ ካለ)';
+
+  @override
+  String get repairCostHelp => 'እንደ ወጪ ይመዘገባል';
+
+  @override
+  String get repairCostRecorded => 'የጥገና ወጪ፣ እንደ ወጪ ተመዝግቧል';
+
+  @override
+  String get reportExpenses => 'ወጪዎች';
+
+  @override
+  String get reportNoExpenses => 'የተመዘገበ ወጪ የለም';
+
+  @override
+  String get reportTotalReceived => 'የተቀበሉት ኪራይ';
+
+  @override
+  String get reportExpensesTotal => 'ወጪዎች';
+
+  @override
+  String get reportNet => 'የተጣራ';
+
+  @override
+  String get reportExpensesNote =>
+      'ወጪዎቹ በመተግበሪያው የመዘገቧቸው ናቸው። የትኞቹ ከግብር እንደሚቀነሱ ከሂሳብ ባለሙያዎ ይጠይቁ።';
 }

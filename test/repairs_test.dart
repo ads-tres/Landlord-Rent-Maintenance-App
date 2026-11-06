@@ -186,4 +186,52 @@ void main() {
       ),
     ).called(1);
   });
+
+  testWidgets('finishing a repair records its cost as an expense', (
+    tester,
+  ) async {
+    final repo = MockRepairsRepository();
+    when(() => repo.get(5)).thenAnswer(
+      (_) async => Repair.fromJson(repairJson(status: 'in_progress')),
+    );
+    when(
+      () => repo.updateStatus(
+        any(),
+        any(),
+        note: any(named: 'note'),
+        notifyTenant: any(named: 'notifyTenant'),
+        cost: any(named: 'cost'),
+      ),
+    ).thenAnswer(
+      (_) async =>
+          Repair.fromJson({...repairJson(status: 'done'), 'cost': 85000}),
+    );
+
+    await tester.pumpWidget(
+      harness(const RepairDetailScreen(repairId: 5), repo),
+    );
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.byKey(const Key('finishRepair')));
+    await tester.pumpAndSettle();
+    expect(find.text('Recorded as an expense'), findsOneWidget);
+    await tester.enterText(find.byKey(const Key('repairCostField')), '850');
+    await tester.tap(find.text('Save'));
+    await tester.pumpAndSettle();
+
+    verify(
+      () => repo.updateStatus(
+        5,
+        RepairStatus.done,
+        note: '',
+        notifyTenant: true,
+        cost: 85000,
+      ),
+    ).called(1);
+  });
+
+  test('repair cost is read from the API', () {
+    expect(Repair.fromJson({...repairJson(), 'cost': 85000}).cost, 85000);
+    expect(Repair.fromJson(repairJson()).cost, isNull);
+  });
 }

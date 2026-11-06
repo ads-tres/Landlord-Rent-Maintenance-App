@@ -50,6 +50,7 @@ class RepairsRepository {
     RepairStatus status, {
     String? note,
     bool notifyTenant = true,
+    int? cost,
   }) async {
     final data = await _api.patch(
       '/maintenance/$id',
@@ -57,6 +58,7 @@ class RepairsRepository {
         'status': status.apiValue,
         if (note != null && note.isNotEmpty) 'note': note,
         'notify_tenant': notifyTenant,
+        'cost': ?cost,
       },
     ) as Map<String, dynamic>;
     return Repair.fromJson(data['data'] as Map<String, dynamic>);
