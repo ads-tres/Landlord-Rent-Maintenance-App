@@ -248,4 +248,45 @@ void main() {
     expect(find.byKey(const Key('moveOutMenuItem')), findsOneWidget);
     expect(Lease.fromJson(leaseJson).moveOutId, isNull);
   });
+
+  testWidgets('tenant page card sends and resets the link', (tester) async {
+    final repo = MockLeasesRepository();
+    when(() => repo.get(7)).thenAnswer(
+      (_) async => Lease.fromJson({
+        ...leaseJson,
+        'portal_url': 'https://kiray.test/t/abcdefghij',
+      }),
+    );
+    when(() => repo.charges(leaseId: 7)).thenAnswer((_) async => []);
+    when(() => repo.sendPortalLink(7)).thenAnswer((_) async {});
+    when(() => repo.resetPortalLink(7)).thenAnswer((_) async {});
+
+    tester.view.physicalSize = const Size(1080, 3000);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+
+    await tester.pumpWidget(harness(const LeaseDetailScreen(leaseId: 7), repo));
+    await tester.pumpAndSettle();
+
+    expect(find.text('https://kiray.test/t/abcdefghij'), findsOneWidget);
+
+    await tester.tap(find.byKey(const Key('sendPortalLink')));
+    await tester.pumpAndSettle();
+    verify(() => repo.sendPortalLink(7)).called(1);
+    expect(find.text('Link sent to the tenant.'), findsOneWidget);
+
+    await tester.tap(find.byKey(const Key('resetPortalLink')));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const Key('confirmResetPortalLink')));
+    await tester.pumpAndSettle();
+    verify(() => repo.resetPortalLink(7)).called(1);
+  });
+
+  test('tenant page link is optional', () {
+    expect(Lease.fromJson(leaseJson).portalUrl, isNull);
+    expect(
+      Lease.fromJson({...leaseJson, 'portal_url': 'https://x/t/1'}).portalUrl,
+      'https://x/t/1',
+    );
+  });
 }

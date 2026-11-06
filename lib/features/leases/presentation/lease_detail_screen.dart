@@ -157,6 +157,10 @@ class LeaseDetailScreen extends ConsumerWidget {
                 const SizedBox(height: 12),
                 _DirectiveWarning(missing: l.missingFields),
               ],
+              if (l.portalUrl != null) ...[
+                const SizedBox(height: 12),
+                _PortalLinkCard(lease: l, onReset: () => _refreshAll(ref, l)),
+              ],
               if (l.payUrl != null) ...[
                 const SizedBox(height: 12),
                 _PayLinkCard(lease: l),
@@ -859,6 +863,116 @@ class _LeasePayments extends ConsumerWidget {
             child: Text(l10n.removePayment),
           ),
         ],
+      ),
+    );
+  }
+}
+
+/// The tenant's own page: send, share, copy or replace the link.
+class _PortalLinkCard extends ConsumerWidget {
+  const _PortalLinkCard({required this.lease, required this.onReset});
+
+  final Lease lease;
+  final VoidCallback onReset;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final repo = ref.read(leasesRepositoryProvider);
+    final url = lease.portalUrl!;
+
+    Future<void> run(Future<void> Function() action, {String? done}) async {
+      final messenger = ScaffoldMessenger.of(context);
+      try {
+        await action();
+        if (done != null) messenger.showSnackBar(SnackBar(content: Text(done)));
+      } on ApiException catch (e) {
+        if (context.mounted) {
+          messenger.showSnackBar(
+            SnackBar(content: Text(friendlyError(context, e))),
+          );
+        }
+      }
+    }
+
+    return Card(
+      key: const Key('portalLinkCard'),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 12, 8, 4),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              l10n.tenantPage,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            const SizedBox(height: 4),
+            Text(l10n.tenantPageHelp),
+            const SizedBox(height: 4),
+            SelectableText(
+              url,
+              style: TextStyle(color: Theme.of(context).colorScheme.primary),
+            ),
+            Wrap(
+              spacing: 4,
+              children: [
+                if (lease.isActive)
+                  TextButton.icon(
+                    key: const Key('sendPortalLink'),
+                    onPressed: () => run(
+                      () => repo.sendPortalLink(lease.id),
+                      done: l10n.tenantPageSent,
+                    ),
+                    icon: const Icon(Icons.sms_outlined),
+                    label: Text(l10n.sendToTenant),
+                  ),
+                TextButton.icon(
+                  onPressed: () =>
+                      SharePlus.instance.share(ShareParams(text: url)),
+                  icon: const Icon(Icons.share),
+                  label: Text(l10n.share),
+                ),
+                TextButton.icon(
+                  key: const Key('copyPortalLink'),
+                  onPressed: () => run(
+                    () => Clipboard.setData(ClipboardData(text: url)),
+                    done: l10n.linkCopied,
+                  ),
+                  icon: const Icon(Icons.copy),
+                  label: Text(l10n.copy),
+                ),
+                TextButton.icon(
+                  key: const Key('resetPortalLink'),
+                  onPressed: () async {
+                    final ok = await showDialog<bool>(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        content: Text(l10n.resetTenantPageConfirm),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.pop(context, false),
+                            child: Text(l10n.cancel),
+                          ),
+                          FilledButton(
+                            key: const Key('confirmResetPortalLink'),
+                            onPressed: () => Navigator.pop(context, true),
+                            child: Text(l10n.resetLink),
+                          ),
+                        ],
+                      ),
+                    );
+                    if (ok == true) {
+                      await run(() => repo.resetPortalLink(lease.id));
+                      onReset();
+                    }
+                  },
+                  icon: const Icon(Icons.refresh),
+                  label: Text(l10n.resetLink),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

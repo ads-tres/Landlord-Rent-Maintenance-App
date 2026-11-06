@@ -426,5 +426,13 @@
   "depositStatement": "የተቀማጭ ሂሳብ መግለጫ",
   "shareStatement": "መግለጫውን ያጋሩ (PDF)",
   "statementSent": "መግለጫው ለተከራዩ ተልኳል።",
-  "methodDeposit": "ከተቀማጭ"
+  "methodDeposit": "ከተቀማጭ",
+  "tenantPage": "የተከራይ ገጽ",
+  "tenantPageHelp": "የተከራዩ የራሱ ገጽ፦ ቀሪ ሂሳብ፣ ደረሰኞች፣ ጥገናዎች እና ማስታወቂያዎች። መተግበሪያ አያስፈልግም።",
+  "tenantPageSent": "ሊንኩ ለተከራዩ ተልኳል።",
+  "sendToTenant": "ላክ",
+  "share": "አጋራ",
+  "copy": "ቅዳ",
+  "resetLink": "አዲስ ሊንክ",
+  "resetTenantPageConfirm": "አዲስ ሊንክ ይሠራ? የድሮው መሥራት ያቆማል።"
 }

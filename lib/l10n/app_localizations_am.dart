@@ -1472,4 +1472,29 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get methodDeposit => 'ከተቀማጭ';
+
+  @override
+  String get tenantPage => 'የተከራይ ገጽ';
+
+  @override
+  String get tenantPageHelp =>
+      'የተከራዩ የራሱ ገጽ፦ ቀሪ ሂሳብ፣ ደረሰኞች፣ ጥገናዎች እና ማስታወቂያዎች። መተግበሪያ አያስፈልግም።';
+
+  @override
+  String get tenantPageSent => 'ሊንኩ ለተከራዩ ተልኳል።';
+
+  @override
+  String get sendToTenant => 'ላክ';
+
+  @override
+  String get share => 'አጋራ';
+
+  @override
+  String get copy => 'ቅዳ';
+
+  @override
+  String get resetLink => 'አዲስ ሊንክ';
+
+  @override
+  String get resetTenantPageConfirm => 'አዲስ ሊንክ ይሠራ? የድሮው መሥራት ያቆማል።';
 }
