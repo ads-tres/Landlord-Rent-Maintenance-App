@@ -2012,4 +2012,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get prepaidRent => 'አስቀድሞ የተከፈለ ኪራይ (ከመልቀቂያ በኋላ)';
+
+  @override
+  String get reportRefunded => 'የተመለሰ ኪራይ';
 }

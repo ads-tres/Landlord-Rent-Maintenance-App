@@ -172,6 +172,12 @@ class _QuarterlyReportScreenState extends ConsumerState<QuarterlyReportScreen> {
                 child: Column(
                   children: [
                     _Line(l10n.reportTotalReceived, birr(r.total)),
+                    if (r.refunded > 0)
+                      _Line(
+                        l10n.reportRefunded,
+                        '− ${birr(r.refunded)}',
+                        key: const Key('reportRefunded'),
+                      ),
                     _Line(
                       l10n.reportExpensesTotal,
                       '− ${birr(r.expensesTotal)}',

@@ -584,5 +584,6 @@
   "addressLabel": "አድራሻዎ",
   "addressHint": "ለምሳሌ ቦሌ፣ ወረዳ 03፣ የቤት ቁጥር 55",
   "missingLandlordIdNumber": "የእርስዎ መታወቂያ ቁጥር (ቅንብሮች)",
-  "prepaidRent": "አስቀድሞ የተከፈለ ኪራይ (ከመልቀቂያ በኋላ)"
+  "prepaidRent": "አስቀድሞ የተከፈለ ኪራይ (ከመልቀቂያ በኋላ)",
+  "reportRefunded": "የተመለሰ ኪራይ"
 }
