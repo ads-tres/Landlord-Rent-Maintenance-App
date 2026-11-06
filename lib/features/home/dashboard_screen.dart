@@ -82,6 +82,21 @@ class DashboardScreen extends ConsumerWidget {
                       ),
                     ),
                   ),
+                  if (!caretaker && s.unregisteredLeases > 0)
+                    Card(
+                      clipBehavior: Clip.antiAlias,
+                      color: Theme.of(context).colorScheme.tertiaryContainer,
+                      child: ListTile(
+                        key: const Key('unregisteredLeases'),
+                        leading: const Icon(Icons.how_to_reg_outlined),
+                        title: Text(
+                          l10n.unregisteredBanner(s.unregisteredLeases),
+                        ),
+                        subtitle: Text(l10n.unregisteredBannerHelp),
+                        trailing: const Icon(Icons.chevron_right),
+                        onTap: () => context.push('/leases/unregistered'),
+                      ),
+                    ),
                   if (!caretaker)
                     Card(
                       clipBehavior: Clip.antiAlias,

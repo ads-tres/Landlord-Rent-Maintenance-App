@@ -90,6 +90,11 @@ final routerProvider = Provider<GoRouter>((ref) {
         builder: (_, _) => const LeasesEndingScreen(),
       ),
       GoRoute(
+        path: '/leases/unregistered',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (_, _) => const LeasesEndingScreen(unregistered: true),
+      ),
+      GoRoute(
         path: '/leases/:id',
         parentNavigatorKey: _rootNavigatorKey,
         builder: (_, state) =>

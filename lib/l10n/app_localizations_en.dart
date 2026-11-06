@@ -1746,4 +1746,102 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get no => 'No';
+
+  @override
+  String get leaseAgreement => 'Lease agreement';
+
+  @override
+  String registrationNo(String number) {
+    return 'No. $number';
+  }
+
+  @override
+  String agreementBlanks(String fields) {
+    return 'Left blank to fill in by hand: $fields';
+  }
+
+  @override
+  String get missingTenantIdNumber => 'tenant ID number';
+
+  @override
+  String get missingPropertyLocation => 'property location';
+
+  @override
+  String get agreementPdf => 'Agreement PDF';
+
+  @override
+  String get extraTerms => 'Extra terms';
+
+  @override
+  String get editRegistration => 'Edit registration';
+
+  @override
+  String get recordRegistration => 'Record registration';
+
+  @override
+  String get signedCopy => 'Signed copy';
+
+  @override
+  String get agreementLanguage => 'Language of the agreement';
+
+  @override
+  String get agreementLanguageHelp =>
+      'Both puts the English under each Amharic clause.';
+
+  @override
+  String get bothLanguages => 'Amharic and English';
+
+  @override
+  String get extraTermsHelp =>
+      'Added to the agreement as its own clause, for example house rules.';
+
+  @override
+  String get extraTermsHint =>
+      'e.g. No pets. Quiet after 10 pm. Rubbish out on Tuesdays.';
+
+  @override
+  String get registrationDate => 'Date registered';
+
+  @override
+  String get registrationNumber => 'Registration number (optional)';
+
+  @override
+  String get registrationOffice => 'Office (optional)';
+
+  @override
+  String get registrationOfficeHint => 'e.g. Bole Woreda 03';
+
+  @override
+  String get clearRegistration => 'Remove registration';
+
+  @override
+  String get leasesToRegister => 'Leases to register';
+
+  @override
+  String get leasesToRegisterEmpty => 'All active leases are registered.';
+
+  @override
+  String startedOn(String date) {
+    return 'Started $date';
+  }
+
+  @override
+  String unregisteredBanner(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count leases aren\'t registered yet',
+      one: '1 lease isn\'t registered yet',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get unregisteredBannerHelp =>
+      'Print the agreement, sign it and register it with the woreda.';
+
+  @override
+  String registeredDate(String date) {
+    return 'Registered $date';
+  }
 }

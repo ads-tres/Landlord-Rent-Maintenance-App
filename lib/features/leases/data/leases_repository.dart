@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -76,6 +77,73 @@ class LeasesRepository {
         .map((l) => Lease.fromJson(l as Map<String, dynamic>))
         .toList();
   }
+
+  /// Active leases not yet registered with the woreda or sub-city office.
+  Future<List<Lease>> unregistered() async {
+    final data = await _api.get(
+      '/leases',
+      query: {'unregistered': 1},
+    ) as Map<String, dynamic>;
+    return (data['data'] as List<dynamic>)
+        .map((l) => Lease.fromJson(l as Map<String, dynamic>))
+        .toList();
+  }
+
+  /// The written lease as a PDF: language is am, en or both.
+  Future<String> downloadAgreement(int leaseId, String language) async {
+    final bytes = await _api.getBytes(
+      '/leases/$leaseId/agreement',
+      query: {'language': language},
+    );
+    final dir = await getTemporaryDirectory();
+    final file = File('${dir.path}/lease-agreement-$leaseId-$language.pdf');
+    await file.writeAsBytes(bytes, flush: true);
+    return file.path;
+  }
+
+  Lease _lease(dynamic data) => Lease.fromJson(
+    (data as Map<String, dynamic>)['data'] as Map<String, dynamic>,
+  );
+
+  Future<Lease> setExtraTerms(int leaseId, String? terms) async => _lease(
+    await _api.put(
+      '/leases/$leaseId/extra-terms',
+      data: {
+        'extra_terms': (terms ?? '').trim().isEmpty ? null : terms!.trim(),
+      },
+    ),
+  );
+
+  Future<Lease> recordRegistration(
+    int leaseId, {
+    required DateTime registeredAt,
+    String? number,
+    String? office,
+  }) async => _lease(
+    await _api.put(
+      '/leases/$leaseId/registration',
+      data: {
+        'registered_at': ymd(registeredAt),
+        'registration_number': (number ?? '').trim().isEmpty
+            ? null
+            : number!.trim(),
+        'registration_office': (office ?? '').trim().isEmpty
+            ? null
+            : office!.trim(),
+      },
+    ),
+  );
+
+  Future<Lease> clearRegistration(int leaseId) async =>
+      _lease(await _api.delete('/leases/$leaseId/registration'));
+
+  /// A photo of a page of the signed agreement.
+  Future<Lease> addDocument(int leaseId, String path) async => _lease(
+    await _api.post(
+      '/leases/$leaseId/documents',
+      data: FormData.fromMap({'photo': await MultipartFile.fromFile(path)}),
+    ),
+  );
 
   Future<RenewalCheck> renewalCheck(int leaseId) async {
     final data = await _api.get(
@@ -168,4 +236,8 @@ final leaseChargesProvider = FutureProvider.autoDispose
 
 final endingLeasesProvider = FutureProvider.autoDispose<List<Lease>>(
   (ref) => ref.watch(leasesRepositoryProvider).ending(),
+);
+
+final unregisteredLeasesProvider = FutureProvider.autoDispose<List<Lease>>(
+  (ref) => ref.watch(leasesRepositoryProvider).unregistered(),
 );

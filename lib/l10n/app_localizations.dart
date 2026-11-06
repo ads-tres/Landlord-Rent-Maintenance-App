@@ -3091,6 +3091,162 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No'**
   String get no;
+
+  /// No description provided for @leaseAgreement.
+  ///
+  /// In en, this message translates to:
+  /// **'Lease agreement'**
+  String get leaseAgreement;
+
+  /// No description provided for @registrationNo.
+  ///
+  /// In en, this message translates to:
+  /// **'No. {number}'**
+  String registrationNo(String number);
+
+  /// No description provided for @agreementBlanks.
+  ///
+  /// In en, this message translates to:
+  /// **'Left blank to fill in by hand: {fields}'**
+  String agreementBlanks(String fields);
+
+  /// No description provided for @missingTenantIdNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'tenant ID number'**
+  String get missingTenantIdNumber;
+
+  /// No description provided for @missingPropertyLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'property location'**
+  String get missingPropertyLocation;
+
+  /// No description provided for @agreementPdf.
+  ///
+  /// In en, this message translates to:
+  /// **'Agreement PDF'**
+  String get agreementPdf;
+
+  /// No description provided for @extraTerms.
+  ///
+  /// In en, this message translates to:
+  /// **'Extra terms'**
+  String get extraTerms;
+
+  /// No description provided for @editRegistration.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit registration'**
+  String get editRegistration;
+
+  /// No description provided for @recordRegistration.
+  ///
+  /// In en, this message translates to:
+  /// **'Record registration'**
+  String get recordRegistration;
+
+  /// No description provided for @signedCopy.
+  ///
+  /// In en, this message translates to:
+  /// **'Signed copy'**
+  String get signedCopy;
+
+  /// No description provided for @agreementLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Language of the agreement'**
+  String get agreementLanguage;
+
+  /// No description provided for @agreementLanguageHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Both puts the English under each Amharic clause.'**
+  String get agreementLanguageHelp;
+
+  /// No description provided for @bothLanguages.
+  ///
+  /// In en, this message translates to:
+  /// **'Amharic and English'**
+  String get bothLanguages;
+
+  /// No description provided for @extraTermsHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Added to the agreement as its own clause, for example house rules.'**
+  String get extraTermsHelp;
+
+  /// No description provided for @extraTermsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. No pets. Quiet after 10 pm. Rubbish out on Tuesdays.'**
+  String get extraTermsHint;
+
+  /// No description provided for @registrationDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Date registered'**
+  String get registrationDate;
+
+  /// No description provided for @registrationNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Registration number (optional)'**
+  String get registrationNumber;
+
+  /// No description provided for @registrationOffice.
+  ///
+  /// In en, this message translates to:
+  /// **'Office (optional)'**
+  String get registrationOffice;
+
+  /// No description provided for @registrationOfficeHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Bole Woreda 03'**
+  String get registrationOfficeHint;
+
+  /// No description provided for @clearRegistration.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove registration'**
+  String get clearRegistration;
+
+  /// No description provided for @leasesToRegister.
+  ///
+  /// In en, this message translates to:
+  /// **'Leases to register'**
+  String get leasesToRegister;
+
+  /// No description provided for @leasesToRegisterEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'All active leases are registered.'**
+  String get leasesToRegisterEmpty;
+
+  /// No description provided for @startedOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Started {date}'**
+  String startedOn(String date);
+
+  /// No description provided for @unregisteredBanner.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 lease isn\'t registered yet} other{{count} leases aren\'t registered yet}}'**
+  String unregisteredBanner(int count);
+
+  /// No description provided for @unregisteredBannerHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Print the agreement, sign it and register it with the woreda.'**
+  String get unregisteredBannerHelp;
+
+  /// No description provided for @registeredDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Registered {date}'**
+  String registeredDate(String date);
 }
 
 class _AppLocalizationsDelegate

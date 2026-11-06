@@ -27,6 +27,7 @@ import '../data/leases_repository.dart';
 import '../domain/lease.dart';
 import '../domain/rent_rules.dart';
 import 'charge_labels.dart';
+import 'lease_agreement_card.dart';
 import 'renew_lease.dart';
 import 'status_chips.dart';
 import '../../auth/application/auth_controller.dart';
@@ -170,6 +171,13 @@ class LeaseDetailScreen extends ConsumerWidget {
               if (l.missingFields.isNotEmpty) ...[
                 const SizedBox(height: 12),
                 _DirectiveWarning(missing: l.missingFields),
+              ],
+              if (!caretaker) ...[
+                const SizedBox(height: 12),
+                LeaseAgreementCard(
+                  lease: l,
+                  onChanged: () => _refreshAll(ref, l),
+                ),
               ],
               if (l.portalUrl != null) ...[
                 const SizedBox(height: 12),
