@@ -434,5 +434,22 @@
   "share": "አጋራ",
   "copy": "ቅዳ",
   "resetLink": "አዲስ ሊንክ",
-  "resetTenantPageConfirm": "አዲስ ሊንክ ይሠራ? የድሮው መሥራት ያቆማል።"
+  "resetTenantPageConfirm": "አዲስ ሊንክ ይሠራ? የድሮው መሥራት ያቆማል።",
+  "team": "ቡድን",
+  "teamHelp": "ክፍያ የሚመዘግቡ እና ጥገና የሚከታተሉ ጠባቂዎች",
+  "addCaretaker": "ጠባቂ ያክሉ",
+  "sendInvite": "ግብዣ ላክ",
+  "caretakerName": "ስም",
+  "inviteHelp": "መተግበሪያውን ጭነው በዚህ ቁጥር እንዲገቡ የሚገልጽ SMS ይደርሳቸዋል።",
+  "caretakerCan": "ጠባቂዎች ክፍያ መመዝገብ፣ ጥገና መከታተል፣ የቆጣሪ ቢል ማስገባት እና ማስታወቂያ መላክ ይችላሉ። ሪፖርትና ወጪ ማየት፣ የገንዘብ ቅንብሮችን መቀየር ወይም ውልና ንብረት መፍጠር፣ ማቋረጥ ወይም መሰረዝ አይችሉም።",
+  "teamEmpty": "እስካሁን ጠባቂ የለም።",
+  "caretakerJoined": "ንቁ",
+  "caretakerInvited": "ተጋብዘዋል፣ ገና አልገቡም",
+  "removeCaretaker": "አስወግድ",
+  "removeCaretakerConfirm": "{name} ይወገዱ? ከመተግበሪያው ይወጣሉ፤ መልሰው እስካላከሏቸው ድረስ መግባት አይችሉም።",
+  "workingFor": "የ{name} ጠባቂ",
+  "caretakerHelp": "አንዳንድ ተግባራት ለአከራዩ ብቻ ናቸው።",
+  "loggedBy": "የመዘገበው {name}",
+  "handledBy": "የተከታተለው {name}",
+  "onlyLandlordSettles": "ተቀማጩን አጠናቅቆ ውሉን ማቋረጥ የሚችሉት አከራዩ ብቻ ናቸው።"
 }

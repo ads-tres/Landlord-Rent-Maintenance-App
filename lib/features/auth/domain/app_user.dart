@@ -10,6 +10,8 @@ class AppUser {
     this.telegramAvailable = false,
     this.onlineRentAvailable = false,
     this.onlineRentEnabled = false,
+    this.role = 'landlord',
+    this.landlordName,
   });
 
   factory AppUser.fromJson(Map<String, dynamic> json) => AppUser(
@@ -23,6 +25,8 @@ class AppUser {
     telegramAvailable: json['telegram_available'] as bool? ?? false,
     onlineRentAvailable: json['online_rent_available'] as bool? ?? false,
     onlineRentEnabled: json['online_rent_enabled'] as bool? ?? false,
+    role: json['role'] as String? ?? 'landlord',
+    landlordName: json['landlord_name'] as String?,
   );
 
   final int id;
@@ -41,4 +45,13 @@ class AppUser {
 
   /// This landlord accepts online rent (payout account active and switched on).
   final bool onlineRentEnabled;
+
+  /// landlord or caretaker.
+  final String role;
+
+  /// For a caretaker: the landlord they work for.
+  final String? landlordName;
+
+  /// Works on a landlord's data with limited rights.
+  bool get isCaretaker => role == 'caretaker';
 }

@@ -88,6 +88,17 @@ class RepairDetailScreen extends ConsumerWidget {
                   subtitle: Text(l10n.repairCostRecorded),
                 ),
               ),
+            if (r.handledByName != null)
+              Padding(
+                padding: const EdgeInsets.only(top: 8),
+                child: Text(
+                  l10n.handledBy(r.handledByName!),
+                  key: const Key('handledBy'),
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.outline,
+                  ),
+                ),
+              ),
             if ((r.resolutionNote ?? '').isNotEmpty) ...[
               const SizedBox(height: 12),
               Card(

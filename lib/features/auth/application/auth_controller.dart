@@ -89,3 +89,10 @@ class AuthController extends AsyncNotifier<AppUser?> {
 final authControllerProvider = AsyncNotifierProvider<AuthController, AppUser?>(
   AuthController.new,
 );
+
+/// True for a caretaker: landlord-only actions are hidden (the server refuses them too).
+final isCaretakerProvider = Provider<bool>(
+  (ref) => ref.watch(
+    authControllerProvider.select((u) => u.value?.isCaretaker ?? false),
+  ),
+);

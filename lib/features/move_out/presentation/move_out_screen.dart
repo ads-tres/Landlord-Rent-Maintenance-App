@@ -19,6 +19,7 @@ import '../../properties/data/properties_repository.dart';
 import '../../repairs/presentation/repair_widgets.dart';
 import '../data/move_out_repository.dart';
 import '../domain/move_out.dart';
+import '../../auth/application/auth_controller.dart';
 
 /// Move-out: condition check with photos, deposit deductions, settlement and
 /// the statement for the tenant.
@@ -58,7 +59,9 @@ class MoveOutScreen extends ConsumerWidget {
               _DeductionsSection(moveOut: m),
               _Summary(moveOut: m),
               const SizedBox(height: 16),
-              if (!m.settled)
+              if (!m.settled && ref.watch(isCaretakerProvider))
+                Text(l10n.onlyLandlordSettles, textAlign: TextAlign.center)
+              else if (!m.settled)
                 FilledButton.icon(
                   key: const Key('settleMoveOut'),
                   onPressed: () => _settle(context, ref, m),

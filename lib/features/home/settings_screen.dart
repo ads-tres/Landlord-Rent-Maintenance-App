@@ -52,6 +52,13 @@ class SettingsScreen extends ConsumerWidget {
                   ? Text(formatEthiopianPhone(user.phone))
                   : null,
             ),
+          if (user?.isCaretaker ?? false)
+            ListTile(
+              key: const Key('workingFor'),
+              leading: const Icon(Icons.badge_outlined),
+              title: Text(l10n.workingFor(user!.landlordName ?? '')),
+              subtitle: Text(l10n.caretakerHelp),
+            ),
           const Divider(),
           ListTile(
             leading: const Icon(Icons.language),
@@ -88,32 +95,42 @@ class SettingsScreen extends ConsumerWidget {
               onSelectionChanged: (s) => sync(calendarPref: s.first),
             ),
           ),
-          SwitchListTile(
-            secondary: const Icon(Icons.sms_outlined),
-            title: Text(l10n.smsReminders),
-            subtitle: Text(l10n.smsRemindersHelp),
-            value: user?.smsReminders ?? true,
-            onChanged: (v) => sync(smsReminders: v),
-          ),
-          if (user?.onlineRentAvailable ?? false)
+          if (!(user?.isCaretaker ?? false))
+            SwitchListTile(
+              secondary: const Icon(Icons.sms_outlined),
+              title: Text(l10n.smsReminders),
+              subtitle: Text(l10n.smsRemindersHelp),
+              value: user?.smsReminders ?? true,
+              onChanged: (v) => sync(smsReminders: v),
+            ),
+          if (!(user?.isCaretaker ?? false))
+            ListTile(
+              key: const Key('teamTile'),
+              leading: const Icon(Icons.group_outlined),
+              title: Text(l10n.team),
+              subtitle: Text(l10n.teamHelp),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => context.push('/settings/team'),
+            ),
+          if ((user?.onlineRentAvailable ?? false) && !user!.isCaretaker)
             ListTile(
               key: const Key('onlineRentTile'),
               leading: const Icon(Icons.account_balance_wallet_outlined),
               title: Text(l10n.onlineRent),
               subtitle: Text(
-                user!.onlineRentEnabled
+                user.onlineRentEnabled
                     ? l10n.onlineRentOn
                     : l10n.onlineRentHelp,
               ),
               trailing: const Icon(Icons.chevron_right),
               onTap: () => context.push('/settings/online-rent'),
             ),
-          if (user?.telegramAvailable ?? false)
+          if ((user?.telegramAvailable ?? false) && !user!.isCaretaker)
             ListTile(
               key: const Key('telegramTile'),
               leading: const Icon(Icons.telegram),
               title: Text(
-                user!.telegramLinked ? l10n.telegram : l10n.telegramConnect,
+                user.telegramLinked ? l10n.telegram : l10n.telegramConnect,
               ),
               subtitle: Text(
                 user.telegramLinked

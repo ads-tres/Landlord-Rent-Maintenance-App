@@ -18,6 +18,7 @@ class DashboardScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
     final locale = ref.watch(localeControllerProvider).languageCode;
+    final caretaker = ref.watch(isCaretakerProvider);
     final user = ref.watch(authControllerProvider).value;
     final summary = ref.watch(dashboardProvider);
     final name = user?.name;
@@ -81,17 +82,18 @@ class DashboardScreen extends ConsumerWidget {
                       ),
                     ),
                   ),
-                  Card(
-                    clipBehavior: Clip.antiAlias,
-                    child: ListTile(
-                      key: const Key('openReport'),
-                      leading: const Icon(Icons.assessment_outlined),
-                      title: Text(l10n.reportOpen),
-                      subtitle: Text(l10n.reportOpenHelp),
-                      trailing: const Icon(Icons.chevron_right),
-                      onTap: () => context.push('/reports/quarterly'),
+                  if (!caretaker)
+                    Card(
+                      clipBehavior: Clip.antiAlias,
+                      child: ListTile(
+                        key: const Key('openReport'),
+                        leading: const Icon(Icons.assessment_outlined),
+                        title: Text(l10n.reportOpen),
+                        subtitle: Text(l10n.reportOpenHelp),
+                        trailing: const Icon(Icons.chevron_right),
+                        onTap: () => context.push('/reports/quarterly'),
+                      ),
                     ),
-                  ),
                   GridView.count(
                     crossAxisCount: 2,
                     shrinkWrap: true,
@@ -126,12 +128,16 @@ class DashboardScreen extends ConsumerWidget {
                         alert: s.servicesDue > 0,
                         onTap: () => context.push('/equipment/due'),
                       ),
-                      _Tile(
-                        key: const Key('expensesTile'),
-                        label: l10n.dashboardExpenses,
-                        value: formatBirr(s.expensesThisMonth, locale: locale),
-                        onTap: () => context.push('/expenses'),
-                      ),
+                      if (!caretaker)
+                        _Tile(
+                          key: const Key('expensesTile'),
+                          label: l10n.dashboardExpenses,
+                          value: formatBirr(
+                            s.expensesThisMonth,
+                            locale: locale,
+                          ),
+                          onTap: () => context.push('/expenses'),
+                        ),
                       _Tile(
                         label: l10n.dashboardUnits,
                         value: '${s.units}',

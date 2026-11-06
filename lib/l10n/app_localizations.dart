@@ -2707,6 +2707,108 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Make a new link? The old one will stop working.'**
   String get resetTenantPageConfirm;
+
+  /// No description provided for @team.
+  ///
+  /// In en, this message translates to:
+  /// **'Team'**
+  String get team;
+
+  /// No description provided for @teamHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Caretakers who log payments and handle repairs'**
+  String get teamHelp;
+
+  /// No description provided for @addCaretaker.
+  ///
+  /// In en, this message translates to:
+  /// **'Add caretaker'**
+  String get addCaretaker;
+
+  /// No description provided for @sendInvite.
+  ///
+  /// In en, this message translates to:
+  /// **'Send invite'**
+  String get sendInvite;
+
+  /// No description provided for @caretakerName.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get caretakerName;
+
+  /// No description provided for @inviteHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'They get an SMS telling them to install the app and log in with this number.'**
+  String get inviteHelp;
+
+  /// No description provided for @caretakerCan.
+  ///
+  /// In en, this message translates to:
+  /// **'Caretakers can log payments, handle repairs, enter meter bills and send announcements. They can\'t see reports or expenses, change money settings, or create, end or delete leases and properties.'**
+  String get caretakerCan;
+
+  /// No description provided for @teamEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No caretakers yet.'**
+  String get teamEmpty;
+
+  /// No description provided for @caretakerJoined.
+  ///
+  /// In en, this message translates to:
+  /// **'Active'**
+  String get caretakerJoined;
+
+  /// No description provided for @caretakerInvited.
+  ///
+  /// In en, this message translates to:
+  /// **'Invited, not logged in yet'**
+  String get caretakerInvited;
+
+  /// No description provided for @removeCaretaker.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove'**
+  String get removeCaretaker;
+
+  /// No description provided for @removeCaretakerConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove {name}? They will be signed out and can\'t log in again unless you add them back.'**
+  String removeCaretakerConfirm(String name);
+
+  /// No description provided for @workingFor.
+  ///
+  /// In en, this message translates to:
+  /// **'Caretaker for {name}'**
+  String workingFor(String name);
+
+  /// No description provided for @caretakerHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Some actions are only for the landlord.'**
+  String get caretakerHelp;
+
+  /// No description provided for @loggedBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Logged by {name}'**
+  String loggedBy(String name);
+
+  /// No description provided for @handledBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Handled by {name}'**
+  String handledBy(String name);
+
+  /// No description provided for @onlyLandlordSettles.
+  ///
+  /// In en, this message translates to:
+  /// **'Only the landlord can settle the deposit and end the lease.'**
+  String get onlyLandlordSettles;
 }
 
 class _AppLocalizationsDelegate
