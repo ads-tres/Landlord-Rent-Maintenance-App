@@ -28,6 +28,7 @@ import '../domain/lease.dart';
 import '../domain/rent_rules.dart';
 import 'charge_labels.dart';
 import 'lease_agreement_card.dart';
+import 'rent_change_tile.dart';
 import 'renew_lease.dart';
 import 'status_chips.dart';
 import '../../auth/application/auth_controller.dart';
@@ -54,7 +55,6 @@ class LeaseDetailScreen extends ConsumerWidget {
     final l10n = AppLocalizations.of(context);
     final locale = ref.watch(localeControllerProvider).languageCode;
     final caretaker = ref.watch(isCaretakerProvider);
-    final dates = ref.watch(appDatesProvider);
     final lease = ref.watch(leaseProvider(leaseId));
 
     return Scaffold(
@@ -208,20 +208,10 @@ class LeaseDetailScreen extends ConsumerWidget {
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
                 for (final c in l.rentChanges)
-                  ListTile(
-                    contentPadding: EdgeInsets.zero,
-                    leading: const Icon(Icons.trending_up),
-                    title: Text(
-                      l10n.rentChangeLine(
-                        formatBirr(c.oldRent, locale: locale),
-                        formatBirr(c.newRent, locale: locale),
-                        dates.date(c.effectiveDate),
-                        RentRules(
-                          capPercent: c.capPercent,
-                          minLeaseYears: 2,
-                        ).capLabel,
-                      ),
-                    ),
+                  RentChangeTile(
+                    lease: l,
+                    change: c,
+                    onChanged: () => _refreshAll(ref, l),
                   ),
               ],
               const SizedBox(height: 16),
@@ -357,8 +347,13 @@ class LeaseDetailScreen extends ConsumerWidget {
     final amount = TextEditingController(
       text: santimToInput(lease.monthlyRent),
     );
-    var effective = dateOnly(DateTime.now());
+    final today = dateOnly(DateTime.now());
+    final earliest = rules.earliestIncreaseDate(today);
+    // Most changes are increases, so start at the first date that needs no agreement.
+    var effective = earliest.isAfter(lease.endDate) ? lease.endDate : earliest;
     if (effective.isBefore(lease.startDate)) effective = lease.startDate;
+    var agreed = false;
+    var notify = true;
 
     return FormSheet(
       title: l10n.changeRent,
@@ -368,6 +363,8 @@ class LeaseDetailScreen extends ConsumerWidget {
             lease.id,
             newRent: parseBirr(amount.text)!,
             effectiveDate: effective,
+            tenantAgreed: agreed,
+            notifyTenant: notify && effective.isAfter(today),
           ),
       fieldsBuilder: (context, errors) => [
         Text(l10n.currentRent(formatBirr(lease.monthlyRent, locale: locale))),
@@ -378,6 +375,7 @@ class LeaseDetailScreen extends ConsumerWidget {
             final over =
                 newRent != null && rules.exceedsCap(lease.monthlyRent, newRent);
             final increase = newRent != null && newRent > lease.monthlyRent;
+            final shortNotice = increase && effective.isBefore(earliest);
             return Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -451,6 +449,40 @@ class LeaseDetailScreen extends ConsumerWidget {
                     child: Text(dates.date(effective)),
                   ),
                 ),
+                if (increase)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8),
+                    child: Text(
+                      l10n.rentNoticeHint(
+                        rules.noticeDays,
+                        dates.date(earliest),
+                      ),
+                      key: const Key('rentNoticeHint'),
+                      style: TextStyle(
+                        color: shortNotice && !agreed
+                            ? Theme.of(context).colorScheme.error
+                            : null,
+                      ),
+                    ),
+                  ),
+                if (shortNotice)
+                  SwitchListTile(
+                    key: const Key('tenantAgreedSwitch'),
+                    contentPadding: EdgeInsets.zero,
+                    value: agreed,
+                    onChanged: (v) => setState(() => agreed = v),
+                    title: Text(l10n.tenantAgreedInWriting),
+                    subtitle: Text(l10n.tenantAgreedHelp),
+                  ),
+                if (effective.isAfter(today))
+                  SwitchListTile(
+                    key: const Key('notifyTenantSwitch'),
+                    contentPadding: EdgeInsets.zero,
+                    value: notify,
+                    onChanged: (v) => setState(() => notify = v),
+                    title: Text(l10n.textTenantAboutRent),
+                    subtitle: Text(l10n.textTenantAboutRentHelp),
+                  ),
               ],
             );
           },

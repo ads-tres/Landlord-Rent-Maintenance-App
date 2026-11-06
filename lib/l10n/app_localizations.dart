@@ -3817,6 +3817,96 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Discard this entry that was never sent? Its photos are deleted too.'**
   String get discardItemConfirm;
+
+  /// No description provided for @rentNoticeHint.
+  ///
+  /// In en, this message translates to:
+  /// **'An increase needs {days} days\' written notice: earliest start {date}.'**
+  String rentNoticeHint(int days, String date);
+
+  /// No description provided for @tenantAgreedInWriting.
+  ///
+  /// In en, this message translates to:
+  /// **'Tenant agreed in writing'**
+  String get tenantAgreedInWriting;
+
+  /// No description provided for @tenantAgreedHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Allows an earlier start. Keep the signed agreement.'**
+  String get tenantAgreedHelp;
+
+  /// No description provided for @textTenantAboutRent.
+  ///
+  /// In en, this message translates to:
+  /// **'Text the tenant'**
+  String get textTenantAboutRent;
+
+  /// No description provided for @textTenantAboutRentHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Sends the new rent and start date now, and a reminder a week before.'**
+  String get textTenantAboutRentHelp;
+
+  /// No description provided for @rentChangeUpcoming.
+  ///
+  /// In en, this message translates to:
+  /// **'Upcoming'**
+  String get rentChangeUpcoming;
+
+  /// No description provided for @rentNoticeGiven.
+  ///
+  /// In en, this message translates to:
+  /// **'{days} days\' notice'**
+  String rentNoticeGiven(int days);
+
+  /// No description provided for @tenantTexted.
+  ///
+  /// In en, this message translates to:
+  /// **'Tenant texted'**
+  String get tenantTexted;
+
+  /// No description provided for @rentNoticeLetter.
+  ///
+  /// In en, this message translates to:
+  /// **'Notice letter'**
+  String get rentNoticeLetter;
+
+  /// No description provided for @rentNoticeLetterHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Print it, have the tenant sign, and keep a copy.'**
+  String get rentNoticeLetterHelp;
+
+  /// No description provided for @cancelRentChange.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel change'**
+  String get cancelRentChange;
+
+  /// No description provided for @cancelRentChangeConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel this rent change? The rent stays as it is.'**
+  String get cancelRentChangeConfirm;
+
+  /// No description provided for @cancelRentChangeNotified.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel this rent change? The tenant was told, so they will get a text that it is cancelled.'**
+  String get cancelRentChangeNotified;
+
+  /// No description provided for @keepIt.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep it'**
+  String get keepIt;
+
+  /// No description provided for @rentChangeCancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'Rent change cancelled'**
+  String get rentChangeCancelled;
 }
 
 class _AppLocalizationsDelegate

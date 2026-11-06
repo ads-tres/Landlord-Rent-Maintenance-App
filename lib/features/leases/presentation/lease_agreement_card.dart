@@ -7,6 +7,7 @@ import '../../../core/utils/app_dates.dart';
 import '../../../core/utils/dates.dart';
 import '../../../core/widgets/async_views.dart';
 import '../../../core/widgets/form_sheet.dart';
+import '../../../core/widgets/language_picker.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../repairs/presentation/repair_widgets.dart';
 import '../data/leases_repository.dart';
@@ -174,31 +175,10 @@ class LeaseAgreementCard extends ConsumerWidget {
 
   Future<void> _share(BuildContext context, WidgetRef ref) async {
     final l10n = AppLocalizations.of(context);
-    final language = await showModalBottomSheet<String>(
-      context: context,
-      showDragHandle: true,
-      builder: (context) => SafeArea(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ListTile(
-              title: Text(l10n.agreementLanguage),
-              subtitle: Text(l10n.agreementLanguageHelp),
-            ),
-            for (final (code, label) in [
-              ('am', 'አማርኛ'),
-              ('en', 'English'),
-              ('both', l10n.bothLanguages),
-            ])
-              ListTile(
-                key: Key('agreementLanguage-$code'),
-                leading: const Icon(Icons.description_outlined),
-                title: Text(label),
-                onTap: () => Navigator.pop(context, code),
-              ),
-          ],
-        ),
-      ),
+    final language = await pickDocumentLanguage(
+      context,
+      title: l10n.agreementLanguage,
+      help: l10n.agreementLanguageHelp,
     );
     if (language == null || !context.mounted) return;
     await _run(context, () async {

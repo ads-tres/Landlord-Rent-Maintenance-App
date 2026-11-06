@@ -60,12 +60,41 @@ class LeasesRepository {
     int leaseId, {
     required int newRent,
     required DateTime effectiveDate,
+    bool tenantAgreed = false,
+    bool notifyTenant = true,
   }) async {
     final data = await _api.post(
       '/leases/$leaseId/rent-change',
-      data: {'new_rent': newRent, 'effective_date': ymd(effectiveDate)},
+      data: {
+        'new_rent': newRent,
+        'effective_date': ymd(effectiveDate),
+        'tenant_agreed': tenantAgreed,
+        'notify_tenant': notifyTenant,
+      },
     ) as Map<String, dynamic>;
     return Lease.fromJson(data['data'] as Map<String, dynamic>);
+  }
+
+  /// Cancels a rent change that hasn't started; a tenant who was told is texted.
+  Future<Lease> cancelRentChange(int leaseId, int changeId) async =>
+      _lease(await _api.delete('/leases/$leaseId/rent-changes/$changeId'));
+
+  /// The notice letter for a rent change as a PDF: language is am, en or both.
+  Future<String> downloadRentNotice(
+    int leaseId,
+    int changeId,
+    String language,
+  ) async {
+    final bytes = await _api.getBytes(
+      '/leases/$leaseId/rent-changes/$changeId/notice',
+      query: {'lang': language},
+    );
+    final dir = await getTemporaryDirectory();
+    final file = File(
+      '${dir.path}/rent-notice-$leaseId-$changeId-$language.pdf',
+    );
+    await file.writeAsBytes(bytes, flush: true);
+    return file.path;
   }
 
   /// Active leases ending within [days], soonest first.

@@ -2138,4 +2138,55 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get discardItemConfirm => 'ያልተላከውን ይህን መረጃ ይሰርዙ? ፎቶዎቹም ይሰረዛሉ።';
+
+  @override
+  String rentNoticeHint(int days, String date) {
+    return 'ጭማሪ የ$days ቀን የጽሑፍ ማስታወቂያ ያስፈልገዋል፤ ቀደም ብሎ የሚጀምርበት ቀን $date።';
+  }
+
+  @override
+  String get tenantAgreedInWriting => 'ተከራዩ በጽሑፍ ተስማምተዋል';
+
+  @override
+  String get tenantAgreedHelp => 'ቀደም ብሎ ለመጀመር ያስችላል። የተፈረመውን ስምምነት ያስቀምጡ።';
+
+  @override
+  String get textTenantAboutRent => 'ለተከራዩ መልዕክት ላክ';
+
+  @override
+  String get textTenantAboutRentHelp =>
+      'አዲሱን ኪራይና የሚጀምርበትን ቀን አሁን፣ ማስታወሻውን ደግሞ ከአንድ ሳምንት በፊት ይልካል።';
+
+  @override
+  String get rentChangeUpcoming => 'የሚመጣ';
+
+  @override
+  String rentNoticeGiven(int days) {
+    return 'የ$days ቀን ማስታወቂያ';
+  }
+
+  @override
+  String get tenantTexted => 'ለተከራዩ ተልኳል';
+
+  @override
+  String get rentNoticeLetter => 'የማስታወቂያ ደብዳቤ';
+
+  @override
+  String get rentNoticeLetterHelp => 'ያትሙት፣ ተከራዩ እንዲፈርሙ ያድርጉ፣ ቅጂውንም ያስቀምጡ።';
+
+  @override
+  String get cancelRentChange => 'ለውጡን ሰርዝ';
+
+  @override
+  String get cancelRentChangeConfirm => 'ይህን የኪራይ ለውጥ ይሰርዙ? ኪራዩ እንዳለ ይቀጥላል።';
+
+  @override
+  String get cancelRentChangeNotified =>
+      'ይህን የኪራይ ለውጥ ይሰርዙ? ተከራዩ ስለተነገራቸው መሰረዙን የሚገልጽ መልዕክት ይደርሳቸዋል።';
+
+  @override
+  String get keepIt => 'ይቆይ';
+
+  @override
+  String get rentChangeCancelled => 'የኪራይ ለውጡ ተሰርዟል';
 }
