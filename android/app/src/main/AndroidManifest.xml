@@ -1,10 +1,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- The app talks to the Kiray API over HTTPS. -->
     <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- Android 13+: asked at login so repair and payment alerts can be shown. -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
     <application
         android:label="Kiray"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <!-- Push notifications from the server use this channel. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="alerts"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

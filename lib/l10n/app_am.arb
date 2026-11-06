@@ -467,5 +467,8 @@
   "leasesEndingEmpty": "በሚቀጥሉት 60 ቀናት የሚያበቃ ውል የለም።",
   "aboveYearlyLimit": "ከዓመታዊ ገደቡ በላይ ነው።",
   "reportShareExcel": "ለሂሳብ ባለሙያ Excel ያጋሩ",
-  "reportShareExcelHelp": "ሁሉም ክፍያዎችና ወጪዎች፣ የኪራይ ዝርዝር እና ማጠቃለያ በሰንጠረዥ።"
+  "reportShareExcelHelp": "ሁሉም ክፍያዎችና ወጪዎች፣ የኪራይ ዝርዝር እና ማጠቃለያ በሰንጠረዥ።",
+  "pushNotifications": "ማሳወቂያዎች",
+  "pushNotificationsHelp": "አዲስ ጥገና፣ ክፍያ እና የውል ማስታወሻዎች በዚህ ስልክ",
+  "open": "ክፈት"
 }

@@ -6,6 +6,8 @@ class AppUser {
     this.locale = 'am',
     this.calendarPref = 'ethiopian',
     this.smsReminders = true,
+    this.pushEnabled = true,
+    this.pushAvailable = false,
     this.telegramLinked = false,
     this.telegramAvailable = false,
     this.onlineRentAvailable = false,
@@ -21,6 +23,8 @@ class AppUser {
     locale: json['locale'] as String? ?? 'am',
     calendarPref: json['calendar_pref'] as String? ?? 'ethiopian',
     smsReminders: json['sms_reminders'] as bool? ?? true,
+    pushEnabled: json['push_enabled'] as bool? ?? true,
+    pushAvailable: json['push_available'] as bool? ?? false,
     telegramLinked: json['telegram_linked'] as bool? ?? false,
     telegramAvailable: json['telegram_available'] as bool? ?? false,
     onlineRentAvailable: json['online_rent_available'] as bool? ?? false,
@@ -35,6 +39,10 @@ class AppUser {
   final String locale;
   final String calendarPref;
   final bool smsReminders;
+  final bool pushEnabled;
+
+  /// The server has Firebase set up.
+  final bool pushAvailable;
   final bool telegramLinked;
 
   /// The server has a Telegram bot configured.

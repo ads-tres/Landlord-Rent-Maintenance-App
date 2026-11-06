@@ -144,3 +144,19 @@ server.
 flutter analyze
 flutter test
 ```
+
+## Push notifications
+
+Push is optional; builds without these settings simply don't use it. In the Firebase console add an Android app
+(package name from `android/app/build.gradle.kts`), then pass its values at build time (or set them as GitHub
+Actions variables for the release workflow):
+
+```
+--dart-define=FIREBASE_API_KEY=… --dart-define=FIREBASE_APP_ID=… \
+--dart-define=FIREBASE_SENDER_ID=… --dart-define=FIREBASE_PROJECT_ID=…
+```
+
+No `google-services.json` is needed. The server needs the same project's service account (`FCM_CREDENTIALS`).
+After login the app asks for notification permission and registers the phone; tapping a notification opens the
+repair, lease or screen it is about; alerts that arrive while the app is open show at the bottom of the screen.
+Settings → Notifications switches them off. Logging out unregisters the phone.

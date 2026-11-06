@@ -1616,4 +1616,13 @@ class AppLocalizationsAm extends AppLocalizations {
   @override
   String get reportShareExcelHelp =>
       'ሁሉም ክፍያዎችና ወጪዎች፣ የኪራይ ዝርዝር እና ማጠቃለያ በሰንጠረዥ።';
+
+  @override
+  String get pushNotifications => 'ማሳወቂያዎች';
+
+  @override
+  String get pushNotificationsHelp => 'አዲስ ጥገና፣ ክፍያ እና የውል ማስታወሻዎች በዚህ ስልክ';
+
+  @override
+  String get open => 'ክፈት';
 }

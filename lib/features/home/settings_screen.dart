@@ -26,6 +26,7 @@ class SettingsScreen extends ConsumerWidget {
       String? locale,
       String? calendarPref,
       bool? smsReminders,
+      bool? pushEnabled,
     }) async {
       try {
         await ref
@@ -34,6 +35,7 @@ class SettingsScreen extends ConsumerWidget {
               locale: locale,
               calendarPref: calendarPref,
               smsReminders: smsReminders,
+              pushEnabled: pushEnabled,
             );
       } on ApiException {
         // Offline: the local choice still applies; it syncs next time.
@@ -102,6 +104,15 @@ class SettingsScreen extends ConsumerWidget {
               subtitle: Text(l10n.smsRemindersHelp),
               value: user?.smsReminders ?? true,
               onChanged: (v) => sync(smsReminders: v),
+            ),
+          if (user?.pushAvailable ?? false)
+            SwitchListTile(
+              key: const Key('pushSwitch'),
+              secondary: const Icon(Icons.notifications_outlined),
+              title: Text(l10n.pushNotifications),
+              subtitle: Text(l10n.pushNotificationsHelp),
+              value: user!.pushEnabled,
+              onChanged: (v) => sync(pushEnabled: v),
             ),
           if (!(user?.isCaretaker ?? false))
             ListTile(
