@@ -1,4 +1,5 @@
 import '../../../core/utils/dates.dart';
+import '../../tenants/domain/tenant_record.dart';
 
 /// `GET /leases/{id}/renewal-check`. Amounts in santim.
 class RenewalCheck {
@@ -10,6 +11,7 @@ class RenewalCheck {
     required this.maxRent,
     required this.capPercent,
     required this.canRenewFrom,
+    this.tenantRecord,
   });
 
   factory RenewalCheck.fromJson(Map<String, dynamic> j) => RenewalCheck(
@@ -20,6 +22,9 @@ class RenewalCheck {
     maxRent: j['max_rent'] as int,
     capPercent: (j['cap_percent'] as num).toDouble(),
     canRenewFrom: parseYmd(j['can_renew_from'] as String),
+    tenantRecord: j['tenant_record'] == null
+        ? null
+        : TenantRecord.fromJson(j['tenant_record'] as Map<String, dynamic>),
   );
 
   final DateTime currentEndDate;
@@ -29,6 +34,9 @@ class RenewalCheck {
   final int maxRent;
   final double capPercent;
   final DateTime canRenewFrom;
+
+  /// How the tenant has paid so far.
+  final TenantRecord? tenantRecord;
 }
 
 class LeaseRenewal {

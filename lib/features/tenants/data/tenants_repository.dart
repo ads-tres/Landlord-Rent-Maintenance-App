@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/api/api_client.dart';
 import '../domain/tenant.dart';
+import '../domain/tenant_record.dart';
 
 class TenantsRepository {
   TenantsRepository(this._api);
@@ -67,6 +68,15 @@ class TenantsRepository {
         .toList();
   }
 
+  Future<TenantRecord> record(int id) async {
+    final data = await _api.get('/tenants/$id/record') as Map<String, dynamic>;
+    return TenantRecord.fromJson(data['data'] as Map<String, dynamic>);
+  }
+
+  /// The landlord's private notes; empty clears them.
+  Future<void> saveNotes(int id, String notes) =>
+      _api.put('/tenants/$id/notes', data: {'notes': notes.trim()});
+
   /// The tenant's data as JSON text (right of access, Proclamation 1321/2024).
   Future<String> export(int id) async =>
       jsonEncode(await _api.get('/tenants/$id/export'));
@@ -99,6 +109,11 @@ final tenantsProvider = FutureProvider.autoDispose<List<Tenant>>(
       .watch(tenantsRepositoryProvider)
       .list(query: ref.watch(tenantSearchProvider)),
 );
+
+final tenantRecordProvider = FutureProvider.autoDispose
+    .family<TenantRecord, int>(
+      (ref, id) => ref.watch(tenantsRepositoryProvider).record(id),
+    );
 
 final tenantProvider = FutureProvider.autoDispose.family<Tenant, int>(
   (ref, id) => ref.watch(tenantsRepositoryProvider).get(id),

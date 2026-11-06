@@ -2332,4 +2332,95 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get dashboardVacancyLost => 'በዚህ ዓመት በባዶ ቤቶች የቀረ ኪራይ';
+
+  @override
+  String get paymentRecord => 'የክፍያ መዝገብ';
+
+  @override
+  String get ratingGood => 'በሰዓቱ ከፋይ';
+
+  @override
+  String get ratingFair => 'አንዳንዴ የሚያዘገይ';
+
+  @override
+  String get ratingPoor => 'ብዙ ጊዜ የሚያዘገይ';
+
+  @override
+  String get ratingNew => 'ለመገምገም ገና ነው';
+
+  @override
+  String get ratingNewHelp => 'የ3 ወር ኪራይ ሲደርስ ግምገማ ይታያል።';
+
+  @override
+  String onTimePercent(String percent) {
+    return '$percent% በሰዓቱ';
+  }
+
+  @override
+  String averageDaysLate(int days) {
+    return 'የዘገዩ ክፍያዎች በአማካይ $days ቀን ዘግይተዋል';
+  }
+
+  @override
+  String get paidOnTime => 'በሰዓቱ';
+
+  @override
+  String get paidLate => 'የዘገየ';
+
+  @override
+  String get notPaid => 'ያልተከፈለ';
+
+  @override
+  String lastMonths(int count) {
+    return 'ያለፉት $count ወራት';
+  }
+
+  @override
+  String daysLateCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ቀናት ዘግይቷል',
+      one: '1 ቀን ዘግይቷል',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String owesNow(String amount) {
+    return 'አሁን $amount እዳ አለበት';
+  }
+
+  @override
+  String tenantSince(String date) {
+    return 'ከ$date ጀምሮ ተከራይ';
+  }
+
+  @override
+  String leasesCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ውሎች',
+      one: '1 ውል',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get paymentRecordHowCounted =>
+      'የደረሱ የኪራይ ወራትን ይቆጥራል። በሰዓቱ ማለት እስከ ማብቂያ ቀኑ ሙሉ በሙሉ የተከፈለ ማለት ነው።';
+
+  @override
+  String get privateNotes => 'የግል ማስታወሻ';
+
+  @override
+  String get privateNotesHelp => 'እርስዎ ብቻ ያያሉ። የሚታወስ ነገር ይጻፉ።';
+
+  @override
+  String get privateNotesShared =>
+      'እርስዎ ብቻ ያያሉ፤ ነገር ግን ተከራዩ መረጃቸውን ከጠየቁ ይሰጣቸዋል። እውነታን ብቻ ይጻፉ።';
+
+  @override
+  String get rentedBefore => 'ከዚህ በፊት ተከራይቷል';
 }
