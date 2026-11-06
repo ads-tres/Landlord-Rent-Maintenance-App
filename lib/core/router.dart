@@ -9,6 +9,8 @@ import '../features/compound/presentation/announce_screen.dart';
 import '../features/compound/presentation/assets_screen.dart';
 import '../features/compound/presentation/meter_detail_screen.dart';
 import '../features/compound/presentation/meters_screen.dart';
+import '../features/expenses/presentation/add_expense_screen.dart';
+import '../features/expenses/presentation/expenses_screen.dart';
 import '../features/home/dashboard_screen.dart';
 import '../features/listings/presentation/listings_screens.dart';
 import '../features/online_rent/presentation/online_rent_screen.dart';
@@ -120,6 +122,28 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: '/reports/quarterly',
         parentNavigatorKey: _rootNavigatorKey,
         builder: (_, _) => const QuarterlyReportScreen(),
+      ),
+      GoRoute(
+        path: '/expenses',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (_, _) => const ExpensesScreen(),
+        routes: [
+          GoRoute(
+            path: 'new',
+            parentNavigatorKey: _rootNavigatorKey,
+            builder: (_, state) => AddExpenseScreen(
+              propertyId: int.tryParse(
+                state.uri.queryParameters['propertyId'] ?? '',
+              ),
+            ),
+          ),
+        ],
+      ),
+      GoRoute(
+        path: '/properties/:id/expenses',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (_, state) =>
+            ExpensesScreen(propertyId: int.parse(state.pathParameters['id']!)),
       ),
       GoRoute(
         path: '/properties/:id/meters',

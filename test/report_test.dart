@@ -43,6 +43,12 @@ QuarterlyReport report(int year, int quarter, {int total = 7500000}) =>
       'by_method': [
         if (total > 0) {'method': 'telebirr', 'total': total},
       ],
+      'expenses_total': total == 0 ? 0 : 1500000,
+      'expenses_count': total == 0 ? 0 : 2,
+      'expenses_by_category': [
+        if (total > 0) {'category': 'land_lease', 'total': 1200000},
+        if (total > 0) {'category': 'repair', 'total': 300000},
+      ],
     });
 
 void main() {
@@ -94,11 +100,21 @@ void main() {
     expect(find.text('Room 1'), findsOneWidget);
     expect(find.text('Telebirr'), findsOneWidget);
     expect(find.text('Share PDF'), findsOneWidget);
+    expect(find.text('Land lease'), findsOneWidget);
+    expect(find.text('− Br 15,000'), findsOneWidget);
+    expect(
+      find.descendant(
+        of: find.byKey(const Key('reportNet')),
+        matching: find.text('Br 60,000'),
+      ),
+      findsOneWidget,
+    );
 
     await tester.tap(find.byKey(const Key('previousQuarter')));
     await tester.pumpAndSettle();
 
     expect(find.text('Q1, fiscal year 2019'), findsOneWidget);
     expect(find.text('No rent received in this quarter.'), findsOneWidget);
+    expect(find.text('No expenses recorded'), findsOneWidget);
   });
 }

@@ -127,6 +127,12 @@ class DashboardScreen extends ConsumerWidget {
                         onTap: () => context.push('/equipment/due'),
                       ),
                       _Tile(
+                        key: const Key('expensesTile'),
+                        label: l10n.dashboardExpenses,
+                        value: formatBirr(s.expensesThisMonth, locale: locale),
+                        onTap: () => context.push('/expenses'),
+                      ),
+                      _Tile(
                         label: l10n.dashboardUnits,
                         value: '${s.units}',
                         onTap: () => context.go('/properties'),

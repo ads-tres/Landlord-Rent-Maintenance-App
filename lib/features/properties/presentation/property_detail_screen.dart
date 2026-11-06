@@ -47,6 +47,13 @@ class PropertyDetailScreen extends ConsumerWidget {
                 ),
               ),
               PopupMenuItem(
+                value: 'expenses',
+                child: ListTile(
+                  leading: const Icon(Icons.receipt_long_outlined),
+                  title: Text(l10n.expenses),
+                ),
+              ),
+              PopupMenuItem(
                 value: 'announce',
                 child: ListTile(
                   leading: const Icon(Icons.campaign_outlined),
