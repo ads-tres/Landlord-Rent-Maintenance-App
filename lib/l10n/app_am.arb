@@ -583,5 +583,6 @@
   "idNumberPrivate": "ተመስጥሮ ይቀመጣል፤ በሰነዶችዎ ላይ ብቻ ይታተማል።",
   "addressLabel": "አድራሻዎ",
   "addressHint": "ለምሳሌ ቦሌ፣ ወረዳ 03፣ የቤት ቁጥር 55",
-  "missingLandlordIdNumber": "የእርስዎ መታወቂያ ቁጥር (ቅንብሮች)"
+  "missingLandlordIdNumber": "የእርስዎ መታወቂያ ቁጥር (ቅንብሮች)",
+  "prepaidRent": "አስቀድሞ የተከፈለ ኪራይ (ከመልቀቂያ በኋላ)"
 }

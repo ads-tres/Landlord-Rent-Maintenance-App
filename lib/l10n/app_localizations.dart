@@ -3601,6 +3601,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'your ID number (Settings)'**
   String get missingLandlordIdNumber;
+
+  /// No description provided for @prepaidRent.
+  ///
+  /// In en, this message translates to:
+  /// **'Rent paid ahead (after move-out)'**
+  String get prepaidRent;
 }
 
 class _AppLocalizationsDelegate

@@ -229,4 +229,31 @@ void main() {
     verify(() => repo.sendStatement(4)).called(1);
     expect(find.text('Statement sent to the tenant.'), findsOneWidget);
   });
+
+  testWidgets('rent paid ahead is shown in the summary', (tester) async {
+    tester.view.physicalSize = const Size(1080, 2600);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+    final repo = MockMoveOutRepository();
+    when(() => repo.get(4)).thenAnswer(
+      (_) async => MoveOut.fromJson({
+        ...moveOutJson(),
+        'prepaid': 2000000,
+        'prepaid_to_unpaid': 0,
+        'refund_amount': 3950000,
+      }),
+    );
+
+    await tester.pumpWidget(harness(const MoveOutScreen(moveOutId: 4), repo));
+    await tester.pumpAndSettle();
+    expect(find.text('Rent paid ahead (after move-out)'), findsOneWidget);
+    expect(
+      tester.widget<Text>(find.byKey(const Key('prepaidRent'))).data,
+      '+ Br 20,000',
+    );
+    expect(
+      tester.widget<Text>(find.byKey(const Key('refundAmount'))).data,
+      'Br 39,500',
+    );
+  });
 }
