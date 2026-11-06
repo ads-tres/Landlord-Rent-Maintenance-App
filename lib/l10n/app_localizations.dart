@@ -3553,6 +3553,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Someone on site who logs payments and handles repairs.'**
   String get setupCaretakerHelp;
+
+  /// No description provided for @documentDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Details for documents'**
+  String get documentDetails;
+
+  /// No description provided for @documentDetailsHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Your name, ID number and address, printed on lease agreements and letters.'**
+  String get documentDetailsHelp;
+
+  /// No description provided for @documentDetailsMissing.
+  ///
+  /// In en, this message translates to:
+  /// **'Add your ID number and address so agreements don\'t print blanks.'**
+  String get documentDetailsMissing;
+
+  /// No description provided for @idNumberLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'ID number (kebele ID or Fayda)'**
+  String get idNumberLabel;
+
+  /// No description provided for @idNumberPrivate.
+  ///
+  /// In en, this message translates to:
+  /// **'Kept encrypted; only printed on your documents.'**
+  String get idNumberPrivate;
+
+  /// No description provided for @addressLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Your address'**
+  String get addressLabel;
+
+  /// No description provided for @addressHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Bole, Woreda 03, house 55'**
+  String get addressHint;
+
+  /// No description provided for @missingLandlordIdNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'your ID number (Settings)'**
+  String get missingLandlordIdNumber;
 }
 
 class _AppLocalizationsDelegate

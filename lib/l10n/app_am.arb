@@ -575,5 +575,13 @@
   "setupTelegramTitle": "ቴሌግራም ያገናኙ",
   "setupTelegramHelp": "የጥገናና የክፍያ ማሳወቂያዎችን በቴሌግራም በነጻ ያግኙ።",
   "setupCaretakerTitle": "ጠባቂ ይጋብዙ",
-  "setupCaretakerHelp": "ክፍያ የሚመዘግብና ጥገና የሚከታተል በቦታው ያለ ሰው።"
+  "setupCaretakerHelp": "ክፍያ የሚመዘግብና ጥገና የሚከታተል በቦታው ያለ ሰው።",
+  "documentDetails": "ለሰነዶች የሚያስፈልጉ ዝርዝሮች",
+  "documentDetailsHelp": "ስምዎ፣ የመታወቂያ ቁጥርዎና አድራሻዎ፤ በውሎችና በደብዳቤዎች ላይ ይታተማሉ።",
+  "documentDetailsMissing": "ውሎች ባዶ ቦታ እንዳይኖራቸው የመታወቂያ ቁጥርዎንና አድራሻዎን ያስገቡ።",
+  "idNumberLabel": "የመታወቂያ ቁጥር (የቀበሌ መታወቂያ ወይም ፋይዳ)",
+  "idNumberPrivate": "ተመስጥሮ ይቀመጣል፤ በሰነዶችዎ ላይ ብቻ ይታተማል።",
+  "addressLabel": "አድራሻዎ",
+  "addressHint": "ለምሳሌ ቦሌ፣ ወረዳ 03፣ የቤት ቁጥር 55",
+  "missingLandlordIdNumber": "የእርስዎ መታወቂያ ቁጥር (ቅንብሮች)"
 }

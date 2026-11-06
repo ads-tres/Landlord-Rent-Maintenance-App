@@ -146,6 +146,7 @@ class LeaseAgreementCard extends ConsumerWidget {
   static String _blankLabel(AppLocalizations l10n, String field) =>
       switch (field) {
         'landlord_name' => l10n.missingLandlordName,
+        'landlord_id_number' => l10n.missingLandlordIdNumber,
         'tenant_address' => l10n.missingTenantAddress,
         'tenant_id_number' => l10n.missingTenantIdNumber,
         'property_location' => l10n.missingPropertyLocation,
