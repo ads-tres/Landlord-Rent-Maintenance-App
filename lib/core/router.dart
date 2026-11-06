@@ -15,6 +15,7 @@ import '../features/expenses/presentation/add_expense_screen.dart';
 import '../features/expenses/presentation/expenses_screen.dart';
 import '../features/home/dashboard_screen.dart';
 import '../features/move_out/presentation/move_out_screen.dart';
+import '../features/onboarding/presentation/onboarding_screen.dart';
 import '../features/listings/presentation/listings_screens.dart';
 import '../features/online_rent/presentation/online_rent_screen.dart';
 import '../features/home/home_shell.dart';
@@ -162,6 +163,11 @@ final routerProvider = Provider<GoRouter>((ref) {
         parentNavigatorKey: _rootNavigatorKey,
         builder: (_, state) =>
             MoveOutScreen(moveOutId: int.parse(state.pathParameters['id']!)),
+      ),
+      GoRoute(
+        path: '/setup',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (_, _) => const OnboardingScreen(),
       ),
       GoRoute(
         path: '/arrears',

@@ -3397,6 +3397,162 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Share statement (PDF)'**
   String get shareStatementPdf;
+
+  /// No description provided for @getStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'Get started'**
+  String get getStarted;
+
+  /// No description provided for @getStartedHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'A few steps to start collecting rent with the app.'**
+  String get getStartedHelp;
+
+  /// No description provided for @stepsDone.
+  ///
+  /// In en, this message translates to:
+  /// **'{done} of {total} done'**
+  String stepsDone(int done, int total);
+
+  /// No description provided for @setupComplete.
+  ///
+  /// In en, this message translates to:
+  /// **'All set up. Well done!'**
+  String get setupComplete;
+
+  /// No description provided for @hide.
+  ///
+  /// In en, this message translates to:
+  /// **'Hide'**
+  String get hide;
+
+  /// No description provided for @optional.
+  ///
+  /// In en, this message translates to:
+  /// **'optional'**
+  String get optional;
+
+  /// No description provided for @setupProfileTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add your name'**
+  String get setupProfileTitle;
+
+  /// No description provided for @setupProfileHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'It goes on receipts, agreements and messages to tenants.'**
+  String get setupProfileHelp;
+
+  /// No description provided for @yourFullName.
+  ///
+  /// In en, this message translates to:
+  /// **'Your full name'**
+  String get yourFullName;
+
+  /// No description provided for @yourFullNameHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'As tenants know you, e.g. Abel Kebede'**
+  String get yourFullNameHelp;
+
+  /// No description provided for @setupPropertyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add your property'**
+  String get setupPropertyTitle;
+
+  /// No description provided for @setupPropertyHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'The compound or building, with its sub-city and woreda.'**
+  String get setupPropertyHelp;
+
+  /// No description provided for @setupUnitsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add the rooms or apartments'**
+  String get setupUnitsTitle;
+
+  /// No description provided for @setupUnitsHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Open the property and add each unit you rent out.'**
+  String get setupUnitsHelp;
+
+  /// No description provided for @setupTenantTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a tenant'**
+  String get setupTenantTitle;
+
+  /// No description provided for @setupTenantHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Name and phone number; they get receipts by SMS or Telegram.'**
+  String get setupTenantHelp;
+
+  /// No description provided for @setupLeaseTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a lease'**
+  String get setupLeaseTitle;
+
+  /// No description provided for @setupLeaseHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Open a property and tap a vacant unit to add the lease. Rent is then charged every month.'**
+  String get setupLeaseHelp;
+
+  /// No description provided for @setupPaymentTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Log a payment'**
+  String get setupPaymentTitle;
+
+  /// No description provided for @setupPaymentHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'From the Rent tab, or paste a Telebirr or bank SMS. The tenant gets a receipt.'**
+  String get setupPaymentHelp;
+
+  /// No description provided for @setupTenantPageTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Send a tenant their page'**
+  String get setupTenantPageTitle;
+
+  /// No description provided for @setupTenantPageHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Open a lease and send the tenant page: balance, receipts and repairs, no app needed.'**
+  String get setupTenantPageHelp;
+
+  /// No description provided for @setupTelegramTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Connect Telegram'**
+  String get setupTelegramTitle;
+
+  /// No description provided for @setupTelegramHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Get repair and payment alerts on Telegram for free.'**
+  String get setupTelegramHelp;
+
+  /// No description provided for @setupCaretakerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Invite a caretaker'**
+  String get setupCaretakerTitle;
+
+  /// No description provided for @setupCaretakerHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Someone on site who logs payments and handles repairs.'**
+  String get setupCaretakerHelp;
 }
 
 class _AppLocalizationsDelegate
