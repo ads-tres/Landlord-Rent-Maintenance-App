@@ -2015,4 +2015,38 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get reportRefunded => 'የተመለሰ ኪራይ';
+
+  @override
+  String get messages => 'መልዕክቶች';
+
+  @override
+  String get rentReminders => 'የኪራይ ማስታወሻዎች';
+
+  @override
+  String get rentRemindersHelp =>
+      'ከሚከፈልበት ቀን በፊትና በዕለቱ የሚላኩ ማስታወሻዎች። ደረሰኞችና ማሳሰቢያዎች ሁልጊዜ ይላካሉ።';
+
+  @override
+  String get quietHoursNote =>
+      'ከምሽቱ 3 ሰዓት እስከ ጠዋቱ 1 ሰዓት ምንም አይላክም፤ እነዚያ መልዕክቶች ጠዋት 1 ሰዓት ይላካሉ።';
+
+  @override
+  String get noMessages => 'እስካሁን የተላከ መልዕክት የለም።';
+
+  @override
+  String get messageSent => 'ተልኳል';
+
+  @override
+  String get messageFailed => 'አልተላከም';
+
+  @override
+  String get messageQueued => 'በመላክ ላይ';
+
+  @override
+  String messageScheduled(String time) {
+    return 'በ$time';
+  }
+
+  @override
+  String get remindersOff => 'ማስታወሻ ጠፍቷል';
 }

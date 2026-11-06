@@ -2051,4 +2051,38 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get reportRefunded => 'Rent refunded';
+
+  @override
+  String get messages => 'Messages';
+
+  @override
+  String get rentReminders => 'Rent reminders';
+
+  @override
+  String get rentRemindersHelp =>
+      'Reminders before and on the due day. Receipts and notices are always sent.';
+
+  @override
+  String get quietHoursNote =>
+      'Nothing is sent between 9 pm and 7 am; those messages go out at 7 am.';
+
+  @override
+  String get noMessages => 'No messages sent yet.';
+
+  @override
+  String get messageSent => 'Sent';
+
+  @override
+  String get messageFailed => 'Failed';
+
+  @override
+  String get messageQueued => 'Sending';
+
+  @override
+  String messageScheduled(String time) {
+    return 'At $time';
+  }
+
+  @override
+  String get remindersOff => 'Reminders off';
 }

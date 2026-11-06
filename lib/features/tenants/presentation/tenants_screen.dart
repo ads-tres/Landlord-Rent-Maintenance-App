@@ -70,6 +70,8 @@ class TenantsScreen extends ConsumerWidget {
               itemBuilder: (context, i) {
                 final t = items[i];
                 return ListTile(
+                  key: Key('tenant-${t.id}'),
+                  onTap: () => context.push('/tenants/${t.id}/messages'),
                   leading: CircleAvatar(
                     child: Text(t.fullName.characters.first),
                   ),
@@ -77,6 +79,14 @@ class TenantsScreen extends ConsumerWidget {
                   subtitle: Row(
                     children: [
                       Text(formatEthiopianPhone(t.phone)),
+                      if (t.remindersOptOut) ...[
+                        const SizedBox(width: 6),
+                        Icon(
+                          Icons.notifications_off_outlined,
+                          size: 16,
+                          semanticLabel: l10n.remindersOff,
+                        ),
+                      ],
                       if (t.telegramLinked) ...[
                         const SizedBox(width: 6),
                         Icon(

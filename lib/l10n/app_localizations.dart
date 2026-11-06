@@ -3613,6 +3613,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Rent refunded'**
   String get reportRefunded;
+
+  /// No description provided for @messages.
+  ///
+  /// In en, this message translates to:
+  /// **'Messages'**
+  String get messages;
+
+  /// No description provided for @rentReminders.
+  ///
+  /// In en, this message translates to:
+  /// **'Rent reminders'**
+  String get rentReminders;
+
+  /// No description provided for @rentRemindersHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminders before and on the due day. Receipts and notices are always sent.'**
+  String get rentRemindersHelp;
+
+  /// No description provided for @quietHoursNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing is sent between 9 pm and 7 am; those messages go out at 7 am.'**
+  String get quietHoursNote;
+
+  /// No description provided for @noMessages.
+  ///
+  /// In en, this message translates to:
+  /// **'No messages sent yet.'**
+  String get noMessages;
+
+  /// No description provided for @messageSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Sent'**
+  String get messageSent;
+
+  /// No description provided for @messageFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed'**
+  String get messageFailed;
+
+  /// No description provided for @messageQueued.
+  ///
+  /// In en, this message translates to:
+  /// **'Sending'**
+  String get messageQueued;
+
+  /// No description provided for @messageScheduled.
+  ///
+  /// In en, this message translates to:
+  /// **'At {time}'**
+  String messageScheduled(String time);
+
+  /// No description provided for @remindersOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminders off'**
+  String get remindersOff;
 }
 
 class _AppLocalizationsDelegate

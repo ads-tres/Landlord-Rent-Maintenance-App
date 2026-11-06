@@ -585,5 +585,15 @@
   "addressHint": "ለምሳሌ ቦሌ፣ ወረዳ 03፣ የቤት ቁጥር 55",
   "missingLandlordIdNumber": "የእርስዎ መታወቂያ ቁጥር (ቅንብሮች)",
   "prepaidRent": "አስቀድሞ የተከፈለ ኪራይ (ከመልቀቂያ በኋላ)",
-  "reportRefunded": "የተመለሰ ኪራይ"
+  "reportRefunded": "የተመለሰ ኪራይ",
+  "messages": "መልዕክቶች",
+  "rentReminders": "የኪራይ ማስታወሻዎች",
+  "rentRemindersHelp": "ከሚከፈልበት ቀን በፊትና በዕለቱ የሚላኩ ማስታወሻዎች። ደረሰኞችና ማሳሰቢያዎች ሁልጊዜ ይላካሉ።",
+  "quietHoursNote": "ከምሽቱ 3 ሰዓት እስከ ጠዋቱ 1 ሰዓት ምንም አይላክም፤ እነዚያ መልዕክቶች ጠዋት 1 ሰዓት ይላካሉ።",
+  "noMessages": "እስካሁን የተላከ መልዕክት የለም።",
+  "messageSent": "ተልኳል",
+  "messageFailed": "አልተላከም",
+  "messageQueued": "በመላክ ላይ",
+  "messageScheduled": "በ{time}",
+  "remindersOff": "ማስታወሻ ጠፍቷል"
 }
