@@ -1885,4 +1885,47 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get smsNoLeases => 'No active leases.';
+
+  @override
+  String get statement => 'Statement of account';
+
+  @override
+  String get wholeLease => 'Whole lease';
+
+  @override
+  String get thisYear => 'This year';
+
+  @override
+  String get last3Months => 'Last 3 months';
+
+  @override
+  String get customRange => 'Choose dates';
+
+  @override
+  String get openingBalance => 'Brought forward';
+
+  @override
+  String get totalCharged => 'Charged';
+
+  @override
+  String get totalPaid => 'Paid';
+
+  @override
+  String get closingBalance => 'Balance';
+
+  @override
+  String balanceOwed(String amount) {
+    return '$amount owed';
+  }
+
+  @override
+  String balanceAhead(String amount) {
+    return '$amount paid ahead';
+  }
+
+  @override
+  String get statementEmpty => 'Nothing charged or paid in this period.';
+
+  @override
+  String get shareStatementPdf => 'Share statement (PDF)';
 }

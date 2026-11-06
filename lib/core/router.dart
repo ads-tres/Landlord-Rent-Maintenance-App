@@ -22,6 +22,7 @@ import '../features/home/settings_screen.dart';
 import '../features/leases/presentation/add_lease_screen.dart';
 import '../features/leases/presentation/lease_detail_screen.dart';
 import '../features/leases/presentation/leases_ending_screen.dart';
+import '../features/leases/presentation/statement_screen.dart';
 import '../features/payments/domain/payment_sms.dart';
 import '../features/payments/presentation/log_payment_screen.dart';
 import '../features/properties/presentation/properties_screen.dart';
@@ -100,6 +101,15 @@ final routerProvider = Provider<GoRouter>((ref) {
         parentNavigatorKey: _rootNavigatorKey,
         builder: (_, state) =>
             LeaseDetailScreen(leaseId: int.parse(state.pathParameters['id']!)),
+        routes: [
+          GoRoute(
+            path: 'statement',
+            parentNavigatorKey: _rootNavigatorKey,
+            builder: (_, state) => StatementScreen(
+              leaseId: int.parse(state.pathParameters['id']!),
+            ),
+          ),
+        ],
       ),
       GoRoute(
         path: '/payments/new',

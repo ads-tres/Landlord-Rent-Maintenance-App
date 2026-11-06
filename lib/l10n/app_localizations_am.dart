@@ -1857,4 +1857,47 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get smsNoLeases => 'ንቁ ውል የለም።';
+
+  @override
+  String get statement => 'የሂሳብ መግለጫ';
+
+  @override
+  String get wholeLease => 'ሙሉ ውሉ';
+
+  @override
+  String get thisYear => 'ይህ ዓመት';
+
+  @override
+  String get last3Months => 'ያለፉት 3 ወራት';
+
+  @override
+  String get customRange => 'ቀን ይምረጡ';
+
+  @override
+  String get openingBalance => 'ከቀድሞ የዞረ';
+
+  @override
+  String get totalCharged => 'የተጠየቀ';
+
+  @override
+  String get totalPaid => 'የተከፈለ';
+
+  @override
+  String get closingBalance => 'ሂሳብ';
+
+  @override
+  String balanceOwed(String amount) {
+    return '$amount ዕዳ';
+  }
+
+  @override
+  String balanceAhead(String amount) {
+    return '$amount በቅድሚያ የተከፈለ';
+  }
+
+  @override
+  String get statementEmpty => 'በዚህ ጊዜ የተጠየቀም የተከፈለም የለም።';
+
+  @override
+  String get shareStatementPdf => 'መግለጫውን ያጋሩ (PDF)';
 }
