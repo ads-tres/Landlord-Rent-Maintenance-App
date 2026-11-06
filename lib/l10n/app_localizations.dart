@@ -3319,6 +3319,84 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No active leases.'**
   String get smsNoLeases;
+
+  /// No description provided for @statement.
+  ///
+  /// In en, this message translates to:
+  /// **'Statement of account'**
+  String get statement;
+
+  /// No description provided for @wholeLease.
+  ///
+  /// In en, this message translates to:
+  /// **'Whole lease'**
+  String get wholeLease;
+
+  /// No description provided for @thisYear.
+  ///
+  /// In en, this message translates to:
+  /// **'This year'**
+  String get thisYear;
+
+  /// No description provided for @last3Months.
+  ///
+  /// In en, this message translates to:
+  /// **'Last 3 months'**
+  String get last3Months;
+
+  /// No description provided for @customRange.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose dates'**
+  String get customRange;
+
+  /// No description provided for @openingBalance.
+  ///
+  /// In en, this message translates to:
+  /// **'Brought forward'**
+  String get openingBalance;
+
+  /// No description provided for @totalCharged.
+  ///
+  /// In en, this message translates to:
+  /// **'Charged'**
+  String get totalCharged;
+
+  /// No description provided for @totalPaid.
+  ///
+  /// In en, this message translates to:
+  /// **'Paid'**
+  String get totalPaid;
+
+  /// No description provided for @closingBalance.
+  ///
+  /// In en, this message translates to:
+  /// **'Balance'**
+  String get closingBalance;
+
+  /// No description provided for @balanceOwed.
+  ///
+  /// In en, this message translates to:
+  /// **'{amount} owed'**
+  String balanceOwed(String amount);
+
+  /// No description provided for @balanceAhead.
+  ///
+  /// In en, this message translates to:
+  /// **'{amount} paid ahead'**
+  String balanceAhead(String amount);
+
+  /// No description provided for @statementEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing charged or paid in this period.'**
+  String get statementEmpty;
+
+  /// No description provided for @shareStatementPdf.
+  ///
+  /// In en, this message translates to:
+  /// **'Share statement (PDF)'**
+  String get shareStatementPdf;
 }
 
 class _AppLocalizationsDelegate

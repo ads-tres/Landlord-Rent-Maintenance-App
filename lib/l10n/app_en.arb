@@ -915,5 +915,20 @@
   "@smsOtherPayer": {"placeholders": {"payer": {"type": "String"}, "tenant": {"type": "String"}}},
   "smsPickLease": "Which tenant is this payment from?",
   "smsLikely": "Likely",
-  "smsNoLeases": "No active leases."
+  "smsNoLeases": "No active leases.",
+  "statement": "Statement of account",
+  "wholeLease": "Whole lease",
+  "thisYear": "This year",
+  "last3Months": "Last 3 months",
+  "customRange": "Choose dates",
+  "openingBalance": "Brought forward",
+  "totalCharged": "Charged",
+  "totalPaid": "Paid",
+  "closingBalance": "Balance",
+  "balanceOwed": "{amount} owed",
+  "@balanceOwed": {"placeholders": {"amount": {"type": "String"}}},
+  "balanceAhead": "{amount} paid ahead",
+  "@balanceAhead": {"placeholders": {"amount": {"type": "String"}}},
+  "statementEmpty": "Nothing charged or paid in this period.",
+  "shareStatementPdf": "Share statement (PDF)"
 }

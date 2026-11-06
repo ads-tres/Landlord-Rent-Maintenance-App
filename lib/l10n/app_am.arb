@@ -536,5 +536,18 @@
   "smsOtherPayer": "ይህ መልዕክት ከ{tenant} ሳይሆን ከ{payer} የመጣ ይመስላል። ከማስቀመጥዎ በፊት ያረጋግጡ።",
   "smsPickLease": "ይህ ክፍያ ከየትኛው ተከራይ ነው?",
   "smsLikely": "ሊሆን ይችላል",
-  "smsNoLeases": "ንቁ ውል የለም።"
+  "smsNoLeases": "ንቁ ውል የለም።",
+  "statement": "የሂሳብ መግለጫ",
+  "wholeLease": "ሙሉ ውሉ",
+  "thisYear": "ይህ ዓመት",
+  "last3Months": "ያለፉት 3 ወራት",
+  "customRange": "ቀን ይምረጡ",
+  "openingBalance": "ከቀድሞ የዞረ",
+  "totalCharged": "የተጠየቀ",
+  "totalPaid": "የተከፈለ",
+  "closingBalance": "ሂሳብ",
+  "balanceOwed": "{amount} ዕዳ",
+  "balanceAhead": "{amount} በቅድሚያ የተከፈለ",
+  "statementEmpty": "በዚህ ጊዜ የተጠየቀም የተከፈለም የለም።",
+  "shareStatementPdf": "መግለጫውን ያጋሩ (PDF)"
 }

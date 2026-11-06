@@ -69,6 +69,12 @@ class LeaseDetailScreen extends ConsumerWidget {
       appBar: AppBar(
         title: Text(l10n.leaseTitle),
         actions: [
+          IconButton(
+            key: const Key('openStatement'),
+            tooltip: l10n.statement,
+            icon: const Icon(Icons.receipt_long_outlined),
+            onPressed: () => context.push('/leases/$leaseId/statement'),
+          ),
           if (lease.value?.isActive ?? false)
             PopupMenuButton<String>(
               onSelected: (action) async {

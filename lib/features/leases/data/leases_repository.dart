@@ -10,6 +10,7 @@ import '../domain/charge.dart';
 import '../domain/lease.dart';
 import '../domain/renewal.dart';
 import '../domain/rent_rules.dart';
+import '../domain/statement.dart';
 
 /// Amounts are sent and received in santim.
 class LeasesRepository {
@@ -76,6 +77,45 @@ class LeasesRepository {
     return (data['data'] as List<dynamic>)
         .map((l) => Lease.fromJson(l as Map<String, dynamic>))
         .toList();
+  }
+
+  /// Statement of account; without dates, the whole lease up to today.
+  Future<LeaseStatementData> statement(
+    int leaseId, {
+    DateTime? from,
+    DateTime? to,
+  }) async {
+    final data = await _api.get(
+      '/leases/$leaseId/statement',
+      query: {
+        if (from != null) 'from': ymd(from),
+        if (to != null) 'to': ymd(to),
+      },
+    ) as Map<String, dynamic>;
+    return LeaseStatementData.fromJson(data['data'] as Map<String, dynamic>);
+  }
+
+  Future<String> downloadStatement(
+    int leaseId, {
+    required DateTime from,
+    required DateTime to,
+    required String language,
+  }) async {
+    final bytes = await _api.getBytes(
+      '/leases/$leaseId/statement',
+      query: {
+        'from': ymd(from),
+        'to': ymd(to),
+        'language': language,
+        'format': 'pdf',
+      },
+    );
+    final dir = await getTemporaryDirectory();
+    final file = File(
+      '${dir.path}/statement-$leaseId-${ymd(from)}-${ymd(to)}.pdf',
+    );
+    await file.writeAsBytes(bytes, flush: true);
+    return file.path;
   }
 
   /// All active leases (with tenant name and phone), e.g. to match a payment SMS.
