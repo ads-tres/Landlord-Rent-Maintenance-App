@@ -599,5 +599,15 @@
   "annualSummary": "የዓመት ማጠቃለያ",
   "averageOccupancy": "አማካይ የተከራዩ ክፍሎች",
   "occupancyShort": "{percent}% ተከራይቷል",
-  "wholeYear": "ዓመት"
+  "wholeYear": "ዓመት",
+  "downloadMyData": "መረጃዬን አውርድ",
+  "downloadMyDataHelp": "በመተግበሪያው ያለውን ሁሉ እንደ ሰንጠረዥ ፋይሎች (ZIP)።",
+  "preparingData": "መረጃዎ እየተዘጋጀ ነው…",
+  "deleteAccount": "አካውንቱን ሰርዝ",
+  "deleteAccountHelp": "አካውንትዎንና መረጃዎን በሙሉ ከ30 ቀናት በኋላ ያጠፋል።",
+  "deleteAccountWarning": "ንብረቶችዎ፣ ተከራዮችዎ፣ ውሎችዎ፣ ክፍያዎችዎ፣ ፎቶዎችዎና ጠባቂዎችዎ ከዛሬ ጀምሮ በ30 ቀናት ውስጥ ይሰረዛሉ። እስከዚያ ሐሳብዎን መቀየር ይችላሉ። ቅጂ ከፈለጉ መጀመሪያ መረጃዎን ያውርዱ።",
+  "deleteAccountConfirm": "በ30 ቀናት ውስጥ ሰርዝ",
+  "typeYourPhone": "ለማረጋገጥ ስልክ ቁጥርዎን ያስገቡ",
+  "deletionScheduled": "አካውንትዎ {date} ይሰረዛል።",
+  "keepAccount": "አካውንቱን አቆይ"
 }

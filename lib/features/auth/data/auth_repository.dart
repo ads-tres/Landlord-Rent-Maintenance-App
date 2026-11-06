@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:path_provider/path_provider.dart';
 
 import '../../../core/api/api_client.dart';
 import '../domain/app_user.dart';
@@ -82,6 +85,29 @@ class AuthRepository {
   }
 
   Future<void> telegramUnlink() => _api.delete('/telegram/link');
+
+  /// All the landlord's data as a ZIP of CSV files, saved for sharing.
+  Future<String> exportData() async {
+    final bytes = await _api.getBytes('/account/export');
+    final dir = await getTemporaryDirectory();
+    final file = File('${dir.path}/my-data.zip');
+    await file.writeAsBytes(bytes, flush: true);
+    return file.path;
+  }
+
+  /// Deletes the account after 30 days unless cancelled; [phone] confirms it.
+  Future<AppUser> requestDeletion(String phone) async {
+    final data = await _api.post(
+      '/account/deletion',
+      data: {'phone': phone},
+    ) as Map<String, dynamic>;
+    return AppUser.fromJson(data['data'] as Map<String, dynamic>);
+  }
+
+  Future<AppUser> cancelDeletion() async {
+    final data = await _api.delete('/account/deletion') as Map<String, dynamic>;
+    return AppUser.fromJson(data['data'] as Map<String, dynamic>);
+  }
 
   /// Registers this phone for push notifications.
   Future<void> registerDevice(String token) =>
