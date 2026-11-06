@@ -2085,4 +2085,18 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get remindersOff => 'Reminders off';
+
+  @override
+  String get annualSummary => 'Annual summary';
+
+  @override
+  String get averageOccupancy => 'Average occupancy';
+
+  @override
+  String occupancyShort(int percent) {
+    return '$percent% let';
+  }
+
+  @override
+  String get wholeYear => 'Year';
 }

@@ -27,6 +27,7 @@ import '../features/leases/presentation/statement_screen.dart';
 import '../features/payments/domain/payment_sms.dart';
 import '../features/payments/presentation/log_payment_screen.dart';
 import '../features/properties/presentation/properties_screen.dart';
+import '../features/reports/presentation/annual_report_screen.dart';
 import '../features/reports/presentation/quarterly_report_screen.dart';
 import '../features/repairs/presentation/add_repair_screen.dart';
 import '../features/repairs/presentation/repair_detail_screen.dart';
@@ -153,6 +154,11 @@ final routerProvider = Provider<GoRouter>((ref) {
         builder: (_, state) => RepairDetailScreen(
           repairId: int.parse(state.pathParameters['id']!),
         ),
+      ),
+      GoRoute(
+        path: '/reports/annual',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (_, _) => const AnnualReportScreen(),
       ),
       GoRoute(
         path: '/reports/quarterly',

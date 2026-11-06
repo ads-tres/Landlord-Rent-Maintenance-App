@@ -595,5 +595,9 @@
   "messageFailed": "አልተላከም",
   "messageQueued": "በመላክ ላይ",
   "messageScheduled": "በ{time}",
-  "remindersOff": "ማስታወሻ ጠፍቷል"
+  "remindersOff": "ማስታወሻ ጠፍቷል",
+  "annualSummary": "የዓመት ማጠቃለያ",
+  "averageOccupancy": "አማካይ የተከራዩ ክፍሎች",
+  "occupancyShort": "{percent}% ተከራይቷል",
+  "wholeYear": "ዓመት"
 }

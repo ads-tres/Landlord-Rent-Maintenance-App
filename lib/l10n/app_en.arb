@@ -978,5 +978,10 @@
   "messageQueued": "Sending",
   "messageScheduled": "At {time}",
   "@messageScheduled": {"placeholders": {"time": {"type": "String"}}},
-  "remindersOff": "Reminders off"
+  "remindersOff": "Reminders off",
+  "annualSummary": "Annual summary",
+  "averageOccupancy": "Average occupancy",
+  "occupancyShort": "{percent}% let",
+  "@occupancyShort": {"placeholders": {"percent": {"type": "int"}}},
+  "wholeYear": "Year"
 }

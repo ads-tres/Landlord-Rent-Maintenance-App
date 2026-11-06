@@ -3673,6 +3673,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Reminders off'**
   String get remindersOff;
+
+  /// No description provided for @annualSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'Annual summary'**
+  String get annualSummary;
+
+  /// No description provided for @averageOccupancy.
+  ///
+  /// In en, this message translates to:
+  /// **'Average occupancy'**
+  String get averageOccupancy;
+
+  /// No description provided for @occupancyShort.
+  ///
+  /// In en, this message translates to:
+  /// **'{percent}% let'**
+  String occupancyShort(int percent);
+
+  /// No description provided for @wholeYear.
+  ///
+  /// In en, this message translates to:
+  /// **'Year'**
+  String get wholeYear;
 }
 
 class _AppLocalizationsDelegate
