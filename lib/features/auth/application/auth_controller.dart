@@ -1,3 +1,5 @@
+import '../../../core/push/push_service.dart';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/api/api_exception.dart';
@@ -47,6 +49,7 @@ class AuthController extends AsyncNotifier<AppUser?> {
     String? locale,
     String? calendarPref,
     bool? smsReminders,
+    bool? pushEnabled,
   }) async {
     final user = await ref
         .read(authRepositoryProvider)
@@ -55,6 +58,7 @@ class AuthController extends AsyncNotifier<AppUser?> {
           locale: locale,
           calendarPref: calendarPref,
           smsReminders: smsReminders,
+          pushEnabled: pushEnabled,
         );
     state = AsyncData(user);
   }
@@ -69,6 +73,16 @@ class AuthController extends AsyncNotifier<AppUser?> {
   }
 
   Future<void> logout() async {
+    // Stop this phone getting the account's alerts before the token is revoked.
+    final push = ref.read(pushServiceProvider);
+    try {
+      final token = await push.token();
+      if (token != null) {
+        await ref.read(authRepositoryProvider).unregisterDevice(token);
+      }
+    } catch (_) {
+      // Best effort: the server also drops tokens Firebase reports as gone.
+    }
     try {
       await ref.read(authRepositoryProvider).logout();
     } on ApiException {

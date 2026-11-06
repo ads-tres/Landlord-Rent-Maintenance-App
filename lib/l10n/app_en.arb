@@ -835,5 +835,8 @@
   "leasesEndingEmpty": "No leases end in the next 60 days.",
   "aboveYearlyLimit": "Above the yearly limit.",
   "reportShareExcel": "Share Excel for accountant",
-  "reportShareExcelHelp": "Every payment and expense, a rent roll and a summary, in a spreadsheet."
+  "reportShareExcelHelp": "Every payment and expense, a rent roll and a summary, in a spreadsheet.",
+  "pushNotifications": "Notifications",
+  "pushNotificationsHelp": "New repairs, payments and lease reminders on this phone",
+  "open": "Open"
 }

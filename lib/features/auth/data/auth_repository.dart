@@ -56,6 +56,7 @@ class AuthRepository {
     String? locale,
     String? calendarPref,
     bool? smsReminders,
+    bool? pushEnabled,
   }) async {
     final data = await _api.patch(
       '/auth/me',
@@ -64,6 +65,7 @@ class AuthRepository {
         'locale': ?locale,
         'calendar_pref': ?calendarPref,
         'sms_reminders': ?smsReminders,
+        'push_enabled': ?pushEnabled,
       },
     ) as Map<String, dynamic>;
     return AppUser.fromJson(data['data'] as Map<String, dynamic>);
@@ -76,6 +78,14 @@ class AuthRepository {
   }
 
   Future<void> telegramUnlink() => _api.delete('/telegram/link');
+
+  /// Registers this phone for push notifications.
+  Future<void> registerDevice(String token) =>
+      _api.post('/devices', data: {'token': token, 'platform': 'android'});
+
+  /// Stops push notifications for this account on this phone.
+  Future<void> unregisterDevice(String token) =>
+      _api.delete('/devices', data: {'token': token});
 
   Future<void> logout() async {
     await _api.post('/auth/logout');

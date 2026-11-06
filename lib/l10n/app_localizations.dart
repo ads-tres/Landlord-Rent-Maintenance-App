@@ -2905,6 +2905,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Every payment and expense, a rent roll and a summary, in a spreadsheet.'**
   String get reportShareExcelHelp;
+
+  /// No description provided for @pushNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get pushNotifications;
+
+  /// No description provided for @pushNotificationsHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'New repairs, payments and lease reminders on this phone'**
+  String get pushNotificationsHelp;
+
+  /// No description provided for @open.
+  ///
+  /// In en, this message translates to:
+  /// **'Open'**
+  String get open;
 }
 
 class _AppLocalizationsDelegate

@@ -1639,4 +1639,14 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get reportShareExcelHelp =>
       'Every payment and expense, a rent roll and a summary, in a spreadsheet.';
+
+  @override
+  String get pushNotifications => 'Notifications';
+
+  @override
+  String get pushNotificationsHelp =>
+      'New repairs, payments and lease reminders on this phone';
+
+  @override
+  String get open => 'Open';
 }
