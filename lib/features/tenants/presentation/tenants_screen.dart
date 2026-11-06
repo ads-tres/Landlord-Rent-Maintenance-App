@@ -71,7 +71,7 @@ class TenantsScreen extends ConsumerWidget {
                 final t = items[i];
                 return ListTile(
                   key: Key('tenant-${t.id}'),
-                  onTap: () => context.push('/tenants/${t.id}/messages'),
+                  onTap: () => context.push('/tenants/${t.id}/record'),
                   leading: CircleAvatar(
                     child: Text(t.fullName.characters.first),
                   ),
