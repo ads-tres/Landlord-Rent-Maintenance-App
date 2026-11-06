@@ -2189,4 +2189,147 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get rentChangeCancelled => 'የኪራይ ለውጡ ተሰርዟል';
+
+  @override
+  String get unitHistory => 'የቤቱ ታሪክ';
+
+  @override
+  String get unitTimeline => 'የጊዜ ሰሌዳ';
+
+  @override
+  String unitThisYear(int year) {
+    return 'በዚህ ዓመት ($year)';
+  }
+
+  @override
+  String get occupancy => 'የተያዘበት መጠን';
+
+  @override
+  String get daysEmpty => 'ባዶ የነበረባቸው ቀናት';
+
+  @override
+  String get rentLostToVacancy => 'ባዶ ሆኖ የቀረ ኪራይ';
+
+  @override
+  String get repairCosts => 'የጥገና ወጪ';
+
+  @override
+  String get currentRentLabel => 'የአሁኑ ኪራይ';
+
+  @override
+  String get tenantsSoFar => 'እስካሁን የነበሩ ተከራዮች';
+
+  @override
+  String get averageStay => 'አማካይ የቆይታ ጊዜ';
+
+  @override
+  String monthsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ወራት',
+      one: '1 ወር',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get repairCostsAllTime => 'የጥገና ወጪ (በአጠቃላይ)';
+
+  @override
+  String trackedSince(String date) {
+    return 'ቤቱ ከተጨመረበት ከ$date ጀምሮ የተቆጠረ።';
+  }
+
+  @override
+  String get vacancyUnpricedHelp =>
+      'ከባዶ ጊዜው ከፊሉ የሚሰላበት ኪራይ የለውም፤ ቤቱ ተከራይቶ ወይም ማስታወቂያ ወጥቶለት አያውቅም።';
+
+  @override
+  String get vacancyUnpriced => 'የሚሰላበት ኪራይ የለም';
+
+  @override
+  String eventLeaseStarted(String tenant) {
+    return '$tenant ገቡ';
+  }
+
+  @override
+  String eventRent(String amount) {
+    return 'ኪራይ $amount';
+  }
+
+  @override
+  String eventLeaseEnded(String tenant) {
+    return '$tenant ለቀቁ';
+  }
+
+  @override
+  String get eventEndedEarly => 'ቀደም ብሎ አብቅቷል';
+
+  @override
+  String eventRentChanged(String from, String to) {
+    return 'ኪራይ $from → $to';
+  }
+
+  @override
+  String eventEmptySince(int days) {
+    return 'እስካሁን ለ$days ቀናት ባዶ';
+  }
+
+  @override
+  String eventEmptyFor(int days) {
+    return 'ለ$days ቀናት ባዶ';
+  }
+
+  @override
+  String eventUntil(String date) {
+    return 'እስከ $date';
+  }
+
+  @override
+  String eventLost(String amount) {
+    return '$amount ቀርቷል';
+  }
+
+  @override
+  String get vacancyTitle => 'ባዶ ቤቶች';
+
+  @override
+  String daysEmptyCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ቀናት ባዶ',
+      one: '1 ቀን ባዶ',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String occupancyValue(String percent) {
+    return '$percent% ተይዟል';
+  }
+
+  @override
+  String get vacancyHowCounted =>
+      'የቀረ ኪራይ = ባዶ ቀናት × የወር ኪራይ ÷ 30፤ የቀጣዩን ተከራይ፣ የቀደመውን ተከራይ ወይም የማስታወቂያውን ኪራይ በመጠቀም።';
+
+  @override
+  String vacancyUnpricedUnits(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ቤቶች ተከራይተው ወይም ማስታወቂያ ወጥቶላቸው ስለማያውቁ አልተሰሉም።',
+      one: '1 ቤት ተከራይቶ ወይም ማስታወቂያ ወጥቶለት ስለማያውቅ አልተሰላም።',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String emptySinceDate(String date) {
+    return 'ከ$date ጀምሮ ባዶ';
+  }
+
+  @override
+  String get dashboardVacancyLost => 'በዚህ ዓመት በባዶ ቤቶች የቀረ ኪራይ';
 }
