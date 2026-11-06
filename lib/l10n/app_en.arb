@@ -966,5 +966,6 @@
   "addressLabel": "Your address",
   "addressHint": "e.g. Bole, Woreda 03, house 55",
   "missingLandlordIdNumber": "your ID number (Settings)",
-  "prepaidRent": "Rent paid ahead (after move-out)"
+  "prepaidRent": "Rent paid ahead (after move-out)",
+  "reportRefunded": "Rent refunded"
 }

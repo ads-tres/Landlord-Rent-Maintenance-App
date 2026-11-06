@@ -2048,4 +2048,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get prepaidRent => 'Rent paid ahead (after move-out)';
+
+  @override
+  String get reportRefunded => 'Rent refunded';
 }

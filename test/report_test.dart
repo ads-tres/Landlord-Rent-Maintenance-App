@@ -119,4 +119,26 @@ void main() {
     expect(find.text('No rent received in this quarter.'), findsOneWidget);
     expect(find.text('No expenses recorded'), findsOneWidget);
   });
+
+  test('net subtracts refunds and expenses', () {
+    final r = QuarterlyReport.fromJson({
+      ...{
+        'year': 2026,
+        'quarter': 4,
+        'calendar': 'gregorian',
+        'label': 'Q4 2026',
+        'from_display': '',
+        'to_display': '',
+        'total': 4000000,
+        'payments_count': 2,
+        'by_month': [],
+        'by_property': [],
+        'by_method': [],
+      },
+      'refunded': 2000000,
+      'expenses_total': 500000,
+    });
+    expect(r.refunded, 2000000);
+    expect(r.net, 1500000);
+  });
 }

@@ -3607,6 +3607,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Rent paid ahead (after move-out)'**
   String get prepaidRent;
+
+  /// No description provided for @reportRefunded.
+  ///
+  /// In en, this message translates to:
+  /// **'Rent refunded'**
+  String get reportRefunded;
 }
 
 class _AppLocalizationsDelegate

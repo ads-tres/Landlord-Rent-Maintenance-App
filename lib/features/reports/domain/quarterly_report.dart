@@ -13,12 +13,13 @@ class QuarterlyReport {
     required this.byProperty,
     required this.byMethod,
     this.expensesTotal = 0,
+    this.refunded = 0,
     this.expensesCount = 0,
     this.expensesByCategory = const [],
   });
 
   /// Rent received minus expenses.
-  int get net => total - expensesTotal;
+  int get net => total - refunded - expensesTotal;
 
   factory QuarterlyReport.fromJson(Map<String, dynamic> j) => QuarterlyReport(
     year: j['year'] as int,
@@ -49,6 +50,7 @@ class QuarterlyReport {
         (method: m['method'] as String, total: m['total'] as int),
     ],
     expensesTotal: j['expenses_total'] as int? ?? 0,
+    refunded: j['refunded'] as int? ?? 0,
     expensesCount: j['expenses_count'] as int? ?? 0,
     expensesByCategory: [
       for (final c in j['expenses_by_category'] as List<dynamic>? ?? [])
@@ -71,6 +73,9 @@ class QuarterlyReport {
   byProperty;
   final List<({String method, int total})> byMethod;
   final int expensesTotal;
+
+  /// Rent given back in the quarter (e.g. paid ahead for after a move-out).
+  final int refunded;
   final int expensesCount;
   final List<({String category, int total})> expensesByCategory;
 }
