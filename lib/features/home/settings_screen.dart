@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -94,6 +95,19 @@ class SettingsScreen extends ConsumerWidget {
             value: user?.smsReminders ?? true,
             onChanged: (v) => sync(smsReminders: v),
           ),
+          if (user?.onlineRentAvailable ?? false)
+            ListTile(
+              key: const Key('onlineRentTile'),
+              leading: const Icon(Icons.account_balance_wallet_outlined),
+              title: Text(l10n.onlineRent),
+              subtitle: Text(
+                user!.onlineRentEnabled
+                    ? l10n.onlineRentOn
+                    : l10n.onlineRentHelp,
+              ),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => context.push('/settings/online-rent'),
+            ),
           if (user?.telegramAvailable ?? false)
             ListTile(
               key: const Key('telegramTile'),

@@ -64,6 +64,10 @@ properties, units, tenants, leases, rent and repairs. It talks only to the Larav
   - Applicants confirm their phone before they appear. Call, shortlist, reject or **Approve** them.
   - Approving creates the tenant and a draft lease. **Activate lease** (with the property condition) starts
     rent. All listings are under Properties → Listings.
+- **Online rent (Chapa)** (Settings, when the server has Chapa): add the payout bank account (bank list from
+  Chapa) and switch on. Leases then show a **Tenant pay link** to send or share; tenants pay with Telebirr,
+  CBE Birr or bank, and the payment appears on the lease marked **Online** once Chapa confirms it. Our fee and
+  Chapa's are taken before the money reaches the landlord's bank.
 - Money is handled in santim (integers) and shown as `Br 12,500`.
 - Settings shows the app version and, when configured, a **Send feedback** link to the pilot group.
 - Next: pilot with 10 landlords, including a test pass on low-end Android phones.
@@ -84,6 +88,7 @@ lib/
     repairs/     data · domain (Repair, UnitOption) · presentation (list, detail, add)
     compound/    shared meters and bills, equipment, announcements
     listings/    vacancy listings, applications
+    online_rent/ Chapa payout account and online rent switch
     reports/     quarterly income report + PDF sharing
   core/offline/  response cache (saved screens) and offline banner state
   features/payments/application/  pending (offline) payments queue

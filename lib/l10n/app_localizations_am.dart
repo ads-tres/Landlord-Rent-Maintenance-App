@@ -1186,4 +1186,65 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get addListingPhoto => 'ፎቶ ጨምር';
+
+  @override
+  String get onlineRent => 'የኦንላይን ኪራይ (ቻፓ)';
+
+  @override
+  String get onlineRentHelp =>
+      'ተከራዮች በቴሌብር፣ በሲቢኢ ብር ወይም በባንክ ይከፍላሉ፤ ገንዘቡ ወደ ባንክ ሂሳብዎ ይገባል።';
+
+  @override
+  String get onlineRentOn => 'በርቷል፦ ተከራዮች በኦንላይን መክፈል ይችላሉ';
+
+  @override
+  String get onlineRentOff => 'ጠፍቷል';
+
+  @override
+  String get payoutAccount => 'ክፍያ የሚቀበሉበት የባንክ ሂሳብ';
+
+  @override
+  String get bank => 'ባንክ';
+
+  @override
+  String get accountName => 'የሂሳብ ባለቤት ስም';
+
+  @override
+  String get accountNumber => 'የሂሳብ ቁጥር';
+
+  @override
+  String get saveAccount => 'የባንክ ሂሳቡን አስቀምጥ';
+
+  @override
+  String get accountActive => 'ንቁ';
+
+  @override
+  String get accountPending => 'እየተዘጋጀ ነው…';
+
+  @override
+  String get accountFailed => 'ቻፓ ይህን ሂሳብ ማዘጋጀት አልቻለም። ዝርዝሩን ያረጋግጡ።';
+
+  @override
+  String get acceptOnlineRent => 'የኦንላይን ኪራይ ተቀበል';
+
+  @override
+  String onlineRentFee(String fee) {
+    return 'ለእያንዳንዱ የኦንላይን ክፍያ፦ የእኛ ክፍያ $fee እና የቻፓ ክፍያ (1.5% ገደማ) ተቀንሶ ቀሪው ወደ ባንክዎ ይገባል።';
+  }
+
+  @override
+  String get payLink => 'የተከራይ የክፍያ ሊንክ';
+
+  @override
+  String get payLinkHelp =>
+      'ተከራዩ ኪራይን በኦንላይን እዚህ መክፈል ይችላል። በኪራይ ማሳሰቢያዎች ውስጥም ይካተታል።';
+
+  @override
+  String get sendPayLink => 'በኤስኤምኤስ ላክ';
+
+  @override
+  String get payLinkSent => 'የክፍያ ሊንኩ ለተከራዩ ተልኳል።';
+
+  @override
+  String get paidOnline => 'ኦንላይን';
 }

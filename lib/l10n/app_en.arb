@@ -684,5 +684,31 @@
       }
     }
   },
-  "addListingPhoto": "Add photo"
+  "addListingPhoto": "Add photo",
+  "onlineRent": "Online rent (Chapa)",
+  "onlineRentHelp": "Tenants pay with Telebirr, CBE Birr or bank; money goes to your bank account.",
+  "onlineRentOn": "On: tenants can pay online",
+  "onlineRentOff": "Off",
+  "payoutAccount": "Payout bank account",
+  "bank": "Bank",
+  "accountName": "Account holder name",
+  "accountNumber": "Account number",
+  "saveAccount": "Save bank account",
+  "accountActive": "Active",
+  "accountPending": "Setting up…",
+  "accountFailed": "Chapa could not set up this account. Check the details.",
+  "acceptOnlineRent": "Accept online rent",
+  "onlineRentFee": "Each online payment: our fee of {fee} and Chapa's fee (about 1.5%) are taken before the rest reaches your bank.",
+  "@onlineRentFee": {
+    "placeholders": {
+      "fee": {
+        "type": "String"
+      }
+    }
+  },
+  "payLink": "Tenant pay link",
+  "payLinkHelp": "The tenant can pay rent online here. It is also added to rent reminders.",
+  "sendPayLink": "Send by SMS",
+  "payLinkSent": "Pay link sent to the tenant.",
+  "paidOnline": "Online"
 }

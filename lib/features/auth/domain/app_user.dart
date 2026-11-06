@@ -8,6 +8,8 @@ class AppUser {
     this.smsReminders = true,
     this.telegramLinked = false,
     this.telegramAvailable = false,
+    this.onlineRentAvailable = false,
+    this.onlineRentEnabled = false,
   });
 
   factory AppUser.fromJson(Map<String, dynamic> json) => AppUser(
@@ -19,6 +21,8 @@ class AppUser {
     smsReminders: json['sms_reminders'] as bool? ?? true,
     telegramLinked: json['telegram_linked'] as bool? ?? false,
     telegramAvailable: json['telegram_available'] as bool? ?? false,
+    onlineRentAvailable: json['online_rent_available'] as bool? ?? false,
+    onlineRentEnabled: json['online_rent_enabled'] as bool? ?? false,
   );
 
   final int id;
@@ -31,4 +35,10 @@ class AppUser {
 
   /// The server has a Telegram bot configured.
   final bool telegramAvailable;
+
+  /// The server has Chapa set up.
+  final bool onlineRentAvailable;
+
+  /// This landlord accepts online rent (payout account active and switched on).
+  final bool onlineRentEnabled;
 }

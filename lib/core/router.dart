@@ -11,6 +11,7 @@ import '../features/compound/presentation/meter_detail_screen.dart';
 import '../features/compound/presentation/meters_screen.dart';
 import '../features/home/dashboard_screen.dart';
 import '../features/listings/presentation/listings_screens.dart';
+import '../features/online_rent/presentation/online_rent_screen.dart';
 import '../features/home/home_shell.dart';
 import '../features/home/settings_screen.dart';
 import '../features/leases/presentation/add_lease_screen.dart';
@@ -93,6 +94,13 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: '/settings',
         parentNavigatorKey: _rootNavigatorKey,
         builder: (_, _) => const SettingsScreen(),
+        routes: [
+          GoRoute(
+            path: 'online-rent',
+            parentNavigatorKey: _rootNavigatorKey,
+            builder: (_, _) => const OnlineRentScreen(),
+          ),
+        ],
       ),
       GoRoute(
         path: '/repairs/new',
