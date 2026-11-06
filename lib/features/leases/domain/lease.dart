@@ -65,6 +65,11 @@ class Lease {
     this.terminatedOn,
     this.conditionNotes,
     this.registeredAt,
+    this.registrationNumber,
+    this.registrationOffice,
+    this.extraTerms,
+    this.agreementBlanks = const [],
+    this.documentUrls = const [],
     this.daysUntilEnd,
     this.repairUrl,
     this.portalUrl,
@@ -103,6 +108,15 @@ class Lease {
       registeredAt: j['registered_at'] == null
           ? null
           : parseYmd(j['registered_at'] as String),
+      registrationNumber: j['registration_number'] as String?,
+      registrationOffice: j['registration_office'] as String?,
+      extraTerms: j['extra_terms'] as String?,
+      agreementBlanks: (j['agreement_blanks'] as List<dynamic>? ?? [])
+          .cast<String>(),
+      documentUrls: [
+        for (final d in j['documents'] as List<dynamic>? ?? [])
+          (d as Map<String, dynamic>)['url'] as String,
+      ],
       daysUntilEnd: j['days_until_end'] as int?,
       repairUrl: j['repair_url'] as String?,
       portalUrl: j['portal_url'] as String?,
@@ -142,6 +156,17 @@ class Lease {
   final LeaseStatus status;
   final String? conditionNotes;
   final DateTime? registeredAt;
+  final String? registrationNumber;
+  final String? registrationOffice;
+
+  /// Extra clauses printed in the lease agreement.
+  final String? extraTerms;
+
+  /// Details that will print as blank lines in the agreement.
+  final List<String> agreementBlanks;
+
+  /// Photos of the signed agreement.
+  final List<String> documentUrls;
   final int? daysUntilEnd;
   final String? repairUrl;
 

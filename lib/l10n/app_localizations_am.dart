@@ -1722,4 +1722,100 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get no => 'አይ';
+
+  @override
+  String get leaseAgreement => 'የኪራይ ውል';
+
+  @override
+  String registrationNo(String number) {
+    return 'ቁ. $number';
+  }
+
+  @override
+  String agreementBlanks(String fields) {
+    return 'በእጅ የሚሞሉ ባዶ ቦታዎች፦ $fields';
+  }
+
+  @override
+  String get missingTenantIdNumber => 'የተከራይ መታወቂያ ቁጥር';
+
+  @override
+  String get missingPropertyLocation => 'የንብረቱ አድራሻ';
+
+  @override
+  String get agreementPdf => 'የውል PDF';
+
+  @override
+  String get extraTerms => 'ተጨማሪ ቃሎች';
+
+  @override
+  String get editRegistration => 'ምዝገባውን አስተካክል';
+
+  @override
+  String get recordRegistration => 'ምዝገባ ይመዝግቡ';
+
+  @override
+  String get signedCopy => 'የተፈረመ ቅጂ';
+
+  @override
+  String get agreementLanguage => 'የውሉ ቋንቋ';
+
+  @override
+  String get agreementLanguageHelp =>
+      'ሁለቱም ሲመረጥ እንግሊዝኛው ከእያንዳንዱ የአማርኛ አንቀጽ በታች ይሆናል።';
+
+  @override
+  String get bothLanguages => 'አማርኛ እና እንግሊዝኛ';
+
+  @override
+  String get extraTermsHelp => 'በውሉ ውስጥ እንደ ራሱ አንቀጽ ይጨመራል፤ ለምሳሌ የቤት ደንቦች።';
+
+  @override
+  String get extraTermsHint =>
+      'ለምሳሌ የቤት እንስሳ አይፈቀድም። ከምሽቱ 4 ሰዓት በኋላ ጸጥታ። ቆሻሻ ማክሰኞ ይወጣል።';
+
+  @override
+  String get registrationDate => 'የተመዘገበበት ቀን';
+
+  @override
+  String get registrationNumber => 'የምዝገባ ቁጥር (ካለ)';
+
+  @override
+  String get registrationOffice => 'ጽ/ቤት (ካለ)';
+
+  @override
+  String get registrationOfficeHint => 'ለምሳሌ ቦሌ ወረዳ 03';
+
+  @override
+  String get clearRegistration => 'ምዝገባውን አስወግድ';
+
+  @override
+  String get leasesToRegister => 'የሚመዘገቡ ውሎች';
+
+  @override
+  String get leasesToRegisterEmpty => 'ሁሉም ንቁ ውሎች ተመዝግበዋል።';
+
+  @override
+  String startedOn(String date) {
+    return 'የጀመረው $date';
+  }
+
+  @override
+  String unregisteredBanner(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ውሎች ገና አልተመዘገቡም',
+      one: '1 ውል ገና አልተመዘገበም',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get unregisteredBannerHelp => 'ውሉን አትመው ይፈርሙ እና በወረዳ ያስመዝግቡ።';
+
+  @override
+  String registeredDate(String date) {
+    return '$date ተመዝግቧል';
+  }
 }

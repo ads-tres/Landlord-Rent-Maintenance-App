@@ -9,6 +9,7 @@ class DashboardSummary {
     required this.leasesEndingSoon,
     this.servicesDue = 0,
     this.expensesThisMonth = 0,
+    this.unregisteredLeases = 0,
     required this.properties,
     required this.units,
     required this.vacantUnits,
@@ -23,6 +24,7 @@ class DashboardSummary {
     leasesEndingSoon: j['leases_ending_soon'] as int,
     servicesDue: j['services_due'] as int? ?? 0,
     expensesThisMonth: j['expenses_this_month'] as int? ?? 0,
+    unregisteredLeases: j['unregistered_leases'] as int? ?? 0,
     properties: j['properties'] as int,
     units: j['units'] as int,
     vacantUnits: j['vacant_units'] as int,
@@ -40,6 +42,9 @@ class DashboardSummary {
 
   /// Money spent on properties this month, in santim.
   final int expensesThisMonth;
+
+  /// Active leases not yet registered with the woreda office.
+  final int unregisteredLeases;
   final int properties;
   final int units;
   final int vacantUnits;
