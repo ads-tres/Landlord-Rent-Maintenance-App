@@ -1625,4 +1625,101 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get open => 'ክፈት';
+
+  @override
+  String get arrears => 'ያለፈበት ኪራይ';
+
+  @override
+  String get arrearsEmpty => 'ኪራይ ያላለፈበት የለም።';
+
+  @override
+  String daysOverdue(int days) {
+    return '$days ቀናት አልፎታል';
+  }
+
+  @override
+  String monthsBehind(int count) {
+    return '$count ወር ቀሪ';
+  }
+
+  @override
+  String nextStep(String step) {
+    return 'ቀጣይ እርምጃ፦ $step';
+  }
+
+  @override
+  String get onPaymentPlan => 'በክፍያ ዕቅድ ላይ';
+
+  @override
+  String get arrearsCleared => 'ሁሉም ተከፍሏል';
+
+  @override
+  String get arrearsReminder => 'ወዳጃዊ ማስታወሻ';
+
+  @override
+  String get arrearsNotice => 'ጠንካራ ማሳሰቢያ';
+
+  @override
+  String get arrearsDemandLetter => 'የክፍያ ጥያቄ ደብዳቤ';
+
+  @override
+  String get arrearsPlan => 'የክፍያ ዕቅድ';
+
+  @override
+  String get arrearsNote => 'ማስታወሻ';
+
+  @override
+  String get arrearsReminderHelp =>
+      'መጠኑንና የተከራይ ገጻቸውን የያዘ ትሁት SMS፤ እንዲከፍሉ ወይም ደውለው ቀን እንዲወስኑ ይጠይቃል።';
+
+  @override
+  String get arrearsNoticeHelp =>
+      'በ7 ቀናት ውስጥ እንዲከፍሉ ወይም የክፍያ ዕቅድ እንዲስማሙ የሚጠይቅ SMS።';
+
+  @override
+  String get arrearsDemandLetterHelp =>
+      'እያንዳንዱን ያልተከፈለ ወር የሚዘረዝር የ15 ቀን ገደብ ያለው መደበኛ ደብዳቤ (PDF)፤ አትመው የሚያደርሱት።';
+
+  @override
+  String get arrearsSent => 'ለተከራዩ ተልኳል።';
+
+  @override
+  String get arrearsHistory => 'ታሪክ';
+
+  @override
+  String get arrearsNoHistory => 'እስካሁን ምንም አልተደረገም።';
+
+  @override
+  String get arrearsNoteHint => 'ለምሳሌ ደውዬ ነበር፣ ዓርብ ይከፍላሉ';
+
+  @override
+  String get send => 'ላክ';
+
+  @override
+  String get agreePlan => 'ዕቅዱን አጽድቅ';
+
+  @override
+  String planIntro(String amount) {
+    return '$amount በወርሃዊ ክፍያዎች ይከፋፈል። ተከራዩ ከእያንዳንዱ ክፍያ አንድ ቀን በፊት ማስታወሻ ይደርሳቸዋል።';
+  }
+
+  @override
+  String get instalments => 'የክፍያዎች ብዛት';
+
+  @override
+  String get firstInstalment => 'የመጀመሪያ ክፍያ';
+
+  @override
+  String planProgress(String paid, String total) {
+    return 'ዕቅድ፦ ከ$total $paid ተከፍሏል';
+  }
+
+  @override
+  String get cancelPlan => 'ዕቅዱን ሰርዝ';
+
+  @override
+  String get cancelPlanConfirm => 'ይህ የክፍያ ዕቅድ ይሰረዝ?';
+
+  @override
+  String get no => 'አይ';
 }
