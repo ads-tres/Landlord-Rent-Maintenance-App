@@ -4093,6 +4093,132 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Rent lost to empty units this year'**
   String get dashboardVacancyLost;
+
+  /// No description provided for @paymentRecord.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment record'**
+  String get paymentRecord;
+
+  /// No description provided for @ratingGood.
+  ///
+  /// In en, this message translates to:
+  /// **'Good payer'**
+  String get ratingGood;
+
+  /// No description provided for @ratingFair.
+  ///
+  /// In en, this message translates to:
+  /// **'Sometimes late'**
+  String get ratingFair;
+
+  /// No description provided for @ratingPoor.
+  ///
+  /// In en, this message translates to:
+  /// **'Often late'**
+  String get ratingPoor;
+
+  /// No description provided for @ratingNew.
+  ///
+  /// In en, this message translates to:
+  /// **'Too new to rate'**
+  String get ratingNew;
+
+  /// No description provided for @ratingNewHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'A rating shows once 3 months of rent are due.'**
+  String get ratingNewHelp;
+
+  /// No description provided for @onTimePercent.
+  ///
+  /// In en, this message translates to:
+  /// **'{percent}% on time'**
+  String onTimePercent(String percent);
+
+  /// No description provided for @averageDaysLate.
+  ///
+  /// In en, this message translates to:
+  /// **'late payments {days} days late on average'**
+  String averageDaysLate(int days);
+
+  /// No description provided for @paidOnTime.
+  ///
+  /// In en, this message translates to:
+  /// **'On time'**
+  String get paidOnTime;
+
+  /// No description provided for @paidLate.
+  ///
+  /// In en, this message translates to:
+  /// **'Late'**
+  String get paidLate;
+
+  /// No description provided for @notPaid.
+  ///
+  /// In en, this message translates to:
+  /// **'Not paid'**
+  String get notPaid;
+
+  /// No description provided for @lastMonths.
+  ///
+  /// In en, this message translates to:
+  /// **'Last {count} months'**
+  String lastMonths(int count);
+
+  /// No description provided for @daysLateCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 day late} other{{count} days late}}'**
+  String daysLateCount(int count);
+
+  /// No description provided for @owesNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Owes {amount} now'**
+  String owesNow(String amount);
+
+  /// No description provided for @tenantSince.
+  ///
+  /// In en, this message translates to:
+  /// **'Tenant since {date}'**
+  String tenantSince(String date);
+
+  /// No description provided for @leasesCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 lease} other{{count} leases}}'**
+  String leasesCount(int count);
+
+  /// No description provided for @paymentRecordHowCounted.
+  ///
+  /// In en, this message translates to:
+  /// **'Counts rent months already due. On time means fully paid by the due date.'**
+  String get paymentRecordHowCounted;
+
+  /// No description provided for @privateNotes.
+  ///
+  /// In en, this message translates to:
+  /// **'Private notes'**
+  String get privateNotes;
+
+  /// No description provided for @privateNotesHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Only you see these. Add anything worth remembering.'**
+  String get privateNotesHelp;
+
+  /// No description provided for @privateNotesShared.
+  ///
+  /// In en, this message translates to:
+  /// **'Only you see these, but the tenant gets them if they ask for their data. Keep them factual.'**
+  String get privateNotesShared;
+
+  /// No description provided for @rentedBefore.
+  ///
+  /// In en, this message translates to:
+  /// **'Rented before'**
+  String get rentedBefore;
 }
 
 class _AppLocalizationsDelegate

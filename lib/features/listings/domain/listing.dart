@@ -1,4 +1,5 @@
 import '../../../core/utils/dates.dart';
+import '../../tenants/domain/tenant_record.dart';
 
 enum ListingStatus {
   draft,
@@ -124,6 +125,7 @@ class ListingApplication {
     this.moveInDate,
     this.message,
     this.leaseId,
+    this.formerTenant,
   });
 
   factory ListingApplication.fromJson(Map<String, dynamic> j) =>
@@ -138,6 +140,9 @@ class ListingApplication {
             : parseYmd(j['move_in_date'] as String),
         message: j['message'] as String?,
         leaseId: j['lease_id'] as int?,
+        formerTenant: j['former_tenant'] == null
+            ? null
+            : TenantRecord.fromJson(j['former_tenant'] as Map<String, dynamic>),
       );
 
   final int id;
@@ -150,4 +155,7 @@ class ListingApplication {
 
   /// The draft lease created when approved.
   final int? leaseId;
+
+  /// Set when the applicant rented from this landlord before: how they paid.
+  final TenantRecord? formerTenant;
 }

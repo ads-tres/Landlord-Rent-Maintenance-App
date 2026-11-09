@@ -2374,4 +2374,96 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get dashboardVacancyLost => 'Rent lost to empty units this year';
+
+  @override
+  String get paymentRecord => 'Payment record';
+
+  @override
+  String get ratingGood => 'Good payer';
+
+  @override
+  String get ratingFair => 'Sometimes late';
+
+  @override
+  String get ratingPoor => 'Often late';
+
+  @override
+  String get ratingNew => 'Too new to rate';
+
+  @override
+  String get ratingNewHelp => 'A rating shows once 3 months of rent are due.';
+
+  @override
+  String onTimePercent(String percent) {
+    return '$percent% on time';
+  }
+
+  @override
+  String averageDaysLate(int days) {
+    return 'late payments $days days late on average';
+  }
+
+  @override
+  String get paidOnTime => 'On time';
+
+  @override
+  String get paidLate => 'Late';
+
+  @override
+  String get notPaid => 'Not paid';
+
+  @override
+  String lastMonths(int count) {
+    return 'Last $count months';
+  }
+
+  @override
+  String daysLateCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count days late',
+      one: '1 day late',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String owesNow(String amount) {
+    return 'Owes $amount now';
+  }
+
+  @override
+  String tenantSince(String date) {
+    return 'Tenant since $date';
+  }
+
+  @override
+  String leasesCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count leases',
+      one: '1 lease',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get paymentRecordHowCounted =>
+      'Counts rent months already due. On time means fully paid by the due date.';
+
+  @override
+  String get privateNotes => 'Private notes';
+
+  @override
+  String get privateNotesHelp =>
+      'Only you see these. Add anything worth remembering.';
+
+  @override
+  String get privateNotesShared =>
+      'Only you see these, but the tenant gets them if they ask for their data. Keep them factual.';
+
+  @override
+  String get rentedBefore => 'Rented before';
 }

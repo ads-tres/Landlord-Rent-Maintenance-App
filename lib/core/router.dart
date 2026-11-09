@@ -40,6 +40,7 @@ import '../features/team/presentation/team_screen.dart';
 import '../features/units/presentation/unit_history_screen.dart';
 import '../features/units/presentation/vacancy_screen.dart';
 import '../features/tenants/presentation/tenant_messages_screen.dart';
+import '../features/tenants/presentation/tenant_record_screen.dart';
 import '../features/tenants/presentation/tenants_screen.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -97,6 +98,13 @@ final routerProvider = Provider<GoRouter>((ref) {
         parentNavigatorKey: _rootNavigatorKey,
         builder: (_, state) =>
             UnitHistoryScreen(unitId: int.parse(state.pathParameters['id']!)),
+      ),
+      GoRoute(
+        path: '/tenants/:id/record',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (_, state) => TenantRecordScreen(
+          tenantId: int.parse(state.pathParameters['id']!),
+        ),
       ),
       GoRoute(
         path: '/vacancy',

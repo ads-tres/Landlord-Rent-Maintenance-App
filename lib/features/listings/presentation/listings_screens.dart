@@ -17,6 +17,7 @@ import '../../../l10n/app_localizations.dart';
 import '../../properties/data/properties_repository.dart';
 import '../../repairs/presentation/repair_widgets.dart'
     show AuthImage, pickRepairPhoto;
+import '../../tenants/presentation/payment_record_badge.dart';
 import '../data/listings_repository.dart';
 import '../domain/listing.dart';
 
@@ -496,6 +497,15 @@ class _Applications extends ConsumerWidget {
                                 l10n.moveInOn(dates.date(a.moveInDate!)),
                             ].join(' · '),
                           ),
+                          if (a.formerTenant != null)
+                            Padding(
+                              padding: const EdgeInsets.only(top: 6),
+                              child: PaymentRecordBadge(
+                                key: Key('formerTenant-${a.id}'),
+                                record: a.formerTenant!,
+                                prefix: l10n.rentedBefore,
+                              ),
+                            ),
                           if ((a.message ?? '').isNotEmpty)
                             Padding(
                               padding: const EdgeInsets.only(top: 6),

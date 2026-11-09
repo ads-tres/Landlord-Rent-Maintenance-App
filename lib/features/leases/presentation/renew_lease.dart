@@ -10,6 +10,7 @@ import '../../../core/utils/money.dart';
 import '../../../core/widgets/async_views.dart';
 import '../../../core/widgets/form_sheet.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../tenants/presentation/payment_record_badge.dart';
 import '../data/leases_repository.dart';
 import '../domain/lease.dart';
 import '../domain/renewal.dart';
@@ -90,6 +91,13 @@ Future<void> renewLease(
         );
       },
       fieldsBuilder: (context, errors) => [
+        if (check.tenantRecord != null) ...[
+          PaymentRecordBadge(
+            key: const Key('renewalRecord'),
+            record: check.tenantRecord!,
+          ),
+          fieldGap,
+        ],
         Text(l10n.currentEnd(dates.date(check.currentEndDate))),
         fieldGap,
         StatefulBuilder(
