@@ -74,9 +74,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get dashboardWelcomeNoName => 'እንኳን ደህና መጡ';
 
   @override
-  String get dashboardProperties => 'ንብረቶች';
-
-  @override
   String get dashboardUnits => 'ቤቶች';
 
   @override
@@ -213,9 +210,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get navRent => 'ኪራይ';
-
-  @override
-  String get currency => 'ብር';
 
   @override
   String get addLease => 'ውል ፍጠር';
@@ -823,9 +817,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get meterNameHint => 'ለምሳሌ ዋና የመብራት ቆጣሪ';
 
   @override
-  String get meterKind => 'አይነት';
-
-  @override
   String get kindElectricity => 'መብራት';
 
   @override
@@ -909,9 +900,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get billSaved => 'ሂሳቡ ተቀምጧል። የእያንዳንዱ ተከራይ ድርሻ ከኪራዩ ጋር ተጨምሯል።';
-
-  @override
-  String get removeBill => 'ሂሳቡን አስወግድ';
 
   @override
   String get equipment => 'መሳሪያዎች';
@@ -1035,9 +1023,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get announcementSent => 'ማስታወቂያው ተልኳል።';
-
-  @override
-  String get announcementHistory => 'ከዚህ በፊት የተላኩ';
 
   @override
   String get utilityElectricity => 'መብራት';
