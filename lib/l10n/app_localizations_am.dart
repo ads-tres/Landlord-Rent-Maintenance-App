@@ -2423,4 +2423,77 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get rentedBefore => 'ከዚህ በፊት ተከራይቷል';
+
+  @override
+  String get remindAllWhoOwe => 'ዕዳ ያለባቸውን ሁሉ አስታውስ';
+
+  @override
+  String remindWhoOwes(String month) {
+    return 'የ$month ዕዳ ያለባቸውን አስታውስ';
+  }
+
+  @override
+  String get nobodyOwes => 'በዚህ ወር የኪራይ ዕዳ ያለበት የለም።';
+
+  @override
+  String owedByCount(String amount, int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ተከራዮች',
+      one: '1 ተከራይ',
+    );
+    return '$_temp0 $amount ዕዳ አለባቸው';
+  }
+
+  @override
+  String get sampleMessage => 'የሚደርሳቸው መልዕክት';
+
+  @override
+  String get skipOptedOut => 'ማስታወሻ አጥፍተዋል';
+
+  @override
+  String get skipRemindedToday => 'ዛሬ ተልኮላቸዋል';
+
+  @override
+  String get skipNoTenant => 'ተከራይ የለም';
+
+  @override
+  String get remindersQuietHours =>
+      'ከምሽቱ 3 ሰዓት እስከ ጠዋቱ 1 ሰዓት የተላኩ መልዕክቶች ጠዋት 1 ሰዓት ላይ ይደርሳሉ።';
+
+  @override
+  String sendRemindersCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ማስታወሻዎች ላክ',
+      one: '1 ማስታወሻ ላክ',
+      zero: 'ማንም አልተመረጠም',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String sendRemindersConfirm(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'አሁን ለ$count ተከራዮች ይላክ?',
+      one: 'አሁን ለ1 ተከራይ ይላክ?',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String remindersSent(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ማስታወሻዎች ተልከዋል',
+      one: '1 ማስታወሻ ተልኳል',
+      zero: 'ምንም ማስታወሻ አልተላከም',
+    );
+    return '$_temp0';
+  }
 }

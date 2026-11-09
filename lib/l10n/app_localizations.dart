@@ -4219,6 +4219,78 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Rented before'**
   String get rentedBefore;
+
+  /// No description provided for @remindAllWhoOwe.
+  ///
+  /// In en, this message translates to:
+  /// **'Remind everyone who owes'**
+  String get remindAllWhoOwe;
+
+  /// No description provided for @remindWhoOwes.
+  ///
+  /// In en, this message translates to:
+  /// **'Remind who owes for {month}'**
+  String remindWhoOwes(String month);
+
+  /// No description provided for @nobodyOwes.
+  ///
+  /// In en, this message translates to:
+  /// **'Nobody owes rent for this month.'**
+  String get nobodyOwes;
+
+  /// No description provided for @owedByCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{amount} owed by {count, plural, =1{1 tenant} other{{count} tenants}}'**
+  String owedByCount(String amount, int count);
+
+  /// No description provided for @sampleMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Message they\'ll get'**
+  String get sampleMessage;
+
+  /// No description provided for @skipOptedOut.
+  ///
+  /// In en, this message translates to:
+  /// **'turned reminders off'**
+  String get skipOptedOut;
+
+  /// No description provided for @skipRemindedToday.
+  ///
+  /// In en, this message translates to:
+  /// **'already reminded today'**
+  String get skipRemindedToday;
+
+  /// No description provided for @skipNoTenant.
+  ///
+  /// In en, this message translates to:
+  /// **'no tenant'**
+  String get skipNoTenant;
+
+  /// No description provided for @remindersQuietHours.
+  ///
+  /// In en, this message translates to:
+  /// **'Texts asked for between 9 pm and 7 am go out at 7 am.'**
+  String get remindersQuietHours;
+
+  /// No description provided for @sendRemindersCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{Nobody selected} =1{Send 1 reminder} other{Send {count} reminders}}'**
+  String sendRemindersCount(int count);
+
+  /// No description provided for @sendRemindersConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{Text 1 tenant now?} other{Text {count} tenants now?}}'**
+  String sendRemindersConfirm(int count);
+
+  /// No description provided for @remindersSent.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{No reminders sent} =1{1 reminder sent} other{{count} reminders sent}}'**
+  String remindersSent(int count);
 }
 
 class _AppLocalizationsDelegate

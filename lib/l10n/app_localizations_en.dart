@@ -2466,4 +2466,77 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get rentedBefore => 'Rented before';
+
+  @override
+  String get remindAllWhoOwe => 'Remind everyone who owes';
+
+  @override
+  String remindWhoOwes(String month) {
+    return 'Remind who owes for $month';
+  }
+
+  @override
+  String get nobodyOwes => 'Nobody owes rent for this month.';
+
+  @override
+  String owedByCount(String amount, int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count tenants',
+      one: '1 tenant',
+    );
+    return '$amount owed by $_temp0';
+  }
+
+  @override
+  String get sampleMessage => 'Message they\'ll get';
+
+  @override
+  String get skipOptedOut => 'turned reminders off';
+
+  @override
+  String get skipRemindedToday => 'already reminded today';
+
+  @override
+  String get skipNoTenant => 'no tenant';
+
+  @override
+  String get remindersQuietHours =>
+      'Texts asked for between 9 pm and 7 am go out at 7 am.';
+
+  @override
+  String sendRemindersCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Send $count reminders',
+      one: 'Send 1 reminder',
+      zero: 'Nobody selected',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String sendRemindersConfirm(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Text $count tenants now?',
+      one: 'Text 1 tenant now?',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String remindersSent(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count reminders sent',
+      one: '1 reminder sent',
+      zero: 'No reminders sent',
+    );
+    return '$_temp0';
+  }
 }

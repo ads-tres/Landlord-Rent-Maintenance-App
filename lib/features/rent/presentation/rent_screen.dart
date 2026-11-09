@@ -16,6 +16,8 @@ import '../../home/presentation/sync_screen.dart';
 import '../../payments/application/pending_payments.dart';
 import '../../payments/presentation/paste_sms_sheet.dart';
 import '../../payments/presentation/pending_payment_tile.dart';
+import '../../auth/application/auth_controller.dart';
+import 'bulk_reminder_sheet.dart';
 
 /// Which month the rent list shows (first day of the month).
 class RentMonth extends Notifier<DateTime> {
@@ -80,6 +82,13 @@ class RentScreen extends ConsumerWidget {
       appBar: AppBar(
         title: Text(l10n.navRent),
         actions: [
+          if (!ref.watch(isCaretakerProvider))
+            IconButton(
+              key: const Key('bulkRemindAction'),
+              tooltip: l10n.remindAllWhoOwe,
+              icon: const Icon(Icons.campaign_outlined),
+              onPressed: () => showBulkReminderSheet(context, month),
+            ),
           IconButton(
             key: const Key('pasteSmsAction'),
             tooltip: l10n.pasteSms,

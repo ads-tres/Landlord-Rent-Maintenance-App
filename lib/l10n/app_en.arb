@@ -1097,5 +1097,22 @@
   "privateNotes": "Private notes",
   "privateNotesHelp": "Only you see these. Add anything worth remembering.",
   "privateNotesShared": "Only you see these, but the tenant gets them if they ask for their data. Keep them factual.",
-  "rentedBefore": "Rented before"
+  "rentedBefore": "Rented before",
+  "remindAllWhoOwe": "Remind everyone who owes",
+  "remindWhoOwes": "Remind who owes for {month}",
+  "@remindWhoOwes": {"placeholders": {"month": {"type": "String"}}},
+  "nobodyOwes": "Nobody owes rent for this month.",
+  "owedByCount": "{amount} owed by {count, plural, =1{1 tenant} other{{count} tenants}}",
+  "@owedByCount": {"placeholders": {"amount": {"type": "String"}, "count": {"type": "int"}}},
+  "sampleMessage": "Message they'll get",
+  "skipOptedOut": "turned reminders off",
+  "skipRemindedToday": "already reminded today",
+  "skipNoTenant": "no tenant",
+  "remindersQuietHours": "Texts asked for between 9 pm and 7 am go out at 7 am.",
+  "sendRemindersCount": "{count, plural, =0{Nobody selected} =1{Send 1 reminder} other{Send {count} reminders}}",
+  "@sendRemindersCount": {"placeholders": {"count": {"type": "int"}}},
+  "sendRemindersConfirm": "{count, plural, =1{Text 1 tenant now?} other{Text {count} tenants now?}}",
+  "@sendRemindersConfirm": {"placeholders": {"count": {"type": "int"}}},
+  "remindersSent": "{count, plural, =0{No reminders sent} =1{1 reminder sent} other{{count} reminders sent}}",
+  "@remindersSent": {"placeholders": {"count": {"type": "int"}}}
 }

@@ -686,5 +686,17 @@
   "privateNotes": "የግል ማስታወሻ",
   "privateNotesHelp": "እርስዎ ብቻ ያያሉ። የሚታወስ ነገር ይጻፉ።",
   "privateNotesShared": "እርስዎ ብቻ ያያሉ፤ ነገር ግን ተከራዩ መረጃቸውን ከጠየቁ ይሰጣቸዋል። እውነታን ብቻ ይጻፉ።",
-  "rentedBefore": "ከዚህ በፊት ተከራይቷል"
+  "rentedBefore": "ከዚህ በፊት ተከራይቷል",
+  "remindAllWhoOwe": "ዕዳ ያለባቸውን ሁሉ አስታውስ",
+  "remindWhoOwes": "የ{month} ዕዳ ያለባቸውን አስታውስ",
+  "nobodyOwes": "በዚህ ወር የኪራይ ዕዳ ያለበት የለም።",
+  "owedByCount": "{count, plural, =1{1 ተከራይ} other{{count} ተከራዮች}} {amount} ዕዳ አለባቸው",
+  "sampleMessage": "የሚደርሳቸው መልዕክት",
+  "skipOptedOut": "ማስታወሻ አጥፍተዋል",
+  "skipRemindedToday": "ዛሬ ተልኮላቸዋል",
+  "skipNoTenant": "ተከራይ የለም",
+  "remindersQuietHours": "ከምሽቱ 3 ሰዓት እስከ ጠዋቱ 1 ሰዓት የተላኩ መልዕክቶች ጠዋት 1 ሰዓት ላይ ይደርሳሉ።",
+  "sendRemindersCount": "{count, plural, =0{ማንም አልተመረጠም} =1{1 ማስታወሻ ላክ} other{{count} ማስታወሻዎች ላክ}}",
+  "sendRemindersConfirm": "{count, plural, =1{አሁን ለ1 ተከራይ ይላክ?} other{አሁን ለ{count} ተከራዮች ይላክ?}}",
+  "remindersSent": "{count, plural, =0{ምንም ማስታወሻ አልተላከም} =1{1 ማስታወሻ ተልኳል} other{{count} ማስታወሻዎች ተልከዋል}}"
 }
