@@ -218,12 +218,6 @@ abstract class AppLocalizations {
   /// **'Welcome'**
   String get dashboardWelcomeNoName;
 
-  /// No description provided for @dashboardProperties.
-  ///
-  /// In en, this message translates to:
-  /// **'Properties'**
-  String get dashboardProperties;
-
   /// No description provided for @dashboardUnits.
   ///
   /// In en, this message translates to:
@@ -475,12 +469,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Rent'**
   String get navRent;
-
-  /// No description provided for @currency.
-  ///
-  /// In en, this message translates to:
-  /// **'Br'**
-  String get currency;
 
   /// No description provided for @addLease.
   ///
@@ -1514,12 +1502,6 @@ abstract class AppLocalizations {
   /// **'e.g. Main electricity'**
   String get meterNameHint;
 
-  /// No description provided for @meterKind.
-  ///
-  /// In en, this message translates to:
-  /// **'Type'**
-  String get meterKind;
-
   /// No description provided for @kindElectricity.
   ///
   /// In en, this message translates to:
@@ -1681,12 +1663,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Bill saved. Each tenant\'s share was added to their rent.'**
   String get billSaved;
-
-  /// No description provided for @removeBill.
-  ///
-  /// In en, this message translates to:
-  /// **'Remove bill'**
-  String get removeBill;
 
   /// No description provided for @equipment.
   ///
@@ -1867,12 +1843,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Announcement sent.'**
   String get announcementSent;
-
-  /// No description provided for @announcementHistory.
-  ///
-  /// In en, this message translates to:
-  /// **'Sent before'**
-  String get announcementHistory;
 
   /// No description provided for @utilityElectricity.
   ///

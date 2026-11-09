@@ -75,9 +75,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get dashboardWelcomeNoName => 'Welcome';
 
   @override
-  String get dashboardProperties => 'Properties';
-
-  @override
   String get dashboardUnits => 'Units';
 
   @override
@@ -218,9 +215,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get navRent => 'Rent';
-
-  @override
-  String get currency => 'Br';
 
   @override
   String get addLease => 'Create lease';
@@ -836,9 +830,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get meterNameHint => 'e.g. Main electricity';
 
   @override
-  String get meterKind => 'Type';
-
-  @override
   String get kindElectricity => 'Electricity';
 
   @override
@@ -923,9 +914,6 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get billSaved =>
       'Bill saved. Each tenant\'s share was added to their rent.';
-
-  @override
-  String get removeBill => 'Remove bill';
 
   @override
   String get equipment => 'Equipment';
@@ -1049,9 +1037,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get announcementSent => 'Announcement sent.';
-
-  @override
-  String get announcementHistory => 'Sent before';
 
   @override
   String get utilityElectricity => 'Electricity';
