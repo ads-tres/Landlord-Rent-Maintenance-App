@@ -2231,4 +2231,147 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get rentChangeCancelled => 'Rent change cancelled';
+
+  @override
+  String get unitHistory => 'Unit history';
+
+  @override
+  String get unitTimeline => 'Timeline';
+
+  @override
+  String unitThisYear(int year) {
+    return 'This year ($year)';
+  }
+
+  @override
+  String get occupancy => 'Occupancy';
+
+  @override
+  String get daysEmpty => 'Days empty';
+
+  @override
+  String get rentLostToVacancy => 'Rent lost while empty';
+
+  @override
+  String get repairCosts => 'Repair costs';
+
+  @override
+  String get currentRentLabel => 'Current rent';
+
+  @override
+  String get tenantsSoFar => 'Tenants so far';
+
+  @override
+  String get averageStay => 'Average stay';
+
+  @override
+  String monthsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count months',
+      one: '1 month',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get repairCostsAllTime => 'Repair costs (all time)';
+
+  @override
+  String trackedSince(String date) {
+    return 'Counted from $date, when the unit was added.';
+  }
+
+  @override
+  String get vacancyUnpricedHelp =>
+      'Part of the empty time has no rent to price it: the unit was never let or listed.';
+
+  @override
+  String get vacancyUnpriced => 'No rent to price it';
+
+  @override
+  String eventLeaseStarted(String tenant) {
+    return '$tenant moved in';
+  }
+
+  @override
+  String eventRent(String amount) {
+    return 'Rent $amount';
+  }
+
+  @override
+  String eventLeaseEnded(String tenant) {
+    return '$tenant left';
+  }
+
+  @override
+  String get eventEndedEarly => 'Ended early';
+
+  @override
+  String eventRentChanged(String from, String to) {
+    return 'Rent $from → $to';
+  }
+
+  @override
+  String eventEmptySince(int days) {
+    return 'Empty for $days days so far';
+  }
+
+  @override
+  String eventEmptyFor(int days) {
+    return 'Empty for $days days';
+  }
+
+  @override
+  String eventUntil(String date) {
+    return 'until $date';
+  }
+
+  @override
+  String eventLost(String amount) {
+    return '$amount lost';
+  }
+
+  @override
+  String get vacancyTitle => 'Empty units';
+
+  @override
+  String daysEmptyCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count days empty',
+      one: '1 day empty',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String occupancyValue(String percent) {
+    return '$percent% occupied';
+  }
+
+  @override
+  String get vacancyHowCounted =>
+      'Rent lost = days empty × monthly rent ÷ 30, using the rent of the next tenant, the last tenant, or the listing.';
+
+  @override
+  String vacancyUnpricedUnits(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count units were never let or listed, so they aren\'t priced.',
+      one: '1 unit was never let or listed, so it isn\'t priced.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String emptySinceDate(String date) {
+    return 'empty since $date';
+  }
+
+  @override
+  String get dashboardVacancyLost => 'Rent lost to empty units this year';
 }

@@ -13,6 +13,7 @@ class DashboardSummary {
     required this.properties,
     required this.units,
     required this.vacantUnits,
+    this.vacancyLostThisYear,
   });
 
   factory DashboardSummary.fromJson(Map<String, dynamic> j) => DashboardSummary(
@@ -28,6 +29,7 @@ class DashboardSummary {
     properties: j['properties'] as int,
     units: j['units'] as int,
     vacantUnits: j['vacant_units'] as int,
+    vacancyLostThisYear: j['vacancy_lost_this_year'] as int?,
   );
 
   final int collectedThisMonth;
@@ -48,4 +50,7 @@ class DashboardSummary {
   final int properties;
   final int units;
   final int vacantUnits;
+
+  /// Rent lost to empty units so far this year, in santim. Null for caretakers.
+  final int? vacancyLostThisYear;
 }

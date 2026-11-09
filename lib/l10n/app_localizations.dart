@@ -3907,6 +3907,192 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Rent change cancelled'**
   String get rentChangeCancelled;
+
+  /// No description provided for @unitHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'Unit history'**
+  String get unitHistory;
+
+  /// No description provided for @unitTimeline.
+  ///
+  /// In en, this message translates to:
+  /// **'Timeline'**
+  String get unitTimeline;
+
+  /// No description provided for @unitThisYear.
+  ///
+  /// In en, this message translates to:
+  /// **'This year ({year})'**
+  String unitThisYear(int year);
+
+  /// No description provided for @occupancy.
+  ///
+  /// In en, this message translates to:
+  /// **'Occupancy'**
+  String get occupancy;
+
+  /// No description provided for @daysEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Days empty'**
+  String get daysEmpty;
+
+  /// No description provided for @rentLostToVacancy.
+  ///
+  /// In en, this message translates to:
+  /// **'Rent lost while empty'**
+  String get rentLostToVacancy;
+
+  /// No description provided for @repairCosts.
+  ///
+  /// In en, this message translates to:
+  /// **'Repair costs'**
+  String get repairCosts;
+
+  /// No description provided for @currentRentLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Current rent'**
+  String get currentRentLabel;
+
+  /// No description provided for @tenantsSoFar.
+  ///
+  /// In en, this message translates to:
+  /// **'Tenants so far'**
+  String get tenantsSoFar;
+
+  /// No description provided for @averageStay.
+  ///
+  /// In en, this message translates to:
+  /// **'Average stay'**
+  String get averageStay;
+
+  /// No description provided for @monthsCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 month} other{{count} months}}'**
+  String monthsCount(int count);
+
+  /// No description provided for @repairCostsAllTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Repair costs (all time)'**
+  String get repairCostsAllTime;
+
+  /// No description provided for @trackedSince.
+  ///
+  /// In en, this message translates to:
+  /// **'Counted from {date}, when the unit was added.'**
+  String trackedSince(String date);
+
+  /// No description provided for @vacancyUnpricedHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Part of the empty time has no rent to price it: the unit was never let or listed.'**
+  String get vacancyUnpricedHelp;
+
+  /// No description provided for @vacancyUnpriced.
+  ///
+  /// In en, this message translates to:
+  /// **'No rent to price it'**
+  String get vacancyUnpriced;
+
+  /// No description provided for @eventLeaseStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'{tenant} moved in'**
+  String eventLeaseStarted(String tenant);
+
+  /// No description provided for @eventRent.
+  ///
+  /// In en, this message translates to:
+  /// **'Rent {amount}'**
+  String eventRent(String amount);
+
+  /// No description provided for @eventLeaseEnded.
+  ///
+  /// In en, this message translates to:
+  /// **'{tenant} left'**
+  String eventLeaseEnded(String tenant);
+
+  /// No description provided for @eventEndedEarly.
+  ///
+  /// In en, this message translates to:
+  /// **'Ended early'**
+  String get eventEndedEarly;
+
+  /// No description provided for @eventRentChanged.
+  ///
+  /// In en, this message translates to:
+  /// **'Rent {from} → {to}'**
+  String eventRentChanged(String from, String to);
+
+  /// No description provided for @eventEmptySince.
+  ///
+  /// In en, this message translates to:
+  /// **'Empty for {days} days so far'**
+  String eventEmptySince(int days);
+
+  /// No description provided for @eventEmptyFor.
+  ///
+  /// In en, this message translates to:
+  /// **'Empty for {days} days'**
+  String eventEmptyFor(int days);
+
+  /// No description provided for @eventUntil.
+  ///
+  /// In en, this message translates to:
+  /// **'until {date}'**
+  String eventUntil(String date);
+
+  /// No description provided for @eventLost.
+  ///
+  /// In en, this message translates to:
+  /// **'{amount} lost'**
+  String eventLost(String amount);
+
+  /// No description provided for @vacancyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Empty units'**
+  String get vacancyTitle;
+
+  /// No description provided for @daysEmptyCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 day empty} other{{count} days empty}}'**
+  String daysEmptyCount(int count);
+
+  /// No description provided for @occupancyValue.
+  ///
+  /// In en, this message translates to:
+  /// **'{percent}% occupied'**
+  String occupancyValue(String percent);
+
+  /// No description provided for @vacancyHowCounted.
+  ///
+  /// In en, this message translates to:
+  /// **'Rent lost = days empty × monthly rent ÷ 30, using the rent of the next tenant, the last tenant, or the listing.'**
+  String get vacancyHowCounted;
+
+  /// No description provided for @vacancyUnpricedUnits.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 unit was never let or listed, so it isn\'t priced.} other{{count} units were never let or listed, so they aren\'t priced.}}'**
+  String vacancyUnpricedUnits(int count);
+
+  /// No description provided for @emptySinceDate.
+  ///
+  /// In en, this message translates to:
+  /// **'empty since {date}'**
+  String emptySinceDate(String date);
+
+  /// No description provided for @dashboardVacancyLost.
+  ///
+  /// In en, this message translates to:
+  /// **'Rent lost to empty units this year'**
+  String get dashboardVacancyLost;
 }
 
 class _AppLocalizationsDelegate
